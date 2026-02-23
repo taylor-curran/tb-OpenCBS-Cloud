@@ -390,7 +390,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
           setTimeout(() => {
             this.isDialogVisible = false;
             this.isResponseStatusOk = 'null';
-            this.onSubmit.emit();
+            this.submit.emit();
             this.disableSubmitBtn(false);
           }, 1000);
         } else if (res.status === 'error') {
