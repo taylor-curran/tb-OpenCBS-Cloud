@@ -63,7 +63,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'sourceAccountId')"
+                (selectAction)="markSelectedFieldLabel($event, 'sourceAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-readonly-control
@@ -81,7 +81,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'destinationAccountId')"
+                (selectAction)="markSelectedFieldLabel($event, 'destinationAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-input-control
@@ -137,7 +137,7 @@
 
 <cbs-confirm-popup
     [opened]="showConfirmModal"
-    (onSubmitClick)="submit(form)"
+    (submitClick)="submit(form)"
     (openedChange)="handleConfirmModalVisibility(false)"
     [leftButtonLabel]="'NO' | translate"
     [rightButtonLabel]="'YES' | translate"
