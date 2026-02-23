@@ -29,7 +29,7 @@
             <div *ngFor="let format of timeFormats; let i = index;"
                  class="slds-form-element slds-accordion__section">
                 <div class="slds-form-element__control"
-                     (click)="selectedFormatValue(format.value)">
+                     (clicked)="selectedFormatValue(format.value)">
                                 <span class="slds-form-element__static">
                                     {{ {value: currentTime, format: format['value']} | cbsSettingDateFormat }}
                                 </span>

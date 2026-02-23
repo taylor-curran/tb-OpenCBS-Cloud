@@ -42,7 +42,7 @@
                         <cbs-form-lookup
                             [config]="formConfig[9]"
                             [group]="eventForm"
-                            (select)="addParticipant($event,true)"
+                            (itemSelected)="addParticipant($event,true)"
                             [selectPlaceholder]="'ADD_PARTICIPANT' | translate"
                             [styleClass]="'slds-form-element slds-size--1-of-1'"></cbs-form-lookup>
 
@@ -51,7 +51,7 @@
                                 <ul>
                                     <li *ngFor="let user of tempParticipants">
                                         <span>{{ user?.name }}</span>
-                                        <div (click)="removeParticipant(user)">
+                                        <div (clicked)="removeParticipant(user)">
                                             <svg class="slds-icon slds-icon--x-small slds-icon-text-default"
                                                  aria-hidden="true" viewBox="0 0 24 24">
                                                 <path
@@ -168,8 +168,8 @@
 
     </div>
     <ng-template ngl-modal-footer *ngIf="canEditView()">
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
-        <button class="slds-button slds-button--brand" #submitBtn (click)="submit(eventForm)"
+        <button class="slds-button slds-button--neutral" (clicked)="cancel()">{{'CANCEL' | translate}}</button>
+        <button class="slds-button slds-button--brand" #submitBtn (clicked)="submit(eventForm)"
                 [disabled]="eventForm.invalid">{{'SAVE' | translate}}
         </button>
     </ng-template>

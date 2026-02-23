@@ -60,7 +60,7 @@
                     <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>
                 </td>
                 <td data-label="Name" scope="row">
-                    <a (click)="goToViewGuarantor(guarantor.id)" class="slds-truncate"
+                    <a (clicked)="goToViewGuarantor(guarantor.id)" class="slds-truncate"
                        title="{{guarantor.profile.name}}">{{guarantor.profile.name | uppercase}}</a>
                 </td>
                 <td data-label="Relationship" scope="row">
@@ -79,7 +79,7 @@
 
                 <td class="slds-text-align--center" data-label="Options" scope="row">
                     <button *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['GUARANTOR'] }"
-                            (click)="removeModal(guarantor.id)" class="slds-button slds-button--icon-border"
+                            (clicked)="removeModal(guarantor.id)" class="slds-button slds-button--icon-border"
                             title="Delete">
                         <svg class="slds-button__icon" aria-hidden="true">
                             <use

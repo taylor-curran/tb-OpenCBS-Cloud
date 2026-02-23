@@ -24,7 +24,7 @@
                     </span>
                 </a>
                 <button
-                    (click)="handleConfirmModalVisibility(true)" #submitButton
+                    (clicked)="handleConfirmModalVisibility(true)" #submitButton
                     class="slds-button slds-button--success slds-not-selected"
                     aria-live="assertive"
                     [disabled]="form.invalid"
@@ -63,7 +63,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (select)="markSelectedFieldLabel($event, 'bankAccountId')"
+                (itemSelected)="markSelectedFieldLabel($event, 'bankAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-readonly-control
@@ -78,7 +78,7 @@
                 [requiredField]="true"
                 [hasError]="form.get('vaultId').errors && form.get('vaultId').touched"
                 fieldLabel="{{ 'VAULT' | translate }}"
-                (select)="markSelectedFieldLabel($event, 'vaultId')"
+                (itemSelected)="markSelectedFieldLabel($event, 'vaultId')"
             ></cbs-form-select-control>
 
             <cbs-form-input-control
@@ -121,7 +121,7 @@
                 [hasError]="form.get('personInCharge').errors && form.get('personInCharge').touched"
                 [requiredField]="true"
                 [picklistDataUrl]="formUserConfig"
-                (select)="markSelectedFieldLabel($event, 'personInCharge')"
+                (itemSelected)="markSelectedFieldLabel($event, 'personInCharge')"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'PERSON_IN_CHARGE' | translate }}">

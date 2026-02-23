@@ -41,7 +41,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let committee of (ccRules | async)?.cc_rules" (click)="goToCreditCommitee(committee)">
+        <tr *ngFor="let committee of (ccRules | async)?.cc_rules" (clicked)="goToCreditCommitee(committee)">
             <th scope="row" href="javascript:void(0)">
                 <div class="slds-truncate" title="Id {{committee.id}}">{{ committee.id}}</div>
             </th>

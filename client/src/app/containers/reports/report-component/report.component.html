@@ -12,7 +12,7 @@
                     <button class="slds-button slds-form_inline" aria-live="assertive">
                         <cbs-form-select-control
                             [selectData]="formatTypes"
-                            (select)="selectFormat($event)"
+                            (itemSelected)="selectFormat($event)"
                             selectPlaceholder="{{ 'EXPORT' | translate }}"
                         ></cbs-form-select-control>
                     </button>

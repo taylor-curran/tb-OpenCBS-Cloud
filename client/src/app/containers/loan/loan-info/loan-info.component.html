@@ -136,13 +136,13 @@
             [value]="totalEntryFees"></cbs-form-readonly-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpen = false">{{ 'CLOSE' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (clicked)="isOpen = false">{{ 'CLOSE' | translate }}</button>
     </ng-template>
 </ngl-modal>
 
 <cbs-payee-form-modal
     headerTitle="{{ ('ADD' | translate) }}"
-    (submit)="submitPayee($event)">
+    (formSubmit)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-confirm-popup [opened]="isVisible"

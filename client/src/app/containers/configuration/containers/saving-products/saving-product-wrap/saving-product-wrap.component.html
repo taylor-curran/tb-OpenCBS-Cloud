@@ -28,7 +28,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_SAVING_PRODUCT'] }"
-                            (click)="openApproveModal()"
+                            (clicked)="openApproveModal()"
                             class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -41,7 +41,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['MAKER_FOR_SAVING_PRODUCT','CHECKER_FOR_SAVING_PRODUCT'] }"
-                            (click)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                            (clicked)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>

@@ -21,7 +21,7 @@
             </button>
             <button *ngIf="loanApplication?.status === loanAppStatusEnum[loanAppStatusEnum.IN_PROGRESS]"
                     class="slds-button slds-button--success" aria-live="assertive"
-                    (click)="submitForm(form)"
+                    (clicked)="submitForm(form)"
                     [disabled]="form.invalid">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

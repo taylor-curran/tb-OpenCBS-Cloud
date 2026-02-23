@@ -18,7 +18,7 @@
                    (ngModelChange)="inputChange($event)"
                    [ngClass]="{'disabled': disabled}"
                    [disabled]="disabled"
-                   (blur)="onBlur()"
+                   (blurred)="onBlur()"
             >
         </div>
         <ng-content></ng-content>

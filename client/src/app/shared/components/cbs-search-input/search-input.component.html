@@ -14,7 +14,7 @@
             [ngModel]="searchQuery"
             (ngModelChange)="changed($event)"/>
         <button class="slds-input__icon slds-input__icon--right slds-button slds-button--icon"
-                *ngIf="searchQuery !== ''" (click)="clear()">
+                *ngIf="searchQuery !== ''" (clicked)="clear()">
             <svg class="slds-button__icon" aria-hidden="true">
                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
             </svg>

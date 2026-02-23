@@ -9,10 +9,10 @@
         </div>
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" (click)="cancel()">Cancel</button>
+            <button class="slds-button slds-button--neutral" (clicked)="cancel()">Cancel</button>
             <button class="slds-button slds-button--success"
                     #submitButton
-                    (click)="repay(formComponent?.repaymentForm?.value)"
+                    (clicked)="repay(formComponent?.repaymentForm?.value)"
                     [disabled]="formComponent?.repaymentForm?.invalid">{{ 'REPAY' | translate }}
             </button>
         </div>
@@ -30,7 +30,7 @@
             <div class="slds-col">
                 <button class="slds-button slds-button--brand cbs-repayment-preview"
                         #previewButton
-                        (click)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
+                        (clicked)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
                         [disabled]="formComponent?.repaymentForm?.invalid">{{ 'PREVIEW' | translate }}
                 </button>
             </div>

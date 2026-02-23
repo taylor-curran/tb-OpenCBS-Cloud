@@ -8,8 +8,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (clear)="searchQuery = ''"
-                (search)="searchQuery = $event"
+                (clearTriggered)="searchQuery = ''"
+                (searchTriggered)="searchQuery = $event"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -33,11 +33,11 @@
         <tbody>
         <tr *ngFor="let report of (reports | filterReports: searchQuery)">
             <ng-container *ngIf="report.group === 'OPERATIONAL'">
-                <td (click)="openModal(report)">
+                <td (clicked)="openModal(report)">
                     <span>{{report?.label}}</span>
                 </td>
                 <td class="slds-align--absolute-center">
-                    <ngl-icon icon="gsheet" category="doctype"  (click)="openModal(report)"></ngl-icon>
+                    <ngl-icon icon="gsheet" category="doctype"  (clicked)="openModal(report)"></ngl-icon>
                 </td>
             </ng-container>
         </tr>
@@ -59,11 +59,11 @@
         <tbody>
         <tr *ngFor="let report of (reports | filterReports: searchQuery)">
             <ng-container *ngIf="report.group === 'ACCOUNTING'">
-                <td (click)="openModal(report)">
+                <td (clicked)="openModal(report)">
                     <span>{{report?.label}}</span>
                 </td>
                 <td class="slds-align--absolute-center">
-                   <ngl-icon icon="gsheet" category="doctype" (click)="openModal(report)"></ngl-icon>
+                   <ngl-icon icon="gsheet" category="doctype" (clicked)="openModal(report)"></ngl-icon>
                 </td>
             </ng-container>
         </tr>
@@ -87,11 +87,11 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate
+        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (clicked)="cancel()">{{ 'CANCEL' | translate
             }}
         </button>
         <button [disabled]="reportForm.invalid" *ngIf="!fieldsReady" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (clicked)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

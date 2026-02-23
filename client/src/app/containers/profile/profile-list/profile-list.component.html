@@ -8,8 +8,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (clear)="clearSearch()"
-                (search)="search($event)"
+                (clearTriggered)="clearSearch()"
+                (searchTriggered)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
 
@@ -89,7 +89,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let profile of (profilesData | async)?.profiles; let i = index;" (click)="goToProfile(profile)">
+        <tr *ngFor="let profile of (profilesData | async)?.profiles; let i = index;" (clicked)="goToProfile(profile)">
             <td scope="row">
                 <div class="slds-truncate" title="">
                         <span class="slds-icon_container slds-icon_container--circle slds-icon-action-user"

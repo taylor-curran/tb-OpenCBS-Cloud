@@ -10,7 +10,7 @@
 
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (click)="goToViewLoanProducts()">
+                    (clicked)="goToViewLoanProducts()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true"
                          class="slds-button__icon--stateful slds-button__icon--left">
@@ -19,7 +19,7 @@
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
                     #submitButton
-                    (click)="submitForm()"
+                    (clicked)="submitForm()"
                     [disabled]="editLoanProductForm?.form.invalid || !formChanged || editLoanProductForm?.topUpEmpty">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true"

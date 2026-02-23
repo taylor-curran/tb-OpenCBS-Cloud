@@ -22,7 +22,7 @@
                                 : queryType === 'maker-checker-rollback'
                                     ? ['CHECKER_FOR_LOAN_ROLLBACK']
                                     : ['CHECKER_FOR_LOAN_DISBURSEMENT'] }"
-                        (click)="openApproveModal()"
+                        (clicked)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -40,7 +40,7 @@
                                 : queryType === 'maker-checker-rollback'
                                     ? ['MAKER_FOR_LOAN_ROLLBACK','CHECKER_FOR_LOAN_ROLLBACK']
                                     :['MAKER_FOR_LOAN_DISBURSEMENT','CHECKER_FOR_LOAN_DISBURSEMENT'] }"
-                        (click)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (clicked)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
@@ -52,7 +52,7 @@
 
                 <div class="filter-events" *ngIf="showSystemAndDeletedEvents">
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-deleted" (click)="showDeletedEvents()"/>
+                        <input type="checkbox" id="checkbox-deleted" (clicked)="showDeletedEvents()"/>
                         <label class="slds-checkbox__label" for="checkbox-deleted">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show deleted</span>
@@ -60,7 +60,7 @@
                     </span>
                     <br>
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-system" (click)="showSystemEvents()"/>
+                        <input type="checkbox" id="checkbox-system" (clicked)="showSystemEvents()"/>
                         <label class="slds-checkbox__label" for="checkbox-system">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show system</span>
