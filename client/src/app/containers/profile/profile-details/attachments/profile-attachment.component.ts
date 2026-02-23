@@ -172,7 +172,7 @@ export class ProfileAttachmentComponent implements OnInit, OnDestroy {
     }
   }
 
-  onClear() {
+  clear() {
     this.closeUploadModal();
   }
 

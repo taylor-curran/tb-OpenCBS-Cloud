@@ -66,7 +66,7 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
     }
   }
 
-  onClear() {
+  clear() {
     this.value = null;
   }
 

@@ -157,7 +157,7 @@ export class LoanAttachmentsComponent implements OnInit, OnDestroy {
     return `${environment.API_ENDPOINT}loan-applications/${this.loanAppId}/attachments/${fileId}`;
   }
 
-  onClear() {
+  clear() {
     this.closeUploadModal();
   }
 
