@@ -11,7 +11,7 @@ import * as moment from 'moment';
 export class FieldReadonlyComponent implements OnInit {
   @Input() fieldsData: Object[];
   @Input() showProfileInfoLink = false;
-  @Output() showProfileInfoLinkClick = new EventEmitter();
+  @Output() onShowProfileInfoLinkClick = new EventEmitter();
   public yearsFromNow = null;
   public gridHeaders = [];
   public gridValues = [];

@@ -130,7 +130,7 @@
 
 <cbs-confirm-popup
     [opened]="isRollbackConfirmOpen"
-    (submitClick)="confirmRollback($event)"
+    (onSubmitClick)="confirmRollback($event)"
     (openedChange)="isRollbackConfirmOpen = false"
     [showTextarea]="true"
     [leftButtonLabel]="'CANCEL' | translate"

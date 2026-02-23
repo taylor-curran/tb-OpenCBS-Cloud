@@ -38,9 +38,9 @@ export class OtherFeesListFormModalComponent implements OnInit {
   }
 
   openCreateModal(fields) {
-    this.chargeAccount.clearLookup();
-    this.incomeAccount.clearLookup();
-    this.expenseAccount.clearLookup();
+    this.chargeAccount.onClearLookup();
+    this.incomeAccount.onClearLookup();
+    this.expenseAccount.onClearLookup();
     this.formChanged = true;
     this.form.setValue(fields);
     this.markAsUntouched(this.form);

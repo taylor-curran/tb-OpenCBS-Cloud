@@ -120,7 +120,7 @@ export class BranchFieldsComponent implements OnInit, OnDestroy {
     this.branchFieldsMetaStore$.dispatch(new fromStore.LoadBranchFieldsMetaSuccess(data));
   }
 
-  deleteSuccess(data) {
+  onDeleteSuccess(data) {
     this.translate.get('DELETE_SUCCESS').subscribe(
       (res: string) => {
         this.toastrService.success(res, '', environment.SUCCESS_TOAST_CONFIG);

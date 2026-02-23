@@ -110,7 +110,7 @@
                 <cbs-loan-app-confirm-button
                     [disabled]="readOnly"
                     *ngIf="loanApplication?.status === loanAppStatusEnum[loanAppStatusEnum.APPROVED]"
-                    (clickButton)="openModal($event)">
+                    (onClickButton)="openModal($event)">
                 </cbs-loan-app-confirm-button>
             </ng-container>
         </div>
@@ -122,7 +122,7 @@
 
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (submitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
@@ -182,7 +182,7 @@
                     <ng-container
                         *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['CHANGE_STATUS_OF_LOANS_APPLICATIONS'] }">
                         <cbs-cc-status-form *ngIf="isCurrentUserAbleToChangeStatus(ccMember); else badge" [index]="i"
-                                            (makeDecision)="changeStatus($event)" [ccMember]="ccMember"
+                                            (onMakeDecision)="changeStatus($event)" [ccMember]="ccMember"
                                             [currentUser]="currentUser"
                                             [loanAppStatus]="loanAppStatus"></cbs-cc-status-form>
                         <ng-template #badge>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-heading-block',
@@ -28,7 +28,7 @@ import { Component, Input } from '@angular/core';
     }
     `]
 })
-export class HeadingBlockComponent {
+export class HeadingBlockComponent implements OnInit {
   @Input() svgData: any;
   @Input() headingTitle: string;
   @Input() badgeLabel: string;
@@ -36,5 +36,8 @@ export class HeadingBlockComponent {
   @Input() isMainPage: boolean;
 
   constructor() {
+  }
+
+  ngOnInit() {
   }
 }

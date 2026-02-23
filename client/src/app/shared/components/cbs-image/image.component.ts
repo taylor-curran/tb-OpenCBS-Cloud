@@ -1,7 +1,7 @@
 /**
  * Created by Chyngyz on 2/17/2017.
  */
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'cbs-image',
@@ -24,18 +24,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     </figure>
 `
 })
-export class ImageComponent {
+export class ImageComponent implements OnInit {
   @Input() imageUrl: string;
   @Input() imageAltText = 'Image';
   @Input() imageCaption: string;
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() click = new EventEmitter();
+  @Output() onClick = new EventEmitter();
 
   constructor() {
   }
+
+  ngOnInit() {
+  }
+
   imgClick() {
-    this.click.emit();
+    this.onClick.emit();
   }
 }

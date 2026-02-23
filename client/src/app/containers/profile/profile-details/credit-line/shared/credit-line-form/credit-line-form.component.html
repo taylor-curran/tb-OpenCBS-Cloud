@@ -113,9 +113,9 @@
     <div class="slds-form-element">
         <cbs-penalties-selected [selectedPenalties]="selectedPenalties"
                                 [label]="'PENALTIES_NO_SELECTED'"
-                                (penaltyDelete)="deletePenalty($event)"></cbs-penalties-selected>
+                                (onPenaltyDelete)="deletePenalty($event)"></cbs-penalties-selected>
         <cbs-penalty-picklist [selectDataLabel]="'SELECT_PENALTY'" [penalties]="allPenalties"
-                              (penaltySelect)="selectedPenalty($event)"></cbs-penalty-picklist>
+                              (onPenaltySelect)="selectedPenalty($event)"></cbs-penalty-picklist>
     </div>
 
     <cbs-form-input-control

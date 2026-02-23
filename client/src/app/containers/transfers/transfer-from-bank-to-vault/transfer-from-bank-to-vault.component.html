@@ -145,7 +145,7 @@
 
 <cbs-confirm-popup
     [opened]="showConfirmModal"
-    (submitClick)="submit(form)"
+    (onSubmitClick)="submit(form)"
     (openedChange)="handleConfirmModalVisibility(false)"
     [leftButtonLabel]="'NO' | translate"
     [rightButtonLabel]="'YES' | translate"

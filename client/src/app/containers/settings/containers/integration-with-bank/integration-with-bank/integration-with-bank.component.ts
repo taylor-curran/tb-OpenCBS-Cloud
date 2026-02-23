@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '../../../../../core/core.reducer';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ const SVG_DATA = {
   templateUrl: 'integration-with-bank.component.html',
   styleUrls: ['./integration-with-bank.component.scss']
 })
-export class IntegrationWithBankComponent implements OnInit {
+export class IntegrationWithBankComponent {
   public svgData = SVG_DATA;
   public breadcrumbLinks = [
     {

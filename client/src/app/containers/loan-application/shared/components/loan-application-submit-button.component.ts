@@ -17,7 +17,7 @@ import { LoanAppStatusAware } from '../../loan-application-status.decorator';
 
 @LoanAppStatusAware
 export class LoanAppSubmitButtonComponent {
-  @Output() clickButton = new EventEmitter();
+  @Output() onClickButton = new EventEmitter();
   private confirmText: string;
 
   constructor(private translate: TranslateService) {
@@ -25,7 +25,7 @@ export class LoanAppSubmitButtonComponent {
 
   loanAppSubmit() {
     this.getConfirmText();
-    this.clickButton.emit(this.confirmText);
+    this.onClickButton.emit(this.confirmText);
   }
 
   getConfirmText() {

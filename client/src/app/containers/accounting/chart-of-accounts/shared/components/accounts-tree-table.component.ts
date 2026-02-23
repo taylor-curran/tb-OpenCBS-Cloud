@@ -14,7 +14,7 @@ export class AccountsTreeTableComponent {
   @Input() padding;
   @Input() total;
   @Input() branchId;
-  @Output() iconClick = new EventEmitter();
+  @Output() onIconClick = new EventEmitter();
 
   public page = 0;
 

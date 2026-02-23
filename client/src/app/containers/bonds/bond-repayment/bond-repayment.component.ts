@@ -198,7 +198,7 @@ export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.autoTypeChange(true);
+          this.onAutoTypeChange(true);
         }
         if (cb) {
           cb();
@@ -206,7 +206,7 @@ export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
       });
   }
 
-  autoTypeChange(bool) {
+  onAutoTypeChange(bool) {
     if (bool) {
       ['penalty', 'interest', 'principal', 'total'].map(control => this.changeDisabilityControl(control, false, false, true));
     } else {

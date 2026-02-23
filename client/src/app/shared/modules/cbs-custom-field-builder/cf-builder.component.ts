@@ -19,12 +19,12 @@ export class CFBuilderComponent {
   @Input() urls: { sectionUrl, fieldUrl };
   @Input() fieldLookupTypes = [];
   @Input() fieldTypes = [];
-  @Output() sectionEditSuccess = new EventEmitter();
-  @Output() sectionEditError = new EventEmitter();
-  @Output() sectionAddSuccess = new EventEmitter();
-  @Output() sectionAddError = new EventEmitter();
-  @Output() fieldEditSuccess = new EventEmitter();
-  @Output() fieldEditError = new EventEmitter();
+  @Output() onSectionEditSuccess = new EventEmitter();
+  @Output() onSectionEditError = new EventEmitter();
+  @Output() onSectionAddSuccess = new EventEmitter();
+  @Output() onSectionAddError = new EventEmitter();
+  @Output() onFieldEditSuccess = new EventEmitter();
+  @Output() onFieldEditError = new EventEmitter();
   @Output() onFieldDeleteSuccess = new EventEmitter();
   @Output() onFieldDeleteError = new EventEmitter();
   @Output() onFieldAddSuccess = new EventEmitter();
@@ -35,27 +35,27 @@ export class CFBuilderComponent {
   public sectionAddMode = false;
 
   callSectionEditSuccess(editedSectionData) {
-    this.sectionEditSuccess.emit(editedSectionData);
+    this.onSectionEditSuccess.emit(editedSectionData);
   }
 
   callSectionEditError(error) {
-    this.sectionEditError.emit(error);
+    this.onSectionEditError.emit(error);
   }
 
   callSectionAddSuccess(newSectionData) {
-    this.sectionAddSuccess.emit(newSectionData);
+    this.onSectionAddSuccess.emit(newSectionData);
   }
 
   callSectionAddError(error) {
-    this.sectionAddError.emit(error);
+    this.onSectionAddError.emit(error);
   }
 
   callFieldEditSuccess(editedData) {
-    this.fieldEditSuccess.emit(editedData);
+    this.onFieldEditSuccess.emit(editedData);
   }
 
   callFieldEditError(error) {
-    this.fieldEditError.emit(error);
+    this.onFieldEditError.emit(error);
   }
 
   callFieldDeleteSuccess(deleteData) {

@@ -11,8 +11,8 @@ import { CurrentUserAppState } from '../../../../../core/store/users/current-use
 })
 
 export class BondRepaymentFormComponent implements OnInit, OnDestroy {
-  @Output() autoTypeChange = new EventEmitter();
-  @Output() totalEdited = new EventEmitter();
+  @Output() onAutoTypeChange = new EventEmitter();
+  @Output() onTotalEdited = new EventEmitter();
   private currentUserSub: any;
   public repaymentForm: FormGroup;
   public repaymentTypeList = [

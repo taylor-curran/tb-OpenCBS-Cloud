@@ -29,7 +29,7 @@
 </cbs-header>
 <!-- cbs-header -->
 <cbs-confirm-popup [opened]="isOpen"
-                   (submitClick)="goToNextRoute()"
+                   (onSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

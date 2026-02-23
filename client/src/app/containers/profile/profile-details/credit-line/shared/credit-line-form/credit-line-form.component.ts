@@ -36,7 +36,7 @@ const EARLY_TOTAL_REPAYMENT_FEE_TYPE = [
 
 export class CreditLineFormComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() isCreateMode = false;
-  @Output() penaltyChanged = new EventEmitter();
+  @Output() onPenaltyChanged = new EventEmitter();
   public form: FormGroup;
   public isHidden = true;
   public earlyPartialRepaymentFeeType = EARLY_PARTIAL_REPAYMENT_FEE_TYPE;
@@ -129,13 +129,13 @@ export class CreditLineFormComponent implements OnInit, OnDestroy, AfterViewInit
 
   selectedPenalty(penalty) {
     this.selectedPenalties.push(penalty);
-    this.penaltyChanged.emit();
+    this.onPenaltyChanged.emit();
   }
 
   deletePenalty(penalty) {
     this.allPenalties.push(penalty);
     this.sortDataByName(this.allPenalties);
-    this.penaltyChanged.emit();
+    this.onPenaltyChanged.emit();
   }
 
   sortDataByName(data) {

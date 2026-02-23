@@ -45,11 +45,11 @@
     [data]="installments"
     [editableColumns]="editableSchedule"
     [editablePaymentDate]="editablePaymentDate"
-    (cellEdit)="getCellData($event)"
+    (onCellEdit)="getCellData($event)"
 ></cbs-loan-installments-table>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (submitClick)="goToNextRoute()"
+                   (onSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

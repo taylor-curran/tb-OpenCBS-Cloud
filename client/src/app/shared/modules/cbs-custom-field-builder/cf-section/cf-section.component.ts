@@ -10,8 +10,8 @@ import { CFBuilderService } from '../cf-builder.service';
 export class CFSectionComponent implements OnInit {
   @Input() url: string;
   @Input() sectionData: any;
-  @Output() editSuccess = new EventEmitter();
-  @Output() editError = new EventEmitter();
+  @Output() onEditSuccess = new EventEmitter();
+  @Output() onEditError = new EventEmitter();
   @Output() onAddSuccess = new EventEmitter();
   @Output() onAddError = new EventEmitter();
   @Output() onAddCancel = new EventEmitter();
@@ -39,12 +39,12 @@ export class CFSectionComponent implements OnInit {
   updateSection(data) {
     this.service.updateSection(this.url, this.sectionData.id, data).subscribe(
       resp => {
-        this.editSuccess.emit(resp);
+        this.onEditSuccess.emit(resp);
         this.closeEdit();
       },
       err => {
         alert(err.error.message);
-        this.editError.emit(err.error);
+        this.onEditError.emit(err.error);
       }
     );
   }

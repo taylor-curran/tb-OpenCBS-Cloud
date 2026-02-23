@@ -15,7 +15,7 @@ import { FormLookupControlComponent } from '../../modules/cbs-form/components';
 export class PayeeFormModalComponent implements OnInit {
   @ViewChild('payee', {static: false}) payee: FormLookupControlComponent;
   @Input() headerTitle: string;
-  @Output() submit = new EventEmitter();
+  @Output() onSubmit = new EventEmitter();
   public isOpen = false;
   public form: any;
   public payeeLookupUrl = {
@@ -35,14 +35,14 @@ export class PayeeFormModalComponent implements OnInit {
   }
 
   openCreateModal() {
-    this.payee.clearLookup();
+    this.payee.onClearLookup();
     this.form.reset();
     this.isOpen = true;
   }
 
   submit() {
     this.isOpen = false;
-    this.submit.emit(this.form.value);
+    this.onSubmit.emit(this.form.value);
   }
 
   cancel() {

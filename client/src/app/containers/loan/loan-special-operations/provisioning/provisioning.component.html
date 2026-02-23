@@ -80,7 +80,7 @@
 </cbs-form-layout>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (submitClick)="SetProvisioning()"
+                   (onSubmitClick)="SetProvisioning()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

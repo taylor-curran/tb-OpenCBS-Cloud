@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class SelectedPenaltiesComponent {
   @Input() label: string;
   @Input() selectedPenalties = [];
-  @Output() penaltyDelete = new EventEmitter();
+  @Output() onPenaltyDelete = new EventEmitter();
   @Input() displayButton = true;
 
   constructor() {
@@ -22,6 +22,6 @@ export class SelectedPenaltiesComponent {
         this.selectedPenalties.splice(this.selectedPenalties.indexOf(a), 1);
       }
     });
-    this.penaltyDelete.emit(penalties);
+    this.onPenaltyDelete.emit(penalties);
   }
 }

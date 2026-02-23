@@ -38,7 +38,7 @@ export class EntryFeesFormModalComponent implements OnInit {
   }
 
   openCreateModal(fields) {
-    this.lookupAccount.clearLookup();
+    this.lookupAccount.onClearLookup();
     this.formChanged = true;
     this.form.setValue(fields);
     this.markAsUntouched(this.form);

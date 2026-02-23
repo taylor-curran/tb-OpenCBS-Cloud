@@ -111,7 +111,7 @@ export class LoanApplicationFieldsComponent implements OnInit, OnDestroy {
     this.loanApplicationFieldsMetaStore$.dispatch(new fromStore.LoadLoanApplicationFieldsMetaSuccess(data));
   }
 
-  deleteSuccess(data) {
+  onDeleteSuccess(data) {
     this.translate.get('DELETE_SUCCESS').subscribe(
       (res: string) => {
         this.toastrService.success(res, '', environment.SUCCESS_TOAST_CONFIG);

@@ -10,7 +10,7 @@ export class EntryFeesPicklistComponent {
   @Input() entryFees = [];
   @Input() selectDataLabel: string;
   @Input() disablePickList: string;
-  @Output() feeSelect = new EventEmitter();
+  @Output() onFeeSelect = new EventEmitter();
   public pick: any = [];
   public open: boolean;
 
@@ -23,7 +23,7 @@ export class EntryFeesPicklistComponent {
         this.entryFees.splice(this.entryFees.indexOf(a), 1);
       }
     });
-    this.feeSelect.emit(entryFee);
+    this.onFeeSelect.emit(entryFee);
   }
 
 }

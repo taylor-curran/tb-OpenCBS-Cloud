@@ -41,8 +41,8 @@
     </div>
     <!--<cbs-loading-indicator [isFixed]="true" [showLoader]="inProgress"></cbs-loading-indicator>-->
     <cbs-confirm-popup [opened]="isOpen"
-                       (submitClick)="start()"
-                       (close)="closeAndLogOut()"
+                       (onSubmitClick)="start()"
+                       (onClose)="closeAndLogOut()"
                        [leftButtonLabel]="'NO' | translate"
                        [rightButtonLabel]="'YES' | translate"
                        [popupLabel]="'WARNING' | translate"

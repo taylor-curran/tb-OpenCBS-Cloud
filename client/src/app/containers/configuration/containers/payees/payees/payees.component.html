@@ -126,7 +126,7 @@
                 [requiredField]="true"
                 [picklistDataUrl]="formConfig"
                 (onOpenPicklist)="changeModalSize($event, true)"
-                (closePicklist)="changeModalSize($event, false)"
+                (onClosePicklist)="changeModalSize($event, false)"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'ACCOUNT_NUMBER' | translate }}">

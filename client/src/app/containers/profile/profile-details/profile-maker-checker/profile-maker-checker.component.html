@@ -119,7 +119,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (submitClick)="approveProfileRequest()"
+                (onSubmitClick)="approveProfileRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -129,7 +129,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="rejectRequest"
                 (openedChange)="closeModal()"
-                (submitClick)="rejectProfileRequest()"
+                (onSubmitClick)="rejectProfileRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

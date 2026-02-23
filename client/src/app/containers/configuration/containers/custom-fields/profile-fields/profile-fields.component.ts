@@ -114,7 +114,7 @@ export class ProfileFieldsComponent implements OnInit, OnDestroy {
     this.toastrService.error(err.message, '', environment.ERROR_TOAST_CONFIG);
   }
 
-  deleteSuccess(data) {
+  onDeleteSuccess(data) {
     this.translate.get('DELETE_SUCCESS').subscribe(
       (res: string) => {
         this.toastrService.success(res, '', environment.SUCCESS_TOAST_CONFIG);

@@ -162,7 +162,7 @@ export class BondNewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  amountRelatedFieldChanged(value: any) {
+  onAmountRelatedFieldChanged(value: any) {
     if (!value.number || !value.equivalentCurrencyId || !value.sellDate) {
       return;
     }

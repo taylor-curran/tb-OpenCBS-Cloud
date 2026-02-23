@@ -131,7 +131,7 @@ export class MembersComponent implements OnInit, OnDestroy {
   }
 
   openTransactionModal() {
-    this.lookup.clearLookup();
+    this.lookup.onClearLookup();
     this.isModalOpened = true;
   }
 

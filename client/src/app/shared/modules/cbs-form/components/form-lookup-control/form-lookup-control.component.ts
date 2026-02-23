@@ -40,13 +40,13 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
 
   @Output() onSelect = new EventEmitter();
   @Output() onOpenPicklist = new EventEmitter();
-  @Output() closePicklist = new EventEmitter();
+  @Output() onClosePicklist = new EventEmitter();
 
   public innerValue: any = '';
   public reset = false;
 
   private onTouchedCallback: () => void = noop;
-  private changeCallback: (_: any) => void = noop;
+  private onChangeCallback: (_: any) => void = noop;
 
   get value(): any {
     if ( this.defaultValue ) {
@@ -62,15 +62,15 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
   set value(v: any) {
     if ( v !== this.innerValue ) {
       this.innerValue = isNull(v) ? null : +v;
-      this.changeCallback(this.innerValue);
+      this.onChangeCallback(this.innerValue);
     }
   }
 
-  clear() {
+  onClear() {
     this.value = null;
   }
 
-  clearLookup() {
+  onClearLookup() {
     this.picklistComponent.removeWithoutEmit();
   }
 
@@ -87,7 +87,7 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
   }
 
   registerOnChange(fn: any) {
-    this.changeCallback = fn;
+    this.onChangeCallback = fn;
   }
 
   registerOnTouched(fn: any) {
@@ -104,17 +104,17 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
   }
 
   onPicklistClose(event?) {
-    this.closePicklist.emit();
+    this.onClosePicklist.emit();
   }
 
   setLookupValue(value) {
     if ( value && value.id ) {
       this.innerValue = value.id;
-      this.changeCallback(value.id);
+      this.onChangeCallback(value.id);
       this.onSelect.emit(value);
     } else {
       this.innerValue = '';
-      this.changeCallback('');
+      this.onChangeCallback('');
       this.onSelect.emit(null);
     }
   }

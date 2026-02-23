@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 const SVG_DATA = {collection: 'custom', class: 'custom108', name: 'custom108'};
 
@@ -7,7 +7,7 @@ const SVG_DATA = {collection: 'custom', class: 'custom108', name: 'custom108'};
   templateUrl: 'system-settings.component.html',
   styleUrls: ['./system-settings.component.scss']
 })
-export class SystemSettingsComponent {
+export class SystemSettingsComponent implements OnInit {
   public svgData = SVG_DATA;
   public breadcrumb = [
     {
@@ -22,6 +22,11 @@ export class SystemSettingsComponent {
 
   constructor() {
   }
+
+  ngOnInit() {
+
+  }
+
   public list = [{
     name: 'PASSWORD_SETTINGS',
     link: '/configuration/system-setting/containers/password-setting/password-settings/password',

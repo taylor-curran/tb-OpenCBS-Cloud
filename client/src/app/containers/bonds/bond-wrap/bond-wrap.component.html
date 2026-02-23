@@ -63,7 +63,7 @@
         <div cbs-loan-layout="right">
             <cbs-confirm-popup [confirmText]="'Are you sure you want to sell?'" [opened]="opened"
                                (openedChange)="closeModal()"
-                               (submitClick)="startBond()"
+                               (onSubmitClick)="startBond()"
                                [leftButtonLabel]="'CANCEL' | translate"
                                [rightButtonLabel]="'CONFIRM' | translate"
                                [popupLabel]="'CONFIRMATION' | translate">

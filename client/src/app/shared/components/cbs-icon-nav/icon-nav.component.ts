@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: 'icon-nav.component.html',
   styleUrls: ['icon-nav.component.scss']
 })
-export class IconVerticalNavComponent {
+export class IconVerticalNavComponent implements OnInit {
   @Input() navConfig: Object;
   @Input() size = 'small';
   @Input() type = 'vertical';
@@ -22,5 +22,8 @@ export class IconVerticalNavComponent {
   navigate(url) {
     this.nextRoute = url;
     this.router.navigateByUrl(url);
+  }
+
+  ngOnInit() {
   }
 }

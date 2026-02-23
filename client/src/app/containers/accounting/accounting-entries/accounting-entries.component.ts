@@ -186,9 +186,9 @@ export class AccountingEntriesComponent implements OnInit, OnDestroy {
     const dateNow = moment().format(environment.DATE_FORMAT_MOMENT);
     this.singleTransactionForm.controls['createdAt'].setValue(dateNow);
     this.multipleTransactionForm.controls['dateTime'].setValue(dateNow);
-    this.lookupDebitAccount.clearLookup();
-    this.lookupCreditAccount.clearLookup();
-    this.lookupTransactionTemplate.clearLookup();
+    this.lookupDebitAccount.onClearLookup();
+    this.lookupCreditAccount.onClearLookup();
+    this.lookupTransactionTemplate.onClearLookup();
     this.multipleTransactionDebitAccounts = [];
     this.multipleTransactionCreditAccounts = [];
     this.multipleTransactionDebitAccountsValue = [];
