@@ -9,9 +9,9 @@ export class CFAddComponent {
   @Input() buttonTitle: string;
   @Input() disabled: boolean;
   @Input() uid: number;
-  @Output() click = new EventEmitter();
+  @Output() clickAction = new EventEmitter();
 
-  click(){
-    this.click.emit();
+  handleClick(){
+    this.clickAction.emit();
   }
 }
