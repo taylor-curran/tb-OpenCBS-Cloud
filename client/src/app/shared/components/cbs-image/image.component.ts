@@ -31,7 +31,7 @@ export class ImageComponent implements OnInit {
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() onClick = new EventEmitter();
+  @Output() clickEvent = new EventEmitter();
 
   constructor() {
   }
@@ -40,6 +40,6 @@ export class ImageComponent implements OnInit {
   }
 
   imgClick() {
-    this.onClick.emit();
+    this.clickEvent.emit();
   }
 }
