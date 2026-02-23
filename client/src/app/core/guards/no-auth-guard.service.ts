@@ -25,9 +25,7 @@ export class NoAuthGuard implements CanActivate {
       tap((isAuth) => {
         if (!isAuth && state.url === '/login') {
           this.router.navigate(['/profiles']);
-          return isAuth;
-        }
-        return isAuth;
+          }
       }));
   }
 }
