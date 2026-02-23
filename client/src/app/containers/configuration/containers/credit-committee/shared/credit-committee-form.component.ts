@@ -11,7 +11,7 @@ import * as fromStore from '../../../../../core/store';
 })
 
 export class CCRulesFormComponent implements OnInit, OnDestroy {
-  @Output() onChange = new EventEmitter();
+  @Output() change = new EventEmitter();
   public form: FormGroup;
   public selectedItems = [];
   public roles = [];
@@ -44,10 +44,9 @@ export class CCRulesFormComponent implements OnInit, OnDestroy {
         this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
       }
     });
-    this.onChange.emit(this.selectedItems);
+    this.change.emit(this.selectedItems);
     this.checkItemsLength();
   }
-
 
   addRole(pickedItem) {
     this.selectedItems.push(pickedItem);
@@ -57,7 +56,7 @@ export class CCRulesFormComponent implements OnInit, OnDestroy {
       }
     });
     this.checkItemsLength();
-    this.onChange.emit(this.selectedItems);
+    this.change.emit(this.selectedItems);
   }
 
   checkItemsLength() {

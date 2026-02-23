@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <cbs-manage-event-modal (onSubmit)="refreshProfileEventsList()"></cbs-manage-event-modal>
+    <cbs-manage-event-modal (submitComplete)="refreshProfileEventsList()"></cbs-manage-event-modal>
 </main>
 <ngl-modal [(open)]="opened" (openChange)="resetModal()">
     <div body>
