@@ -35,7 +35,7 @@
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
                 </svg>
                 <svg class="slds-input__icon slds-icon-text-default cbs-picklist__clear-search-btn" aria-hidden="true"
-                     *ngIf="searchQuery" (click)="clear()">
+                     *ngIf="searchQuery" (click)="resetSearch()">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
                 </svg>
                 <input type="text" class="slds-input" #searchInput [ngModel]="searchQuery"

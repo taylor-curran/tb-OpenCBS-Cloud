@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-heading-block',
@@ -11,8 +11,8 @@ import { Component, OnInit, Input } from '@angular/core';
         </div>
         <div class="slds-media__body" [ngClass]="{'cbs-main-page': isMainPage}">
             <ng-content></ng-content>
-            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle" title="{{ headingTitle }}">
-                {{ headingTitle  }}
+            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle" title="{{ headingTitle }}"> {{ headingTitle  }
+}
                 <ngl-badge *ngIf="badgeLabel" [type]="badgeTheme">{{ badgeLabel }}</ngl-badge>
             </h1>
         </div>
@@ -28,7 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
     }
     `]
 })
-export class HeadingBlockComponent implements OnInit {
+export class HeadingBlockComponent {
   @Input() svgData: any;
   @Input() headingTitle: string;
   @Input() badgeLabel: string;
@@ -36,8 +36,5 @@ export class HeadingBlockComponent implements OnInit {
   @Input() isMainPage: boolean;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

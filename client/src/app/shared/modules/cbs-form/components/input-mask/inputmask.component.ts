@@ -27,17 +27,7 @@
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
     OTHER DEALINGS IN THE SOFTWARE.
 */
-import {
-  NgModule,
-  Component,
-  ElementRef,
-  AfterViewInit,
-  OnDestroy,
-  Input,
-  forwardRef,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { NgModule, Component, ElementRef, AfterViewInit, Input, forwardRef, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
@@ -70,7 +60,7 @@ export const INPUTMASK_VALUE_ACCESSOR: any = {
     (paste)="handleInputChange($event)">`,
   providers: [INPUTMASK_VALUE_ACCESSOR]
 })
-export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValueAccessor {
+export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
   @Input() mask: string;
   @Input() type = 'text';
   @Input() slotChar = '_';
@@ -357,7 +347,6 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
       begin = pos.begin;
       end = pos.end;
 
-
       if (end - begin === 0) {
         begin = k !== 46 ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
         end = k === 46 ? this.seekNext(end) : end;
@@ -562,11 +551,6 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
 
   updateModel(e) {
     this.onModelChange(this.unmask ? this.getUnmaskedValue() : e.target.value);
-  }
-
-
-  ngOnDestroy() {
-
   }
 }
 
