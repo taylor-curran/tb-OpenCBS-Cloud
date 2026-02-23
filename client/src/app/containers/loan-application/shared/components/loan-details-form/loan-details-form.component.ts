@@ -30,7 +30,7 @@ export class LoanDetailsFormComponent implements OnInit {
     scheduleTypeUrl: `${environment.API_ENDPOINT}/schedule-types`
   };
   @Input() loanAppFormState: ILoanAppFormState;
-  @Output() submit = new EventEmitter();
+  @Output() formSubmit = new EventEmitter();
   @Output() loanProductSelect = new EventEmitter();
   @Output() creditLineSelect = new EventEmitter();
   @Output() payeeEdit = new EventEmitter();
@@ -272,7 +272,7 @@ export class LoanDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submit.emit(this.form.value);
+    this.formSubmit.emit(this.form.value);
   }
 
   creditLineSelect(creditLine) {

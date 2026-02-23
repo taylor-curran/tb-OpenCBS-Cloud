@@ -31,7 +31,7 @@ import * as moment from 'moment';
 export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(FormLookupComponent, {static: false}) lookup: FormLookupComponent;
   @ViewChild('submitBtn', {static: false}) submitBtn: ElementRef;
-  @Output() submit = new EventEmitter();
+  @Output() formSubmit = new EventEmitter();
   public isDialogVisible = false;
   public eventForm: FormGroup;
   public mode: FormMode = FormMode.create;
@@ -353,7 +353,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
     }
   }
 
-  submit({valid, value}) {
+  submitEvent({valid, value}) {
     if (!valid) {
       return;
     }
@@ -390,7 +390,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
           setTimeout(() => {
             this.isDialogVisible = false;
             this.isResponseStatusOk = 'null';
-            this.submit.emit();
+            this.formSubmit.emit();
             this.disableSubmitBtn(false);
           }, 1000);
         } else if (res.status === 'error') {
