@@ -10,8 +10,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (onClear)="clearSearch()"
-                (onSearch)="search($event)"
+                (clear)="clearSearch()"
+                (search)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -142,7 +142,7 @@
             <cbs-form-lookup-control
                 [picklistFilterType]="'name'"
                 (onOpenPicklist)="changeSize(true)"
-                (onClosePicklist)="changeSize(false)"
+                (closePicklist)="changeSize(false)"
                 [hasError]="openTillForm.get('tellerId').errors && openTillForm.get('tellerId').touched"
                 [requiredField]="true"
                 [formControlName]="'tellerId'"

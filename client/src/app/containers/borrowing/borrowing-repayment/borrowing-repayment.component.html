@@ -28,10 +28,10 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-borrowing-repayment-form
-            (onAutoTypeChange)="onAutoTypeChange($event)"
-            (onSetMaxAmount)="setMaxAmount()"
+            (autoTypeChange)="autoTypeChange($event)"
+            (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
-            (onTotalEdited)="markTotalAsEdited()"></cbs-borrowing-repayment-form>
+            (totalEdited)="markTotalAsEdited()"></cbs-borrowing-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">
         <div class="slds-grid">

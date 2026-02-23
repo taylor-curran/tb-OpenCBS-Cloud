@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from '../../core/core.module';
 import { TillOperationListComponent } from './till-operation-list/till-operation-list.component';
 import { TillOperationInfoComponent } from './till-operation-info/till-operation-info.component';
-import { TillOperationEditComponent } from './till-operation-edit/till-operation-edit.component';
+import { TillOperatieditComponent } from './till-operation-edit/till-operation-edit.component';
 import { OperationsNewComponent } from './till-operation-new/till-operation-new.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { TillTellerGuard } from './shared/till-teller-guard.service';
@@ -38,7 +38,7 @@ import { TillOperationListDetailsComponent } from './till-operation-list-details
     TillListComponent,
     TillOperationListComponent,
     TillOperationInfoComponent,
-    TillOperationEditComponent,
+    TillOperatieditComponent,
     OperationsNewComponent,
     TransferComponent,
     TillOperationLoansComponent,

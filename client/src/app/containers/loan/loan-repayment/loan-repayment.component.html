@@ -24,11 +24,11 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-repayment-form
-            (onChangeRepaymentType)="onChangeRepaymentType()"
-            (onSetMaxAmount)="setMaxAmount()"
+            (changeRepaymentType)="changeRepaymentType()"
+            (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
-            (onRepaymentDateEdited)="markDateAsEdited()"
-            (onTotalEdited)="markTotalAsEdited()"></cbs-repayment-form>
+            (repaymentDateEdited)="markDateAsEdited()"
+            (totalEdited)="markTotalAsEdited()"></cbs-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">
         <div class="slds-grid">
@@ -58,7 +58,7 @@
                 [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                 [opened]="opened"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="repay()"
+                (submitClick)="repay()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -83,7 +83,7 @@
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

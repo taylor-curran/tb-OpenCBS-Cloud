@@ -74,7 +74,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   @Output() onError: EventEmitter<any> = new EventEmitter();
 
-  @Output() onClear: EventEmitter<any> = new EventEmitter();
+  @Output() cleared: EventEmitter<any> = new EventEmitter();
 
   @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
@@ -231,7 +231,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   clear() {
     this.files = [];
-    this.onClear.emit();
+    this.cleared.emit();
   }
 
   remove(index: number) {
