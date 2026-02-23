@@ -84,7 +84,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
   @Input() readonly: boolean;
   @Input() unmask: boolean;
   @Input() name: string;
-  @Output() onComplete: EventEmitter<any> = new EventEmitter();
+  @Output() complete: EventEmitter<any> = new EventEmitter();
   @Output() blur: EventEmitter<any> = new EventEmitter();
   value: any;
 
@@ -322,7 +322,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
     }
 
     if (this.isCompleted()) {
-      this.onComplete.emit();
+      this.complete.emit();
     }
   }
 
@@ -427,7 +427,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
     this.updateModel(e);
 
     if (completed) {
-      this.onComplete.emit();
+      this.complete.emit();
     }
   }
 
@@ -541,7 +541,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
       this.caret(pos);
       this.updateModel(event);
       if (this.isCompleted()) {
-        this.onComplete.emit();
+        this.complete.emit();
       }
     }, 0);
   }
