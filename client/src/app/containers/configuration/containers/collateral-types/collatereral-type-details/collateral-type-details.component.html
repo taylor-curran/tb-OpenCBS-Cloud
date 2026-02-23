@@ -83,8 +83,8 @@
                 [componentFieldType]="'collateral'"
                 [sectionId]="collateralTypeDetails?.id"
                 [addSectionId]="true"
-                (onFieldEditSuccess)="callFieldEditSuccess($event)"
-                (onFieldEditError)="callFieldEditError($event)"
+                (fieldEditSuccess)="callFieldEditSuccess($event)"
+                (fieldEditError)="callFieldEditError($event)"
                 (onFieldAddCancel)="onFieldAddCancel()"
                 (onFieldDeleteSuccess)="onDeleteSuccess()"
                 (onFieldDeleteError)="onError($event)"
@@ -93,7 +93,7 @@
             ></cbs-cf-field>
 
             <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]=""
-                        (onClick)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
+                        (click)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
         </div>
     </div>
 
