@@ -19,8 +19,8 @@ export class CFBuilderComponent {
   @Input() urls: { sectionUrl, fieldUrl };
   @Input() fieldLookupTypes = [];
   @Input() fieldTypes = [];
-  @Output() sectieditSuccess = new EventEmitter();
-  @Output() sectieditError = new EventEmitter();
+  @Output() sectionEditSuccess = new EventEmitter();
+  @Output() sectionEditError = new EventEmitter();
   @Output() sectionAddSuccess = new EventEmitter();
   @Output() sectionAddError = new EventEmitter();
   @Output() fieldEditSuccess = new EventEmitter();
@@ -34,12 +34,12 @@ export class CFBuilderComponent {
   @ViewChildren(CFAddComponent) addBtns: QueryList<CFAddComponent>;
   public sectionAddMode = false;
 
-  callSectieditSuccess(editedSectionData) {
-    this.sectieditSuccess.emit(editedSectionData);
+  callSectionEditSuccess(editedSectionData) {
+    this.sectionEditSuccess.emit(editedSectionData);
   }
 
-  callSectieditError(error) {
-    this.sectieditError.emit(error);
+  callSectionEditError(error) {
+    this.sectionEditError.emit(error);
   }
 
   callSectionAddSuccess(newSectionData) {

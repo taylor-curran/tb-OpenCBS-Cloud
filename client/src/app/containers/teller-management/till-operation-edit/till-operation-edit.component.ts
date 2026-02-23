@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: 'till-operation-edit.component.html'
 })
 
-export class TillOperatieditComponent implements OnInit, OnDestroy {
+export class TillOperationEditComponent implements OnInit, OnDestroy {
   public breadcrumbLinks = [];
   public svgData = {
     collection: 'standard',

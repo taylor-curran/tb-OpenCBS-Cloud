@@ -202,16 +202,16 @@ export class ProfessionsComponent implements OnInit, OnDestroy {
   saveEditProfession(data) {
     const professionName = data.fields[0];
 
-    const professieditData = {name: professionName.value};
+    const professionEditData = {name: professionName.value};
 
     if ( data.fields.length === 2 ) {
       const parentId = data.fields[1]['fieldId'];
       if ( parentId ) {
-        professieditData['parentId'] = parentId;
+        professionEditData['parentId'] = parentId;
       }
     }
     this.professionUpdateStore$.dispatch(new fromStore.UpdateProfession({
-      data: professieditData,
+      data: professionEditData,
       fieldId: professionName.fieldId
     }));
   }

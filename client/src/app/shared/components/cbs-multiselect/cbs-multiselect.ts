@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       [showToggleAll]="false"
       [options]="options"
       [ngModel]="selectedOptions"
-      (ngModelChange)="onSelectedOptichange($event)"
+      (ngModelChange)="onSelectedOptionChange($event)"
       [panelStyleClass]="'slds-dropdown slds-dropdown_left'"
       optionLabel="header"
       selectedItemsLabel="{0} {{'COLUMNS_SELECTED' | translate}}"
@@ -27,7 +27,7 @@ export class CbsMultiselectComponent {
   @Input() filter = false;
   @Output() selectedOptionsChange = new EventEmitter();
 
-  onSelectedOptichange(data) {
+  onSelectedOptionChange(data) {
     const keys: any[] = data.map(x => x.field)
     const temp: any[] = [];
 

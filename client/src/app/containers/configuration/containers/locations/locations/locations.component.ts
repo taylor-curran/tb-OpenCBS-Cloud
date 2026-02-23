@@ -213,16 +213,16 @@ export class LocationsComponent implements OnInit, OnDestroy {
   saveEditLocation(data) {
     const locationName = data.fields[0];
 
-    const locatieditData = {name: locationName.value};
+    const locationEditData = {name: locationName.value};
 
     if (data.fields.length === 2) {
       const parentId = data.fields[1]['fieldId'];
       if (parentId) {
-        locatieditData['parentId'] = parentId;
+        locationEditData['parentId'] = parentId;
       }
     }
     this.locationUpdateStore$.dispatch(new fromStore.UpdateLocation({
-      editData: locatieditData,
+      editData: locationEditData,
       fieldId: locationName.fieldId
     }));
   }
