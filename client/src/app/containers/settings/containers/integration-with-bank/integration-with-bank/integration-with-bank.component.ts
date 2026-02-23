@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '../../../../../core/core.reducer';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ const SVG_DATA = {
   templateUrl: 'integration-with-bank.component.html',
   styleUrls: ['./integration-with-bank.component.scss']
 })
-export class IntegrationWithBankComponent {
+export class IntegrationWithBankComponent implements OnInit, OnDestroy {
   public svgData = SVG_DATA;
   public breadcrumbLinks = [
     {
@@ -52,6 +52,10 @@ export class IntegrationWithBankComponent {
       disabled: this.hasPermission('SEPA'),
       icon: {collection: 'standard', name: 'product_consumed', className: 'product-consumed'}
     }];
+  }
+
+  ngOnDestroy() {
+    this.currentUserSub.unsubscribe();
   }
 
   hasPermission(permission) {
