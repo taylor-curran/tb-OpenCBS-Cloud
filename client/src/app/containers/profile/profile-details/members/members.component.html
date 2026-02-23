@@ -142,7 +142,7 @@
 </ngl-modal>
 <cbs-confirm-popup [confirmText]="'Are you sure you want to delete?'" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="removeMember(memberId)"
+                   (submitClicked)="removeMember(memberId)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">

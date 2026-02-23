@@ -115,7 +115,7 @@
                 [confirmText]="locked ? 'Are you sure you want to unlock?' : 'Are you sure you want to lock?'"
                 [opened]="lock"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="submitLockUnlockSaving()"
+                (submitClicked)="submitLockUnlockSaving()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

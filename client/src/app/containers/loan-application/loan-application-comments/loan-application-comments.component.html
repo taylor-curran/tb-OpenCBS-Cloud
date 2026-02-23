@@ -110,14 +110,14 @@
             <span *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['SUBMIT_LOANS_APPLICATIONS'] }">
                 <cbs-loan-app-submit-button
                     *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.IN_PROGRESS]"
-                    (onClickButton)="openModal($event)">
+                    (buttonClicked)="openModal($event)">
                 </cbs-loan-app-submit-button>
             </span>
             <ng-container
                 *cbsVisibleByPermission="{ group: 'MAKER_CHECKER', permissions: ['MAKER_FOR_LOAN_DISBURSEMENT'] }">
                 <cbs-loan-app-confirm-button
                     *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.APPROVED]"
-                    (onClickButton)="openModal($event)">
+                    (buttonClicked)="openModal($event)">
                 </cbs-loan-app-confirm-button>
             </ng-container>
         </div>
@@ -128,7 +128,7 @@
 <!-- cbs-header -->
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (submitClicked)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
