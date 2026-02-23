@@ -32,7 +32,7 @@ export class LoanDetailsFormComponent implements OnInit {
   @Input() loanAppFormState: ILoanAppFormState;
   @Output('submit') formSubmit = new EventEmitter();
   @Output('onLoanProductSelect') loanProductSelect = new EventEmitter();
-  @Output('onCreditLineSelect') creditLineSelect = new EventEmitter();
+  @Output() onCreditLineSelect = new EventEmitter();
   @Output('onPayeeEdit') payeeEdit = new EventEmitter();
   @Output('onPayeeDelete') payeeDelete = new EventEmitter();
   @Output('onPayeeAdd') payeeAdd = new EventEmitter();
@@ -282,7 +282,7 @@ export class LoanDetailsFormComponent implements OnInit {
           this.disabledLoanProduct = true;
           this.form.controls['loanProductId'].setValue(val.loanProduct.id);
           this.onLPSelect(val.loanProduct, val);
-          this.creditLineSelect.emit(val);
+          this.onCreditLineSelect.emit(val);
         }
       });
     } else {
