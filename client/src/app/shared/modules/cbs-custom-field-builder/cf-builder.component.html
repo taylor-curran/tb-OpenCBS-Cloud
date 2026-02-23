@@ -26,9 +26,9 @@
         (fieldAddError)="callFieldAddError($event)"
     ></cbs-cf-field>
 
-    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (click)="addField(section?.id)"
+    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (click)="addField(section?.id)" (keydown.enter)="addField(section?.id)" tabindex="0"
                 [uid]="sectionInd + 1"></cbs-cf-add>
 </cbs-cf-section>
-<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (click)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
+<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (click)="addSection()" (keydown.enter)="addSection()" tabindex="0" [disabled]="sectionAddMode"></cbs-cf-add>
 
 
