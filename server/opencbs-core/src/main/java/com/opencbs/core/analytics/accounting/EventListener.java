@@ -37,6 +37,6 @@ public class EventListener implements PersistEventListener {
 
     @Override
     public void onPersist(PersistEvent event, Map createdAlready) throws HibernateException {
-
+        // Not needed: Hibernate requires this overload but only the single-arg version is used
     }
 }
