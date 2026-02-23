@@ -43,6 +43,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @SuppressWarnings("unused")
 public class BorrowingController {
 
+    private static final String BORROWING_NOT_FOUND_MSG = "Borrowing is not found (ID=%d).";
+
     private final BorrowingService borrowingService;
     private final BorrowingOperationsService borrowingOperationsService;
     private final BorrowingValidator borrowingValidator;
@@ -81,7 +83,7 @@ public class BorrowingController {
                                   @PathVariable long borrowingId) throws ResourceNotFoundException, ScriptException {
         this.borrowingValidator.validate(dto);
         Borrowing borrowing = this.borrowingService.findOne(borrowingId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Borrowing is not found (ID=%d).", borrowingId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(BORROWING_NOT_FOUND_MSG, borrowingId)));
         if (!borrowing.getStatus().equals(BorrowingStatus.PENDING))
             throw new RuntimeException("Borrowing edit is possible if only the status is PENDING.");
         borrowing = this.borrowingMapper.zip(borrowing, dto, UserHelper.getCurrentUser());
@@ -93,7 +95,7 @@ public class BorrowingController {
     @GetMapping(value = "/{borrowingId}")
     public BorrowingDetailDto getOne(@PathVariable long borrowingId) {
         Borrowing borrowing = this.borrowingService.findOne(borrowingId).orElseThrow(
-                () -> new ResourceAccessException(String.format("Borrowing is not found (ID=%d).", borrowingId)));
+                () -> new ResourceAccessException(String.format(BORROWING_NOT_FOUND_MSG, borrowingId)));
         return this.borrowingMapper.mapToDetailDto(borrowing);
     }
 
@@ -115,7 +117,7 @@ public class BorrowingController {
     @PostMapping(value = "/{borrowingId}/disburse")
     public BorrowingDetailDto disburse(@PathVariable long borrowingId) throws ResourceNotFoundException {
         Borrowing borrowing = this.borrowingService.findOne(borrowingId).orElseThrow(
-                () -> new ResourceAccessException(String.format("Borrowing is not found (ID=%d).", borrowingId)));
+                () -> new ResourceAccessException(String.format(BORROWING_NOT_FOUND_MSG, borrowingId)));
         if (!borrowing.getStatus().equals(BorrowingStatus.PENDING))
             throw new RuntimeException("Borrowing must be pending");
         this.borrowingValidator.validate(this.borrowingMapper.mapToDto(borrowing));
@@ -133,14 +135,14 @@ public class BorrowingController {
     public BorrowingDetailDto rollBackBorrowingEvent(@PathVariable Long borrowingId,
                                                      @RequestBody CommentDto dto) throws ResourceNotFoundException{
         Borrowing borrowing = this.borrowingService.findOne(borrowingId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Borrowing is not found (ID=%d).", borrowingId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(BORROWING_NOT_FOUND_MSG, borrowingId)));
         return this.borrowingMapper.mapToDetailDto(this.borrowingOperationsService.rollBack(dto.getComment(), borrowing, UserHelper.getCurrentUser()));
     }
 
     @GetMapping(value = "/{borrowingId}/schedule")
     public ScheduleDto getBorrowingSchedule(@PathVariable Long borrowingId) {
         Borrowing borrowing = this.borrowingService.findOne(borrowingId).orElseThrow(
-                () -> new ResourceAccessException(String.format("Borrowing is not found (ID=%d).", borrowingId)));
+                () -> new ResourceAccessException(String.format(BORROWING_NOT_FOUND_MSG, borrowingId)));
         return this.borrowingMapper.mapToSchedule(this.borrowingService.getInstallment(borrowing));
     }
 

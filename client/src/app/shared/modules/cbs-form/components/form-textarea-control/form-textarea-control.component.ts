@@ -67,7 +67,7 @@ export class FormTextareaControlComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  onBlur() {
+  blurred() {
     this.onTouchedCallback();
   }
 

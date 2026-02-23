@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/api/loans/{loanId}/attachments")
 public class LoanAttachmentController {
 
+    private static final String ATTACHMENT_NOT_FOUND_MSG = "Attachment not found (ID=%d).";
+
     private final LoanService loanService;
     private final LoanAttachmentService loanAttachmentService;
     private final AttachmentMapper attachmentMapper;
@@ -55,7 +57,7 @@ public class LoanAttachmentController {
     @ResponseBody
     public ResponseEntity get(@PathVariable long attachmentId, @RequestParam(value = "size", required = false) Integer size) throws Exception {
         LoanAttachment attachment = this.loanAttachmentService.findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
         return this.loanAttachmentService.getResponseEntity(attachment, size);
     }
@@ -76,7 +78,7 @@ public class LoanAttachmentController {
     public AttachmentDto delete(@PathVariable long attachmentId) throws Exception {
         LoanAttachment attachment = this.loanAttachmentService
                 .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
         this.loanAttachmentService.delete(attachment);
         return this.attachmentMapper.mapToDto(attachment);

@@ -23,7 +23,7 @@ public class BondContainer implements Container {
 
     private final BondService bondService;
     private final ApplicationContext context;
-    private static List<DayClosureProcessor> bondDayClosureProcessorList;
+    private List<DayClosureProcessor> bondDayClosureProcessorList;
 
     @Autowired
     protected BondContainer(@NonNull BondService bondService,
@@ -38,7 +38,7 @@ public class BondContainer implements Container {
     }
 
     @Override
-    public List<DayClosureProcessor> getProcessingServices() {
+    public synchronized List<DayClosureProcessor> getProcessingServices() {
         if (bondDayClosureProcessorList == null) {
             bondDayClosureProcessorList = this.context.getBeansOfType(BondDayClosureProcessor.class)
                     .entrySet()

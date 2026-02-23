@@ -99,7 +99,7 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.submitSub = this.topUpService.submitTopUpSourceChange$.subscribe(status => {
       if ( status ) {
-        this.submit();
+        this.submitted();
       }
     });
   }
@@ -160,7 +160,7 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
     this.entryFeeModalComponent.populateCached(fees);
   }
 
-  submit() {
+  submitted() {
     if ( this.topUpForm.valid ) {
       const entryFees = [];
       if ( this.loanAppEntryFees.length ) {

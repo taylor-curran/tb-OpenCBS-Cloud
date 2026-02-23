@@ -113,7 +113,7 @@ export class OtherFeesComponent implements OnInit, OnDestroy {
     }
   }
 
-  submit() {
+  submitted() {
     const date = this.parseDateFormatService.parseDateValue(this.form.value['date']);
     const time = moment(new Date().getTime()).format('HH:mm:ss.SSS');
     this.form.controls['date'].setValue(date + 'T' + time);

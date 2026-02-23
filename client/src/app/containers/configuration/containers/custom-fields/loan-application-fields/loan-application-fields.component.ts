@@ -95,7 +95,7 @@ export class LoanApplicationFieldsComponent implements OnInit, OnDestroy {
     this.updateState(data);
   }
 
-  onAddSuccess(data) {
+  addSuccess(data) {
     this.translate.get('CREATE_SUCCESS').subscribe(
       (res: string) => {
         this.toastrService.success(res, '', environment.SUCCESS_TOAST_CONFIG);
@@ -103,7 +103,7 @@ export class LoanApplicationFieldsComponent implements OnInit, OnDestroy {
     this.updateState(data);
   }
 
-  onError(err) {
+  errorOccurred(err) {
     this.toastrService.error(err.message, '', environment.ERROR_TOAST_CONFIG);
   }
 

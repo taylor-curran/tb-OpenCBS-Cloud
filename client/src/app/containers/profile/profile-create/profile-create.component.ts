@@ -180,7 +180,7 @@ export class NewProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit({valid, value}) {
+  submitted({valid, value}) {
     if ( valid ) {
       this.disableSubmitBtn(true);
       const profileDataToSend = {

@@ -154,7 +154,7 @@ export class ProfileAttachmentComponent implements OnInit, OnDestroy {
     }));
   }
 
-  onUpload(event) {
+  upload(event) {
     if ( event.xhr && event.xhr.status === 200 ) {
       this.closeUploadModal();
       this.getProfile();
@@ -164,7 +164,7 @@ export class ProfileAttachmentComponent implements OnInit, OnDestroy {
     }
   }
 
-  onError(err) {
+  errorOccurred(err) {
     if ( err.xhr && (err.xhr.status >= 400 && err.xhr.status <= 500) ) {
       const response = JSON.parse(err.xhr.response);
       this.closeUploadModal();
@@ -172,7 +172,7 @@ export class ProfileAttachmentComponent implements OnInit, OnDestroy {
     }
   }
 
-  onClear() {
+  cleared() {
     this.closeUploadModal();
   }
 

@@ -117,7 +117,7 @@ export class BorrowingEventsComponent implements OnInit, OnDestroy {
     })
   }
 
-  onEventClick(event) {
+  eventClick(event) {
     this.isLoading = true;
     this.borrowingEventsService.getChildNotes(this.borrowingId, event['groupKey']).subscribe(res => {
       event.childNotes = res;

@@ -167,7 +167,7 @@ export class TillListComponent implements OnInit, OnDestroy {
     this.openTillForm.reset();
   }
 
-  submit(form) {
+  submitted(form) {
     if ( this.isTillModal ) {
       this.tillService.openTill(form.controls.tellerId.value, this.till.id).pipe(
         catchError(err => observableOf(err.error)))

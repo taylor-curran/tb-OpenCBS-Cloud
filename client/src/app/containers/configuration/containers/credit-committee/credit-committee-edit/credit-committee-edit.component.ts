@@ -145,7 +145,7 @@ export class CCRulesEditComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['/configuration', 'credit-committee-rules']);
   }
 
-  submit() {
+  submitted() {
     this.isSubmitting = true;
     const creditCommittee = Object.assign({}, this.formComponent.form.value, {
       roleIds: this.formComponent.selectedItems.map(item => item.id)

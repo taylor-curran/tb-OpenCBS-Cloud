@@ -102,7 +102,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
     this.manageEventComponent.viewEvent(e);
   }
 
-  onViewRender(data) {
+  viewRender(data) {
     if (data && data.view) {
       const currentMonth = this.getDate(data.view.start);
 

@@ -192,7 +192,7 @@ export class LoanEditGuarantorComponent implements OnInit, OnDestroy {
     this.guarantorUpdateStore$.dispatch(new fromStore.UpdateGuarantorReset());
   }
 
-  submit() {
+  submitted() {
     this.isSubmitting = true;
     this.guarantorForm.form.value.id = this.guarantorId;
     this.guarantorUpdateStore$

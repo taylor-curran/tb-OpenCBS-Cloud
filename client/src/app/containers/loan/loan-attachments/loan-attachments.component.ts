@@ -111,7 +111,7 @@ export class LoanAttachmentsComponent implements OnInit, OnDestroy {
       });
   }
 
-  onUpload(event) {
+  upload(event) {
     if ( event.xhr && event.xhr.status === 200 ) {
       this.getAttachmentList(this.loanAppId);
       this.closeUploadModal();
@@ -157,11 +157,11 @@ export class LoanAttachmentsComponent implements OnInit, OnDestroy {
     return `${environment.API_ENDPOINT}loan-applications/${this.loanAppId}/attachments/${fileId}`;
   }
 
-  onClear() {
+  cleared() {
     this.closeUploadModal();
   }
 
-  onError(err) {
+  errorOccurred(err) {
     if ( err.xhr && (err.xhr.status >= 400 && err.xhr.status <= 500) ) {
       const response = JSON.parse(err.xhr.response);
       this.closeUploadModal();

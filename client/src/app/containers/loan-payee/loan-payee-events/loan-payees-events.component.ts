@@ -96,7 +96,7 @@ export class LoanPayeesEventsComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  onEventClick(event) {
+  eventClick(event) {
     this.isLoading = true;
     this.loanPayeeEventsService.getChildNotes(this.payeeId, event['groupKey']).subscribe(res => {
       event.childNotes = res;

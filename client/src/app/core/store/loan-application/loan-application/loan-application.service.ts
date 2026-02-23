@@ -25,7 +25,7 @@ export class LoanApplicationService {
 
   submitLoanApplication(loanAppId) {
     return this.httpClient.post(
-      `${environment.API_ENDPOINT}loan-applications/${loanAppId}/submit`,
+      `${environment.API_ENDPOINT}loan-applications/${loanAppId}/submitted`,
       null)
       .pipe(delay(environment.RESPONSE_DELAY));
   }

@@ -23,7 +23,7 @@ public class TermDepositContainer implements Container {
 
     private final TermDepositService termDepositService;
     private final ApplicationContext context;
-    private static List<DayClosureProcessor> termDepositDayClosureProcessorList;
+    private List<DayClosureProcessor> termDepositDayClosureProcessorList;
 
     @Autowired
     protected TermDepositContainer(@NonNull TermDepositService termDepositService,
@@ -38,7 +38,7 @@ public class TermDepositContainer implements Container {
     }
 
     @Override
-    public List<DayClosureProcessor> getProcessingServices() {
+    public synchronized List<DayClosureProcessor> getProcessingServices() {
         if (termDepositDayClosureProcessorList == null) {
             termDepositDayClosureProcessorList = this.context.getBeansOfType(TermDepositDayClosureProcessor.class)
                     .entrySet()

@@ -22,7 +22,7 @@ public class SavingContainer implements Container {
 
     private final SavingService savingService;
     private final ApplicationContext context;
-    private static List<DayClosureProcessor> savingDayClosureProcessorList;
+    private List<DayClosureProcessor> savingDayClosureProcessorList;
 
     @Autowired
     protected SavingContainer(SavingService savingService,
@@ -37,7 +37,7 @@ public class SavingContainer implements Container {
     }
 
     @Override
-    public List<DayClosureProcessor> getProcessingServices() {
+    public synchronized List<DayClosureProcessor> getProcessingServices() {
         if (savingDayClosureProcessorList == null) {
             savingDayClosureProcessorList = this.context.getBeansOfType(SavingDayClosureProcessor.class)
                     .entrySet()
