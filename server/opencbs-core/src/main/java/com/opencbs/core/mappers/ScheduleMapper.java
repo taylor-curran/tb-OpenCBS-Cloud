@@ -16,6 +16,9 @@ import java.util.stream.Collectors;
 @Mapper
 public class ScheduleMapper  {
 
+    public static final String TYPE_DECIMAL = "DECIMAL";
+    public static final String TYPE_INTEGER = "INTEGER";
+    public static final String TYPE_DATE = "DATE";
     public static final String PLANNED_OLB = "Planned OLB";
     public static final String TOTAL = "Total";
     public static final String INTEREST = "Interest";
@@ -43,12 +46,12 @@ public class ScheduleMapper  {
         );
 
         scheduleDto.setTypes(Arrays.asList(
-                "INTEGER",
-                "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                TYPE_INTEGER,
+                TYPE_DATE,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {
@@ -177,15 +180,15 @@ public class ScheduleMapper  {
         );
 
         scheduleDto.setTypes(Arrays.asList(
-                "INTEGER",
-                "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                TYPE_INTEGER,
+                TYPE_DATE,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {

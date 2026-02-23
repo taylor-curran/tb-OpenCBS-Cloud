@@ -27,6 +27,8 @@ import java.util.stream.Collectors;
 @SuppressWarnings("unused")
 public class CompanyAttachmentController {
 
+    private static final String ATTACHMENT_NOT_FOUND_MESSAGE = "Attachment not found (ID=%d).";
+
     private final CompanyService companyService;
 
     private final CompanyAttachmentService companyAttachmentsService;
@@ -70,7 +72,7 @@ public class CompanyAttachmentController {
     public ResponseEntity get(@PathVariable long attachmentId,
                               @RequestParam(value = "size", required = false) Integer size) throws Exception {
         CompanyAttachment attachment = this.companyAttachmentsService.findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MESSAGE, attachmentId)));
 
         return this.companyAttachmentsService.getResponseEntity(attachment, size);
     }
@@ -79,7 +81,7 @@ public class CompanyAttachmentController {
     public AttachmentDto pin(@PathVariable long attachmentId) {
         CompanyAttachment companyAttachment = this.companyAttachmentsService
                 .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MESSAGE, attachmentId)));
         companyAttachment = this.companyAttachmentsService.pin(companyAttachment);
 
         return this.attachmentMapper.mapToDto(companyAttachment);
@@ -89,7 +91,7 @@ public class CompanyAttachmentController {
     public AttachmentDto unpin(@PathVariable long attachmentId) {
         CompanyAttachment companyAttachment = this.companyAttachmentsService
                 .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MESSAGE, attachmentId)));
         companyAttachment = this.companyAttachmentsService.unpin(companyAttachment);
 
         return this.attachmentMapper.mapToDto(companyAttachment);

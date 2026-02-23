@@ -18,6 +18,10 @@ import java.util.stream.Collectors;
 @Mapper
 public class BorrowingScheduleMapper {
 
+    private static final String TYPE_DECIMAL = "DECIMAL";
+    private static final String TYPE_INTEGER = "INTEGER";
+    private static final String TYPE_DATE = "DATE";
+
     public ScheduleDto mapToScheduleDto(List<BorrowingInstallment> schedule) {
         ScheduleDto scheduleDto = new ScheduleDto();
         scheduleDto.setColumns(Arrays.asList(
@@ -34,15 +38,15 @@ public class BorrowingScheduleMapper {
         );
 
         scheduleDto.setTypes(Arrays.asList(
-                "INTEGER",
-                "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                TYPE_INTEGER,
+                TYPE_DATE,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL,
+                TYPE_DECIMAL
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {

@@ -13,6 +13,8 @@ import org.modelmapper.convention.MatchingStrategies;
 @Mapper
 public class PenaltyMapper {
 
+    private static final String ACCOUNT_NOT_FOUND_MESSAGE = "Not found account by [ID]=%s";
+
     private final AccountService accountService;
 
 
@@ -27,11 +29,11 @@ public class PenaltyMapper {
         ModelMapper modelMapper = new ModelMapper();
         Penalty penalty = modelMapper.map(penaltyDto, Penalty.class);
         penalty.setAccrualAccount(this.accountService.getOne(penaltyDto.getAccrualAccountId())
-                .orElseThrow(()->new IllegalArgumentException(String.format("Not found account by [ID]=%s", penaltyDto.getAccrualAccountId()))));
+                .orElseThrow(()->new IllegalArgumentException(String.format(ACCOUNT_NOT_FOUND_MESSAGE, penaltyDto.getAccrualAccountId()))));
         penalty.setIncomeAccount(this.accountService.getOne(penaltyDto.getIncomeAccountId())
-                .orElseThrow(()->new IllegalArgumentException(String.format("Not found account by [ID]=%s", penaltyDto.getIncomeAccountId()))));
+                .orElseThrow(()->new IllegalArgumentException(String.format(ACCOUNT_NOT_FOUND_MESSAGE, penaltyDto.getIncomeAccountId()))));
         penalty.setWriteOffAccount(this.accountService.getOne(penaltyDto.getWriteOffAccountId())
-                .orElseThrow(()->new IllegalArgumentException(String.format("Not found account by [ID]=%s", penaltyDto.getWriteOffAccountId()))));
+                .orElseThrow(()->new IllegalArgumentException(String.format(ACCOUNT_NOT_FOUND_MESSAGE, penaltyDto.getWriteOffAccountId()))));
 
         return penalty;
     }
