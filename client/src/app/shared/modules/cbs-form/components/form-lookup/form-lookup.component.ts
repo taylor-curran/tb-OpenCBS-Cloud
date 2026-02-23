@@ -52,7 +52,7 @@ export class FormLookupComponent implements OnInit, Field {
   @Input() styleClass: string;
   @Input() searchPlaceholder = 'SEARCH';
   @Input() selectPlaceholder = 'SELECT';
-  @Output() onSelect = new EventEmitter();
+  @Output() selectAction = new EventEmitter();
   lookupValue: number;
 
   setLookupValue(value) {
@@ -61,7 +61,7 @@ export class FormLookupComponent implements OnInit, Field {
     } else {
       this.group.controls[this.config.name].setValue('');
     }
-    this.onSelect.emit(value);
+    this.selectAction.emit(value);
   }
 
   clearLookupValue() {
