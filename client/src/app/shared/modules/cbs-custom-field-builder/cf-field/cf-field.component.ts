@@ -26,7 +26,7 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   @Output() fieldDeleteError = new EventEmitter();
   @Output() fieldAddSuccess = new EventEmitter();
   @Output() fieldAddError = new EventEmitter();
-  @Output() onFieldAddCancel = new EventEmitter();
+  @Output() fieldAddCancel = new EventEmitter();
   @ViewChild('fieldForm', {static: false}) fieldForm;
   @ViewChild('caption', {static: false,  read: ElementRef}) captionInput: ElementRef;
 
@@ -148,7 +148,7 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
       this.patternOptions = [...this.cachedPatternValues];
     }
     if ( this.newFieldMode ) {
-      this.onFieldAddCancel.emit(this.fieldData.sectionId);
+      this.fieldAddCancel.emit(this.fieldData.sectionId);
     }
     this.formCollapsed = true;
   }

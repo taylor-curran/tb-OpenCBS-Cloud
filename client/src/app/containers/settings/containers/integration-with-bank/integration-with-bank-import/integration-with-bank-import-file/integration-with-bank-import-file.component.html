@@ -79,8 +79,8 @@
         <cbs-file-upload
             name="file"
             [url]="url"
-            (onUpload)="onUpload($event)"
-            (onError)="onError($event)"
+            (uploadComplete)="onUpload($event)"
+            (uploadError)="onError($event)"
             (clearFiles)="clear()"
             [hasComments]="false"
             includeToken="true"
