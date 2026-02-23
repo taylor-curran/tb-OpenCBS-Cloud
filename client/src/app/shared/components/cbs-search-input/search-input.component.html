@@ -9,7 +9,7 @@
             class="slds-input slds-lookup__search-input"
             [placeholder]="placeholder"
             role="combobox"
-            (keyup.enter)="search(searchQuery)"
+            (keyup.enter)="doSearch(searchQuery)"
             (keyup.esc)="clear()"
             [ngModel]="searchQuery"
             (ngModelChange)="changed($event)"/>
