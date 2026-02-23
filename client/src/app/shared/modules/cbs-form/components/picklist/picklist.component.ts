@@ -205,7 +205,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
-    this.selectItem.emit(item)
+    this.selectItem.emit(item);
     this.isOpened = false;
     this.picklistClose.emit();
     this.valueString = item[this.filterType];
