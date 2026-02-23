@@ -6,7 +6,7 @@
     <cbs-borrowing-details-form
         [hidden]="!formVisible"
         [borrowingFormState]="borrowingFormState"
-        (onLoanProductSelect)="saveBorrowingProduct($event)"
+        (loanProductSelectChange)="saveBorrowingProduct($event)"
     ></cbs-borrowing-details-form>
 
     <cbs-loading-indicator [isFixed]="true" [showLoader]="!formVisible" [isFixed]="false" id=""></cbs-loading-indicator>

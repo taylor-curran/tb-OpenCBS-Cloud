@@ -19,7 +19,7 @@ export class LoanInstallmentsTableComponent implements OnChanges {
   @Input() data;
   @Input() editableColumns = '';
   @Input() editablePaymentDate = '';
-  @Output() onCellEdit = new EventEmitter();
+  @Output() cellEditChange = new EventEmitter();
   public tableData = [];
   public dateFormat: string;
   public numberFormat: string;

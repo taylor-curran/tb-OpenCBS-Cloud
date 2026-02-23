@@ -10,6 +10,7 @@ export class ServerErrorComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally left empty
   }
 
   goHome() {

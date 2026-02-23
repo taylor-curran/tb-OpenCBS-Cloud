@@ -38,9 +38,9 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
   @Input() selectedLabel = {};
   @Input() defaultValue: any;
 
-  @Output() onSelect = new EventEmitter();
-  @Output() onOpenPicklist = new EventEmitter();
-  @Output() onClosePicklist = new EventEmitter();
+  @Output() selectChange = new EventEmitter();
+  @Output() openPicklistChange = new EventEmitter();
+  @Output() closePicklistChange = new EventEmitter();
 
   public innerValue: any = '';
   public reset = false;
@@ -100,22 +100,22 @@ export class FormLookupControlComponent implements ControlValueAccessor, OnInit 
 
   onPicklistOpen(event?) {
     this.onTouchedCallback();
-    this.onOpenPicklist.emit();
+    this.openPicklistChange.emit();
   }
 
   onPicklistClose(event?) {
-    this.onClosePicklist.emit();
+    this.closePicklistChange.emit();
   }
 
   setLookupValue(value) {
     if ( value && value.id ) {
       this.innerValue = value.id;
       this.onChangeCallback(value.id);
-      this.onSelect.emit(value);
+      this.selectChange.emit(value);
     } else {
       this.innerValue = '';
       this.onChangeCallback('');
-      this.onSelect.emit(null);
+      this.selectChange.emit(null);
     }
   }
 }

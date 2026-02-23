@@ -14,22 +14,22 @@ export class ListSelectComponent implements OnInit {
   @Input() picklistData = [];
   @Input() isRequired = true;
   @Input() selectDataLabel: string;
-  @Output() onSelectItem = new EventEmitter();
-  @Output() onRemoveItem = new EventEmitter();
+  @Output() selectItemChange = new EventEmitter();
+  @Output() removeItemChange = new EventEmitter();
 
 
   public pick: any = [];
   public open = false;
 
   ngOnInit() {
-
+    // No-op: intentionally left empty
   }
 
   selectItem(pickedItem) {
-    this.onSelectItem.emit(pickedItem);
+    this.selectItemChange.emit(pickedItem);
   }
 
   delete(removedItem) {
-    this.onRemoveItem.emit(removedItem);
+    this.removeItemChange.emit(removedItem);
   }
 }

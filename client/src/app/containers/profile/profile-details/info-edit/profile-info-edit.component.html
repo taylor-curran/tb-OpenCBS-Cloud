@@ -87,7 +87,7 @@
 
 
                         <div class="slds-form--horizontal">
-                            <form novalidate [formGroup]="profileForm" (submit)="submitForm(profileForm)">
+                            <form novalidate [formGroup]="profileForm" (formSubmit)="submitForm(profileForm)">
                                 <div formArrayName="fieldSections"
                                      cbsVisibleOnSroll
                                      [scrollableBlockId]="'#scrollable-section'"
@@ -124,7 +124,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClickChange)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

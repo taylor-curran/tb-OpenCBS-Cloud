@@ -31,15 +31,16 @@ export class ImageComponent implements OnInit {
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() onClick = new EventEmitter();
+  @Output() clickChange = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+    // No-op: intentionally left empty
   }
 
   imgClick() {
-    this.onClick.emit();
+    this.clickChange.emit();
   }
 }

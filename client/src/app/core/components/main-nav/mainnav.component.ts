@@ -12,6 +12,7 @@ export class MainNavComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally left empty
   }
 
 }

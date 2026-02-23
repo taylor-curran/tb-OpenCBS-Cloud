@@ -10,11 +10,11 @@ import { CFBuilderService } from '../cf-builder.service';
 export class CFSectionComponent implements OnInit {
   @Input() url: string;
   @Input() sectionData: any;
-  @Output() onEditSuccess = new EventEmitter();
-  @Output() onEditError = new EventEmitter();
-  @Output() onAddSuccess = new EventEmitter();
-  @Output() onAddError = new EventEmitter();
-  @Output() onAddCancel = new EventEmitter();
+  @Output() editSuccessChange = new EventEmitter();
+  @Output() editErrorChange = new EventEmitter();
+  @Output() addSuccessChange = new EventEmitter();
+  @Output() addErrorChange = new EventEmitter();
+  @Output() addCancelChange = new EventEmitter();
   @ViewChild('caption', {static: false, read: ElementRef}) captionInput: ElementRef;
   public isEditView = false;
   public newSectionMode = false;
@@ -39,12 +39,12 @@ export class CFSectionComponent implements OnInit {
   updateSection(data) {
     this.service.updateSection(this.url, this.sectionData.id, data).subscribe(
       resp => {
-        this.onEditSuccess.emit(resp);
+        this.editSuccessChange.emit(resp);
         this.closeEdit();
       },
       err => {
         alert(err.error.message);
-        this.onEditError.emit(err.error);
+        this.editErrorChange.emit(err.error);
       }
     );
   }
@@ -52,13 +52,13 @@ export class CFSectionComponent implements OnInit {
   createSection(data) {
     this.service.createSection(this.url, data).subscribe(
       resp => {
-        this.onAddSuccess.emit(resp);
+        this.addSuccessChange.emit(resp);
         this.closeEdit();
         this.newSectionMode = false;
       },
       err => {
         alert(err.error.message);
-        this.onAddError.emit(err.error);
+        this.addErrorChange.emit(err.error);
       }
     );
   }
@@ -78,7 +78,7 @@ export class CFSectionComponent implements OnInit {
     this.formChanged = false;
 
     if ( this.newSectionMode ) {
-      this.onAddCancel.emit();
+      this.addCancelChange.emit();
     } else {
       this.isEditView = false;
     }
