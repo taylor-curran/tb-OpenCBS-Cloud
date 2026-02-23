@@ -26,6 +26,8 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/api/profiles/people/{personId}/attachments")
 public class PersonAttachmentController {
 
+    private static final String ATTACHMENT_NOT_FOUND_MSG = "Attachment not found (ID=%d).";
+
     private final PersonService personService;
 
     private final PersonAttachmentService personAttachmentService;
@@ -68,36 +70,36 @@ public class PersonAttachmentController {
     public AttachmentDto delete(@PathVariable long attachmentId) throws Exception {
         PersonAttachment attachment = this.personAttachmentService
                 .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(    ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
-        this.personAttachmentService.delete(attachment);
-        return this.attachmentMapper.mapToDto(attachment);
-    }
+            this.personAttachmentService.delete(attachment);
+            return this.attachmentMapper.mapToDto(attachment);
+        }
 
-    @RequestMapping(value = "/{attachmentId}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity get(@PathVariable long attachmentId, @RequestParam(value = "size", required = false) Integer size) throws Exception {
-        PersonAttachment attachment = this.personAttachmentService.findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+        @RequestMapping(value = "/{attachmentId}", method = RequestMethod.GET)
+        @ResponseBody
+        public ResponseEntity get(@PathVariable long attachmentId, @RequestParam(value = "size", required = false) Integer size) throws Exception {
+            PersonAttachment attachment = this.personAttachmentService.findOne(attachmentId)
+                    .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
-        return this.personAttachmentService.getResponseEntity(attachment, size);
-    }
+            return this.personAttachmentService.getResponseEntity(attachment, size);
+        }
 
-    @RequestMapping(value = "/{attachmentId}/pin", method = RequestMethod.POST)
-    public AttachmentDto pin(@PathVariable long attachmentId) throws Exception {
-        PersonAttachment attachment = this.personAttachmentService
-                .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+        @RequestMapping(value = "/{attachmentId}/pin", method = RequestMethod.POST)
+        public AttachmentDto pin(@PathVariable long attachmentId) throws Exception {
+            PersonAttachment attachment = this.personAttachmentService
+                    .findOne(attachmentId)
+                    .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
-        attachment = this.personAttachmentService.pin(attachment);
-        return this.attachmentMapper.mapToDto(attachment);
-    }
+            attachment = this.personAttachmentService.pin(attachment);
+            return this.attachmentMapper.mapToDto(attachment);
+        }
 
-    @RequestMapping(value = "/{attachmentId}/unpin", method = RequestMethod.POST)
-    public AttachmentDto unpin(@PathVariable long attachmentId) throws Exception {
-        PersonAttachment attachment = this.personAttachmentService
-                .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+        @RequestMapping(value = "/{attachmentId}/unpin", method = RequestMethod.POST)
+        public AttachmentDto unpin(@PathVariable long attachmentId) throws Exception {
+            PersonAttachment attachment = this.personAttachmentService
+                    .findOne(attachmentId)
+                    .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
         attachment = this.personAttachmentService.unpin(attachment);
         return this.attachmentMapper.mapToDto(attachment);
