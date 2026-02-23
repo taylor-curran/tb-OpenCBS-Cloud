@@ -84,8 +84,8 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
   @Input() readonly: boolean;
   @Input() unmask: boolean;
   @Input() name: string;
-  @Output() onComplete: EventEmitter<any> = new EventEmitter();
-  @Output() onBlur: EventEmitter<any> = new EventEmitter();
+  @Output() maskComplete: EventEmitter<any> = new EventEmitter();
+  @Output() inputBlur: EventEmitter<any> = new EventEmitter();
   value: any;
 
   input: HTMLInputElement;
@@ -322,15 +322,15 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
     }
 
     if (this.isCompleted()) {
-      this.onComplete.emit();
+        this.maskComplete.emit();
+      }
     }
-  }
 
-  onInputBlur(e) {
-    this.onModelTouched();
-    this.checkVal();
-    this.updateModel(e);
-    this.onBlur.emit(e);
+    onInputBlur(e) {
+      this.onModelTouched();
+      this.checkVal();
+      this.updateModel(e);
+      this.inputBlur.emit(e);
 
     if (this.input.value !== this.focusText) {
       let event = document.createEvent('HTMLEvents');
@@ -428,7 +428,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
     this.updateModel(e);
 
     if (completed) {
-      this.onComplete.emit();
+      this.maskComplete.emit();
     }
   }
 
@@ -542,7 +542,7 @@ export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
       this.caret(pos);
       this.updateModel(event);
       if (this.isCompleted()) {
-        this.onComplete.emit();
+        this.maskComplete.emit();
       }
     }, 0);
   }
