@@ -12,8 +12,8 @@ import { range } from './borrowing-details-form-validators';
 })
 export class BorrowingDetailsFormComponent implements OnInit {
   @Input() borrowingFormState: IBorrowingFormState;
-  @Output() submit = new EventEmitter();
-  @Output() onLoanProductSelect = new EventEmitter();
+  @Output() formSubmitted = new EventEmitter();
+  @Output() loanProductSelect = new EventEmitter();
 
   public profileName: string;
   public form: FormGroup;
@@ -53,14 +53,14 @@ export class BorrowingDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submit.emit(this.form.value);
+    this.formSubmitted.emit(this.form.value);
   }
 
   onLPSelect(loanProduct) {
     if (loanProduct) {
       this.refreshControlsArray(['interestRate', 'gracePeriod', 'maturity']);
       this.addValidationRules(loanProduct);
-      this.onLoanProductSelect.emit(loanProduct);
+      this.loanProductSelect.emit(loanProduct);
       this.disableField(loanProduct, ['interestRate', 'gracePeriod', 'maturity']);
       this.form.markAsPristine();
       this.form.markAsUntouched();
@@ -68,7 +68,7 @@ export class BorrowingDetailsFormComponent implements OnInit {
       this.disableAmountField(false);
       this.refreshControlsArray(['amount', 'total']);
       this.resetValidation(['amount', 'interestRate', 'gracePeriod', 'maturity']);
-      this.onLoanProductSelect.emit(null);
+      this.loanProductSelect.emit(null);
     }
   }
 
