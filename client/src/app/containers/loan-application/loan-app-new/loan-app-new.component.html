@@ -6,12 +6,12 @@
     <cbs-loan-details-form
         [hidden]="!formVisible"
         [loanAppFormState]="loanAppFormState"
-        (onLoanProductSelect)="selectLoanProduct($event)"
-        (onCreditLineSelect)="selectCreditLine($event)"
-        (onPayeeAdd)="openAddPayeeModal()"
-        (onPayeeDelete)="confirmDeletingPayee($event)"
-        (onPayeeEdit)="openEditPayeeModal($event)"
-        (onEntryFeesClick)="openEntryFeeDetails()"
+        (loanProductSelect)="selectLoanProduct($event)"
+        (creditLineSelect)="selectCreditLine($event)"
+        (payeeAdd)="openAddPayeeModal()"
+        (payeeDelete)="confirmDeletingPayee($event)"
+        (payeeEdit)="openEditPayeeModal($event)"
+        (entryFeesClick)="openEntryFeeDetails()"
     ></cbs-loan-details-form>
 
     <cbs-loading-indicator [isFixed]="true" [showLoader]="!formVisible"></cbs-loading-indicator>
