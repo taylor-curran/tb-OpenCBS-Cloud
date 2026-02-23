@@ -30,7 +30,7 @@ import { PicklistComponent } from '../picklist/picklist.component';
           [filterType]="'name'"
           [searchPlaceholder]="searchPlaceholder | translate"
           [selectPlaceholder]="selectPlaceholder | translate"
-          (onSelect)="setLookupValue($event)"></cbs-picklist>
+          (accountSelected)="setLookupValue($event)"></cbs-picklist>
       </div>
     </div>
   `,

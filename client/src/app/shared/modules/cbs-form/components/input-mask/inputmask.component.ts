@@ -162,7 +162,6 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
   }
 
   writeValue(value: any): void {
-    let _this = this;
     this.value = value;
 
     if (this.input) {
@@ -173,8 +172,8 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
         this.checkVal();
       }
       setTimeout(() => {
-        _this.writeBuffer();
-        _this.checkVal();
+        this.writeBuffer();
+        this.checkVal();
       }, 10);
     }
   }

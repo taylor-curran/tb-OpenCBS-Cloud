@@ -142,14 +142,14 @@
 <!-- cbs-header -->
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (submitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
 </cbs-confirm-popup>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete()"
+                   (submitClick)="delete()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
@@ -256,7 +256,7 @@
                     [url]="url"
                     (onUpload)="onUpload($event)"
                     (onError)="onError($event)"
-                    (onClear)="onClear()"
+                    (cleared)="onClear()"
                     [hasComments]="true"
                     includeToken="true"
                     multiple="false"

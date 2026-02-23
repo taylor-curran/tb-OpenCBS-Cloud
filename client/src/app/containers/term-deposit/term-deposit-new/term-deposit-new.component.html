@@ -19,7 +19,7 @@
                 [hasError]="hasError('termDepositProductId')"
                 [picklistDataUrl]="formConfigTermDepositProduct.termDepositProductLookupUrl"
                 [requiredField]="true"
-                (onSelect)="onTermDepositSelect($event)"
+                (accountSelected)="onTermDepositSelect($event)"
             ></cbs-form-lookup-control>
 
             <cbs-form-lookup-control

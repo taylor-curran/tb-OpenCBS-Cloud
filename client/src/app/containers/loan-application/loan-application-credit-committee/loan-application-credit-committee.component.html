@@ -122,7 +122,7 @@
 
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (submitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">

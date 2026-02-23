@@ -23,7 +23,7 @@ public class LoanContainer implements Container {
 
     private final LoanService loanService;
     private final ApplicationContext context;
-    private static List<DayClosureProcessor> loanDayClosureProcessorList;
+    private List<DayClosureProcessor> loanDayClosureProcessorList;
 
 
     @Override
