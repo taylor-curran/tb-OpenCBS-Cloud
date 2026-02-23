@@ -63,7 +63,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (select)="markSelectedFieldLabel($event, 'sourceAccountId')"
+                (itemSelect)="markSelectedFieldLabel($event, 'sourceAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-readonly-control
@@ -81,7 +81,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (select)="markSelectedFieldLabel($event, 'destinationAccountId')"
+                (itemSelect)="markSelectedFieldLabel($event, 'destinationAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-input-control
