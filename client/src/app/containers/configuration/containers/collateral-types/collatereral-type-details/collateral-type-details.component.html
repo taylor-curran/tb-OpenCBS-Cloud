@@ -92,8 +92,8 @@
                 (fieldAddError)="callFieldAddError($event)"
             ></cbs-cf-field>
 
-            <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]=""
-                        (click)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
+                        <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]=""
+                                    (buttonClick)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
         </div>
     </div>
 
