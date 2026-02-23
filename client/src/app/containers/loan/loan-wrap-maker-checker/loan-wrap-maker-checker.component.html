@@ -84,7 +84,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="approveLoanProductRequest()"
+                (submitClick)="approveLoanProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -94,7 +94,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="deleteRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="deleteLoanProductRequest()"
+                (submitClick)="deleteLoanProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
