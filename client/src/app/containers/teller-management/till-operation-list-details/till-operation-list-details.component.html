@@ -17,7 +17,7 @@
                     {{ 'CURRENCY' | translate }}{{': '}}
                     <select #currency class="slds-select cbs-currency-list"
 
-                            (changeAction)="getListByCurrency(currency.value)">
+                            (change)="getListByCurrency(currency.value)">
                         <option *ngFor="let val of currencies" [value]="val.id">{{ val.name }}</option>
                     </select>
                 </div>
