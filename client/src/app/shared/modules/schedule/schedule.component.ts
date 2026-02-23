@@ -40,7 +40,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
   @Input() firstDay = 0;
   @Input() droppable: boolean;
   @Input() eventStartEditable: boolean;
-  @Input() eventDuratieditable: boolean;
+  @Input() eventDurationEditable: boolean;
   @Input() defaultView = 'month';
   @Input() allDaySlot = true;
   @Input() allDayText = 'all-day';
@@ -108,7 +108,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
       firstDay: this.firstDay,
       droppable: this.droppable,
       eventStartEditable: this.eventStartEditable,
-      eventDuratieditable: this.eventDuratieditable,
+      eventDurationEditable: this.eventDurationEditable,
       defaultView: this.defaultView,
       allDaySlot: this.allDaySlot,
       allDayText: this.allDayText,
