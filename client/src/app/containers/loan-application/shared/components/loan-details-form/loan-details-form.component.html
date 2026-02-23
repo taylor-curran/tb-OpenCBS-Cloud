@@ -12,7 +12,7 @@
             [selectValue]="'id'"
             [hasError]="form.get('creditLineId').errors && form.get('creditLineId').touched"
             fieldLabel="{{ 'CREDIT_LINE' | translate }}"
-            (onChange)="creditLineSelect($event)"
+            (valueChange)="handleCreditLineSelect($event)"
         ></cbs-form-select-control>
 
         <cbs-form-lookup-control
@@ -24,7 +24,7 @@
             [hasError]="form.get('loanProductId').errors && form.get('loanProductId').touched"
             [picklistDataUrl]="formConfig.loanProductLookupUrl"
             [requiredField]="true"
-            (onSelect)="onLPSelect($event)"
+            (selected)="onLPSelect($event)"
         ></cbs-form-lookup-control>
 
         <cbs-form-lookup-control
@@ -69,9 +69,9 @@
             [payeesData]="loanAppFormState?.payees"
             [showEditBtn]="true"
             [payeesCount]="loanAppFormState?.payees.length"
-            (onAddPayee)="onPayeeAdd.emit()"
-            (onEditPayee)="onPayeeEdit.emit($event)"
-            (onDeletePayee)="onPayeeDelete.emit($event)"
+            (addPayee)="payeeAdd.emit()"
+            (editPayee)="payeeEdit.emit($event)"
+            (deletePayee)="payeeDelete.emit($event)"
         ></cbs-payees-block-control>
 
         <cbs-form-input-control
@@ -128,7 +128,7 @@
             [requiredField]="byMaturity"
             [errorMessage]="'MATURITY_DATE_ERROR'"
             [weekendDisabled]="true"
-            (onChange)="maturityDateChanged($event)"
+            (valueChange)="maturityDateChanged($event)"
         ></cbs-form-date-control>
         <div class="cbs-loan-details-form__range" style="margin-bottom: 9px" *ngIf="byMaturity && maxMaturityDate">
             {{'MAX_MATURITY_DATE' | translate}}: <span>{{ maxMaturityDate | cbsDateFormat }}</span>
@@ -141,7 +141,7 @@
             [requiredField]="true"
             [errorMessage]="'DISBURSEMENT_DATE_ERROR'"
             [weekendDisabled]="true"
-            (onChange)="disbursementDateChanged($event)"
+            (valueChange)="disbursementDateChanged($event)"
         ></cbs-form-date-control>
 
         <cbs-form-date-control
@@ -149,14 +149,14 @@
             formControlName="preferredRepaymentDate"
             fieldLabel="{{ 'PREFERRED_REPAYMENT_DATE' | translate }}"
             [requiredField]="true"
-            (onChange)="preferredRepaymentDateChanged($event)"></cbs-form-date-control>
+            (valueChange)="preferredRepaymentDateChanged($event)"></cbs-form-date-control>
 
         <ng-container *ngIf="!disabledLoanProduct">
             <cbs-entry-fees-block
                 *ngIf="!!loanAppFormState?.entryFees?.length"
                 [isValidToCalculate]="loanAppFormState?.valid"
                 [entryFeesData]="loanAppFormState?.entryFees"
-                (onDetailsClick)="onEntryFeesClick.emit()"
+                (detailsClick)="entryFeesClick.emit()"
             ></cbs-entry-fees-block>
         </ng-container>
 

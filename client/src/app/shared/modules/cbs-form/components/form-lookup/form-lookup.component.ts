@@ -30,7 +30,7 @@ import { PicklistComponent } from '../picklist/picklist.component';
           [filterType]="'name'"
           [searchPlaceholder]="searchPlaceholder | translate"
           [selectPlaceholder]="selectPlaceholder | translate"
-          (onSelect)="setLookupValue($event)"></cbs-picklist>
+          (itemSelect)="setLookupValue($event)"></cbs-picklist>
       </div>
     </div>
   `,
@@ -52,7 +52,7 @@ export class FormLookupComponent implements OnInit, Field {
   @Input() styleClass: string;
   @Input() searchPlaceholder = 'SEARCH';
   @Input() selectPlaceholder = 'SELECT';
-  @Output() onSelect = new EventEmitter();
+  @Output() selected = new EventEmitter();
   lookupValue: number;
 
   setLookupValue(value) {
@@ -61,7 +61,7 @@ export class FormLookupComponent implements OnInit, Field {
     } else {
       this.group.controls[this.config.name].setValue('');
     }
-    this.onSelect.emit(value);
+    this.selected.emit(value);
   }
 
   clearLookupValue() {
