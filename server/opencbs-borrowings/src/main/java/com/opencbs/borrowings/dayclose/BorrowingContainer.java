@@ -36,15 +36,19 @@ public class BorrowingContainer implements Container {
     @Override
     public List<DayClosureProcessor> getProcessingServices() {
         if (borrowingDayClosureProcessorList == null) {
-            borrowingDayClosureProcessorList = this.context.getBeansOfType(BorrowingDayClosureProcessor.class)
-                    .entrySet()
-                    .stream()
-                    .map(Map.Entry::getValue)
-                    .sorted(Comparator.comparingInt(x -> x.getProcessType().getOrder()))
-                    .collect(Collectors.toList());
+            initProcessorList(this.context);
         }
 
         return borrowingDayClosureProcessorList;
+    }
+
+    private static void initProcessorList(ApplicationContext ctx) {
+        borrowingDayClosureProcessorList = ctx.getBeansOfType(BorrowingDayClosureProcessor.class)
+                .entrySet()
+                .stream()
+                .map(Map.Entry::getValue)
+                .sorted(Comparator.comparingInt(x -> x.getProcessType().getOrder()))
+                .collect(Collectors.toList());
     }
 
     @Override

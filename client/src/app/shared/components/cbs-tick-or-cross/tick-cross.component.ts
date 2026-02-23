@@ -12,6 +12,7 @@ export class TickCrossComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally empty
   }
 }
 
