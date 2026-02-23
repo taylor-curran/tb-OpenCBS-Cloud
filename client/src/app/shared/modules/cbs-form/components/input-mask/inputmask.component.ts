@@ -69,7 +69,7 @@ export const INPUTMASK_VALUE_ACCESSOR: any = {
     (paste)="handleInputChange($event)">`,
   providers: [INPUTMASK_VALUE_ACCESSOR]
 })
-export class InputMaskComponent implements AfterViewInit ControlValueAccessor {
+export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
   @Input() mask: string;
   @Input() type = 'text';
   @Input() slotChar = '_';

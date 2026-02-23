@@ -14,7 +14,7 @@
             </div>
         </div>
         <cbs-list-select (removeItem)="removeRole($event)"
-                         (selectItem)="addRole($event)"
+                         (onSelectItem)="addRole($event)"
                          [picklistData]="roles"
                          [listLabel]="'ROLES' | translate"
                          [listData]="selectedItems"
