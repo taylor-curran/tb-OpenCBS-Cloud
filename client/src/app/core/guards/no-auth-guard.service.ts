@@ -22,12 +22,10 @@ export class NoAuthGuard implements CanActivate {
     return this.authService.isAuthenticated.pipe(
       take(1),
       map(bool => !bool),
-      tap((isAuth) => {
-        if (!isAuth && state.url === '/login') {
+      tap((isNotAuth) => {
+        if (!isNotAuth && state.url === '/login') {
           this.router.navigate(['/profiles']);
-          return isAuth;
         }
-        return isAuth;
       }));
   }
 }

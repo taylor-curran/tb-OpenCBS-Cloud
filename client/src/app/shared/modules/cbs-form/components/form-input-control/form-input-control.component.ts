@@ -29,7 +29,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   @Input() styleClass = '';
   @Input() style = '';
   @Input() inputType = 'text';
-  @Output() onChange = new EventEmitter();
+  @Output() changeChange = new EventEmitter();
   @Input() disabled = false;
 
   @Input() innerValue: any = '';
@@ -76,6 +76,6 @@ export class FormInputControlComponent implements ControlValueAccessor {
 
   inputChange(value) {
     this.value = value;
-    this.onChange.emit(value);
+    this.changeChange.emit(value);
   }
 }

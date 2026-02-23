@@ -168,9 +168,9 @@ export class TreeTableComponent {
 
   @Input() value: TreeNode[];
 
-  @Output() onNodeExpand: EventEmitter<any> = new EventEmitter();
+  @Output() nodeExpandChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onNodeCollapse: EventEmitter<any> = new EventEmitter();
+  @Output() nodeCollapseChange: EventEmitter<any> = new EventEmitter();
 
   @Input() style: any;
 
