@@ -13,7 +13,7 @@
                         <form novalidate [formGroup]="form" class="slds-form--stacked">
                             <div class="cbs-controls-container">
                                 <cbs-form-date-control
-                                    (onChange)="valid()"
+                                    (valueChange)="valid()"
                                     class="slds-m-right--x-small"
                                     formControlName="start"
                                     [hasError]="form.get('start').errors && form.get('start').touched"
@@ -273,7 +273,7 @@
                     [requiredField]="true"
                     [formControlName]="'transactionTemplateId'"
                     [fieldLabel]="'TRANSACTION_TEMPLATE' | translate"
-                    (onSelect)="selectTransactionTemplateValue($event)"
+                    (selectItem)="selectTransactionTemplateValue($event)"
                     [picklistDataUrl]="transactionTemplateConfig">
                 </cbs-form-lookup-control>
 
@@ -289,7 +289,7 @@
                                 [fieldLabel]="debitAccount.name"
                                 [innerValue]="isDebitTransactionAccount ? totalAmountAccounts : 0"
                                 [inputType]="'number'"
-                                (onChange)="debitAccountsValue(debitAccount.id, $event)">
+                                (valueChange)="debitAccountsValue(debitAccount.id, $event)">
                             </cbs-form-input-control>
                         </span>
                     </div>
@@ -305,7 +305,7 @@
                                 [fieldLabel]="creditAccount.name"
                                 [innerValue]="!isDebitTransactionAccount ? totalAmountAccounts : 0"
                                 [inputType]="'number'"
-                                (onChange)="creditAccountsValue(creditAccount.id, $event)">
+                                (valueChange)="creditAccountsValue(creditAccount.id, $event)">
                             </cbs-form-input-control>
                         </span>
                     </div>

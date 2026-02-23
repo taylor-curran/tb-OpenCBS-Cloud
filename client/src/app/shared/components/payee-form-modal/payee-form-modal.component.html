@@ -10,7 +10,7 @@
                 [hasError]="form.get('payeeId').errors && form.get('payeeId').touched"
                 [picklistDataUrl]="payeeLookupUrl"
                 [requiredField]="true"
-                (onSelect)="setPayeeDetails($event)"
+                (selectItem)="setPayeeDetails($event)"
             ></cbs-form-lookup-control>
 
             <cbs-form-date-control
@@ -38,7 +38,7 @@
     </div>
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="form.invalid" class="slds-button slds-button--success" (click)="submit()">{{ 'SAVE' |
+        <button [disabled]="form.invalid" class="slds-button slds-button--success" (click)="doSubmit()">{{ 'SAVE' |
             translate }}
         </button>
     </ng-template>
