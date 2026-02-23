@@ -13,11 +13,11 @@ export class PayeeBlockComponent {
   @Output() edit = new EventEmitter();
   @Output() delete = new EventEmitter();
 
-  edit(payee) {
+  onEdit(payee) {
     this.edit.emit(payee);
   }
 
-  delete(payee) {
+  onDelete(payee) {
     this.delete.emit(payee);
   }
 
