@@ -40,7 +40,7 @@ export class FormSelectControlComponent implements ControlValueAccessor {
   public innerValue = '';
 
   private onTouchedCallback: () => void = noop;
-  private onChangeCallback: (_: any) => void = noop;
+  private changeCallback: (_: any) => void = noop;
 
   get value(): any {
     return this.innerValue;
