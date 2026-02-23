@@ -49,7 +49,7 @@
                     [filterType]="'name'"
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
-                    (onSelect)="setLookupValue($event)"></cbs-picklist>
+                    (itemSelect)="setLookupValue($event)"></cbs-picklist>
             </div>
             <div *ngSwitchCase="'CHECKBOX'">
                 <div class="slds-form-element__control">

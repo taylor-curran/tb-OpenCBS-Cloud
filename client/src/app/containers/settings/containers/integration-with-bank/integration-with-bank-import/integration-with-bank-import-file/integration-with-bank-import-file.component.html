@@ -79,9 +79,9 @@
         <cbs-file-upload
             name="file"
             [url]="url"
-            (onUpload)="onUpload($event)"
-            (onError)="onError($event)"
-            (onClear)="onClear()"
+            (upload)="onUpload($event)"
+            (uploadError)="onError($event)"
+            (itemClear)="onClear()"
             [hasComments]="false"
             includeToken="true"
             multiple="false"
@@ -98,7 +98,7 @@
 <cbs-confirm-popup [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                    [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="repay()"
+                   (submitClick)="repay()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">

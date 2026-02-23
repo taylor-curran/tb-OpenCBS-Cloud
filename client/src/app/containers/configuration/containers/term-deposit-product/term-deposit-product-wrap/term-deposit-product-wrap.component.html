@@ -67,7 +67,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="approveTermDepositProductRequest()"
+                (submitClick)="approveTermDepositProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -77,7 +77,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="deleteRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="deleteTermDepositProductRequest()"
+                (submitClick)="deleteTermDepositProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
