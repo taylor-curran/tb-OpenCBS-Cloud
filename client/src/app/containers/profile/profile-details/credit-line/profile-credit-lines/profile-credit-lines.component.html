@@ -31,7 +31,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                 <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                       *ngIf="attachment?.pinned"
-                      (click)="openAttachment(attachment)">
+                      (imageClick)="openAttachment(attachment)">
                     <span>
                         <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                              [attr.title]="attachment?.originalFilename" *ngIf="testIfImage(attachment?.contentType)"/>
@@ -45,7 +45,7 @@
                     </div>
 
                 </div>
-                <button (click)="goToCreateCreditLine(profile)" class="slds-button slds-button--neutral"
+                <button (imageClick)="goToCreateCreditLine(profile)" class="slds-button slds-button--neutral"
                         *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['CREATE_LOAN_APPLICATION']}">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

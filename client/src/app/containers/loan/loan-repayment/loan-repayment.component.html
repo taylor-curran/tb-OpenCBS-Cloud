@@ -10,10 +10,10 @@
 
         <div cbs-page-header-layout="right">
             <cbs-loan-info-entity></cbs-loan-info-entity>
-            <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
+            <button class="slds-button slds-button--neutral" (imageClick)="cancel()">{{'CANCEL' | translate}}</button>
             <button class="slds-button slds-button--success"
                     #submitButton
-                    (click)="repayModal(formComponent?.repaymentForm?.getRawValue())"
+                    (imageClick)="repayModal(formComponent?.repaymentForm?.getRawValue())"
                     [disabled]="disabledRepay || (formComponent?.repaymentForm?.controls?.total?.value <= 0)">{{ 'REPAY' | translate }}
             </button>
         </div>
@@ -24,24 +24,24 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-repayment-form
-            (onChangeRepaymentType)="onChangeRepaymentType()"
-            (onSetMaxAmount)="setMaxAmount()"
+            (changeRepaymentType)="onChangeRepaymentType()"
+            (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
-            (onRepaymentDateEdited)="markDateAsEdited()"
-            (onTotalEdited)="markTotalAsEdited()"></cbs-repayment-form>
+            (repaymentDateEdited)="markDateAsEdited()"
+            (totalEdited)="markTotalAsEdited()"></cbs-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">
         <div class="slds-grid">
             <div class="slds-col">
                 <button class="slds-button slds-button--brand cbs-repayment-preview"
                         #previewButton
-                        (click)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
+                        (imageClick)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
                         [disabled]="formComponent?.repaymentForm?.value?.total <= 0">{{ 'PREVIEW' | translate }}
                 </button>
             </div>
             <div class="slds-col slds-m-left--small" *ngIf="isPreviewing">
                 <button class="slds-button slds-button--neutral cbs-repayment-reset"
-                        (click)="resetPreview(); ">{{ 'RESET' | translate }}
+                        (imageClick)="resetPreview(); ">{{ 'RESET' | translate }}
                 </button>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                 [opened]="opened"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="repay()"
+                (submitClick)="repay()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -75,15 +75,15 @@
             Do you want to actualize it to {{ repayData?.date }}?</p>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'NO' | translate }}
+        <button class="slds-button slds-button--neutral" (imageClick)="isOpenActualize = false">{{ 'NO' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'YES' | translate }}
+        <button class="slds-button slds-button--success" (imageClick)="submitActualizeLoan()">{{ 'YES' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

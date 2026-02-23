@@ -55,7 +55,7 @@
             </div>
             <div class="cbs-compound-form__1-of-3" formGroupName="2" *ngIf="currentInstance != 'rwanda'">
                 <label class="slds-checkbox" for="group-profile">
-                    <input type="checkbox" (click)="checkboxGroup()" name="availability" id="group-profile"
+                    <input type="checkbox" (imageClick)="checkboxGroup()" name="availability" id="group-profile"
                            formControlName="group_profile"/>
                     <span class="slds-checkbox--faux"></span>
                     <span
@@ -271,7 +271,7 @@
         </label>
         <div class="slds-form-element__control">
             <label class="slds-checkbox" for="has-payees">
-                <input (click)="checkboxHasPayees()" type="checkbox" name="hasPayees" id="has-payees"
+                <input (imageClick)="checkboxHasPayees()" type="checkbox" name="hasPayees" id="has-payees"
                        formControlName="hasPayees"/>
                 <span class="slds-checkbox--faux"></span>
             </label>
@@ -281,19 +281,19 @@
     <div class="slds-form-element">
         <cbs-penalties-selected [selectedPenalties]="selectedPenalties"
                                 [label]="'PENALTIES_NO_SELECTED'"
-                                (onPenaltyDelete)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
+                                (penaltyDelete)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
         <cbs-penalty-picklist [selectDataLabel]="'SELECT_PENALTY'" [penalties]="allPenalties"
                               [disablePickList]="disableCheckboxGroup"
-                              (onPenaltySelect)="selectedPenalty($event); checkboxPenalties()"></cbs-penalty-picklist>
+                              (penaltySelect)="selectedPenalty($event); checkboxPenalties()"></cbs-penalty-picklist>
     </div>
 
     <div class="slds-form-element">
         <cbs-entry-fees-selected [selectedEntryFees]="selectedFees"
                                  [label]="'ENTRY_FEE_NO_SELECTED'"
-                                 (onFeeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
+                                 (feeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
         <cbs-entry-fee-picklist [selectDataLabel]="'SELECT_ENTRY_FEE'" [entryFees]="allEntryFees"
                                 [disablePickList]="disableCheckboxGroup"
-                                (onFeeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
+                                (feeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
     </div>
 
     <div class="early-partial-repayment-fee">
@@ -409,7 +409,7 @@
                                 {{ prov?.ratePenalty}}
                             </td>
                             <td class="provisioning" data-label="Branch" scope="row">
-                                <button class="slds-input--bare" (click)="deleteProvisioning(prov)">
+                                <button class="slds-input--bare" (imageClick)="deleteProvisioning(prov)">
                                     <svg class="slds-button__icon" aria-hidden="true">
                                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                                     </svg>
@@ -420,7 +420,7 @@
                     </table>
                 </ul>
             </div>
-            <button (click)="openProvisionModal()" class="slds-button slds-button--neutral slds-align--absolute-center"
+            <button (imageClick)="openProvisionModal()" class="slds-button slds-button--neutral slds-align--absolute-center"
                     aria-live="assertive">
             <span class="slds-text-not-selected ">
                 <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -443,7 +443,7 @@
             </label>
             <div class="slds-form-element__control">
                 <label class="slds-checkbox" for="topUpAllow">
-                    <input (click)="showTopUpFields()" type="checkbox" name="topUpAllow"
+                    <input (imageClick)="showTopUpFields()" type="checkbox" name="topUpAllow"
                            id="topUpAllow"
                            formControlName="topUpAllow"/>
                     <span class="slds-checkbox--faux"></span>
@@ -530,9 +530,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancelModal()">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (imageClick)="cancelModal()">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="addProvisioning()">{{ 'ADD' | translate }}
+        <button class="slds-button slds-button--success" (imageClick)="addProvisioning()">{{ 'ADD' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

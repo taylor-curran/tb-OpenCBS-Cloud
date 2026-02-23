@@ -110,7 +110,7 @@
             <span *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['SUBMIT_LOANS_APPLICATIONS'] }">
                 <cbs-loan-app-submit-button
                     *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.IN_PROGRESS]"
-                    (onClickButton)="openModal($event)">
+                    (clickButton)="openModal($event)">
                 </cbs-loan-app-submit-button>
             </span>
             <ng-container
@@ -118,7 +118,7 @@
                 <cbs-loan-app-confirm-button
                     [disabled]="readOnly"
                     *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.APPROVED]"
-                    (onClickButton)="openModal($event)">
+                    (clickButton)="openModal($event)">
                 </cbs-loan-app-confirm-button>
             </ng-container>
             <span *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['GUARANTOR'] }"
@@ -142,7 +142,7 @@
 <!-- cbs-header -->
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (submitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
@@ -179,7 +179,7 @@
                 <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>
             </td>
             <td data-label="Name" scope="row">
-                <a (click)="goToViewGuarantor(guarantor.id)" class="slds-truncate"
+                <a (imageClick)="goToViewGuarantor(guarantor.id)" class="slds-truncate"
                    title="{{guarantor.profile.name}}">{{guarantor.profile.name | uppercase}}</a>
             </td>
             <td data-label="Relationship" scope="row">
@@ -197,7 +197,7 @@
             </td>
             <td class="slds-text-align--center" data-label="Options" scope="row">
                 <button *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['GUARANTOR'] }"
-                        (click)="removeGuarantor(guarantor.id)" class="slds-button slds-button--icon-border"
+                        (imageClick)="removeGuarantor(guarantor.id)" class="slds-button slds-button--icon-border"
                         [disabled]="loanAppStatus === 'DISBURSED'"
                         title="Delete">
                     <svg class="slds-button__icon" aria-hidden="true">

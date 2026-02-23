@@ -28,7 +28,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                       <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                             *ngIf="attachment?.pinned"
-                            (click)="openAttachment(attachment)">
+                            (imageClick)="openAttachment(attachment)">
                           <span>
                               <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                    [attr.title]="attachment?.originalFilename"
@@ -52,7 +52,7 @@
                         </svg>{{ 'CANCEL' | translate }}</span>
                     </a>
                     <button class="slds-button slds-button--success slds-not-selected" aria-live="assertive"
-                            (click)="submitForm(profileForm)"
+                            (imageClick)="submitForm(profileForm)"
                             [disabled]="profileForm.invalid || !formChanged">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -87,7 +87,7 @@
 
 
                         <div class="slds-form--horizontal">
-                            <form novalidate [formGroup]="profileForm" (submit)="submitForm(profileForm)">
+                            <form novalidate [formGroup]="profileForm" (formSubmit)="submitForm(profileForm)">
                                 <div formArrayName="fieldSections"
                                      cbsVisibleOnSroll
                                      [scrollableBlockId]="'#scrollable-section'"
@@ -124,7 +124,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

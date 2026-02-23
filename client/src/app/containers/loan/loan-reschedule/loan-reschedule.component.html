@@ -22,10 +22,10 @@
             </p>
 
             <button class="slds-button slds-button--neutral"
-                    (click)="cancel()">{{'CANCEL' | translate}}
+                    (imageClick)="cancel()">{{'CANCEL' | translate}}
             </button>
             <button class="slds-button slds-button--success"
-                    (click)="rescheduleApply()"
+                    (imageClick)="rescheduleApply()"
                     #submitButton
                     [disabled]="(rescheduleFormComponent?.rescheduleForm?.invalid || !formStatusChanged && (status && status !== 'VALID'))">
                 {{ 'RESCHEDULE' | translate }}
@@ -44,13 +44,13 @@
         <div class="slds-grid">
             <div class="slds-col">
                 <button class="slds-button slds-button--brand cbs-repayment-preview"
-                        (click)="preview()"
+                        (imageClick)="preview()"
                         #previewButton>{{ 'PREVIEW' | translate }}
                 </button>
             </div>
             <div class="slds-col slds-m-left--small">
                 <button class="slds-button slds-button--neutral cbs-repayment-reset"
-                        (click)="resetPreview()">{{ 'RESET' | translate }}
+                        (imageClick)="resetPreview()">{{ 'RESET' | translate }}
                 </button>
             </div>
         </div>
@@ -60,7 +60,7 @@
             [data]="installments"
             [editableColumns]="editableSchedule"
             [editablePaymentDate]="editablePaymentDate"
-            (onCellEdit)="getCellData($event)"
+            (cellEdit)="getCellData($event)"
         ></cbs-loan-installments-table>
     </div>
 </cbs-loan-layout>
@@ -73,15 +73,15 @@
             Do you want to actualize it to {{ this.rescheduleFormComponent.rescheduleForm.value.rescheduleDate }}?</p>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'NO' | translate }}
+        <button class="slds-button slds-button--neutral" (imageClick)="isOpenActualize = false">{{ 'NO' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'YES' | translate }}
+        <button class="slds-button slds-button--success" (imageClick)="submitActualizeLoan()">{{ 'YES' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

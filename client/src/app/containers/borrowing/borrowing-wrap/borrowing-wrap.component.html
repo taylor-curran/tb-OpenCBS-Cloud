@@ -13,7 +13,7 @@
         <div cbs-page-header-layout="right">
             <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-start">
                 <div class="slds-m-left--x-small" *ngIf="showRollback">
-                    <button class="slds-button slds-button--neutral" (click)="rollBack()">Rollback
+                    <button class="slds-button slds-button--neutral" (imageClick)="rollBack()">Rollback
                     </button>
                 </div>
 
@@ -28,7 +28,7 @@
                         </span>
                     </a>
 
-                    <button (click)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
+                    <button (imageClick)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>
@@ -40,7 +40,7 @@
                 <div *ngIf="filterEvents" class="filter-events"
                      style="text-align: left; padding-left: 10px; margin-top: -5px;">
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-deleted" (click)="showDeletedEvents()"/>
+                        <input type="checkbox" id="checkbox-deleted" (imageClick)="showDeletedEvents()"/>
                         <label class="slds-checkbox__label" for="checkbox-deleted">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show deleted</span>
@@ -48,7 +48,7 @@
                     </span>
                     <br>
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-system" (click)="showSystemEvents()"/>
+                        <input type="checkbox" id="checkbox-system" (imageClick)="showSystemEvents()"/>
                         <label class="slds-checkbox__label" for="checkbox-system">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show system</span>
@@ -69,7 +69,7 @@
         <div cbs-loan-layout="right">
             <cbs-confirm-popup [confirmText]="'Are you sure you want to disburse?'" [opened]="opened"
                                (openedChange)="closeModal()"
-                               (onSubmitClick)="disburse()"
+                               (submitClick)="disburse()"
                                [leftButtonLabel]="'CANCEL' | translate"
                                [rightButtonLabel]="'CONFIRM' | translate"
                                [popupLabel]="'CONFIRMATION' | translate">

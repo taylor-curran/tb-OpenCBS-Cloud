@@ -11,10 +11,10 @@
 
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" (click)="cancel()">Cancel</button>
+            <button class="slds-button slds-button--neutral" (imageClick)="cancel()">Cancel</button>
             <button class="slds-button slds-button--success"
                     #submitButton
-                    (click)="repay(formComponent?.repaymentForm?.value)"
+                    (imageClick)="repay(formComponent?.repaymentForm?.value)"
                     [disabled]="formComponent?.repaymentForm?.invalid">{{ 'REPAY' | translate }}
             </button>
         </div>
@@ -28,23 +28,23 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-borrowing-repayment-form
-            (onAutoTypeChange)="onAutoTypeChange($event)"
-            (onSetMaxAmount)="setMaxAmount()"
+            (autoTypeChange)="onAutoTypeChange($event)"
+            (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
-            (onTotalEdited)="markTotalAsEdited()"></cbs-borrowing-repayment-form>
+            (totalEdited)="markTotalAsEdited()"></cbs-borrowing-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">
         <div class="slds-grid">
             <div class="slds-col">
                 <button class="slds-button slds-button--brand cbs-repayment-preview"
                         #previewButton
-                        (click)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
+                        (imageClick)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
                         [disabled]="formComponent?.repaymentForm?.invalid">{{ 'PREVIEW' | translate }}
                 </button>
             </div>
             <div class="slds-col slds-m-left--small" *ngIf="isPreviewing">
                 <button class="slds-button slds-button--neutral cbs-repayment-reset"
-                        (click)="resetPreview()">{{ 'RESET' | translate }}
+                        (imageClick)="resetPreview()">{{ 'RESET' | translate }}
                 </button>
             </div>
         </div>

@@ -24,7 +24,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let payee of loanAppPayees; let i = index;" [ngClass]="payee.isDeleted ? 'isDeleted' : '' "
-        (click)="goToPayee(payee)">
+        (imageClick)="goToPayee(payee)">
         <td data-label="Name" scope="row">
            <div>{{payee?.payeeName}}</div>
         </td>

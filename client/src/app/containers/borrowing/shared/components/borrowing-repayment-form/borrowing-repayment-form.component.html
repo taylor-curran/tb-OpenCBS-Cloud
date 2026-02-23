@@ -22,9 +22,9 @@
             [inputType]="'number'"
             [hasError]="repaymentForm.get('total').errors && repaymentForm.get('total').touched"
             fieldLabel="{{ 'TOTAL' | translate }}"
-            (onChange)="markAsEdited()">
+            (formChange)="markAsEdited()">
             <div class="maxAmount">
-                MAX: <a (click)="onSetMaxAmount.emit()">{{ maxAmount }}</a>
+                MAX: <a (imageClick)="onSetMaxAmount.emit()">{{ maxAmount }}</a>
             </div>
         </cbs-form-input-control>
 

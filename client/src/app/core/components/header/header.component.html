@@ -16,7 +16,7 @@
         </div>
 
         <cbs-main-nav [navElements]="mainNavElements">
-            <button (click)="openVersionModal()" class="slds-button slds-button--icon slds-button--icon-more"
+            <button (imageClick)="openVersionModal()" class="slds-button slds-button--icon slds-button--icon-more"
                     aria-haspopup="true" [title]="'VERSION' | translate">
                 <svg class="slds-button__icon" aria-hidden="true">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#help"></use>
@@ -76,28 +76,28 @@
                     <div class="slds-dropdown cbs-dropdown slds-col--padded-medium">
                         <ul class="dropdown__list" role="menu">
                             <li class="slds-dropdown__item">
-                                <a (click)="changeLang('en')" role="menuitem" nglDropdownItem title="English">
+                                <a (imageClick)="changeLang('en')" role="menuitem" nglDropdownItem title="English">
                                     <p class="slds-truncate lang-label">{{ 'En' | translate }}</p>
                                     <img class="slds-icon--x-small"
                                          src="../../../../assets/icons/flags/united-states.png" alt=""/>
                                 </a>
                             </li>
                             <li class="slds-dropdown__item">
-                                <a (click)="changeLang('ru')" role="menuitem" nglDropdownItem title="Русский">
+                                <a (imageClick)="changeLang('ru')" role="menuitem" nglDropdownItem title="Русский">
                                     <p class="slds-truncate lang-label">{{ 'Ru' | translate }}</p>
                                     <img class="slds-icon--x-small"
                                          src="../../../../assets/icons/flags/russia.png" alt=""/>
                                 </a>
                             </li>
                             <li class="slds-dropdown__item">
-                                <a (click)="changeLang('fr')" role="menuitem" nglDropdownItem title="Français">
+                                <a (imageClick)="changeLang('fr')" role="menuitem" nglDropdownItem title="Français">
                                     <p class="slds-truncate lang-label">{{ 'Fr' | translate }}</p>
                                     <img class="slds-icon--x-small"
                                          src="../../../../assets/icons/flags/france.png" alt=""/>
                                 </a>
                             </li>
                             <li class="slds-dropdown__item">
-                                <a (click)="changeLang('ar')" role="menuitem" nglDropdownItem title="Arabic">
+                                <a (imageClick)="changeLang('ar')" role="menuitem" nglDropdownItem title="Arabic">
                                     <p class="slds-truncate lang-label">{{ 'Ar' | translate }}</p>
                                     <img class="slds-icon--x-small"
                                          src="../../../../assets/icons/flags/united-arab-emirates.png" alt=""/>
@@ -130,10 +130,10 @@
                                 </header>
                                 <footer>
                                     <ul class="slds-list--horizontal slds-has-dividers--right slds-text-body--small">
-                                        <li class="slds-item" (click)="goToUserDetails()">
+                                        <li class="slds-item" (imageClick)="goToUserDetails()">
                                             <a href="javascript:void(0);" title="User settings">{{
                                                 'CURRENT_USER_SETTINGS' | translate }}</a></li>
-                                        <li class="slds-item"><a href="javascript:void(0);" (click)="logout()"
+                                        <li class="slds-item"><a href="javascript:void(0);" (imageClick)="logout()"
                                                                  title="Logout">{{ 'SIGN_OUT' | translate }}</a></li>
                                     </ul>
                                 </footer>

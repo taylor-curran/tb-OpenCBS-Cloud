@@ -12,12 +12,12 @@
                 <div class="cbs-controls-container slds-accordion__summary">
 
                     <button class="slds-button slds-button--success"
-                            (click)="openUploadModal()">
+                            (imageClick)="openUploadModal()">
                         {{ 'IMPORT' | translate }}
                     </button>
 
                     <button class="slds-button slds-button--success"
-                            (click)="repayModal()"
+                            (imageClick)="repayModal()"
                             [disabled]="!integrationWithBankImportFile['data']?.data?.length">
                         {{ 'REPAY' | translate }}
                     </button>
@@ -81,7 +81,7 @@
             [url]="url"
             (onUpload)="onUpload($event)"
             (onError)="onError($event)"
-            (onClear)="onClear()"
+            (clear)="onClear()"
             [hasComments]="false"
             includeToken="true"
             multiple="false"
@@ -98,7 +98,7 @@
 <cbs-confirm-popup [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                    [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="repay()"
+                   (submitClick)="repay()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
