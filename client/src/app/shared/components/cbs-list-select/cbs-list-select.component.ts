@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'cbs-list-select',
@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['cbs-list-select.component.scss']
 })
 
-export class ListSelectComponent implements OnInit {
+export class ListSelectComponent {
   @Input() listLabel: string;
   @Input() noDataLabel: string;
   @Input() listData = [];
@@ -17,14 +17,8 @@ export class ListSelectComponent implements OnInit {
   @Output() onSelectItem = new EventEmitter();
   @Output() onRemoveItem = new EventEmitter();
 
-
   public pick: any = [];
   public open = false;
-
-  ngOnInit() {
-
-  }
-
   selectItem(pickedItem) {
     this.onSelectItem.emit(pickedItem);
   }
