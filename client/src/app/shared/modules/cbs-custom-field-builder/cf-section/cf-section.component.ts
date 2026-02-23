@@ -39,12 +39,12 @@ export class CFSectionComponent implements OnInit {
   updateSection(data) {
     this.service.updateSection(this.url, this.sectionData.id, data).subscribe(
       resp => {
-        this.onEditSuccess.emit(resp);
+        this.editEventSuccess.emit(resp);
         this.closeEdit();
       },
       err => {
         alert(err.error.message);
-        this.onEditError.emit(err.error);
+        this.editEventError.emit(err.error);
       }
     );
   }
@@ -52,13 +52,13 @@ export class CFSectionComponent implements OnInit {
   createSection(data) {
     this.service.createSection(this.url, data).subscribe(
       resp => {
-        this.onAddSuccess.emit(resp);
+        this.addSuccess.emit(resp);
         this.closeEdit();
         this.newSectionMode = false;
       },
       err => {
         alert(err.error.message);
-        this.onAddError.emit(err.error);
+        this.addError.emit(err.error);
       }
     );
   }
@@ -78,7 +78,7 @@ export class CFSectionComponent implements OnInit {
     this.formChanged = false;
 
     if ( this.newSectionMode ) {
-      this.onAddCancel.emit();
+      this.addCancel.emit();
     } else {
       this.isEditView = false;
     }
