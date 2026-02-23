@@ -78,7 +78,7 @@
                 [requiredField]="true"
                 [hasError]="form.get('vaultId').errors && form.get('vaultId').touched"
                 fieldLabel="{{ 'VAULT' | translate }}"
-                (select)="markSelectedFieldLabel($event, 'vaultId')"
+                (selectValue)="markSelectedFieldLabel($event, 'vaultId')"
             ></cbs-form-select-control>
 
             <cbs-form-input-control

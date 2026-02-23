@@ -24,7 +24,7 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-repayment-form
-            (changeRepaymentType)="onChangeRepaymentType()"
+            (repaymentTypeChange)="onChangeRepaymentType()"
             (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
             (repaymentDateEdited)="markDateAsEdited()"

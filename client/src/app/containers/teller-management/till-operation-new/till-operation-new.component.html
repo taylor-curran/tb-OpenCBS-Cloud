@@ -145,7 +145,7 @@
                     [requiredField]="true"
                     [hasError]="form.get('initiatorId').errors && form.get('initiatorId').touched"
                     fieldLabel="{{ 'WITHDRAWER' | translate }}"
-                    (select)="setWithdrawerValue($event)"
+                    (selectValue)="setWithdrawerValue($event)"
                 ></cbs-form-select-control>
             </span>
 

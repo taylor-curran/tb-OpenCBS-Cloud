@@ -30,7 +30,7 @@
                                #password="ngModel" ngModel required/>
                     </div>
                 </div>
-                <input type="submitAction" *ngIf="!(currentUser | async)?.loading" class="slds-button slds-button--brand"
+                <input type="submit" *ngIf="!(currentUser | async)?.loading" class="slds-button slds-button--brand"
                        [disabled]="f.invalid || disabled" value="{{ 'SIGN_IN' | translate }}">
                 <div class="cbs-auth__spinner" *ngIf="(currentUser | async)?.loading">
                     <div class="slds-spinner_container">

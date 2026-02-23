@@ -17,7 +17,7 @@ import { ReadOnlyOutputEnum } from '../../../../../shared/enums/ReadOnlyOutputEn
   styleUrls: ['./repayment-form.component.scss']
 })
 export class RepaymentFormComponent implements OnInit, OnDestroy {
-  @Output() changeRepaymentType = new EventEmitter();
+  @Output() repaymentTypeChange = new EventEmitter();
   @Output() totalEdited = new EventEmitter();
   @Output() repaymentDateEdited = new EventEmitter();
   @Output() principalAndPenaltyEdited = new EventEmitter();
@@ -119,7 +119,7 @@ export class RepaymentFormComponent implements OnInit, OnDestroy {
       this.principalAndPenaltyEdited.emit();
     }
     if ( control === 'repayment_type' ) {
-      this.changeRepaymentType.emit();
+      this.repaymentTypeChange.emit();
     }
     if ( control === 'date' ) {
       this.repaymentDateEdited.emit();
