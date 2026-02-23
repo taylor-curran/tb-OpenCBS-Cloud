@@ -123,14 +123,14 @@ export class PicklistComponent implements OnInit, OnChanges {
           this.currentPage = resp.number;
           if ( this.hasAll ) {
             this.lookupList.unshift({name: 'All'});
-            this.selectActionPlaceholder = 'All';
+            this.selectPlaceholder = 'All';
           }
           this.lookupList = [...this.lookupList, ...resp.content];
           if ( this.currentValue && this.lookupList ) {
             this.removeExcludedItems(this.lookupList, this.currentValue);
           }
           if (!this.value && resp.content[0] && resp.content.length === 1 ) {
-            this.selectAction(resp.content[0])
+            this.select(resp.content[0])
           }
           if ( this.value && this.value > 0 ) {
             this.assignSelected(this.value);
@@ -158,7 +158,7 @@ export class PicklistComponent implements OnInit, OnChanges {
         item['selected'] = true;
         this.valueString = item[this.filterType];
         if ( this.code ) {
-          this.selectActionedCode = item['number'];
+          this.selectedCode = item['number'];
         }
       } else {
         item['selected'] = false;
@@ -174,7 +174,7 @@ export class PicklistComponent implements OnInit, OnChanges {
   }
 
   remove() {
-    this.selectActionPlaceholder = 'Select';
+    this.selectPlaceholder = 'Select';
     this.value = -1;
     this.valueString = '';
     this.lookupList.map(item => {

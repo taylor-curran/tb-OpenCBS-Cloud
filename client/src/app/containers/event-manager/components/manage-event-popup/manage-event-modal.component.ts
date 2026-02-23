@@ -328,7 +328,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitActionBtn.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.submitBtn.nativeElement, 'disabled', bool);
   }
 
   addParticipant(data, shouldClean?) {

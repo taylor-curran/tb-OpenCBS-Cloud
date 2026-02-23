@@ -50,10 +50,10 @@ export class FormSelectControlComponent implements ControlValueAccessor {
     if (v && v !== this.innerValue) {
       this.selectAction.emit(v);
       this.innerValue = v;
-      this.changeActionCallback(v);
+      this.onChangeCallback(v);
     } else {
       this.innerValue = null;
-      this.changeActionCallback(null);
+      this.onChangeCallback(null);
     }
   }
 
@@ -69,7 +69,7 @@ export class FormSelectControlComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
-    this.changeActionCallback = fn;
+    this.onChangeCallback = fn;
   }
 
   registerOnTouched(fn: any) {
