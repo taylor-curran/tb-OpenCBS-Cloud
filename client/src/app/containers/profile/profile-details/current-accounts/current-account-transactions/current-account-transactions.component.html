@@ -44,7 +44,7 @@
                                     [hasError]="form.get('end').errors && form.get('end').touched"
                                     [requiredField]="true"></cbs-form-date-control>
                                 <button class="slds-button slds-button--neutral filter"
-                                        (click)="filter()"
+                                        (clickAction)="filter()"
                                         aria-live="assertive">
                                     <span class="slds-text-not-selected">
                                         {{ 'FILTER' | translate }}
@@ -53,13 +53,13 @@
 
                                 <ng-container *ngIf="isImpactFinance()">
                                     <button class="slds-button slds-button--success slds-m-left--x-small"
-                                            (click)="makeTransaction('deposit')" aria-live="assertive">
+                                            (clickAction)="makeTransaction('deposit')" aria-live="assertive">
                                         <span class="slds-text-not-selected">
                                             {{ 'DEPOSIT' | translate }}
                                         </span>
                                     </button>
                                     <button class="slds-button slds-button--brand slds-m-left--x-small"
-                                            (click)="makeTransaction('withdraw')" aria-live="assertive">
+                                            (clickAction)="makeTransaction('withdraw')" aria-live="assertive">
                                         <span class="slds-text-not-selected">
                                             {{ 'WITHDRAW' | translate }}
                                         </span>
@@ -68,15 +68,15 @@
                             </div>
                         </form>
                         <div class="slds-p-top_x-small">
-                            <button (click)="filterByPeriod(2)"
+                            <button (clickAction)="filterByPeriod(2)"
                                     class="cbs-period-button slds-button period">
                                 {{ 'LAST_2_DAYS' | translate }}
                             </button>
-                            <button (click)="filterByPeriod(7)"
+                            <button (clickAction)="filterByPeriod(7)"
                                     class="cbs-period-button slds-button period">
                                 {{ 'CURRENT_WEEK' | translate }}
                             </button>
-                            <button (click)="filterByPeriod('month')"
+                            <button (clickAction)="filterByPeriod('month')"
                                     class="cbs-period-button slds-button period">
                                 {{ 'CURRENT_MONTH' | translate }}
                             </button>
@@ -183,7 +183,7 @@
                         [requiredField]="false"
                         [hasError]="transactionForm.get('debitAccountId').errors && transactionForm.get('debitAccountId').touched"
                         fieldLabel="{{ 'BANK_ACCOUNT' | translate }}"
-                        (onSelect)="setBankAccount($event)"
+                        (selectAction)="setBankAccount($event)"
                     ></cbs-form-select-control>
                 </ng-container>
 
@@ -194,7 +194,7 @@
                         [requiredField]="false"
                         [hasError]="transactionForm.get('creditAccountId').errors && transactionForm.get('creditAccountId').touched"
                         fieldLabel="{{ 'BANK_ACCOUNT' | translate }}"
-                        (onSelect)="setBankAccount($event)"
+                        (selectAction)="setBankAccount($event)"
                     ></cbs-form-select-control>
                 </ng-container>
 
@@ -235,8 +235,8 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (click)="submit()">
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (clickAction)="submit()">
             {{ 'SAVE' | translate }}
         </button>
     </ng-template>

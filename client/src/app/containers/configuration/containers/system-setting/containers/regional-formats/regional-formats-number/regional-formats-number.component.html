@@ -29,7 +29,7 @@
             <div *ngFor="let format of numberFormats; let i = index;"
                  class="slds-form-element slds-accordion__section">
                 <div class="slds-form-element__control"
-                     (click)="selectedFormatValue(format.value)">
+                     (clickAction)="selectedFormatValue(format.value)">
                                     <span class="slds-form-element__static">
                                         {{ format['value'] | cbsSettingNumberFormat }}
                                     </span>
@@ -57,7 +57,7 @@
                                id="use-decimal"
                                [ngModel]="useDecimal"
                                [ngModelOptions]="{standalone: true}"
-                               (click)="useDecimalSelect()"/>
+                               (clickAction)="useDecimalSelect()"/>
                         <span class="slds-checkbox--faux"></span>
                     </label>
                 </div>

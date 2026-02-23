@@ -13,7 +13,7 @@
     <p-column [style]="{'min-width':'65px', 'width':'65px'}" field="id" header="#">
         <ng-template let-row="rowData" pTemplate="body">
             <span *ngIf="row['id'] > 0">{{ row['id']}}</span>
-            <button (click)="onEventClick(row)" [ngClass]="{'cbs-treetable__toggler--expanded' : row.expanded }"
+            <button (clickAction)="onEventClick(row)" [ngClass]="{'cbs-treetable__toggler--expanded' : row.expanded }"
                     class="slds-button cbs-treetable__toggler slds-button--icon slds-button--icon-x-small slds-m-right--x-small"
                     aria-controls="expand"
                     *ngIf="row['id'] === 0">
@@ -83,7 +83,7 @@
     </p-column>
     <p-column [style]="{'min-width':'70px', 'width':'70px', 'max-width':'70px'}" field="download">
         <ng-template let-row="rowData" pTemplate="body">
-            <button *ngIf="row['id'] === 0" (click)="download(row)"
+            <button *ngIf="row['id'] === 0" (clickAction)="download(row)"
                     class="slds-button slds-button--icon slds-button--icon-more slds-m-left--small" aria-haspopup="true"
                     title="Configuration">
                 <svg class="slds-button__icon" aria-hidden="true">
@@ -162,9 +162,9 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="closeModal()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (clickAction)="closeModal()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="rollbackForm.invalid" class="slds-button slds-button--success"
-                (click)="confirmRollback()">{{
+                (clickAction)="confirmRollback()">{{
             'SAVE' | translate }}
         </button>
     </ng-template>

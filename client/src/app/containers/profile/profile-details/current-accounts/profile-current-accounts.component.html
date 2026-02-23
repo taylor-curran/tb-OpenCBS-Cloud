@@ -28,7 +28,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of profile?.attachments">
                 <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                       *ngIf="attachment?.pinned"
-                      (click)="openAttachment(attachment)">
+                      (clickAction)="openAttachment(attachment)">
                     <span>
                         <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                              [attr.title]="attachment?.originalFilename" *ngIf="testIfImage(attachment?.contentType)"/>
@@ -42,7 +42,7 @@
                     </div>
 
                 </div>
-                <button (click)="isOpen = true" class="slds-button slds-button--neutral" aria-live="assertive">
+                <button (clickAction)="isOpen = true" class="slds-button slds-button--neutral" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -88,7 +88,7 @@
 
                     <tbody>
                     <tr *ngFor="let account of (profileCurrentAccounts | async)?.currentAccounts; let i = index;"
-                        (click)="goToTransactions(account.id)">
+                        (clickAction)="goToTransactions(account.id)">
                         <td data-label="#" scope="row">
                             {{i + 1}}
                         </td>
@@ -129,8 +129,8 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpen = false">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="form.invalid" class="slds-button slds-button--success" (click)="createAccount()">{{ 'SAVE' |
+        <button class="slds-button slds-button--neutral" (clickAction)="isOpen = false">{{ 'CANCEL' | translate }}</button>
+        <button [disabled]="form.invalid" class="slds-button slds-button--success" (clickAction)="createAccount()">{{ 'SAVE' |
             translate }}
         </button>
     </ng-template>

@@ -27,7 +27,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                         <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                               *ngIf="attachment?.pinned"
-                              (click)="openAttachment(attachment)">
+                              (clickAction)="openAttachment(attachment)">
                             <span>
                                 <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                      [attr.title]="attachment?.originalFilename"
@@ -43,7 +43,7 @@
 
                 </div>
                 <div *cbsVisibleByPermission="{group: 'PROFILES', permissions: ['MAKER_FOR_PROFILE'] }">
-                    <button (click)="openUploadModal()" class="slds-button slds-button--neutral" aria-live="assertive">
+                    <button (clickAction)="openUploadModal()" class="slds-button slds-button--neutral" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -116,7 +116,7 @@
                             <div class="slds-m-top--xxx-small slds-grid">
                                 <div class="slds-button-group" role="group">
                                     <button
-                                        (click)="pin(attachment)"
+                                        (clickAction)="pin(attachment)"
                                         class="slds-button slds-button--icon-border"
                                         [ngClass]="{'cbs-icon-pin-is-selected': attachment?.pinned, 'cbs-icon-pin-not-selected': !attachment?.pinned}"
                                         [attr.title]="attachment?.pinned ? 'Unpin' : 'Pin'">
@@ -137,7 +137,7 @@
                                         </svg>
                                         <span class="slds-assistive-text">Download</span>
                                     </button>
-                                    <button (click)="download(attachment?.id)"
+                                    <button (clickAction)="download(attachment?.id)"
                                             class="slds-button slds-button--icon-border" title="Download">
                                         <svg class="slds-button__icon" aria-hidden="true">
                                             <use
@@ -145,7 +145,7 @@
                                         </svg>
                                         <span class="slds-assistive-text">Download</span>
                                     </button>
-                                    <button (click)="confirmDelete(attachment)"
+                                    <button (clickAction)="confirmDelete(attachment)"
                                             class="slds-button slds-button--icon-border"
                                             title="Delete">
                                         <svg class="slds-button__icon" aria-hidden="true">
@@ -172,7 +172,7 @@
                             [url]="url"
                             (onUpload)="onUpload($event)"
                             (onError)="onError($event)"
-                            (onClear)="onClear()"
+                            (clear)="onClear()"
                             [hasComments]="true"
                             includeToken="true"
                             multiple="false"
@@ -197,7 +197,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete($event)"
+                   (submitClick)="delete($event)"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

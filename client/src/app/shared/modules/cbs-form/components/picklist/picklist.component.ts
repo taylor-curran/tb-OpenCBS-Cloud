@@ -33,10 +33,10 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() disabled = false;
   @Input() excludedItems = [];
   @Input() defaultValue: any;
-  @Output() onSelect = new EventEmitter();
-  @Output() onClear = new EventEmitter();
-  @Output() onPicklistOpen = new EventEmitter();
-  @Output() onPicklistClose = new EventEmitter();
+  @Output() selectAction = new EventEmitter();
+  @Output() clear = new EventEmitter();
+  @Output() picklistOpen = new EventEmitter();
+  @Output() picklistClose = new EventEmitter();
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
   @ViewChild('scrollBlock', {static: false}) scrollBlock: ElementRef;
   @ViewChild('trigger', {static: false}) trigger: ElementRef;
@@ -123,14 +123,14 @@ export class PicklistComponent implements OnInit, OnChanges {
           this.currentPage = resp.number;
           if ( this.hasAll ) {
             this.lookupList.unshift({name: 'All'});
-            this.selectPlaceholder = 'All';
+            this.selectActionPlaceholder = 'All';
           }
           this.lookupList = [...this.lookupList, ...resp.content];
           if ( this.currentValue && this.lookupList ) {
             this.removeExcludedItems(this.lookupList, this.currentValue);
           }
           if (!this.value && resp.content[0] && resp.content.length === 1 ) {
-            this.select(resp.content[0])
+            this.selectAction(resp.content[0])
           }
           if ( this.value && this.value > 0 ) {
             this.assignSelected(this.value);
@@ -158,7 +158,7 @@ export class PicklistComponent implements OnInit, OnChanges {
         item['selected'] = true;
         this.valueString = item[this.filterType];
         if ( this.code ) {
-          this.selectedCode = item['number'];
+          this.selectActionedCode = item['number'];
         }
       } else {
         item['selected'] = false;
@@ -174,13 +174,13 @@ export class PicklistComponent implements OnInit, OnChanges {
   }
 
   remove() {
-    this.selectPlaceholder = 'Select';
+    this.selectActionPlaceholder = 'Select';
     this.value = -1;
     this.valueString = '';
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.onSelect.emit();
+    this.selectAction.emit();
     this.clear();
   }
 
@@ -198,16 +198,16 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList = [];
 
     this.getData(this.config.url, 0);
-    this.onClear.emit();
+    this.clear.emit();
   }
 
   select(item) {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
-    this.onSelect.emit(item);
+    this.selectAction.emit(item);
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistClose.emit();
     this.valueString = item[this.filterType];
   }
 
@@ -249,13 +249,13 @@ export class PicklistComponent implements OnInit, OnChanges {
       }
     });
 
-    this.onPicklistOpen.emit();
+    this.picklistOpen.emit();
 
     this.triggerRect = this.trigger.nativeElement.getBoundingClientRect();
   }
 
   close() {
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistClose.emit();
   }
 }

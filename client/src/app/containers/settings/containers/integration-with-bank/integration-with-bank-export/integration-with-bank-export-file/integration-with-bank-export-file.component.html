@@ -16,7 +16,7 @@
                     ></cbs-datepicker>
 
                     <button class="slds-button slds-button--neutral btn"
-                            (click)="generate()"
+                            (clickAction)="generate()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'GENERATE' | translate }}
@@ -24,7 +24,7 @@
                     </button>
 
                     <button class="slds-button slds-button--success"
-                            (click)="exportToBank()"
+                            (clickAction)="exportToBank()"
                             [disabled]="!selectedLoans?.length">
                         {{ 'EXPORT' | translate }}
                     </button>
