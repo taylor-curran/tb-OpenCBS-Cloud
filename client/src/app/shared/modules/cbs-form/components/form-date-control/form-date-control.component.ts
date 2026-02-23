@@ -74,7 +74,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   @Input() minDate = Date;
   @Input() maxDate = Date;
   @Input() weekendDisabled = false;
-  @Output() onChange = new EventEmitter();
+  @Output() changeAction = new EventEmitter();
 
   public yearsFromNow = null;
   public errorOutputMessage: string;
@@ -94,8 +94,8 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
     if ( v && v.value && v.value.isValid() ) {
       if ( !v.value.isSame(this.innerValue) ) {
         this.innerValue = v.value;
-        this.onChangeCallback(v.value.format(this.localStorageService.getDateFormat()));
-        this.onChange.emit(v.value.format(this.localStorageService.getDateFormat()));
+        this.changeActionCallback(v.value.format(this.localStorageService.getDateFormat()));
+        this.changeAction.emit(v.value.format(this.localStorageService.getDateFormat()));
       }
     }
   }
@@ -114,7 +114,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   ngOnChanges(inputs) {
     if ( inputs.validateDate && this.innerValue ) {
       this.validateFn = dateValidator(this.dateFormat);
-      this.onChangeCallback(this.innerValue.format(this.systemSettingsShareService.getData('DATE_FORMAT')));
+      this.changeActionCallback(this.innerValue.format(this.systemSettingsShareService.getData('DATE_FORMAT')));
     }
   }
 
@@ -144,7 +144,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
         this.outputErrorMessage(date.value);
       }
     } else {
-      this.onChange.emit(null);
+      this.changeAction.emit(null);
       this.yearsFromNow = null;
     }
   }
@@ -157,7 +157,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   }
 
   registerOnChange(fn: any) {
-    this.onChangeCallback = fn;
+    this.changeActionCallback = fn;
   }
 
   registerOnTouched(fn: any) {

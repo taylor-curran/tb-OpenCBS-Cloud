@@ -14,7 +14,7 @@
                     [filterType]="'name'"
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ selectLabel | translate }}"
-                    (onSelect)="setLookupValue($event)"></cbs-picklist>
+                    (selectAction)="setLookupValue($event)"></cbs-picklist>
             </div>
         </div>
         <!-- /cbs-page-header-layout = left -->
@@ -69,7 +69,7 @@
             </tr>
             <tr *ngIf="node.expanded">
                 <td colspan="3" style="padding: 0; border-top: none;">
-                    <cbs-accounts-tree-table (onIconClick)="show($event)" [padding]="2" [currentNode]="node"
+                    <cbs-accounts-tree-table (iconClick)="show($event)" [padding]="2" [currentNode]="node"
                                              [childrenNodes]="node?.data"
                                              [branchId]="branchId"></cbs-accounts-tree-table>
                 </td>
