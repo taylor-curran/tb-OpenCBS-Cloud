@@ -30,7 +30,7 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ isCreatePayeeMode ? ('ADD' | translate) :  ('EDIT' | translate) }}"
-    (submit)="submitPayee($event)">
+    (formSubmit)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-entry-fees-modal
