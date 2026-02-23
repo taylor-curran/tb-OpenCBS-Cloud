@@ -32,6 +32,7 @@ public class UserHelper {
     }
 
     @Autowired
+    @SuppressWarnings("java:S2696")
     private void setUserService(UserService userServiceArg) {
         if (userService == null) {
             UserHelper.userService = userServiceArg;

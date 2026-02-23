@@ -26,6 +26,8 @@ import java.util.Optional;
 @Service
 public class BondAccountingEntryWorker {
 
+    private static final String NO_PIVOT_CURRENCY_MSG = "There is no pivot currency";
+
     private final BondService bondService;
     private final UserService userService;
     private final AccountingEntryService accountingEntryService;
@@ -70,7 +72,7 @@ public class BondAccountingEntryWorker {
             return accountingEntries;
         }
         Currency pivotCurrency = this.globalSettingsService.getDefaultCurrency()
-                .orElseThrow(() -> new RuntimeException("There is no pivot currency"));
+                .orElseThrow(() -> new RuntimeException(NO_PIVOT_CURRENCY_MSG));
         BigDecimal amount =
                 this.abstractExchangeRateService.getConvertedRate(pivotCurrency, bond.getCurrency(), event.getAmount(), DateHelper.getLocalDateTimeNow(), false);
         accountingEntries.add(this.getAccountEntry(event, debitAccount.get(), creditAccount, amount,"Repayment of interest"));
@@ -87,7 +89,7 @@ public class BondAccountingEntryWorker {
             return accountingEntries;
 
         Currency pivotCurrency = this.globalSettingsService.getDefaultCurrency()
-                .orElseThrow(() -> new RuntimeException("There is no pivot currency"));
+                .orElseThrow(() -> new RuntimeException(NO_PIVOT_CURRENCY_MSG));
         BigDecimal amount =
                 this.abstractExchangeRateService.getConvertedRate(pivotCurrency, bond.getCurrency(), event.getAmount(), DateHelper.getLocalDateTimeNow(), false);
         accountingEntries.add(this.getAccountEntry(event, debitAccount.get(), creditAccount, amount,"Repayment of principal"));
@@ -96,9 +98,9 @@ public class BondAccountingEntryWorker {
 
     public List<AccountingEntry> getBondPenaltyAccountingEntry(BondEvent event) {
         Currency pivotCurrency = this.globalSettingsService.getDefaultCurrency()
-                .orElseThrow(() -> new RuntimeException("There is no pivot currency"));
+                .orElseThrow(() -> new RuntimeException(NO_PIVOT_CURRENCY_MSG));
 
-        List<BondAccount> bondAccounts = this.bondAccountService.getAllByBondId(event.getBondId());
+        List<BondAccount> bondAccounts= this.bondAccountService.getAllByBondId(event.getBondId());
         Optional<Account> debitAccount = this.getBondAccountByBondAccountRuleType(bondAccounts, BondAccountRuleType.PRINCIPAL);
         Optional<Account> creditAccount = this.getBondAccountByBondAccountRuleType(bondAccounts, BondAccountRuleType.PENALTY);
         Bond bond = this.bondService.findById(event.getBondId());

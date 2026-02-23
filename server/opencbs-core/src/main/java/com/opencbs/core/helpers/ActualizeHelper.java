@@ -24,6 +24,7 @@ public class ActualizeHelper implements ApplicationContextAware {
     private static ApplicationContext context;
 
     @Autowired
+    @SuppressWarnings("java:S2696")
     public ActualizeHelper(DayClosureContractService dayClosureContractService) {
         ActualizeHelper.dayClosureContractService = dayClosureContractService;
     }
@@ -61,6 +62,7 @@ public class ActualizeHelper implements ApplicationContextAware {
     }
 
     @Override
+    @SuppressWarnings("java:S2696")
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         context = applicationContext;
     }

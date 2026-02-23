@@ -28,6 +28,9 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implements BorrowingRepositoryCustom {
+
+    private static final String LOAN_ID_PROPERTY = "loan.id";
+    private static final String BORROWING_PRODUCT_ALIAS = "borrowingProduct";
     public BorrowingRepositoryImpl(EntityManager entityManager) {
         super(entityManager, Borrowing.class);
     }
@@ -38,14 +41,14 @@ public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implement
         criteria.add(this.getClosedCriterion(dateTime));
         criteria.add(this.getActivatedCriterion(dateTime));
 
-        criteria.addOrder(Order.asc("loan.id"));
+        criteria.addOrder(Order.asc(LOAN_ID_PROPERTY));
         return criteria.list();
     }
 
     @Override
     public List<Borrowing> getAllActiveNotInPivotCurrency(LocalDateTime dateTime, Long currencyId) {
         Criteria criteria = this.getCriteria();
-        criteria.createAlias("loan.borrowingProduct", "borrowingProduct", JoinType.LEFT_OUTER_JOIN);
+        criteria.createAlias("loan.borrowingProduct", BORROWING_PRODUCT_ALIAS, JoinType.LEFT_OUTER_JOIN);
         criteria.createAlias("borrowingProduct.currency", "currency", JoinType.LEFT_OUTER_JOIN);
 
         criteria.add(this.getClosedCriterion(dateTime));
@@ -65,7 +68,7 @@ public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implement
         Criteria criteria = this.getCriteria();
         criteria.createCriteria("createdBy", "created_by");
         criteria.createCriteria("profile", "profile");
-        criteria.createCriteria("borrowingProduct", "borrowingProduct");
+        criteria.createCriteria(BORROWING_PRODUCT_ALIAS, BORROWING_PRODUCT_ALIAS);
         criteria.add(criterion);
 
         long total = (long) criteria.setProjection(Projections.rowCount()).uniqueResult();
@@ -93,7 +96,7 @@ public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implement
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(BorrowingEvent.class, "closed")
                 .add(criterion)
                 .setProjection(Projections.property("closed.borrowingId"));
-        return Subqueries.propertyNotIn("loan.id", detachedCriteria);
+        return Subqueries.propertyNotIn(LOAN_ID_PROPERTY, detachedCriteria);
     }
 
     private Criterion getActivatedCriterion(LocalDateTime dateTime) {
@@ -104,12 +107,12 @@ public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implement
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(BorrowingEvent.class, "activated")
                 .add(criterion)
                 .setProjection(Projections.property("activated.borrowingId"));
-        return Subqueries.propertyIn("loan.id", detachedCriteria);
+        return Subqueries.propertyIn(LOAN_ID_PROPERTY, detachedCriteria);
     }
 
     private ProjectionList getProjectionList() {
         ProjectionList projectionList = Projections.projectionList();
-        projectionList.add(Projections.property("loan.id").as("id"));
+        projectionList.add(Projections.property(LOAN_ID_PROPERTY).as("id"));
         projectionList.add(Projections.property("loan.status").as("status"));
         projectionList.add(Projections.property("loan.code").as("code"));
         projectionList.add(Projections.property("loan.amount").as("amount"));
