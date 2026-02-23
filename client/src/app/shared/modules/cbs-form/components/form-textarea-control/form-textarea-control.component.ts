@@ -45,7 +45,7 @@ export class FormTextareaControlComponent implements ControlValueAccessor {
   set value(v: any) {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.onChangeCallback(v);
+      this.changeChangeCallback(v);
     }
   }
 
@@ -56,7 +56,7 @@ export class FormTextareaControlComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
-    this.onChangeCallback = fn;
+    this.changeChangeCallback = fn;
   }
 
   registerOnTouched(fn: any) {

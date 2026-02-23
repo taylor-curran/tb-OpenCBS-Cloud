@@ -16,7 +16,7 @@ export class EntryFeesModalComponent implements OnInit, AfterViewInit {
   @Input() loanAppFormState: ILoanAppFormState;
   @Input() headerTitle = '';
   @Output() resetFeeCalculation = new EventEmitter();
-  @Output() onSaveNewValue = new EventEmitter();
+  @Output() saveNewValueChange = new EventEmitter();
   public loanAppState: ILoanAppState;
   public entryFees: any[];
   public entryFeesForm: FormGroup;
@@ -106,7 +106,7 @@ export class EntryFeesModalComponent implements OnInit, AfterViewInit {
   }
 
   saveNewEntryFees() {
-    this.onSaveNewValue.emit(this.entryFeeNewValues);
+    this.saveNewValueChange.emit(this.entryFeeNewValues);
   }
 
   collectFormData(formValue: { fees, total }, fields: any[]) {

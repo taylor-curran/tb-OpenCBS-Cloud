@@ -10,7 +10,7 @@ export class PenaltiesPicklistComponent {
   @Input() penalties = [];
   @Input() selectDataLabel: string;
   @Input() disablePickList: string;
-  @Output() onPenaltySelect = new EventEmitter();
+  @Output() penaltySelectChange = new EventEmitter();
   public pick: any = [];
   public open: boolean;
 
@@ -23,7 +23,7 @@ export class PenaltiesPicklistComponent {
         this.penalties.splice(this.penalties.indexOf(a), 1);
       }
     });
-    this.onPenaltySelect.emit(penalties);
+    this.penaltySelectChange.emit(penalties);
   }
 
 }

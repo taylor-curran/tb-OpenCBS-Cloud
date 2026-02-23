@@ -172,7 +172,7 @@
                             [url]="url"
                             (onUpload)="onUpload($event)"
                             (onError)="onError($event)"
-                            (onClear)="onClear()"
+                            (clearChange)="onClear()"
                             [hasComments]="true"
                             includeToken="true"
                             multiple="false"
@@ -197,7 +197,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete($event)"
+                   (submitClickChange)="delete($event)"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

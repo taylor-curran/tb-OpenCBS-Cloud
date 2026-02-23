@@ -69,7 +69,7 @@
         <div cbs-loan-layout="right">
             <cbs-confirm-popup [confirmText]="'Are you sure you want to disburse?'" [opened]="opened"
                                (openedChange)="closeModal()"
-                               (onSubmitClick)="disburse()"
+                               (submitClickChange)="disburse()"
                                [leftButtonLabel]="'CANCEL' | translate"
                                [rightButtonLabel]="'CONFIRM' | translate"
                                [popupLabel]="'CONFIRMATION' | translate">
