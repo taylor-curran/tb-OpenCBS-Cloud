@@ -86,7 +86,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
   @Input() unmask: boolean;
   @Input() name: string;
   @Output() complete: EventEmitter<any> = new EventEmitter();
-  @Output() blur: EventEmitter<any> = new EventEmitter();
+  @Output() inputBlur: EventEmitter<any> = new EventEmitter();
   value: any;
 
   input: HTMLInputElement;
@@ -331,7 +331,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
     this.onModelTouched();
     this.checkVal();
     this.updateModel(e);
-    this.blur.emit(e);
+    this.inputBlur.emit(e);
 
     if (this.input.value !== this.focusText) {
       let event = document.createEvent('HTMLEvents');

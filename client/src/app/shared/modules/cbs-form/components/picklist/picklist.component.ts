@@ -33,7 +33,7 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() disabled = false;
   @Input() excludedItems = [];
   @Input() defaultValue: any;
-  @Output() select = new EventEmitter();
+  @Output() itemSelect = new EventEmitter();
   @Output() clear = new EventEmitter();
   @Output() picklistOpen = new EventEmitter();
   @Output() picklistClose = new EventEmitter();
@@ -180,7 +180,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.select.emit();
+    this.itemSelect.emit();
     this.clear();
   }
 
@@ -205,7 +205,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
-    this.select.emit(item);
+    this.itemSelect.emit(item);
     this.isOpened = false;
     this.picklistClose.emit();
     this.valueString = item[this.filterType];
