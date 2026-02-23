@@ -65,7 +65,7 @@
                 <cbs-form-date-control
                     [ngModel]="fieldData?.extra?.defaultValue"
                     (ngModelChange)="setDefaultValue($event)"
-                    (formChange)="setDefaultValue($event)"
+                    (onChange)="setDefaultValue($event)"
                     [ngModelOptions]="{standalone: true}"
                     fieldLabel="{{ 'DEFAULT_DATE' | translate }}">
                 </cbs-form-date-control>

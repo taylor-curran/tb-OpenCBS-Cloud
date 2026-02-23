@@ -22,7 +22,7 @@
             [inputType]="'number'"
             [hasError]="repaymentForm.get('total').errors && repaymentForm.get('total').touched"
             fieldLabel="{{ 'TOTAL' | translate }}"
-            (formChange)="markAsEdited()">
+            (onChange)="markAsEdited()">
             <div class="maxAmount">
                 MAX: <a (click)="setMaxAmount.emit()">{{ maxAmount }}</a>
             </div>

@@ -17,8 +17,8 @@
         [addSectionId]="true"
         [lookupTypes]="fieldLookupTypes"
         [fieldTypes]="fieldTypes"
-        (fieldEditSuccess)="callFieldEditSuccess($event)"
-        (fieldEditError)="callFieldEditError($event)"
+        (onFieldEditSuccess)="callFieldEditSuccess($event)"
+        (onFieldEditError)="callFieldEditError($event)"
         (onFieldDeleteSuccess)="callFieldDeleteSuccess($event)"
         (onFieldDeleteError)="callFieldDeleteError($event)"
         (onFieldAddCancel)="onFieldAddCancel($event)"
@@ -26,9 +26,9 @@
         (onFieldAddError)="callFieldAddError($event)"
     ></cbs-cf-field>
 
-    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (imageClick)="addField(section?.id)"
+    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (buttonClick)="addField(section?.id)"
                 [uid]="sectionInd + 1"></cbs-cf-add>
 </cbs-cf-section>
-<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (imageClick)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
+<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (buttonClick)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
 
 

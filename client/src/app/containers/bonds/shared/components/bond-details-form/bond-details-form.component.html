@@ -24,7 +24,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('number')"
-            (formChange)="onAmountRelatedFieldChanged()">
+            (onChange)="onAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="numberRange.length">
                 Min: <span>{{ numberRange[0] }}</span> Max: <span>{{ numberRange[1] }}</span>
             </div>
@@ -35,7 +35,7 @@
             fieldLabel="{{ 'START_DATE' | translate }}"
             [hasError]="hasError('sellDate')"
             [requiredField]="true"
-            (formChange)="onAmountRelatedFieldChanged(); couponRelatedFieldChanged()"
+            (onChange)="onAmountRelatedFieldChanged(); couponRelatedFieldChanged()"
         ></cbs-form-date-control>
 
         <cbs-form-readonly-control
@@ -68,7 +68,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('interestRate')"
-            (formChange)="onAmountRelatedFieldChanged()">
+            (onChange)="onAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="interestRateRange.length">
                 Min: <span>{{ interestRateRange[0] }}</span> Max: <span>{{ interestRateRange[1] }}</span>
             </div>
@@ -80,7 +80,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('penaltyRate')"
-            (formChange)="onAmountRelatedFieldChanged()">
+            (onChange)="onAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="penaltyRateRange.length">
                 Min: <span>{{ penaltyRateRange[0] }}</span> Max: <span>{{ penaltyRateRange[1] }}</span>
             </div>
@@ -92,7 +92,7 @@
             [requiredField]="true"
             [hasError]="hasError('interestScheme')"
             fieldLabel="{{ 'INTEREST_SCHEME' | translate }}"
-            (formChange)="onAmountRelatedFieldChanged()"
+            (onChange)="onAmountRelatedFieldChanged()"
         ></cbs-form-select-control>
 
         <cbs-form-select-control
@@ -101,7 +101,7 @@
             [requiredField]="true"
             [hasError]="hasError('frequency')"
             fieldLabel="{{ 'COUPON_FREQUENCY' | translate }}"
-            (formChange)="couponRelatedFieldChanged()"
+            (onChange)="couponRelatedFieldChanged()"
         ></cbs-form-select-control>
 
         <cbs-form-input-control
@@ -110,7 +110,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('maturity')"
-            (formChange)="couponRelatedFieldChanged()">
+            (onChange)="couponRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="numberRange.length">
                 Min: <span>{{ numberRange[0] }}</span> Max: <span>{{ numberRange[1] }}</span>
             </div>
