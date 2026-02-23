@@ -44,7 +44,7 @@
                 [value]="guarantor?.profile?.name"
                 [showLink]="true"
                 [disabled]="false"
-                (onFieldClick)="goToGuarantorProfile(guarantor.profile)"></cbs-form-readonly-control>
+                (fieldClickChanged)="goToGuarantorProfile(guarantor.profile)"></cbs-form-readonly-control>
 
             <div class="slds-m-top_small"></div>
 

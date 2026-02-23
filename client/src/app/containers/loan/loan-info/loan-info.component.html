@@ -7,14 +7,14 @@
     <cbs-form-readonly-control
         fieldLabel="{{ 'PROFILE' | translate }}"
         [value]="(loan | async)?.loan?.profile?.name"
-        (onFieldClick)="goToProfile()"
+        (fieldClickChanged)="goToProfile()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 
     <cbs-form-readonly-control
         fieldLabel="{{ 'LOAN_APPLICATION_CODE' | translate }}"
         [value]="loanApp?.code"
-        (onFieldClick)="goToLoanApplication()"
+        (fieldClickChanged)="goToLoanApplication()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 
@@ -42,8 +42,8 @@
         [readonly]="false"
         [showEditBtn]="false"
         [payeesCount]="loanApp?.activePayeesCount"
-        (onAddPayee)="openAddPayeeModal()"
-        (onDeletePayee)="showConfirmPopup($event)"
+        (addPayeeChanged)="openAddPayeeModal()"
+        (deletePayeeChanged)="showConfirmPopup($event)"
     ></cbs-payees-block-control>
 
     <cbs-form-readonly-control
@@ -88,7 +88,7 @@
             *ngIf="!!loanApp?.entryFees?.length"
             [isValidToCalculate]="true"
             [entryFeesData]="loanApp?.entryFees"
-            (onDetailsClick)="openEntryFees()"
+            (detailsClickChanged)="openEntryFees()"
         ></cbs-entry-fees-block>
     </ng-container>
 
@@ -142,11 +142,11 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ ('ADD' | translate) }}"
-    (onSubmit)="submitPayee($event)">
+    (submitChanged)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="deleteCurrentPayee()"
+                   (submitClickChanged)="deleteCurrentPayee()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

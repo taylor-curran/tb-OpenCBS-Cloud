@@ -39,14 +39,14 @@
             <strong>{{ 'EDIT' | translate }}</strong>
         </div>
         <cbs-edit-loan-product-form
-            (onEntryFeeChanged)="changeEntryFeesValue()"
-            (onPenaltyChanged)="changePenaltiesValue()"
+            (entryFeeChanged)="changeEntryFeesValue()"
+            (penaltyChanged)="changePenaltiesValue()"
         ></cbs-edit-loan-product-form>
     </cbs-form-layout>
 </main>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClickChanged)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

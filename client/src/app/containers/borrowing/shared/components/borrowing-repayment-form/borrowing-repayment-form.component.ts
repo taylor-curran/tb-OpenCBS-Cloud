@@ -13,9 +13,9 @@ import { CurrentUserAppState } from '../../../../../core/store/users/current-use
 })
 
 export class BorrowingRepaymentFormComponent implements OnInit, OnDestroy {
-  @Output() onAutoTypeChange = new EventEmitter();
-  @Output() onTotalEdited = new EventEmitter();
-  @Output() onSetMaxAmount = new EventEmitter();
+  @Output() autoTypeChangeChanged = new EventEmitter();
+  @Output() totalEditedChanged = new EventEmitter();
+  @Output() setMaxAmountChanged = new EventEmitter();
   @Input() maxAmount = '';
   private currentUserSub: any;
   public repaymentForm: FormGroup;
@@ -51,7 +51,7 @@ export class BorrowingRepaymentFormComponent implements OnInit, OnDestroy {
   }
 
   markAsEdited() {
-    this.onTotalEdited.emit();
+    this.totalEditedChanged.emit();
   }
 
   ngOnDestroy() {

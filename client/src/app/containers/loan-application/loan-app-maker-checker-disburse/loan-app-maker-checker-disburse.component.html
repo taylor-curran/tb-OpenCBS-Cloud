@@ -4,12 +4,12 @@
     </div>
     <cbs-form-readonly-control
         fieldLabel="{{ profileType === 'groups' ? 'GROUP' : 'PROFILE' | translate }}"
-        [value]="loanApp?.data?.profile?.name" (onFieldClick)="goToProfile()"
+        [value]="loanApp?.data?.profile?.name" (fieldClickChanged)="goToProfile()"
         [showLink]="true"></cbs-form-readonly-control>
     <cbs-form-readonly-control
         *ngIf="loan?.code"
         fieldLabel="{{ 'LOAN_CODE' | translate }}"
-        [value]="loan?.code" (onFieldClick)="goToLoan()" [showLink]="true"></cbs-form-readonly-control>
+        [value]="loan?.code" (fieldClickChanged)="goToLoan()" [showLink]="true"></cbs-form-readonly-control>
     <cbs-form-readonly-control
         fieldLabel="{{ 'LOAN_APPLICATION_CODE' | translate }}"
         [value]="loanApp?.data?.code"></cbs-form-readonly-control>
@@ -62,7 +62,7 @@
         *ngIf="!!loanApp?.entryFees?.length"
         [isValidToCalculate]="true"
         [entryFeesData]="loanApp?.entryFees"
-        (onDetailsClick)="openEntryFees()"
+        (detailsClickChanged)="openEntryFees()"
     ></cbs-entry-fees-block>
     <div *ngIf="this.loanApp.data.profile.type === 'GROUP'"
          class="slds-text-title--caps slds-m-bottom--medium member-title">

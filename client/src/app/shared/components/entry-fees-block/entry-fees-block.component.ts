@@ -9,7 +9,7 @@ import { IEntryFeeItem } from '../../../core/store/loan-application/loan-applica
 export class EntryFeesBlockComponent {
   @Input() entryFeesData: IEntryFeeItem[];
   @Input() isValidToCalculate: boolean;
-  @Output() onDetailsClick = new EventEmitter();
+  @Output() detailsClickChanged = new EventEmitter();
 
   getTotal() {
     let total = 0;

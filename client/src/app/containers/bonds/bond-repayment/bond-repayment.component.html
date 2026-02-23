@@ -22,7 +22,7 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-bond-repayment-form
-            (onAutoTypeChange)="onAutoTypeChange($event)">
+            (autoTypeChangeChanged)="onAutoTypeChange($event)">
         </cbs-bond-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">

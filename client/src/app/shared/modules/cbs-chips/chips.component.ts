@@ -28,8 +28,8 @@ export class ChipsComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Input() disabled: boolean;
   @Input() type = 'text';
-  @Output() onAdd: EventEmitter<any> = new EventEmitter();
-  @Output() onRemove: EventEmitter<any> = new EventEmitter();
+  @Output() addChanged: EventEmitter<any> = new EventEmitter();
+  @Output() removeChanged: EventEmitter<any> = new EventEmitter();
   @Input() field: string;
   @Input() placeholder: string;
   @Input() max: number;
@@ -95,7 +95,7 @@ export class ChipsComponent implements ControlValueAccessor {
 
     let removedItem = this.value.splice(index, 1);
     this.onModelChange(this.value);
-    this.onRemove.emit({
+    this.removeChanged.emit({
       originalEvent: event,
       value: removedItem
     });
@@ -108,7 +108,7 @@ export class ChipsComponent implements ControlValueAccessor {
         if (inputEL.value.length === 0 && this.value && this.value.length > 0) {
           let removedItem = this.value.pop();
           this.onModelChange(this.value);
-          this.onRemove.emit({
+          this.removeChanged.emit({
             originalEvent: event,
             value: removedItem
           });
@@ -121,7 +121,7 @@ export class ChipsComponent implements ControlValueAccessor {
         if (inputEL.value && inputEL.value.trim().length && (!this.max || this.max > this.value.length)) {
           this.value = [inputEL.value, ...this.value];
           this.onModelChange(this.value);
-          this.onAdd.emit({
+          this.addChanged.emit({
             originalEvent: event,
             value: inputEL.value
           });
