@@ -11,7 +11,7 @@ import { FieldConfig } from '../../models/field-config.interface';
     <form
         class="slds-form--stacked"
         [formGroup]="form"
-        (submit)="handleSubmit($event)">
+        (formSubmit)="handleSubmit($event)">
         <ng-container
             *ngFor="let field of config;"
             cbsDynamicField
