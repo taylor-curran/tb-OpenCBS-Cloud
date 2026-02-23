@@ -37,7 +37,7 @@
             ></cbs-form-date-control>
 
             <cbs-form-lookup-control
-                (select)="setLookupValue($event)"
+                (selectItem)="setLookupValue($event)"
                 [formControlName]="customerControlName"
                 [hasError]="form.get(customerControlName).errors
                 && form.get(customerControlName).touched"
@@ -117,7 +117,7 @@
 
             <div *ngIf="currentInstance !== 'fundaccess' && isProfileExist && type !== 'WITHDRAW_FROM_CURRENT_ACCOUNT'">
                 <cbs-form-lookup-control
-                    (select)="setLookupProfile($event)"
+                    (selectItem)="setLookupProfile($event)"
                     [formControlName]="'initiatorId'"
                     [hasError]="form.get('initiatorId').errors && form.get('initiatorId').touched"
                     [requiredField]="true"
@@ -145,7 +145,7 @@
                     [requiredField]="true"
                     [hasError]="form.get('initiatorId').errors && form.get('initiatorId').touched"
                     fieldLabel="{{ 'WITHDRAWER' | translate }}"
-                    (select)="setWithdrawerValue($event)"
+                    (selectItem)="setWithdrawerValue($event)"
                 ></cbs-form-select-control>
             </span>
 

@@ -100,9 +100,9 @@ export class TreeRowComponent {
 
   toggle(event: Event) {
     if (this.node.expanded) {
-      this.treeTable.onNodeCollapse.emit({originalEvent: event, node: this.node});
+      this.treeTable.nodeCollapse.emit({originalEvent: event, node: this.node});
     } else {
-      this.treeTable.onNodeExpand.emit({originalEvent: event, node: this.node});
+      this.treeTable.nodeExpand.emit({originalEvent: event, node: this.node});
     }
 
     this.node = Object.assign({}, this.node, {
