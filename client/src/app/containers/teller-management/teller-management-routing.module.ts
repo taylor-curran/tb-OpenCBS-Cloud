@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TillListComponent } from './till-list/till-list.component';
 import { TillOperationListComponent } from './till-operation-list/till-operation-list.component';
 import { TillOperationInfoComponent } from './till-operation-info/till-operation-info.component';
-import { TillOperationEditComponent } from './till-operation-edit/till-operation-edit.component';
+import { TillOperatieditComponent } from './till-operation-edit/till-operation-edit.component';
 import { OperationsNewComponent, } from './till-operation-new/till-operation-new.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuard } from '../../core/guards/auth-guard.service';
@@ -87,7 +87,7 @@ const routes: Routes = [
   },
   {
     path: 'till/:tillId/operations/info/:id/edit',
-    component: TillOperationEditComponent,
+    component: TillOperatieditComponent,
     canActivate: [AuthGuard]
   }
 ];
