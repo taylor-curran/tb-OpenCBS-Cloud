@@ -38,8 +38,8 @@
                         [payee]="payee"
                         [readonly]="readonly"
                         [showEditBtn]="showEditBtn"
-                        (edit)="editPayee.emit($event)"
-                        (delete)="deletePayee.emit($event)"
+                        (editClicked)="editPayee.emit($event)"
+                        (deleteClicked)="deletePayee.emit($event)"
                     ></cbs-payee-block>
                 </div>
             </ng-container>

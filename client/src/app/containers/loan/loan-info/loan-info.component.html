@@ -142,7 +142,7 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ ('ADD' | translate) }}"
-    (submit)="submitPayee($event)">
+    (formSubmit)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-confirm-popup [opened]="isVisible"
