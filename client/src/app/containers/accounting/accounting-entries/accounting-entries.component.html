@@ -36,7 +36,7 @@
                                     [picklistDataUrl]="accountFilterConfig">
                                 </cbs-form-lookup-control>
                                 <button class="slds-button slds-button--neutral filter"
-                                        (click)="filter()"
+                                        (itemClick)="filter()"
                                         aria-live="assertive">
                                     <span class="slds-text-not-selected">
                                         {{ 'FILTER' | translate }}
@@ -56,12 +56,12 @@
                                     <div class="slds-dropdown slds-dropdown--left cbs-dropdown cbs-dropdown--full-width">
                                         <ul class="dropdown__list" role="menu">
                                             <li class="slds-dropdown__item">
-                                                <a (click)="openTransactionModal('SINGLE')" role="menuitem" nglDropdownItem>
+                                                <a (itemClick)="openTransactionModal('SINGLE')" role="menuitem" nglDropdownItem>
                                                     <p class="slds-truncate">{{ 'SINGLE_TRANSACTION' | translate }}</p>
                                                 </a>
                                             </li>
                                             <li class="slds-dropdown__item">
-                                                <a (click)="openTransactionModal('MULTIPLE')" role="menuitem" nglDropdownItem>
+                                                <a (itemClick)="openTransactionModal('MULTIPLE')" role="menuitem" nglDropdownItem>
                                                     <p class="slds-truncate">{{ 'MULTIPLE_TRANSACTION' | translate }}</p>
                                                 </a>
                                             </li>
@@ -156,7 +156,7 @@
                 </p-column>
                 <p-column field="download">
                     <ng-template let-row="rowData" pTemplate="body">
-                        <button (click)="download(row['id'])"
+                        <button (itemClick)="download(row['id'])"
                                 class="slds-button slds-button--icon slds-button--icon-more slds-m-left--small"
                                 aria-haspopup="true" title="Configuration">
                             <svg class="slds-button__icon" aria-hidden="true">
@@ -256,9 +256,9 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="singleTransactionForm.invalid" class="slds-button slds-button--success"
-                (click)="submitSingleTransaction()">{{ 'SAVE' | translate }}
+                (itemClick)="submitSingleTransaction()">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -273,7 +273,7 @@
                     [requiredField]="true"
                     [formControlName]="'transactionTemplateId'"
                     [fieldLabel]="'TRANSACTION_TEMPLATE' | translate"
-                    (select)="selectTransactionTemplateValue($event)"
+                    (itemSelect)="selectTransactionTemplateValue($event)"
                     [picklistDataUrl]="transactionTemplateConfig">
                 </cbs-form-lookup-control>
 
@@ -341,10 +341,10 @@
     </div>
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral"
-                (click)="cancel()">{{ 'CANCEL' | translate }}
+                (itemClick)="cancel()">{{ 'CANCEL' | translate }}
         </button>
         <button [disabled]="multipleTransactionForm.invalid" class="slds-button slds-button--success"
-                (click)="submitMultipleTransaction()">{{ 'SAVE' | translate }}
+                (itemClick)="submitMultipleTransaction()">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

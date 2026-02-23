@@ -63,7 +63,7 @@ export const INPUTMASK_VALUE_ACCESSOR: any = {
     [disabled]="disabled"
     [readonly]="readonly"
     (focus)="onFocus($event)"
-    (blur)="onInputBlur($event)"
+    (inputBlur)="onInputBlur($event)"
     (keydown)="onKeyDown($event)"
     (keypress)="onKeyPress($event)"
     (input)="onInput($event)"
@@ -85,8 +85,8 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
   @Input() readonly: boolean;
   @Input() unmask: boolean;
   @Input() name: string;
-  @Output() complete: EventEmitter<any> = new EventEmitter();
-  @Output() blur: EventEmitter<any> = new EventEmitter();
+  @Output() inputComplete: EventEmitter<any> = new EventEmitter();
+  @Output() inputBlur: EventEmitter<any> = new EventEmitter();
   value: any;
 
   input: HTMLInputElement;
@@ -323,7 +323,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
     }
 
     if (this.isCompleted()) {
-      this.complete.emit();
+      this.inputComplete.emit();
     }
   }
 
@@ -331,7 +331,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
     this.onModelTouched();
     this.checkVal();
     this.updateModel(e);
-    this.blur.emit(e);
+    this.inputBlur.emit(e);
 
     if (this.input.value !== this.focusText) {
       let event = document.createEvent('HTMLEvents');
@@ -429,7 +429,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
     this.updateModel(e);
 
     if (completed) {
-      this.complete.emit();
+      this.inputComplete.emit();
     }
   }
 
@@ -543,7 +543,7 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
       this.caret(pos);
       this.updateModel(event);
       if (this.isCompleted()) {
-        this.complete.emit();
+        this.inputComplete.emit();
       }
     }, 0);
   }

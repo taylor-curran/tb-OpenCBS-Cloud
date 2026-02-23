@@ -14,7 +14,7 @@
                 <div class="balance-info">{{'OLB' | translate}}: {{ loanEntityInfo?.olb }}</div>
             </div>
 
-            <button (click)="repay()" [disabled]="repayForm.invalid || enteredAmount == 0"
+            <button (itemClick)="repay()" [disabled]="repayForm.invalid || enteredAmount == 0"
                     class="slds-button slds-button--success">{{ 'REPAY' | translate }}
             </button>
         </div>
@@ -48,7 +48,7 @@
                     [hasError]="repayForm.get('paidBy').errors && repayForm.get('paidBy').touched"
                     [picklistDataUrl]="formConfig.profileLookupUrl"
                     [requiredField]="true"
-                    (select)="setLookupValue($event)"
+                    (itemSelect)="setLookupValue($event)"
                 ></cbs-form-lookup-control>
 
                 <cbs-form-lookup-control

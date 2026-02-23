@@ -69,7 +69,7 @@
             </td>
             <td data-label="Options" scope="row" class="slds-text-align--center">
                 <span *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['COLLATERAL'] }" >
-                    <button (click)="removeCollateral(collateral.id)" class="slds-button slds-button--icon-border"
+                    <button (itemClick)="removeCollateral(collateral.id)" class="slds-button slds-button--icon-border"
                             title="Delete" *ngIf="!collateral.deleted">
                     <svg class="slds-button__icon" aria-hidden="true">
                         <use

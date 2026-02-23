@@ -25,14 +25,14 @@
                          [minDate]="fromDate">
                      </cbs-form-date-control>
                     <button class="slds-button slds-button--neutral filter"
-                            (click)="filter()"
+                            (itemClick)="filter()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'FILTER' | translate }}
                         </span>
                     </button>
                     <button class="slds-button slds-button--neutral filter"
-                            (click)="download()"
+                            (itemClick)="download()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'PRINT' | translate }}

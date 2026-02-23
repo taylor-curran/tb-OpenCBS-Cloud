@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'cbs-image',
   template: `
-    <figure class="slds-image slds-image--card slds-m-right--medium cbs-profile-info__img"  *ngIf="imageUrl && image" (click)="imgClick()">
+    <figure class="slds-image slds-image--card slds-m-right--medium cbs-profile-info__img"  *ngIf="imageUrl && image" (itemClick)="imgClick()">
         <a href="javascript:void(0);" class="slds-image__crop slds-image__crop--1-by-1">
             <img [src]="imageUrl" [attr.alt]="imageAltText">
         </a>
@@ -31,12 +31,12 @@ export class ImageComponent {
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() click = new EventEmitter();
+  @Output() itemClick = new EventEmitter();
 
   constructor() {
   }
 
   imgClick() {
-    this.click.emit();
+    this.itemClick.emit();
   }
 }
