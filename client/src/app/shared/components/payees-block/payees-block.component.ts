@@ -12,9 +12,9 @@ export class PayeesBlockComponent {
   @Input() isCollapsed = true;
   @Input() showEditBtn: boolean;
   @Input() payeesCount: number;
-  @Output() onEditPayee = new EventEmitter();
-  @Output() onDeletePayee = new EventEmitter();
-  @Output() onAddPayee = new EventEmitter();
+  @Output() editPayeeEvent = new EventEmitter();
+  @Output() deletePayeeEvent = new EventEmitter();
+  @Output() addPayeeEvent = new EventEmitter();
 
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;

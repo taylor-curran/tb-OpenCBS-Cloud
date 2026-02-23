@@ -49,7 +49,6 @@ export class RouteGuard implements CanActivate, CanActivateChild {
         if ( !bool ) {
           this.router.navigate(['dashboard']);
         }
-        return bool;
       }));
   }
 
@@ -67,7 +66,6 @@ export class RouteGuard implements CanActivate, CanActivateChild {
         if ( !bool ) {
           this.router.navigate(['dashboard']);
         }
-        return bool;
       }));
   }
 }
