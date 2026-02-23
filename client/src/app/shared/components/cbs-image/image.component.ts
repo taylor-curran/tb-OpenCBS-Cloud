@@ -31,12 +31,12 @@ export class ImageComponent {
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() click = new EventEmitter();
+  @Output() imageClicked = new EventEmitter();
 
   constructor() {
   }
 
   imgClick() {
-    this.click.emit();
+    this.imageClicked.emit();
   }
 }

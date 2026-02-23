@@ -10,8 +10,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (clear)="clearSearch()"
-                (search)="search($event)"
+                (cleared)="clearSearch()"
+                (searchTriggered)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -141,8 +141,8 @@
         <form novalidate [formGroup]="openTillForm">
             <cbs-form-lookup-control
                 [picklistFilterType]="'name'"
-                (onOpenPicklist)="changeSize(true)"
-                (onClosePicklist)="changeSize(false)"
+                (openPicklist)="changeSize(true)"
+                (closePicklist)="changeSize(false)"
                 [hasError]="openTillForm.get('tellerId').errors && openTillForm.get('tellerId').touched"
                 [requiredField]="true"
                 [formControlName]="'tellerId'"

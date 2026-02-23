@@ -7,14 +7,14 @@
     <cbs-form-readonly-control
         fieldLabel="{{ 'PROFILE' | translate }}"
         [value]="(loan | async)?.loan?.profile?.name"
-        (onFieldClick)="goToProfile()"
+        (fieldClick)="goToProfile()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 
     <cbs-form-readonly-control
         fieldLabel="{{ 'LOAN_APPLICATION_CODE' | translate }}"
         [value]="loanApp?.code"
-        (onFieldClick)="goToLoanApplication()"
+        (fieldClick)="goToLoanApplication()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 
@@ -142,7 +142,7 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ ('ADD' | translate) }}"
-    (submit)="submitPayee($event)">
+    (payeeSubmitted)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-confirm-popup [opened]="isVisible"

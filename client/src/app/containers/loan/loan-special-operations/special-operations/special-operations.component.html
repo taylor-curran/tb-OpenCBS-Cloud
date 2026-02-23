@@ -97,7 +97,7 @@
             searchPlaceholder="{{ 'SEARCH' | translate }}"
             selectPlaceholder="{{ 'SELECT' | translate }}"
             [fieldLabel]="'ASSIGN_TO' | translate"
-            (onSelect)="selectedUser($event)"
+            (selectTriggered)="selectedUser($event)"
             [picklistDataUrl]="userConfig">
         </cbs-form-lookup-control>
     </div>

@@ -19,7 +19,7 @@
                 [hasError]="form.get('savingProductId').errors && form.get('savingProductId').touched"
                 [picklistDataUrl]="formConfigSavingProduct.loanProductLookupUrl"
                 [requiredField]="true"
-                (onSelect)="onSavingSelect($event)"
+                (selectTriggered)="onSavingSelect($event)"
             ></cbs-form-lookup-control>
 
             <cbs-form-lookup-control

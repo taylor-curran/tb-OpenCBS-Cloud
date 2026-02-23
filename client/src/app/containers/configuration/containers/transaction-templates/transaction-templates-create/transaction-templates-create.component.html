@@ -60,7 +60,7 @@
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [formControlName]="'debitAccounts'"
-                    (onSelect)="(getAccountValue($event, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'DEBIT_ACCOUNT' : 'CREDIT_ACCOUNT')))"
+                    (selectTriggered)="(getAccountValue($event, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'DEBIT_ACCOUNT' : 'CREDIT_ACCOUNT')))"
                     [picklistDataUrl]="config">
                 </cbs-form-lookup-control>
 
@@ -74,7 +74,7 @@
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [formControlName]="'creditAccounts'"
-                    (onSelect)="getAccountValue($event, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))"
+                    (selectTriggered)="getAccountValue($event, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))"
                     [picklistDataUrl]="config">
                 </cbs-form-lookup-control>
 
@@ -83,7 +83,7 @@
                         <cbs-form-lookup-control
                             searchPlaceholder="{{ 'SEARCH' | translate }}"
                             selectPlaceholder="{{ 'SELECT' | translate }}"
-                            (onSelect)="getNewAccounts($event, i, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))"
+                            (selectTriggered)="getNewAccounts($event, i, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))"
                             [picklistDataUrl]="config">
 
                             <button class="slds-button slds-button--icon-error slds-visual-picker__text-check"
