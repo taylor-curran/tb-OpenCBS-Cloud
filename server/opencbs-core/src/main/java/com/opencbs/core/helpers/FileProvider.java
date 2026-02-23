@@ -79,8 +79,9 @@ public class FileProvider {
         try {
             FileProvider thisClass = new FileProvider();
             InputStream is = thisClass.getClass().getClassLoader().getResourceAsStream(path + "/" + fileName);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            return reader.lines().collect(Collectors.joining("\n"));
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+                return reader.lines().collect(Collectors.joining("\n"));
+            }
         } catch (Exception e) {
             log.error(e.toString());
             throw new ValidationException("Failed to getOne script of report: " + path + fileName);

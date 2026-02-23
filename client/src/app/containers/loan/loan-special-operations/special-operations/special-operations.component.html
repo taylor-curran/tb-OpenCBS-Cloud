@@ -2,7 +2,7 @@
     <div class="slds-grid slds-wrap slds-gutters" cbsMatchHeight="cbs-special-operation-item">
         <div *ngFor="let item of arr"
              class="slds-col slds-accordion__section slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4">
-            <a [ngClass]="{'disabled': item?.disabled}" (click)="navigate(item)"
+            <a [ngClass]="{'disabled': item?.disabled}" (clickAction)="navigate(item)"
                class="cbs-special-operation-item slds-text-align--center">
                 <cbs-icon [iconConfig]="item?.icon" [classStyle]="'slds-m-bottom--small'"></cbs-icon>
                 <span class="slds-text-heading--small slds-truncate">{{ item.name | translate }}</span>
@@ -17,7 +17,7 @@
                 formControlName="date"
                 fieldLabel="{{ 'DATE' | translate }}"
                 [validateDate]="true"
-                (onChange)="calculateWriteOffValue($event)"
+                (valueChange)="calculateWriteOffValue($event)"
                 [hasError]="writeOffForm.get('date').errors && writeOffForm.get('date').touched"
                 [requiredField]="true"></cbs-form-date-control>
 
@@ -26,7 +26,7 @@
                 [fieldLabel]="'PRINCIPAL' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('principal').errors && writeOffForm.get('principal').touched"
-                (onChange)="validateWriteOffValue($event, 'principal')"
+                (valueChange)="validateWriteOffValue($event, 'principal')"
                 [formControlName]="'principal'">
             </cbs-form-input-control>
 
@@ -35,7 +35,7 @@
                 [fieldLabel]="'INTEREST' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('interest').errors && writeOffForm.get('interest').touched"
-                (onChange)="validateWriteOffValue($event, 'interest')"
+                (valueChange)="validateWriteOffValue($event, 'interest')"
                 [formControlName]="'interest'">
             </cbs-form-input-control>
 
@@ -44,7 +44,7 @@
                 [fieldLabel]="'PENALTY' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('penalty').errors && writeOffForm.get('penalty').touched"
-                (onChange)="validateWriteOffValue($event, 'penalty')"
+                (valueChange)="validateWriteOffValue($event, 'penalty')"
 
                 [formControlName]="'penalty'">
             </cbs-form-input-control>
@@ -58,9 +58,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="writeOffForm.invalid" class="slds-button slds-button--success"
-                (click)="submitWriteOff()">{{ 'SAVE' |
+                (clickAction)="submitWriteOff()">{{ 'SAVE' |
             translate }}
         </button>
     </ng-template>
@@ -78,9 +78,9 @@
         </cbs-form-date-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (clickAction)="isOpenActualize = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'START' | translate }}
+        <button class="slds-button slds-button--success" (clickAction)="submitActualizeLoan()">{{ 'START' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -97,15 +97,15 @@
             searchPlaceholder="{{ 'SEARCH' | translate }}"
             selectPlaceholder="{{ 'SELECT' | translate }}"
             [fieldLabel]="'ASSIGN_TO' | translate"
-            (onSelect)="selectedUser($event)"
+            (selectAction)="selectedUser($event)"
             [picklistDataUrl]="userConfig">
         </cbs-form-lookup-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpenReassignLoan = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (clickAction)="isOpenReassignLoan = false">{{ 'CANCEL' | translate }}
         </button>
         <button class="slds-button slds-button--success" [disabled]="disabledReassignLoanBtn"
-                (click)="reassignLoanModal()">{{ 'OK' | translate }}
+                (clickAction)="reassignLoanModal()">{{ 'OK' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -117,7 +117,7 @@
                 [confirmText]="'ARE_YOU_SURE_YOU_WANT_TO_REASSIGN_THE_LOAN' | translate"
                 [opened]="opened"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="setReassignLoan()"
+                (submitClick)="setReassignLoan()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

@@ -11,7 +11,7 @@
             <form novalidate [formGroup]="form" class="slds-form--stacked">
                 <div class="cbs-controls-container">
                     <cbs-form-date-control
-                        (onChange)="valid()"
+                        (valueChange)="valid()"
                         class="slds-m-right--x-small"
                         formControlName="start"
                         [hasError]="form.get('start').errors && form.get('start').touched"
@@ -25,14 +25,14 @@
                          [minDate]="fromDate">
                      </cbs-form-date-control>
                     <button class="slds-button slds-button--neutral filter"
-                            (click)="filter()"
+                            (clickAction)="filter()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'FILTER' | translate }}
                         </span>
                     </button>
                     <button class="slds-button slds-button--neutral filter"
-                            (click)="download()"
+                            (clickAction)="download()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'PRINT' | translate }}

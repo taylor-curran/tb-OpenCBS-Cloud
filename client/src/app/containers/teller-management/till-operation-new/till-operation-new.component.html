@@ -8,7 +8,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <button (click)="handleConfirmModalVisibility(true)" class="slds-button slds-button--success"
+            <button (clickAction)="handleConfirmModalVisibility(true)" class="slds-button slds-button--success"
                     aria-live="assertive"
                     [disabled]="form.invalid">
                 <span class="slds-text-not-selected">
@@ -37,7 +37,7 @@
             ></cbs-form-date-control>
 
             <cbs-form-lookup-control
-                (onSelect)="setLookupValue($event)"
+                (selectAction)="setLookupValue($event)"
                 [formControlName]="customerControlName"
                 [hasError]="form.get(customerControlName).errors
                 && form.get(customerControlName).touched"
@@ -117,7 +117,7 @@
 
             <div *ngIf="currentInstance !== 'fundaccess' && isProfileExist && type !== 'WITHDRAW_FROM_CURRENT_ACCOUNT'">
                 <cbs-form-lookup-control
-                    (onSelect)="setLookupProfile($event)"
+                    (selectAction)="setLookupProfile($event)"
                     [formControlName]="'initiatorId'"
                     [hasError]="form.get('initiatorId').errors && form.get('initiatorId').touched"
                     [requiredField]="true"
@@ -145,7 +145,7 @@
                     [requiredField]="true"
                     [hasError]="form.get('initiatorId').errors && form.get('initiatorId').touched"
                     fieldLabel="{{ 'WITHDRAWER' | translate }}"
-                    (onSelect)="setWithdrawerValue($event)"
+                    (selectAction)="setWithdrawerValue($event)"
                 ></cbs-form-select-control>
             </span>
 
@@ -154,7 +154,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                         <span class="slds-avatar slds-avatar--large"
                               *ngIf="attachment?.pinned"
-                              (click)="openAttachment(attachment)">
+                              (clickAction)="openAttachment(attachment)">
                             <span>
                                 <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                      [attr.title]="attachment?.originalFilename"
@@ -199,7 +199,7 @@
 
 <cbs-confirm-popup
     [opened]="showConfirmModal"
-    (onSubmitClick)="saveOperation()"
+    (submitClick)="saveOperation()"
     (openedChange)="handleConfirmModalVisibility(false)"
     [leftButtonLabel]="'NO' | translate"
     [rightButtonLabel]="'YES' | translate"

@@ -15,7 +15,7 @@
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
-            <button (click)="saveChanges(form)" [disabled]="form.invalid || !formChanged"
+            <button (clickAction)="saveChanges(form)" [disabled]="form.invalid || !formChanged"
                     class="slds-button slds-button--success" aria-live="assertive">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -29,7 +29,7 @@
 </cbs-header>
 <!-- cbs-header -->
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

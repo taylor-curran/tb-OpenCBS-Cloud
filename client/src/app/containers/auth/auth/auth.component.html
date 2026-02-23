@@ -44,7 +44,7 @@
                 <div class="slds-clearfix">
                     <div class="slds-float--right">
 
-                        <a (click)="recoverOpenModal()" class="">{{ 'FORGET' | translate }}</a>
+                        <a (clickAction)="recoverOpenModal()" class="">{{ 'FORGET' | translate }}</a>
                     </div>
                 </div>
             </div>
@@ -77,9 +77,9 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="changePasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (clickAction)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 
@@ -99,9 +99,9 @@
     </div>
 
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="recoverPasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (click)="submitRecover()">{{ 'SUBMIT' | translate }}
+                (clickAction)="submitRecover()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 

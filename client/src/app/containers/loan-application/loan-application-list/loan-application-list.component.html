@@ -10,8 +10,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (onClear)="clearSearch()"
-                (onSearch)="search($event)"
+                (clear)="clearSearch()"
+                (search)="handleSearch($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -31,7 +31,7 @@
                 <th *ngFor="let col of columns"
                     [pSortableColumn]="col.field"
                     [ngClass]="getClassName()?.colName === col.field ? getClassName()?.className : ''"
-                    (click)="sortValue(col.field);
+                    (clickAction)="sortValue(col.field);
                     sortDirection = -sortDirection;">
                     {{col.header | translate | uppercase}}
                     <div class="slds-icon_container" *ngIf="col.field === colName">
@@ -53,7 +53,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr (click)="goToApplication(rowData)">
+            <tr (clickAction)="goToApplication(rowData)">
                 <td>{{rowData['profile']['name']}}</td>
                 <td>{{rowData['profile']['type'] | translate}}</td>
                 <td>{{rowData['code']}}</td>

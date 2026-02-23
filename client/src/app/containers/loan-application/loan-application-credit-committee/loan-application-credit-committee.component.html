@@ -110,7 +110,7 @@
                 <cbs-loan-app-confirm-button
                     [disabled]="readOnly"
                     *ngIf="loanApplication?.status === loanAppStatusEnum[loanAppStatusEnum.APPROVED]"
-                    (onClickButton)="openModal($event)">
+                    (clickButton)="openModal($event)">
                 </cbs-loan-app-confirm-button>
             </ng-container>
         </div>
@@ -122,7 +122,7 @@
 
 <cbs-confirm-popup [confirmText]="text" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
+                   (submitClick)="submitService.submitLoanApp(loanApplication?.id, loanAppStatus)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
@@ -182,7 +182,7 @@
                     <ng-container
                         *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['CHANGE_STATUS_OF_LOANS_APPLICATIONS'] }">
                         <cbs-cc-status-form *ngIf="isCurrentUserAbleToChangeStatus(ccMember); else badge" [index]="i"
-                                            (onMakeDecision)="changeStatus($event)" [ccMember]="ccMember"
+                                            (makeDecision)="changeStatus($event)" [ccMember]="ccMember"
                                             [currentUser]="currentUser"
                                             [loanAppStatus]="loanAppStatus"></cbs-cc-status-form>
                         <ng-template #badge>
@@ -220,8 +220,8 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
-        <button class="slds-button slds-button--success" (click)="saveDecision(notes.value); isLoading = true;">
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{'CANCEL' | translate}}</button>
+        <button class="slds-button slds-button--success" (clickAction)="saveDecision(notes.value); isLoading = true;">
             {{'CONFIRM' | translate}}
         </button>
     </ng-template>
