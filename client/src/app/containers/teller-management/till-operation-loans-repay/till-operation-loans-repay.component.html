@@ -14,7 +14,7 @@
                 <div class="balance-info">{{'OLB' | translate}}: {{ loanEntityInfo?.olb }}</div>
             </div>
 
-            <button (clicked)="repay()" [disabled]="repayForm.invalid"
+            <button (click)="repay()" [disabled]="repayForm.invalid"
                     class="slds-button slds-button--success">{{ 'REPAY' | translate }}
             </button>
         </div>

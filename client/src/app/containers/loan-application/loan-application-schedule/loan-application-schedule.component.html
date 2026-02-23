@@ -20,7 +20,7 @@
                 Payment date entered incorrectly</span>
             </p>
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (clicked)="cancel(loanAppId)">
+                    (click)="cancel(loanAppId)">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
@@ -28,7 +28,7 @@
                     {{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" #submitButton aria-live="assertive"
-                    (clicked)="saveNewSchedule()"
+                    (click)="saveNewSchedule()"
                     [disabled]="status && status !== 'VALID'">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

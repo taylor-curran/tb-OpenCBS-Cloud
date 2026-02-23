@@ -13,14 +13,14 @@
 
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (clicked)="goToViewTransactionTemplates()">
+                    (click)="goToViewTransactionTemplates()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>
                     {{ 'CANCEL' | translate }}</span>
             </button>
-            <button class="slds-button slds-button--success" aria-live="assertive" (clicked)="submit()"
+            <button class="slds-button slds-button--success" aria-live="assertive" (click)="submit()"
                     [disabled]="form.invalid">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -87,7 +87,7 @@
                             [picklistDataUrl]="config">
 
                             <button class="slds-button slds-button--icon-error slds-visual-picker__text-check"
-                                    (clicked)="deleteNewAccounts(account, i, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))">
+                                    (click)="deleteNewAccounts(account, i, (type === 'MULTIPLE_DEBIT_TEMPLATES' ? 'CREDIT_ACCOUNT' : 'DEBIT_ACCOUNT'))">
                                 <svg class="slds-button__icon" aria-hidden="true">
                                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                                 </svg>
@@ -101,7 +101,7 @@
 
             <div class="slds-text-title--caps slds-m-bottom--medium">
                 <button class="slds-button slds-button--neutral"
-                        (clicked)="addNewAccounts()">
+                        (click)="addNewAccounts()">
                     <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                     </svg>

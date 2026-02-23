@@ -24,14 +24,14 @@
                                     [hasError]="form.get('end').errors && form.get('end').touched"
                                     [requiredField]="true"></cbs-form-date-control>
                                 <button class="slds-button slds-button--success filter"
-                                        (clicked)="filter()"
+                                        (click)="filter()"
                                         aria-live="assertive">
                                     <span class="slds-text-not-selected">
                                         {{ 'FILTER' | translate }}
                                     </span>
                                 </button>
                                 <button class="slds-button slds-button--success"
-                                        (clicked)="export()"
+                                        (click)="export()"
                                         [disabled]="!selectedLoanList.length"
                                         aria-live="assertive">
                                     <span class="slds-text-not-selected">

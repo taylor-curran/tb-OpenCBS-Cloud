@@ -16,7 +16,7 @@
 
     <div class="payee__action" *ngIf="!readonly">
         <button *ngIf="showEditBtn" class="slds-button slds-button_icon slds-button_icon-x-small" title="Edit"
-                (clicked)="edit(payee)">
+                (click)="edit(payee)">
             <svg class="slds-button__icon">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
                      xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
@@ -24,7 +24,7 @@
             <span class="slds-assistive-text">{{ 'EDIT' | translate }}</span>
         </button>
         <button *ngIf="payee.status !== 'DISBURSED'" class="slds-button slds-button_icon slds-button_icon-x-small"
-                title="Delete" (clicked)="delete(payee)">
+                title="Delete" (click)="delete(payee)">
             <svg class="slds-button__icon">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
                      xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>

@@ -35,7 +35,7 @@
         <ng-container *ngFor="let node of nodes">
             <tr class="cbs-tr-hover">
                 <td [ngStyle]="{'padding-left': !node.hasChildren ? 2.5+'rem' : ''}">
-                    <button (clicked)="toggle(node)" [ngClass]="{'cbs-treetable__toggler--expanded' : node.expanded }"
+                    <button (click)="toggle(node)" [ngClass]="{'cbs-treetable__toggler--expanded' : node.expanded }"
                             class="slds-button cbs-treetable__toggler slds-button--icon slds-button--icon-x-small slds-m-right--x-small"
                             aria-controls="expand"
                             *ngIf="node.hasChildren">
@@ -47,17 +47,17 @@
                     <span>{{node?.name}}</span>
                     <div *ngIf="node?.accountType !== 'BALANCE'"
                          class="slds-p-left--medium options slds-show--inline-block">
-                        <svg (clicked)="show({type: 'add', node: node})"
+                        <svg (click)="show({type: 'add', node: node})"
                              class="slds-button__icon slds-button__icon--left"
                              aria-hidden="true">
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                         </svg>
-                        <svg *ngIf="!node?.hasTransactions" (clicked)="show({type: 'edit', node: node})"
+                        <svg *ngIf="!node?.hasTransactions" (click)="show({type: 'edit', node: node})"
                              class="slds-button__icon slds-button__icon--left"
                              aria-hidden="true">
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                         </svg>
-                        <svg (clicked)="show({type: 'show', node: node})"
+                        <svg (click)="show({type: 'show', node: node})"
                              class="slds-button__icon slds-button__icon--left"
                              aria-hidden="true">
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#preview"></use>
@@ -397,12 +397,12 @@
         <ng-template ngl-modal-footer>
 
             <button class="slds-button slds-button--neutral"
-                    (clicked)="cancel()">{{ 'CANCEL' | translate }}
+                    (click)="cancel()">{{ 'CANCEL' | translate }}
             </button>
 
             <button *ngIf="!showAccount"
                     class="slds-button slds-button--success"
-                    (clicked)="submit()"
+                    (click)="submit()"
                     #submitButton
                     [disabled]="form.invalid">{{ 'SAVE' | translate }}
             </button>

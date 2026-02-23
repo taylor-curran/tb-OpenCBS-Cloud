@@ -20,7 +20,7 @@
         </label>
         <div class="slds-form-element__control">
             <label class="slds-checkbox" for="setProvisionManual">
-                <input (clicked)="setProvisionManually()" [checked]="isSpecific" type="checkbox" name="setProvisionManual"
+                <input (click)="setProvisionManually()" [checked]="isSpecific" type="checkbox" name="setProvisionManual"
                        id="setProvisionManual"/>
                 <span class="slds-checkbox--faux"></span>
             </label>
@@ -60,14 +60,14 @@
         <div class="slds-align--absolute-center">
             <button class="slds-button slds-button--neutral" aria-live="assertive"
                     [disabled]="!specificReserve && !specificValue"
-                    (clicked)="resetValue()">
+                    (click)="resetValue()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'RESET' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
-                    (clicked)="openSetProvisionModal()"
+                    (click)="openSetProvisionModal()"
                     [disabled]="!disabledBtn">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

@@ -24,7 +24,7 @@
                 <ng-container>
                     <button
                         *cbsVisibleByPermission="{ group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_PEOPLE'] }"
-                        (clicked)="openApproveModal()"
+                        (click)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -37,7 +37,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['MAKER_FOR_PEOPLE','CHECKER_FOR_PEOPLE'] }"
-                        (clicked)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (click)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
@@ -53,7 +53,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_COMPANY'] }"
-                        (clicked)="openApproveModal()"
+                        (click)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -67,7 +67,7 @@
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER',
                             permissions: ['MAKER_FOR_COMPANY','CHECKER_FOR_COMPANY'] }"
-                        (clicked)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (click)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
@@ -83,7 +83,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_GROUP'] }"
-                        (clicked)="openApproveModal()"
+                        (click)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -97,7 +97,7 @@
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER',
                             permissions: ['MAKER_FOR_GROUP','CHECKER_FOR_GROUP'] }"
-                        (clicked)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (click)="openRejectModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>

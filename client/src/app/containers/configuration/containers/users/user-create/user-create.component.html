@@ -9,14 +9,14 @@
 
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" aria-live="assertive" *ngIf="rolesExist"
-                    (clicked)="goToUsers()">
+                    (click)="goToUsers()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive" *ngIf="rolesExist"
-                    (clicked)="submit()" [disabled]="userCreateForm.invalid || passwordNotMatch">
+                    (click)="submit()" [disabled]="userCreateForm.invalid || passwordNotMatch">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>

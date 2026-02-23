@@ -25,15 +25,15 @@
         <p class="slds-text-body--small slds-text-color--weak slds-m-top--small slds-text-align--right"
            *ngIf="hasEditedField()">
             <i>The orange highlighted entry fees are set by user.</i>
-            <button class="slds-button" (clicked)="resetFeeCalculation.emit()">Reset fee calculation</button>
+            <button class="slds-button" (click)="resetFeeCalculation.emit()">Reset fee calculation</button>
         </p>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (clicked)="isOpen = false">
+        <button class="slds-button slds-button--neutral" (click)="isOpen = false">
             {{ 'CANCEL' | translate }}
         </button>
         <button [disabled]="entryFeesForm.invalid" class="slds-button slds-button--success"
-                (clicked)="saveNewEntryFees()">{{ 'SAVE' | translate }}
+                (click)="saveNewEntryFees()">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

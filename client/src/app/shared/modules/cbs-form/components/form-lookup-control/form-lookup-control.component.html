@@ -18,7 +18,7 @@
             [disabled]="disabled"
             (picklistOpen)="onPicklistOpen($event)"
             (picklistClose)="onPicklistClose($event)"
-            (clearTriggered)="onClear()"
+            (cleared)="onClear()"
             (itemSelected)="setLookupValue($event)"></cbs-picklist>
         <ng-content></ng-content>
     </div>
