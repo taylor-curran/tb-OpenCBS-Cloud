@@ -6,7 +6,7 @@
             [requiredField]="true"
             [hasError]="repaymentForm.get('date').errors && repaymentForm.get('date').touched"
             fieldLabel="{{ 'DATE' | translate }}"
-            (onChange)="repaymentDateChanged()"
+            (inputChange)="repaymentDateChanged()"
         ></cbs-form-date-control>
 
         <cbs-form-readonly-control
@@ -31,7 +31,7 @@
             [requiredField]="true"
             [hasError]="repaymentForm.get('repaymentType').errors && repaymentForm.get('repaymentType').touched"
             fieldLabel="{{ 'REPAYMENT_TYPE' | translate }}"
-            (onChange)="markAsEdited('repayment_type')"
+            (inputChange)="markAsEdited('repayment_type')"
         ></cbs-form-select-control>
 
         <cbs-form-input-control
@@ -52,7 +52,7 @@
             [inputType]="'number'"
             [hasError]="repaymentForm.get('principal').errors && repaymentForm.get('principal').touched"
             fieldLabel="{{ 'PRINCIPAL' | translate }}"
-            (onChange)="markAsEdited('principal_penalty')"
+            (inputChange)="markAsEdited('principal_penalty')"
         ></cbs-form-input-control>
 
         <cbs-form-input-control
@@ -69,7 +69,7 @@
             [inputType]="'number'"
             [hasError]="repaymentForm.get('penalty').errors && repaymentForm.get('penalty').touched"
             fieldLabel="{{ 'PENALTY' | translate }}"
-            (onChange)="markAsEdited('principal_penalty')"
+            (inputChange)="markAsEdited('principal_penalty')"
         ></cbs-form-input-control>
 
         <cbs-form-input-control
