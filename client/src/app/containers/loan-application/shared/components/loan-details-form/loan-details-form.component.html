@@ -12,7 +12,7 @@
             [selectValue]="'id'"
             [hasError]="form.get('creditLineId').errors && form.get('creditLineId').touched"
             fieldLabel="{{ 'CREDIT_LINE' | translate }}"
-            (onChange)="creditLineSelect($event)"
+            (onChange)="handleCreditLineSelect($event)"
         ></cbs-form-select-control>
 
         <cbs-form-lookup-control
@@ -69,9 +69,9 @@
             [payeesData]="loanAppFormState?.payees"
             [showEditBtn]="true"
             [payeesCount]="loanAppFormState?.payees.length"
-            (onAddPayee)="onPayeeAdd.emit()"
-            (onEditPayee)="onPayeeEdit.emit($event)"
-            (onDeletePayee)="onPayeeDelete.emit($event)"
+            (onAddPayee)="payeeAdd.emit()"
+            (onEditPayee)="payeeEdit.emit($event)"
+            (onDeletePayee)="payeeDelete.emit($event)"
         ></cbs-payees-block-control>
 
         <cbs-form-input-control
@@ -156,7 +156,7 @@
                 *ngIf="!!loanAppFormState?.entryFees?.length"
                 [isValidToCalculate]="loanAppFormState?.valid"
                 [entryFeesData]="loanAppFormState?.entryFees"
-                (onDetailsClick)="onEntryFeesClick.emit()"
+                (onDetailsClick)="entryFeesClick.emit()"
             ></cbs-entry-fees-block>
         </ng-container>
 
