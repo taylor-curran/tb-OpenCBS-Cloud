@@ -15,5 +15,6 @@ export class LoanLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 }

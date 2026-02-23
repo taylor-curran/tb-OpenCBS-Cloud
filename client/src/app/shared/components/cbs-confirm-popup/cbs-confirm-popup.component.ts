@@ -27,7 +27,7 @@ export class ConfirmPopupComponent implements OnInit {
   public textareaVal = '';
 
   ngOnInit() {
-
+    // No-op: required by Angular lifecycle interface
   }
 
   cancelConfirm() {
