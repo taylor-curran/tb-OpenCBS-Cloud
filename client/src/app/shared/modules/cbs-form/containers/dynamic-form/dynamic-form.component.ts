@@ -11,7 +11,7 @@ import { FieldConfig } from '../../models/field-config.interface';
     <form
         class="slds-form--stacked"
         [formGroup]="form"
-        (submit)="handleSubmit($event)">
+        (submitEvent)="handleSubmit($event)">
         <ng-container
             *ngFor="let field of config;"
             cbsDynamicField
@@ -26,7 +26,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   config: FieldConfig[] = [];
 
   @Output()
-  submit: EventEmitter<any> = new EventEmitter<any>();
+  submitEvent: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup;
 
@@ -90,7 +90,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    this.submit.emit(this.value);
+    this.submitEvent.emit(this.value);
   }
 
   setDisabled(name: string, disable: boolean) {

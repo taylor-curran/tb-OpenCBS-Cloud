@@ -29,7 +29,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   @Input() styleClass = '';
   @Input() style = '';
   @Input() inputType = 'text';
-  @Output() onChange = new EventEmitter();
+  @Output() changeEvent = new EventEmitter();
   @Input() disabled = false;
 
   @Input() innerValue: any = '';
@@ -48,7 +48,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
       } else {
         this.innerValue = v;
       }
-      this.onChangeCallback(v);
+      this.changeEventCallback(v);
     }
   }
 
@@ -59,7 +59,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
-    this.onChangeCallback = fn;
+    this.changeEventCallback = fn;
   }
 
   registerOnTouched(fn: any) {
@@ -76,6 +76,6 @@ export class FormInputControlComponent implements ControlValueAccessor {
 
   inputChange(value) {
     this.value = value;
-    this.onChange.emit(value);
+    this.changeEvent.emit(value);
   }
 }
