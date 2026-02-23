@@ -28,8 +28,8 @@ export class ChipsComponent implements ControlValueAccessor {
   @Input() styleClass: string;
   @Input() disabled: boolean;
   @Input() type = 'text';
-  @Output() onAdd: EventEmitter<any> = new EventEmitter();
-  @Output() onRemove: EventEmitter<any> = new EventEmitter();
+  @Output() add: EventEmitter<any> = new EventEmitter();
+  @Output() remove: EventEmitter<any> = new EventEmitter();
   @Input() field: string;
   @Input() placeholder: string;
   @Input() max: number;
@@ -95,36 +95,36 @@ export class ChipsComponent implements ControlValueAccessor {
 
     let removedItem = this.value.splice(index, 1);
     this.onModelChange(this.value);
-    this.onRemove.emit({
-      originalEvent: event,
-      value: removedItem
-    });
-  }
+      this.remove.emit({
+        originalEvent: event,
+        value: removedItem
+      });
+    }
 
-  onKeydown(event: KeyboardEvent, inputEL: HTMLInputElement): void {
-    switch (event.which) {
-      // backspace
-      case 8:
-        if (inputEL.value.length === 0 && this.value && this.value.length > 0) {
-          let removedItem = this.value.pop();
-          this.onModelChange(this.value);
-          this.onRemove.emit({
-            originalEvent: event,
-            value: removedItem
-          });
-        }
-        break;
+    onKeydown(event: KeyboardEvent, inputEL: HTMLInputElement): void {
+      switch (event.which) {
+        // backspace
+        case 8:
+          if (inputEL.value.length === 0 && this.value && this.value.length > 0) {
+            let removedItem = this.value.pop();
+            this.onModelChange(this.value);
+            this.remove.emit({
+              originalEvent: event,
+              value: removedItem
+            });
+          }
+          break;
 
-      // enter
-      case 13:
-        this.value = this.value || [];
-        if (inputEL.value && inputEL.value.trim().length && (!this.max || this.max > this.value.length)) {
-          this.value = [inputEL.value, ...this.value];
-          this.onModelChange(this.value);
-          this.onAdd.emit({
-            originalEvent: event,
-            value: inputEL.value
-          });
+        // enter
+        case 13:
+          this.value = this.value || [];
+          if (inputEL.value && inputEL.value.trim().length && (!this.max || this.max > this.value.length)) {
+            this.value = [inputEL.value, ...this.value];
+            this.onModelChange(this.value);
+            this.add.emit({
+              originalEvent: event,
+              value: inputEL.value
+            });
         }
         inputEL.value = '';
         event.preventDefault();
