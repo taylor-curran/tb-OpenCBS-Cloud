@@ -130,7 +130,7 @@ export class PicklistComponent implements OnInit, OnChanges {
             this.removeExcludedItems(this.lookupList, this.currentValue);
           }
           if (!this.value && resp.content[0] && resp.content.length === 1 ) {
-            this.select(resp.content[0])
+            this.selectPicklistItem(resp.content[0])
           }
           if ( this.value && this.value > 0 ) {
             this.assignSelected(this.value);
@@ -181,7 +181,7 @@ export class PicklistComponent implements OnInit, OnChanges {
       item.selected = false;
     });
     this.select.emit();
-    this.clear();
+    this.clearPicklist();
   }
 
   removeWithoutEmit() {
@@ -190,10 +190,10 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.clear();
+    this.clearPicklist();
   }
 
-  clear() {
+  clearPicklist() {
     this.searchQuery = '';
     this.lookupList = [];
 
@@ -201,7 +201,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.clear.emit();
   }
 
-  select(item) {
+  selectPicklistItem(item) {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
