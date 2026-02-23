@@ -94,7 +94,7 @@ export class LoanAppCreateCollateralComponent implements OnInit, OnDestroy {
       });
   }
 
-  submit() {
+  submitted() {
     if ( this.formComponent.collateralForm.valid ) {
       const data = this.formComponent.collateralForm.value,
         customFields = [...this.formComponent.customFields];

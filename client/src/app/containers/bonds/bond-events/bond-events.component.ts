@@ -119,7 +119,7 @@ export class BondEventsComponent implements OnInit, OnDestroy {
     })
   }
 
-  onEventClick(event) {
+  eventClick(event) {
     this.isLoading = true;
     this.bondEventsService.getChildNotes(this.bondId, event['groupKey']).subscribe(res => {
       event.childNotes = res;

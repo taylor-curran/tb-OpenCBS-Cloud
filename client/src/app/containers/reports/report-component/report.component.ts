@@ -91,10 +91,10 @@ export class ReportComponent implements OnInit {
 
   selectFormat(formatType) {
     this.isLoading = true;
-    this.submit(formatType)
+    this.submitted(formatType)
   }
 
-  submit(format) {
+  submitted(format) {
     const formatType = format ===  'PDF' ? 'pdf' : format === 'EXCEL' ? 'xlsx' : 'csv';
      const reportData = {
       ...this.reportData,

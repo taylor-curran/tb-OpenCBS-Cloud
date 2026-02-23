@@ -134,7 +134,7 @@ export class TransferComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  submit({value, valid}) {
+  submitted({value, valid}) {
     if ( valid ) {
       const data = {
         tillId: value.tillId,

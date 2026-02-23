@@ -23,7 +23,7 @@ public class LoanContainer implements Container {
 
     private final LoanService loanService;
     private final ApplicationContext context;
-    private static List<DayClosureProcessor> loanDayClosureProcessorList;
+    private List<DayClosureProcessor> loanDayClosureProcessorList;
 
 
     @Override
@@ -32,7 +32,7 @@ public class LoanContainer implements Container {
     }
 
     @Override
-    public List<DayClosureProcessor> getProcessingServices() {
+    public synchronized List<DayClosureProcessor> getProcessingServices() {
         if (loanDayClosureProcessorList == null) {
             loanDayClosureProcessorList = this.context.getBeansOfType(LoanDayClosureProcessor.class)
                     .entrySet()

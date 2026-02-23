@@ -120,7 +120,7 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit() {
+  submitted() {
     delete this.userCreateForm.value['confirmPassword'];
     this.userCreateService.createUser(this.userCreateForm.value)
       .subscribe((res) => {

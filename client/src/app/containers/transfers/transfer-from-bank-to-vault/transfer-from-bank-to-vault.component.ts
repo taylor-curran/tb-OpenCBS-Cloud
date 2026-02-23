@@ -72,7 +72,7 @@ export class TransferFromBankToVaultComponent implements OnInit {
     })
   }
 
-  submit({value, valid}: FormGroup) {
+  submitted({value, valid}: FormGroup) {
     if ( valid ) {
       this.showConfirmModal = false;
       this.isSubmittingTransfer = true;

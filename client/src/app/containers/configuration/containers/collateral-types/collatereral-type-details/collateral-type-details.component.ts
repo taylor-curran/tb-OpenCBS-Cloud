@@ -155,13 +155,13 @@ export class CollateralTypeDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  onFieldAddCancel() {
+  fieldAddCancel() {
     this.collateralTypeDetails.customFields.pop();
 
     this.addBtn.disabled = false;
   }
 
-  onError(err) {
+  errorOccurred(err) {
     this.toastrService.error(err.message, '', environment.ERROR_TOAST_CONFIG);
   }
 

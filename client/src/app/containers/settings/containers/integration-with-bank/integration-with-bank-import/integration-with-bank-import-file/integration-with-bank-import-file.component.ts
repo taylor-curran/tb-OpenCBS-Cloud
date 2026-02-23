@@ -91,7 +91,7 @@ export class IntegrationWithBankImportFileComponent implements OnInit {
       });
   }
 
-  onUpload(event) {
+  upload(event) {
     this.isLoading = true;
     if ( event.xhr && event.xhr.status === 200 ) {
       this.integrationWithBankImportFile = JSON.parse(event.xhr.response)
@@ -103,7 +103,7 @@ export class IntegrationWithBankImportFileComponent implements OnInit {
     this.isLoading = false;
   }
 
-  onError(err) {
+  errorOccurred(err) {
     if ( err.xhr && (err.xhr.status >= 400 && err.xhr.status <= 500) ) {
       const response = JSON.parse(err.xhr.response);
       this.closeUploadModal();
@@ -111,7 +111,7 @@ export class IntegrationWithBankImportFileComponent implements OnInit {
     }
   }
 
-  onClear() {
+  cleared() {
     this.closeUploadModal();
   }
 

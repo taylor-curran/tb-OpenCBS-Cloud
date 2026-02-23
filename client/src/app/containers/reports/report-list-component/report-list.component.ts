@@ -120,7 +120,7 @@ export class ReportListComponent implements OnInit, OnDestroy {
     return this.fb.control({disabled, value}, validationOptions);
   }
 
-  submit() {
+  submitted() {
     this.isOpen = false;
     this.isLoading = true;
     const objToSend = {

@@ -105,7 +105,7 @@ export class LoanEventsMakerCheckerComponent implements OnInit, OnDestroy {
     })
   }
 
-  onEventClick(event) {
+  eventClick(event) {
     this.isLoading = true;
     this.loanEventsService.getChildNotes(this.loanId, event['groupKey']).subscribe(res => {
       event.childNotes = res;

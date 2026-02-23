@@ -108,7 +108,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.openRecoverModal = false;
   }
 
-  submit() {
+  submitted() {
     this.disabled = false;
     delete this.changePasswordForm.value['confirmPassword'];
     this.changePasswordForm.value['userId'] = this.userId;

@@ -89,7 +89,7 @@ export class CustomFormModalComponent implements OnInit {
     this.opened = false;
   }
 
-  submit({valid, value}) {
+  submitted({valid, value}) {
     if (valid) {
       this.disableSubmitBtn(true);
       this.submitForm.emit(value);

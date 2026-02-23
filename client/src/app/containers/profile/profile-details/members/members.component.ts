@@ -165,7 +165,7 @@ export class MembersComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit() {
+  submitted() {
     this.membersService.addMember(this.profileId, this.profileType, this.memberForm.value.personId).subscribe(res => {
       if ( res.error ) {
         this.toastrService.clear();

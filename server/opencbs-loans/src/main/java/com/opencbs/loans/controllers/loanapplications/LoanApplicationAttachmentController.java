@@ -30,6 +30,8 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/api/loan-applications/{loanApplicationId}/attachments")
 public class LoanApplicationAttachmentController {
 
+    private static final String ATTACHMENT_NOT_FOUND_MSG = "Attachment not found (ID=%d).";
+
     private final LoanApplicationService loanApplicationService;
     private final LoanApplicationAttachmentService loanApplicationAttachmentService;
     private final AttachmentMapper attachmentMapper;
@@ -61,7 +63,7 @@ public class LoanApplicationAttachmentController {
                               @RequestParam(value = "comment", required = false) String comment,
                               @RequestParam(value = "size", required = false) Integer size) throws Exception {
         LoanApplicationAttachment attachment = this.loanApplicationAttachmentService.findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
         return this.loanApplicationAttachmentService.getResponseEntity(attachment, size);
     }
@@ -84,7 +86,7 @@ public class LoanApplicationAttachmentController {
     public AttachmentDto delete(@PathVariable long attachmentId) throws Exception {
         LoanApplicationAttachment attachment = this.loanApplicationAttachmentService
                 .findOne(attachmentId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Attachment not found (ID=%d).", attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
         this.loanApplicationAttachmentService.delete(attachment);
         return this.attachmentMapper.mapToDto(attachment);

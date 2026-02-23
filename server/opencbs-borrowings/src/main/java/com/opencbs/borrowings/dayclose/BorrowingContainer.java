@@ -21,7 +21,7 @@ public class BorrowingContainer implements Container {
 
     private final ApplicationContext context;
     private final BorrowingService borrowingService;
-    private static List<DayClosureProcessor> borrowingDayClosureProcessorList;
+    private List<DayClosureProcessor> borrowingDayClosureProcessorList;
 
     public BorrowingContainer(ApplicationContext context, BorrowingService borrowingService) {
         this.context = context;
@@ -34,7 +34,7 @@ public class BorrowingContainer implements Container {
     }
 
     @Override
-    public List<DayClosureProcessor> getProcessingServices() {
+    public synchronized List<DayClosureProcessor> getProcessingServices() {
         if (borrowingDayClosureProcessorList == null) {
             borrowingDayClosureProcessorList = this.context.getBeansOfType(BorrowingDayClosureProcessor.class)
                     .entrySet()

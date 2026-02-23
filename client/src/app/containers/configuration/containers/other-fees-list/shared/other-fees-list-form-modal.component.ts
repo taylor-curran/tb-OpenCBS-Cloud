@@ -61,7 +61,7 @@ export class OtherFeesListFormModalComponent implements OnInit {
     this.isOpen = false;
   }
 
-  submit({valid, value}) {
+  submitted({valid, value}) {
     this.disableSubmitBtn(true);
 
     if ( valid ) {
