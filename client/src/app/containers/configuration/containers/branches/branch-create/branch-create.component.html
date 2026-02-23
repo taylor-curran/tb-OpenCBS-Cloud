@@ -17,8 +17,8 @@
                     nglButton="success"
                     [disabled]="form?.invalid"
                     class="slds-button--success"
-                    #submitButton
-                    (click)="submitForm(form)">
+                    #formSubmitButton
+                    (click)="formSubmitForm(form)">
                 <ngl-icon icon="check" align="'center'" [svgClass]="'slds-button__icon--left'">{{ 'SAVE' | translate
                     }}
                 </ngl-icon>

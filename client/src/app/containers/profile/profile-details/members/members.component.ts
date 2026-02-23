@@ -131,7 +131,7 @@ export class MembersComponent implements OnInit, OnDestroy {
   }
 
   openTransactionModal() {
-    this.lookup.onClearLookup();
+    this.lookup.clearLookup();
     this.isModalOpened = true;
   }
 
@@ -165,7 +165,7 @@ export class MembersComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit() {
+  formSubmit() {
     this.membersService.addMember(this.profileId, this.profileType, this.memberForm.value.personId).subscribe(res => {
       if ( res.error ) {
         this.toastrService.clear();

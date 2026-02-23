@@ -232,7 +232,7 @@ export class ChartOfAccountsComponent implements OnInit, OnDestroy {
     this.form.controls['allowedManualTransaction'].setValue(true);
   }
 
-  submit() {
+  formSubmit() {
     this.openedModal = false;
     const objToSendCreate = Object.assign({}, this.form.value, {
       parentAccountId: this.currentNode['id'],

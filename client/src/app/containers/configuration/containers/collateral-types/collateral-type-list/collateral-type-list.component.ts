@@ -113,7 +113,7 @@ export class CollateralTypeListComponent implements OnInit, OnDestroy {
     });
   }
 
-  submitCollateralType(data) {
+  formSubmitCollateralType(data) {
     this.saveNewCollateralType(data);
   }
 

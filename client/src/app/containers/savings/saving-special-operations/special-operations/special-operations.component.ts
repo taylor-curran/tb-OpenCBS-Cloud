@@ -112,7 +112,7 @@ export class SavingSpecialOperationComponent implements OnInit, OnDestroy {
     this.closeSaving = false;
   }
 
-  submitDepositWithdrawSaving() {
+  formSubmitDepositWithdrawSaving() {
     this.isLoading = true;
     this.operationDate = this.parseDateFormatService.parseDateValue(this.operationDate);
     if ( this.title === 'Deposit' ) {
@@ -161,7 +161,7 @@ export class SavingSpecialOperationComponent implements OnInit, OnDestroy {
     this.actualizeDate = moment().format(environment.DATE_FORMAT_MOMENT);
   }
 
-  submitActualizeLoan() {
+  formSubmitActualizeLoan() {
     this.isOpenActualize = false;
     this.isLoading = true;
     this.actualizeDate = this.parseDateFormatService.parseDateValue(this.actualizeDate);
@@ -180,7 +180,7 @@ export class SavingSpecialOperationComponent implements OnInit, OnDestroy {
     });
   }
 
-  submitLockUnlockSaving() {
+  formSubmitLockUnlockSaving() {
     this.isLoading = true;
     this.savingService.lockSaving(this.savingId).subscribe(data => {
       if ( data.error ) {
@@ -197,7 +197,7 @@ export class SavingSpecialOperationComponent implements OnInit, OnDestroy {
     });
   }
 
-  submitCloseSaving() {
+  formSubmitCloseSaving() {
     this.isLoading = true;
     this.closeDate = this.parseDateFormatService.parseDateValue(this.closeDate);
     this.savingService.closeSaving(this.savingId, this.closeDate).subscribe(data => {

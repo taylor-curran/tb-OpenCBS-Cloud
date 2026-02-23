@@ -15,7 +15,7 @@
                     </svg>
                     {{ 'CANCEL' | translate }}</span>
             </button>
-            <button class="slds-button slds-button--success" aria-live="assertive" (click)="submitForm(f)"
+            <button class="slds-button slds-button--success" aria-live="assertive" (click)="formSubmitForm(f)"
                     [disabled]="formInvalid || !formChanged">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="slds-form--horizontal cbs-pull-negative">
-                <form novalidate #f="ngForm" (ngSubmit)="submitForm(f)" cbsFormFocus>
+                <form novalidate #f="ngForm" (ngSubmit)="formSubmitForm(f)" cbsFormFocus>
 
                     <div class="slds-form-element">
                         <label class="slds-form-element__label">
@@ -113,7 +113,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

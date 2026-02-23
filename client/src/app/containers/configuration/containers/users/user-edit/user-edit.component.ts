@@ -233,7 +233,7 @@ export class UserEditComponent implements OnInit, OnDestroy, AfterViewInit {
     this.userUpdateStore$.dispatch(new fromStore.UpdateUserReset());
   };
 
-  submitForm() {
+  formSubmitForm() {
     this.isSubmitting = true;
     this.userEditForm.controls['id'].setValue(this.userId);
     this.userUpdateService.updateUser(this.userEditForm.value, this.userId)

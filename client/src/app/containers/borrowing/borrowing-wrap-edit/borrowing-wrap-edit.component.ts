@@ -22,7 +22,7 @@ import {CCRulesFormComponent} from '../../configuration/containers/credit-commit
 })
 
 export class BorrowingWrapEditComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = {
     collection: 'custom',
     class: 'custom42',
@@ -146,7 +146,7 @@ export class BorrowingWrapEditComponent implements OnInit, OnDestroy {
 
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -162,7 +162,7 @@ export class BorrowingWrapEditComponent implements OnInit, OnDestroy {
   }
 
 
-  submitForm() {
+  formSubmitForm() {
     if (this.borrowingFormState.valid && this.borrowingFormState.data.amount > 0) {
       this.disableSubmitBtn(true);
 

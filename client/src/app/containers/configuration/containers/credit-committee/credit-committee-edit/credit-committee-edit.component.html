@@ -14,7 +14,7 @@
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
-            <button (click)="submit()" [disabled]="formComponent.form.invalid || !formChanged"
+            <button (click)="formSubmit()" [disabled]="formComponent.form.invalid || !formChanged"
                     class="slds-button slds-button--success" aria-live="assertive">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -28,7 +28,7 @@
 </cbs-header>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"
@@ -40,7 +40,7 @@
         <div class="slds-text-title--caps slds-m-bottom--medium">
             <strong>{{ 'DETAILS' | translate }}</strong>
         </div>
-        <cbs-credit-committee-form (onChange)="check($event)"></cbs-credit-committee-form>
+        <cbs-credit-committee-form (change)="check($event)"></cbs-credit-committee-form>
     </cbs-form-layout>
     <cbs-loading-indicator [isFixed]="true" [showLoader]="isHidden"></cbs-loading-indicator>
 </main>

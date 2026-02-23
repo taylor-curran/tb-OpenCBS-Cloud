@@ -10,8 +10,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (onClear)="clearSearch()"
-                (onSearch)="search($event)"
+                (clear)="clearSearch()"
+                (search)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -142,7 +142,7 @@
             <cbs-form-lookup-control
                 [picklistFilterType]="'name'"
                 (onOpenPicklist)="changeSize(true)"
-                (onClosePicklist)="changeSize(false)"
+                (closePicklist)="changeSize(false)"
                 [hasError]="openTillForm.get('tellerId').errors && openTillForm.get('tellerId').touched"
                 [requiredField]="true"
                 [formControlName]="'tellerId'"
@@ -158,7 +158,7 @@
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="openTillForm.invalid"
-                (click)="submit(openTillForm)">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit(openTillForm)">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -177,7 +177,7 @@
         </button>
         <button class="slds-button slds-button--success"
                 [disabled]="!balance.length"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

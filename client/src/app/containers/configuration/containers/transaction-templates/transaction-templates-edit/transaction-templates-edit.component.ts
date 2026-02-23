@@ -96,7 +96,7 @@ export class TransactionTemplatesEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['configuration', 'transaction-templates', this.transactionTemplatesId])
   }
 
-  submitForm() {
+  formSubmitForm() {
     let debitAccounts = [];
     this.transactionTemplatesForm.form.value.debitAccounts.map(res => {
       debitAccounts.push(values(res));

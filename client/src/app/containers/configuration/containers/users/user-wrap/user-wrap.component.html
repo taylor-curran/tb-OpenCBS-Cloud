@@ -83,7 +83,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="approveUserRequest()"
+                (formSubmitClick)="approveUserRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -93,7 +93,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="deleteRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="deleteUserRequest()"
+                (formSubmitClick)="deleteUserRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -132,7 +132,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="changePasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

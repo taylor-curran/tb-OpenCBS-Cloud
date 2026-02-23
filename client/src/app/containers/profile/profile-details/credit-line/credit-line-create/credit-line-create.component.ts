@@ -19,7 +19,7 @@ const SVG_DATA = {collection: 'standard', class: 'calibration', name: 'calibrati
 
 export class CreditLineCreateComponent implements OnInit {
   @ViewChild(CreditLineFormComponent, {static: false}) creditLineForm: CreditLineFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public profile: any;
   public creditLine: any;
@@ -84,7 +84,7 @@ export class CreditLineCreateComponent implements OnInit {
       });
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.creditLineForm.form.valid ) {
       this.creditLine = Object.assign({}, this.creditLineForm.form.value);
       const penaltiesIdToSend = [];
@@ -113,7 +113,7 @@ export class CreditLineCreateComponent implements OnInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {

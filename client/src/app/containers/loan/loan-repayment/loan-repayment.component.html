@@ -12,7 +12,7 @@
             <cbs-loan-info-entity></cbs-loan-info-entity>
             <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
             <button class="slds-button slds-button--success"
-                    #submitButton
+                    #formSubmitButton
                     (click)="repayModal(formComponent?.repaymentForm?.getRawValue())"
                     [disabled]="disabledRepay || (formComponent?.repaymentForm?.controls?.total?.value <= 0)">{{ 'REPAY' | translate }}
             </button>
@@ -24,11 +24,11 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-repayment-form
-            (onChangeRepaymentType)="onChangeRepaymentType()"
-            (onSetMaxAmount)="setMaxAmount()"
+            (changeRepaymentType)="changeRepaymentType()"
+            (setMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
-            (onRepaymentDateEdited)="markDateAsEdited()"
-            (onTotalEdited)="markTotalAsEdited()"></cbs-repayment-form>
+            (repaymentDateEdited)="markDateAsEdited()"
+            (totalEdited)="markTotalAsEdited()"></cbs-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">
         <div class="slds-grid">
@@ -58,7 +58,7 @@
                 [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                 [opened]="opened"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="repay()"
+                (formSubmitClick)="repay()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -77,13 +77,13 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'NO' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'YES' | translate }}
+        <button class="slds-button slds-button--success" (click)="formSubmitActualizeLoan()">{{ 'YES' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

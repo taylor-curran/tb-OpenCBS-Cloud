@@ -18,8 +18,8 @@
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
-                    #submitButton
-                    (click)="submitForm()"
+                    #formSubmitButton
+                    (click)="formSubmitForm()"
                     [disabled]="editLoanProductForm?.form.invalid || !formChanged || editLoanProductForm?.topUpEmpty">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true"
@@ -39,14 +39,14 @@
             <strong>{{ 'EDIT' | translate }}</strong>
         </div>
         <cbs-edit-loan-product-form
-            (onEntryFeeChanged)="changeEntryFeesValue()"
-            (onPenaltyChanged)="changePenaltiesValue()"
+            (entryFeeChanged)="changeEntryFeesValue()"
+            (penaltyChanged)="changePenaltiesValue()"
         ></cbs-edit-loan-product-form>
     </cbs-form-layout>
 </main>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

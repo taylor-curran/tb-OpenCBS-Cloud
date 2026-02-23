@@ -117,7 +117,7 @@
             }}
         </button>
         <button [disabled]="reportForm.invalid" *ngIf="!fieldsReady" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

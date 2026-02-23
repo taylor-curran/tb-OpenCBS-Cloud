@@ -98,7 +98,7 @@ export class TillEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['configuration', 'tills', this.tillId])
   }
 
-  submitForm() {
+  formSubmitForm() {
     this.tillForm.form.value['accounts'] = this.tillForm.form.value['accounts']
     .map(currency => currency[Object.keys(currency)[0]]);
     this.tillUpdateStore$.dispatch(this.tillUpdateActions

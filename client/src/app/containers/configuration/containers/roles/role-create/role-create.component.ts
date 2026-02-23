@@ -26,7 +26,7 @@ const SVG_DATA = {collection: 'standard', class: 'service-resource', name: 'serv
 })
 export class RoleCreateComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('f', {static: false}) roleForm;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public role: Role;
   public isLoading = true;
   public roleGroups: any;
@@ -92,7 +92,7 @@ export class RoleCreateComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       const data = generateSubmitData(value);
       this.roleCreateService.createRole(data)
@@ -118,7 +118,7 @@ export class RoleCreateComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   resetState() {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', false);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', false);
     this.createRoleStore$.dispatch(new fromStore.CreateRoleReset());
   }
 

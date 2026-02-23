@@ -11,7 +11,7 @@
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" (click)="cancel()">Cancel</button>
             <button class="slds-button slds-button--success"
-                    #submitButton
+                    #formSubmitButton
                     (click)="repay(formComponent?.repaymentForm?.value)"
                     [disabled]="formComponent?.repaymentForm?.invalid">{{ 'REPAY' | translate }}
             </button>
@@ -22,7 +22,7 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-bond-repayment-form
-            (onAutoTypeChange)="onAutoTypeChange($event)">
+            (autoTypeChange)="autoTypeChange($event)">
         </cbs-bond-repayment-form>
     </div>
     <div cbs-loan-layout="bottom-toolbar">

@@ -125,7 +125,7 @@ export class EntryFeesComponent implements OnInit, OnDestroy {
     this.formModal.openEditModal(newEntryFee);
   }
 
-  submitEntryFee(data) {
+  formSubmitEntryFee(data) {
     if ( this.isNew ) {
       this.saveNewEntryFee(data);
     } else {

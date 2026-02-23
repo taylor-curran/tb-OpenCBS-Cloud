@@ -10,7 +10,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <div class="cbs-new-profile__submit-btn">
+            <div class="cbs-new-profile__formSubmit-btn">
                 <a
                     routerLink="/transfers"
                     class="slds-button slds-button--neutral slds-not-selected"
@@ -23,7 +23,7 @@
                     </span>
                 </a>
                 <button
-                    (click)="handleConfirmModalVisibility(true)" #submitButton
+                    (click)="handleConfirmModalVisibility(true)" #formSubmitButton
                     class="slds-button slds-button--success slds-not-selected"
                     aria-live="assertive"
                     [disabled]="form.invalid"
@@ -132,7 +132,7 @@
 
 <cbs-confirm-popup
     [opened]="showConfirmModal"
-    (onSubmitClick)="submit(form)"
+    (formSubmitClick)="formSubmit(form)"
     (openedChange)="handleConfirmModalVisibility(false)"
     [leftButtonLabel]="'NO' | translate"
     [rightButtonLabel]="'YES' | translate"

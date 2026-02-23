@@ -222,7 +222,7 @@ export class CurrentAccountTransactionsComponent implements OnInit, OnDestroy {
     this.isModalOpened = false;
   }
 
-  submit() {
+  formSubmit() {
     this.isLoading = true;
     // tslint:disable-next-line:max-line-length
     const dateNow = this.parseDateFormatService.parseDateValue(this.transactionForm.controls['createdAt'].value);

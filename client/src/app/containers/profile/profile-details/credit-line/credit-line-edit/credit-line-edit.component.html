@@ -16,8 +16,8 @@
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
-                    #submitButton
-                    (click)="submitForm()"
+                    #formSubmitButton
+                    (click)="formSubmitForm()"
                     [disabled]="creditLineForm?.form.invalid || !formChanged">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -36,7 +36,7 @@
             <strong>{{ 'EDIT' | translate }}</strong>
         </div>
         <cbs-credit-line-form
-            (onPenaltyChanged)="changePenaltiesValue()"
+            (penaltyChanged)="changePenaltiesValue()"
         ></cbs-credit-line-form>
     </cbs-form-layout>
 </main>

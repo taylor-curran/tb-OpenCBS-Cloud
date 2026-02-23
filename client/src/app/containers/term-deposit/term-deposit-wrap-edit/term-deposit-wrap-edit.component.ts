@@ -27,7 +27,7 @@ const SVG_DATA = {
 
 export class TermDepositWrapEditComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(TermDepositNewComponent, {static: false}) formComponent: TermDepositNewComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public termDepositNavConfig = [];
   public breadcrumbLinks = [];
@@ -147,7 +147,7 @@ export class TermDepositWrapEditComponent implements OnInit, OnDestroy, AfterVie
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -158,7 +158,7 @@ export class TermDepositWrapEditComponent implements OnInit, OnDestroy, AfterVie
     this.router.navigate(['term-deposits', `${id}`]);
   }
 
-  submitForm() {
+  formSubmitForm() {
     if (this.formComponent.form.valid) {
       this.disableSubmitBtn(true);
 

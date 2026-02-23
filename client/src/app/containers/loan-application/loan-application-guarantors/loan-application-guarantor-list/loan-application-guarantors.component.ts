@@ -6,7 +6,7 @@ import {
   ILoanAppGuarantor,
   ILoanAppFormState,
 } from '../../../../core/store/loan-application';
-import { LoanAppSubmitService } from '../../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../../shared/services/loan-app-formSubmit.service';
 import { LoanAppStatus } from '../../../../core/loan-application-status.enum';
 import * as fromRoot from '../../../../core/core.reducer';
 import * as fromStore from '../../../../core/store';
@@ -36,7 +36,7 @@ export class LoanAppGuarantorsComponent implements OnInit, OnDestroy {
   public profiles = [];
   public progressValue: any;
   public guarantorsData: any;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public readOnly = false;
 
   private loanApplicationSub: Subscription;

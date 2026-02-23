@@ -11,7 +11,7 @@ import {
 } from '../../../core/store/loan-application';
 import { LoanAppSideNavService } from '../shared/services/loan-app-side-nav.service';
 import { environment } from '../../../../environments/environment';
-import { LoanAppSubmitService } from '../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../shared/services/loan-app-formSubmit.service';
 import {
   IEntryFeeItem
 } from '../../../core/store/loan-application/loan-application-form/loan-application-form.interfaces';
@@ -39,7 +39,7 @@ export class LoanAppWrapComponent implements OnInit, OnDestroy {
   public loanNavConfig = [];
   public loanApplication: any;
   public showHeader = true;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public readOnly = false;
   public currentRoute: string;
   public progressValue: any;

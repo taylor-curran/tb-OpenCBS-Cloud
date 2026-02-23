@@ -202,7 +202,7 @@ export class LoanAppPrintOutComponent implements OnInit {
     return this.fb.control({disabled, value}, validationOptions);
   }
 
-  submit() {
+  formSubmit() {
     this.isOpen = false;
     const objToSend = {
       templateId: this.currentReport['id'],

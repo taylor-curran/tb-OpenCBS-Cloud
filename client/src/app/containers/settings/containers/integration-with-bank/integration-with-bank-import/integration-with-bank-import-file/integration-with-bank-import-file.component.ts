@@ -111,7 +111,7 @@ export class IntegrationWithBankImportFileComponent implements OnInit {
     }
   }
 
-  onClear() {
+  clear() {
     this.closeUploadModal();
   }
 

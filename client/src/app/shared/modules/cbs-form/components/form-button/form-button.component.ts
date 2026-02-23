@@ -14,7 +14,7 @@ import { FieldConfig } from '../../models/field-config.interface';
         <button
             class="slds-button slds-button--brand"
             [disabled]="config.disabled"
-            type="submit">
+            type="formSubmit">
             {{ config.caption }}
         </button>
     </div>

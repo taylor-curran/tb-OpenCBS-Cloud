@@ -24,8 +24,8 @@ export interface Field {
 })
 export class CustomFormModalComponent implements OnInit {
   @Input() headerTitle = '';
-  @Output() submitForm = new EventEmitter();
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @Output() formSubmitForm = new EventEmitter();
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild('formFocus', {static: false}) formFocus: ElementRef;
   public opened = false;
   public customForm: FormGroup;
@@ -89,15 +89,15 @@ export class CustomFormModalComponent implements OnInit {
     this.opened = false;
   }
 
-  submit({valid, value}) {
+  formSubmit({valid, value}) {
     if (valid) {
       this.disableSubmitBtn(true);
-      this.submitForm.emit(value);
+      this.formSubmitForm.emit(value);
     }
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   buildForm() {

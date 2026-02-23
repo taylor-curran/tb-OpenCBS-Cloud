@@ -8,8 +8,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (onClear)="searchQuery = ''"
-                (onSearch)="searchQuery = $event"
+                (clear)="searchQuery = ''"
+                (search)="searchQuery = $event"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
         <!-- /cbs-page-header-layout = center -->
@@ -91,7 +91,7 @@
             }}
         </button>
         <button [disabled]="reportForm.invalid" *ngIf="!fieldsReady" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

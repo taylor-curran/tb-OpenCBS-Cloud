@@ -24,7 +24,7 @@ const SVG_DATA = {
 })
 
 export class SavingWrapCreateComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild(SavingNewComponent, {static: true}) formComponent: SavingNewComponent;
 
 
@@ -83,7 +83,7 @@ export class SavingWrapCreateComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -99,7 +99,7 @@ export class SavingWrapCreateComponent implements OnInit, OnDestroy {
     this.router.navigate(['savings', `${id}`]);
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.formComponent.form.valid ) {
       this.isLoading = true;
       this.disableSubmitBtn(true);

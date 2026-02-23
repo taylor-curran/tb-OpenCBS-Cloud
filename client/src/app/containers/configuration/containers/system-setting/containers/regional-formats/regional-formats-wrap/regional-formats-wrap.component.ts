@@ -159,7 +159,7 @@ export class RegionalFormatsWrapComponent implements OnInit {
     this.opened = true;
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.sendData.valid ) {
       const systemSettingDataToSend = [];
       const valueArray = this.flattenArray(this.sendData.value.fieldSections);

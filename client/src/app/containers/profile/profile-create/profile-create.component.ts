@@ -24,7 +24,7 @@ const SVG_DATA = {collection: 'standard', class: 'user', name: 'user'};
   styleUrls: ['profile-create.component.scss']
 })
 export class NewProfileComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public profileBreadcrumbLabel = '';
   public profileForm: FormGroup;
   public createProfileState: CreateProfileState;
@@ -180,7 +180,7 @@ export class NewProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit({valid, value}) {
+  formSubmit({valid, value}) {
     if ( valid ) {
       this.disableSubmitBtn(true);
       const profileDataToSend = {
@@ -219,7 +219,7 @@ export class NewProfileComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   goToProfileInfo() {

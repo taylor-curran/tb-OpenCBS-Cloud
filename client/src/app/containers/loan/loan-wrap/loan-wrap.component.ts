@@ -163,8 +163,8 @@ export class LoanWrapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loanExtraService.announceShowDeletedEventsStatusChange(true);
   }
 
-  submitTopUpForm() {
-    this.topUpService.submitTopUpStatusChange(true);
+  formSubmitTopUpForm() {
+    this.topUpService.formSubmitTopUpStatusChange(true);
   }
 
   ngAfterViewInit() {

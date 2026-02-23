@@ -165,7 +165,7 @@ export class CollateralTypeDetailsComponent implements OnInit, OnDestroy {
     this.toastrService.error(err.message, '', environment.ERROR_TOAST_CONFIG);
   }
 
-  onDeleteSuccess() {
+  deleteSuccess() {
     this.translate.get('DELETE_SUCCESS').subscribe((res: string) => {
       this.toastrService.success(res, '', environment.SUCCESS_TOAST_CONFIG);
     });
@@ -226,7 +226,7 @@ export class CollateralTypeDetailsComponent implements OnInit, OnDestroy {
     this.isEditView = false;
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid && value.caption !== this.cachedCaption ) {
       this.collateralTypeUpdateStore$
         .dispatch(new fromStore.UpdateCollateralType({data: {caption: value.caption}, id: value.id}));

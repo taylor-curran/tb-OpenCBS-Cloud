@@ -156,7 +156,7 @@ export class TillCreateComponent implements OnInit, OnDestroy {
     this.currencyListStore$.dispatch(new fromStore.ResetCurrencies());
   }
 
-  submit() {
+  formSubmit() {
     this.form.value['accounts'] = this.form.value['accounts']
     .map(currency => currency[Object.keys(currency)[0]]);
     this.tillCreateStore$.dispatch(this.tillCreateActions.fireInitialAction(this.form.value));

@@ -10,7 +10,7 @@ export class LoanAppSubmitService {
   constructor(private loanApplicationStore$: Store<ILoanAppState>) {
   }
 
-  submitLoanApp(loanAppId, status) {
+  formSubmitLoanApp(loanAppId, status) {
     if (status === LoanAppStatus[LoanAppStatus.IN_PROGRESS]) {
       this.loanApplicationStore$
       .dispatch(new LoanApplicationActions.SubmitLoanApp(loanAppId));

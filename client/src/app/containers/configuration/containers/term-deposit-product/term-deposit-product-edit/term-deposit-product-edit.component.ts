@@ -25,7 +25,7 @@ const SVG_DATA = {collection: 'standard', class: 'calibration', name: 'calibrati
 })
 export class TermDepositProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(TermDepositProductFormComponent, {static: false}) termDepositProductForm: TermDepositProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public isOpen = false;
   public formChanged = false;
@@ -147,7 +147,7 @@ export class TermDepositProductEditComponent implements OnInit, AfterViewInit, O
     }
   }
 
-  submitForm() {
+  formSubmitForm() {
     const termDepositProduct = this.termDepositProductForm.form.value;
     if ( this.termDepositProductForm.form.valid ) {
       if ( termDepositProduct.availability.length ) {
@@ -185,7 +185,7 @@ export class TermDepositProductEditComponent implements OnInit, AfterViewInit, O
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   ngOnDestroy() {

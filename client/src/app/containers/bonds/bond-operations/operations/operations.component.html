@@ -40,7 +40,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" [disabled]="!actualizeDate" (click)="submitActualize()">{{ 'Start' | translate }}
+        <button class="slds-button slds-button--success" [disabled]="!actualizeDate" (click)="formSubmitActualize()">{{ 'Start' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -58,7 +58,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="isOpenValueDate = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" [disabled]="!valueDate" (click)="submitValueDate()">{{ 'OK' | translate }}
+        <button class="slds-button slds-button--success" [disabled]="!valueDate" (click)="formSubmitValueDate()">{{ 'OK' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

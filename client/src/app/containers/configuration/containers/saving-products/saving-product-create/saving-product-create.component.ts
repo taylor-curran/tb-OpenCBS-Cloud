@@ -23,7 +23,7 @@ const SVG_DATA = {
 })
 export class SavingProductCreateComponent implements OnInit, OnDestroy {
   @ViewChild(SavingProductFormComponent, {static: true}) savingProductForm: SavingProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public breadcrumbLinks = [
     {
@@ -64,7 +64,7 @@ export class SavingProductCreateComponent implements OnInit, OnDestroy {
       });
   }
 
-  submitForm() {
+  formSubmitForm() {
     const savingProduct = Object.assign({}, this.savingProductForm.form.value, {
       accounts: {
         SAVING: this.savingProductForm.form.controls['savingAccount'].value,
@@ -114,7 +114,7 @@ export class SavingProductCreateComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {

@@ -24,7 +24,7 @@ const SVG_DATA = {collection: 'standard', class: 'calibration', name: 'calibrati
 })
 export class CreditLineEditComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(CreditLineFormComponent, {static: false}) creditLineForm: CreditLineFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public isOpen = false;
   public formChanged = false;
@@ -136,7 +136,7 @@ export class CreditLineEditComponent implements OnInit, AfterViewInit, OnDestroy
     }
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.creditLineForm.form.valid ) {
       this.creditLine = Object.assign({}, this.creditLineForm.form.value);
       const penaltiesIdToSend = [];
@@ -164,7 +164,7 @@ export class CreditLineEditComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   ngOnDestroy() {

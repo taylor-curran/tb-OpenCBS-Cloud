@@ -56,7 +56,7 @@
                         <input class="slds-input"
                                type="text"
                                [ngModel]="row[col.field]"
-                               (focusout)="onCellEdit.emit({
+                               (focusout)="cellEdit.emit({
                                 value: $event.target.value,
                                 column: col,
                                 row: row
@@ -68,7 +68,7 @@
                         [ngClass]="columnStyleClass(col)">
                         <cbs-form-date-control
                             [ngModel]="row[col.field]"
-                            (focusout)="onCellEdit.emit({
+                            (focusout)="cellEdit.emit({
                                 value: $event.target.value,
                                 column: col,
                                 row: row

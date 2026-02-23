@@ -41,10 +41,10 @@ export class LoanApplicationEffects {
       }));
 
   @Effect()
-  submit_loan_application$ = this.actions$
+  formSubmit_loan_application$ = this.actions$
     .pipe(ofType(loanApplicationActions.SUBMIT_LOAN_APPLICATION),
       switchMap((action: NgRxAction) => {
-        return this.loanApplicationService.submitLoanApplication(action.payload).pipe(
+        return this.loanApplicationService.formSubmitLoanApplication(action.payload).pipe(
           map(() => new loanApplicationActions.LoadLoanApplication(action.payload)),
           catchError((err: HttpErrorResponse) => {
             const errObj = new loanApplicationActions.LoadLoanApplicationFailure(err.error);

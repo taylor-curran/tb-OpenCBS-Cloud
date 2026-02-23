@@ -25,7 +25,7 @@ const SVG_DATA = {
 })
 export class LoanProductCreateComponent implements OnInit, OnDestroy {
   @ViewChild(LoanProductFormComponent, {static: false}) loanProductForm: LoanProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public loanProduct: any;
   public breadcrumbLinks = [
@@ -78,7 +78,7 @@ export class LoanProductCreateComponent implements OnInit, OnDestroy {
     this.resetState();
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.loanProductForm.form.valid ) {
       if ( this.loanProductForm.form.controls['maturityDateMax'].value ) {
         const maturityDateMax = this.parseDateFormatService.parseDateValue(this.loanProductForm.form.controls['maturityDateMax'].value);
@@ -139,7 +139,7 @@ export class LoanProductCreateComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {

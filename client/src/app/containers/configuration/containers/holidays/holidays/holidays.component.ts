@@ -209,7 +209,7 @@ export class HolidaysListComponent implements OnInit, OnDestroy {
     this.holidayFormModal.openModal(newTranslatedFields);
   }
 
-  submitHoliday(data) {
+  formSubmitHoliday(data) {
     if (this.isNew) {
       this.saveNewHoliday(data);
     } else {

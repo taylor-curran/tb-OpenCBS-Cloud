@@ -27,7 +27,7 @@ const SVG_DATA = {collection: 'standard', class: 'calibration', name: 'calibrati
 
 export class BorrowingProductUpdateComponent implements OnInit, AfterViewInit {
   @ViewChild(EditBorrowingProductFormComponent, {static: false}) editLoanProductForm: EditBorrowingProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public isOpen = false;
   private borrowingProductSub: any;
@@ -128,7 +128,7 @@ export class BorrowingProductUpdateComponent implements OnInit, AfterViewInit {
     }
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.editLoanProductForm.form.valid ) {
       this.editLoanProductForm.form.value.accountList = Object.assign({}, ...this.editLoanProductForm.form.value['accountList']);
       this.borrowingProductUpdateStore$
@@ -140,7 +140,7 @@ export class BorrowingProductUpdateComponent implements OnInit, AfterViewInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   checkFormChanges(loanProductData, cachedData) {

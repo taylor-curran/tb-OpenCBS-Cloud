@@ -9,7 +9,7 @@ import {
 } from '../../../../core/store/loan-application';
 import * as fromRoot from '../../../../core/core.reducer';
 import * as fromStore from '../../../../core/store';
-import { LoanAppSubmitService } from '../../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../../shared/services/loan-app-formSubmit.service';
 import { LoanAppStatus } from '../../../../core/loan-application-status.enum';
 import { ILoanAppCollateralDelete } from '../../../../core/store/';
 import { ToastrService } from 'ngx-toastr';
@@ -34,7 +34,7 @@ export class LoanAppCollateralListComponent implements OnInit, OnDestroy {
   public text: string;
   public svgData = SVG_DATA;
   public collateralsData: Observable<ILoanAppCollateralList>;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public readOnly = false;
   public progressValue: any;
 

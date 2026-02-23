@@ -5,7 +5,7 @@
     <div class="cbs-auth-form-wrap">
         <p class="slds-text-color--error cbs-auth__error-message" *ngIf="(currentUser | async)?.error">{{ (currentUser |
             async)?.errorMessage }}</p>
-        <form class="cbs-auth-form" novalidate #f="ngForm" (ngSubmit)="submitForm(f)">
+        <form class="cbs-auth-form" novalidate #f="ngForm" (ngSubmit)="formSubmitForm(f)">
             <div class="slds-form--stacked">
                 <div class="slds-form-element" [class.slds-has-error]="userName.errors && userName.touched">
                     <label class="slds-form-element__label" for="username-id">
@@ -30,7 +30,7 @@
                                #password="ngModel" ngModel required/>
                     </div>
                 </div>
-                <input type="submit" *ngIf="!(currentUser | async)?.loading" class="slds-button slds-button--brand"
+                <input type="formSubmit" *ngIf="!(currentUser | async)?.loading" class="slds-button slds-button--brand"
                        [disabled]="f.invalid || disabled" value="{{ 'SIGN_IN' | translate }}">
                 <div class="cbs-auth__spinner" *ngIf="(currentUser | async)?.loading">
                     <div class="slds-spinner_container">
@@ -79,7 +79,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="changePasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 
@@ -101,7 +101,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="recoverPasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (click)="submitRecover()">{{ 'SUBMIT' | translate }}
+                (click)="formSubmitRecover()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 

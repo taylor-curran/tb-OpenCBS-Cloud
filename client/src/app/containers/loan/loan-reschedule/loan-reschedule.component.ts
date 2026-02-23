@@ -34,7 +34,7 @@ const SVG_DATA = {
 export class LoanRescheduleComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(RescheduleFormComponent, {static: true}) rescheduleFormComponent: RescheduleFormComponent;
   @ViewChild(LoanInstallmentsTableComponent, {static: true}) installmentsTableComponent: LoanInstallmentsTableComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
 
   public breadcrumb = [];
   public loanId: number;
@@ -251,7 +251,7 @@ export class LoanRescheduleComponent implements OnInit, OnDestroy, AfterViewInit
       .subscribe(response => {
         if ( response.error ) {
           this.formStatusChanged = false;
-          this.disableBtn(this.submitButton.nativeElement, false);
+          this.disableBtn(this.formSubmitButton.nativeElement, false);
           this.toastrService.clear();
           this.toastrService.error(response.message, 'ERROR', environment.ERROR_TOAST_CONFIG);
         } else {
@@ -294,7 +294,7 @@ export class LoanRescheduleComponent implements OnInit, OnDestroy, AfterViewInit
       )
       .subscribe(response => {
         if ( response.error ) {
-          this.disableBtn(this.submitButton.nativeElement, false);
+          this.disableBtn(this.formSubmitButton.nativeElement, false);
           this.toastrService.clear();
           if ( response.message === `You have to actualize contract (ID = ${this.loanId})` ) {
             this.isOpenActualize = true;
@@ -314,7 +314,7 @@ export class LoanRescheduleComponent implements OnInit, OnDestroy, AfterViewInit
       });
   }
 
-  submitActualizeLoan() {
+  formSubmitActualizeLoan() {
     this.isOpenActualize = false;
     this.installmentsTableComponent.isLoading = true;
     const actualizeDate = this.parseDateFormatService.parseDateValue(this.rescheduleFormComponent.rescheduleForm.value.rescheduleDate);

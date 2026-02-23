@@ -240,7 +240,7 @@ export class PasswordSettingsEditComponent implements OnInit, OnDestroy {
     return tempArray;
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       this.isSubmitting = true;
       const systemSettingDataToSend = [];

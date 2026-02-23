@@ -14,9 +14,9 @@ export class EntryFeesFormModalComponent implements OnInit {
   public config = CONFIG_ACCOUNTING;
   @ViewChild('f', {static: true}) form: FormGroup;
   @ViewChild('formFocus', {static: false}) formFocus: ElementRef;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @Input() headerTitle = '';
-  @Output() submitForm = new EventEmitter();
+  @Output() formSubmitForm = new EventEmitter();
   public isOpen = false;
   public formChanged = false;
   public isChecked = false;
@@ -38,7 +38,7 @@ export class EntryFeesFormModalComponent implements OnInit {
   }
 
   openCreateModal(fields) {
-    this.lookupAccount.onClearLookup();
+    this.lookupAccount.clearLookup();
     this.formChanged = true;
     this.form.setValue(fields);
     this.markAsUntouched(this.form);
@@ -92,11 +92,11 @@ export class EntryFeesFormModalComponent implements OnInit {
     this.isOpen = false;
   }
 
-  submit({valid, value}) {
+  formSubmit({valid, value}) {
     this.disableSubmitBtn(true);
 
     if ( valid ) {
-      this.submitForm.emit(value);
+      this.formSubmitForm.emit(value);
     }
   }
 
@@ -110,7 +110,7 @@ export class EntryFeesFormModalComponent implements OnInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   checkFormChanges(fields) {

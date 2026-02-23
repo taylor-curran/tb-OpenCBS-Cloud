@@ -186,9 +186,9 @@ export class AccountingEntriesComponent implements OnInit, OnDestroy {
     const dateNow = moment().format(environment.DATE_FORMAT_MOMENT);
     this.singleTransactionForm.controls['createdAt'].setValue(dateNow);
     this.multipleTransactionForm.controls['dateTime'].setValue(dateNow);
-    this.lookupDebitAccount.onClearLookup();
-    this.lookupCreditAccount.onClearLookup();
-    this.lookupTransactionTemplate.onClearLookup();
+    this.lookupDebitAccount.clearLookup();
+    this.lookupCreditAccount.clearLookup();
+    this.lookupTransactionTemplate.clearLookup();
     this.multipleTransactionDebitAccounts = [];
     this.multipleTransactionCreditAccounts = [];
     this.multipleTransactionDebitAccountsValue = [];
@@ -200,14 +200,14 @@ export class AccountingEntriesComponent implements OnInit, OnDestroy {
     this.isMultipleTransactionModalOpened = false;
   }
 
-  submitSingleTransaction() {
+  formSubmitSingleTransaction() {
     this.isLoading = true;
     const dateNow = moment(this.singleTransactionForm.controls['createdAt'].value)
       .format(environment.DATE_FORMAT_MOMENT) + moment().format('THH:mm:ss');
     this.singleTransactionForm.controls['createdAt'].setValue(dateNow);
     this.accountingEntriesTransactionService.addSingleTransaction(this.singleTransactionForm.value)
       .subscribe(res => {
-        this.submitTransactionResponseValue(res, this.singleTransactionForm);
+        this.formSubmitTransactionResponseValue(res, this.singleTransactionForm);
       });
     this.loadAccountingEntries();
   }
@@ -277,7 +277,7 @@ export class AccountingEntriesComponent implements OnInit, OnDestroy {
     return this.totalAmountAccounts
   }
 
-  submitMultipleTransaction() {
+  formSubmitMultipleTransaction() {
     this.isLoading = true;
     const dateNow = moment(this.multipleTransactionForm.controls['dateTime'].value)
       .format(environment.DATE_FORMAT_MOMENT) + moment().format('THH:mm:ss');
@@ -292,12 +292,12 @@ export class AccountingEntriesComponent implements OnInit, OnDestroy {
     }
     this.accountingEntriesTransactionService.addMultipleTransaction(this.multipleTransactionForm.value)
       .subscribe(res => {
-        this.submitTransactionResponseValue(res, this.multipleTransactionForm);
+        this.formSubmitTransactionResponseValue(res, this.multipleTransactionForm);
         this.loadAccountingEntries();
       });
   }
 
-  submitTransactionResponseValue(response, transactionForm) {
+  formSubmitTransactionResponseValue(response, transactionForm) {
     if ( response.error ) {
       this.toastrService.clear();
       this.toastrService.error(response.message, '', environment.ERROR_TOAST_CONFIG);

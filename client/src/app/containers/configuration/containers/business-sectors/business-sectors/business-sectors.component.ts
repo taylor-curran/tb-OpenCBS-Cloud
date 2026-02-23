@@ -225,7 +225,7 @@ export class BusinessSectorsListComponent implements OnInit, OnDestroy {
     .fireInitialAction({businessSectorEditData: businessSectorEditData, id: businessSectorName.fieldId}));
   }
 
-  submitBusinessSector(data) {
+  formSubmitBusinessSector(data) {
     if (this.isNew) {
       this.saveNewBusinessSector(data);
     } else {

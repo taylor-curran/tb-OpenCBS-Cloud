@@ -89,7 +89,7 @@ export class BorrowingOperationsComponent implements OnInit {
     this.borrowingDate = moment().format(environment.DATE_FORMAT_MOMENT);
   }
 
-  submitActualizeBorrowing() {
+  formSubmitActualizeBorrowing() {
     this.isOpenActualize = false;
     this.isLoading = true;
     this.actualizeBorrowingService.actualizeBorrowing(this.borrowing['id'], this.borrowingDate).subscribe(res => {

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import {
   ILoanAppState,
 } from '../../../../core/store/loan-application';
-import { LoanAppSubmitService } from '../../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../../shared/services/loan-app-formSubmit.service';
 import { LoanAppStatus } from '../../../../core/loan-application-status.enum';
 import { LoanAppCustomFieldsService } from '../../../../core/store/loan-application/loan-app-custom-fields.service';
 import { CustomFieldValue } from '../../../../core/models';
@@ -36,7 +36,7 @@ export class LoanApplicationCustomFieldInfoComponent implements OnInit, OnDestro
   public loanAppId: number;
   public text: string;
   public opened = false;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public isVisible = false;
   public customFields = [];
   public sectionNavData: any = [];

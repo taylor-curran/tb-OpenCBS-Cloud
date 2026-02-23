@@ -203,7 +203,7 @@ export class ProfilePrintOutComponent implements OnInit {
 
   }
 
-  submit() {
+  formSubmit() {
     this.isOpen = false;
     const objToSend = {
       templateId: this.currentReport['id'],

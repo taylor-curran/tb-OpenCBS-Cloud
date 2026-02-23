@@ -66,7 +66,7 @@ export class CCNewRulesComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  submitForm() {
+  formSubmitForm() {
     const creditCommittee = Object.assign({}, this.formComponent.form.value, {
       roleIds: this.formComponent.selectedItems.map(item => item.id)
     });

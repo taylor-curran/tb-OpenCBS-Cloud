@@ -61,7 +61,7 @@
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="form.invalid"
-                (click)="submitDisburse(); isLoading = true;">{{ 'SUBMIT' | translate }}
+                (click)="formSubmitDisburse(); isLoading = true;">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -88,7 +88,7 @@
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="formRefund.invalid"
-                (click)="submitRefund(); isLoading = true;">{{ 'SUBMIT' | translate }}
+                (click)="formSubmitRefund(); isLoading = true;">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

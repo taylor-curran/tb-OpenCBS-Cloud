@@ -159,7 +159,7 @@ export class VaultCreateComponent implements OnInit, OnDestroy {
     this.vaultCreateStore$.dispatch(this.vaultCreateActions.fireResetAction())
   }
 
-  submit() {
+  formSubmit() {
     const accountsValue = this.form.value.accounts
       .filter(currency => currency[_.keys(currency)[0]])
       .map(currency => currency[_.keys(currency)[0]]);

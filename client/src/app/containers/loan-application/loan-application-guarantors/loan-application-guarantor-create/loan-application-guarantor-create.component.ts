@@ -101,7 +101,7 @@ export class LoanAppCreateGuarantorComponent implements OnInit, OnDestroy {
 
   }
 
-  submit() {
+  formSubmit() {
     this.createGuarantorStore$
       .dispatch(new fromStore.CreateGuarantor({loanAppId: this.loanAppId, data: this.guarantorForm.form.value}));
   }

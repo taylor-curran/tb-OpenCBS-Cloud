@@ -149,7 +149,7 @@ export class LoanCustomFieldsEditComponent implements OnInit, OnDestroy {
     this.isOpen = false;
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       const dataToSend = {
         fieldValues: []

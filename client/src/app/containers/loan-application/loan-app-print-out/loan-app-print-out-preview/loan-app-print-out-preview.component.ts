@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ReportService } from '../../../reports/shared/reports.service';
 import * as FileSaver from 'file-saver';
 import { ToastrService } from 'ngx-toastr';
@@ -26,7 +26,7 @@ const SVG_DATA = {
   }`]
 })
 
-export class LoanAppPrintOutPreviewComponent implements OnInit {
+export class LoanAppPrintOutPreviewComponent implements OnInit, OnDestroy {
   public isLoading = false;
   public reportName: string;
   public cancelLink: string;
@@ -118,10 +118,10 @@ export class LoanAppPrintOutPreviewComponent implements OnInit {
 
   selectFormat(formatType) {
     this.isLoading = true;
-    this.submit(formatType)
+    this.formSubmit(formatType)
   }
 
-  submit(format) {
+  formSubmit(format) {
     const formatType = format === 'PDF' ? 'pdf' : 'csv';
     const reportData = {
       ...this.reportData,

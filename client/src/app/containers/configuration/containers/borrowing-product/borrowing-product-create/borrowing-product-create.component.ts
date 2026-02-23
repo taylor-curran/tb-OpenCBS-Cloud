@@ -19,7 +19,7 @@ import { BorrowingProductFormComponent } from '../shared/borrowing-product-form/
 
 export class BorrowingProductCreateComponent implements OnInit {
   @ViewChild(BorrowingProductFormComponent, {static: false}) loanProductForm: BorrowingProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public breadcrumbLinks = [
     {
       name: 'BORROWING_PRODUCTS',
@@ -68,7 +68,7 @@ export class BorrowingProductCreateComponent implements OnInit {
       });
   }
 
-  submitForm() {
+  formSubmitForm() {
     if (this.loanProductForm.form.valid) {
       const loanProduct = Object.assign({}, this.loanProductForm.form.value);
       this.disableSubmitBtn(true);
@@ -78,7 +78,7 @@ export class BorrowingProductCreateComponent implements OnInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {

@@ -10,8 +10,8 @@ import { CFBuilderService } from '../cf-builder.service';
 export class CFSectionComponent implements OnInit {
   @Input() url: string;
   @Input() sectionData: any;
-  @Output() onEditSuccess = new EventEmitter();
-  @Output() onEditError = new EventEmitter();
+  @Output() editSuccess = new EventEmitter();
+  @Output() editError = new EventEmitter();
   @Output() onAddSuccess = new EventEmitter();
   @Output() onAddError = new EventEmitter();
   @Output() onAddCancel = new EventEmitter();
@@ -28,7 +28,7 @@ export class CFSectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid && value.caption !== this.cachedCaption && !this.newSectionMode ) {
       this.updateSection(value);
     } else if ( valid && this.newSectionMode ) {
@@ -39,12 +39,12 @@ export class CFSectionComponent implements OnInit {
   updateSection(data) {
     this.service.updateSection(this.url, this.sectionData.id, data).subscribe(
       resp => {
-        this.onEditSuccess.emit(resp);
+        this.editSuccess.emit(resp);
         this.closeEdit();
       },
       err => {
         alert(err.error.message);
-        this.onEditError.emit(err.error);
+        this.editError.emit(err.error);
       }
     );
   }
