@@ -5,13 +5,9 @@ import { Router } from '@angular/router';
   selector: 'cbs-server-error',
   templateUrl: 'server-error.component.html'
 })
-export class ServerErrorComponent implements OnInit {
+export class ServerErrorComponent {
   constructor(private router: Router) {
   }
-
-  ngOnInit() {
-  }
-
   goHome() {
     this.router.navigateByUrl('/');
   }

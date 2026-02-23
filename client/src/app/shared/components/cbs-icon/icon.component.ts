@@ -18,15 +18,11 @@ interface IconConfig {
     </span>
   `
 })
-export class IconComponent implements OnInit {
+export class IconComponent {
   @Input() iconConfig: IconConfig;
   @Input() classStyle: any;
   @Input() size = 'large';
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -24,22 +24,18 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
     </figure>
 `
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent {
   @Input() imageUrl: string;
   @Input() imageAltText = 'Image';
   @Input() imageCaption: string;
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() onClick = new EventEmitter();
+  @Output() click = new EventEmitter();
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
   imgClick() {
-    this.onClick.emit();
+    this.click.emit();
   }
 }

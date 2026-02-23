@@ -5,19 +5,15 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
   templateUrl: 'cf-add.component.html',
   styleUrls: ['cf-add.component.scss']
 })
-export class CFAddComponent implements OnInit {
+export class CFAddComponent {
   @Input() buttonTitle: string;
   @Input() disabled: boolean;
   @Input() uid: number;
-  @Output() onClick = new EventEmitter();
+  @Output() click = new EventEmitter();
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
   click() {
-    this.onClick.emit();
+    this.click.emit();
   }
 }

@@ -5,13 +5,9 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: 'mainnav.component.html',
   styleUrls: ['mainnav.component.scss']
 })
-export class MainNavComponent implements OnInit {
+export class MainNavComponent {
   @Input() navElements: any[];
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

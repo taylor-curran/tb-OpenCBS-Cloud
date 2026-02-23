@@ -20,14 +20,10 @@ import { Component, OnInit, Input } from '@angular/core';
 `,
   styleUrls: ['response-popup.component.scss']
 })
-export class ResponsePopupComponent implements OnInit {
+export class ResponsePopupComponent {
   @Input() status: { showSuccess: boolean, showError: boolean };
 
   constructor() {
 
   }
-
-  ngOnInit() {
-  }
-
 }
