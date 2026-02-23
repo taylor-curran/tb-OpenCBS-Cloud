@@ -149,8 +149,10 @@ public abstract class AbstractDocumentService<T extends Template> {
         if (!Files.exists(path)) {
             return Collections.emptyList();
         }
-        return Files.list(path).filter(x -> this.patternMatch(".+\\.zip$", x.toString()))
-                .collect(Collectors.toList());
+        try (Stream<Path> fileStream = Files.list(path)) {
+            return fileStream.filter(x -> this.patternMatch(".+\\.zip$", x.toString()))
+                    .collect(Collectors.toList());
+        }
     }
 
     boolean patternMatch(String pattern, String fileName) {
