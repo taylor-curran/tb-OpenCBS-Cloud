@@ -60,9 +60,9 @@ export class PenaltiesFormModalComponent implements OnInit {
   }
 
   openCreateModal(fields) {
-    this.accrualAccount.onClearLookup();
-    this.incomeAccount.onClearLookup();
-    this.writeOffAccount.onClearLookup();
+    this.accrualAccount.clearLookup();
+    this.incomeAccount.clearLookup();
+    this.writeOffAccount.clearLookup();
     this.formChanged = true;
     this.form.setValue(fields);
     this.markAsUntouched(this.form);

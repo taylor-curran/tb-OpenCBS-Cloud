@@ -20,8 +20,8 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   @Input() lookupTypes = [];
   @Input() fieldTypes = [];
   @Input() componentFieldType = '';
-  @Output() onFieldEditSuccess = new EventEmitter();
-  @Output() onFieldEditError = new EventEmitter();
+  @Output() fieldEditSuccess = new EventEmitter();
+  @Output() fieldEditError = new EventEmitter();
   @Output() onFieldDeleteSuccess = new EventEmitter();
   @Output() onFieldDeleteError = new EventEmitter();
   @Output() onFieldAddSuccess = new EventEmitter();
@@ -367,11 +367,11 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   updateField(data: Field) {
     this.service.updateField(this.url, this.fieldData.id, data).subscribe(
       resp => {
-        this.onFieldEditSuccess.emit(resp);
+        this.fieldEditSuccess.emit(resp);
         this.cancel();
       },
       err => {
-        this.onFieldEditError.emit(err.error);
+        this.fieldEditError.emit(err.error);
       }
     );
   }
