@@ -37,7 +37,7 @@
             <cbs-fields-readonly
                 [fieldsData]="section.values"
                 [showProfileInfoLink]="true"
-                (onShowProfileInfoLinkClick)="goToProfile($event)"
+                (showProfileInfoLinkClickChanged)="goToProfile($event)"
             ></cbs-fields-readonly>
         </div>
     </ng-container>

@@ -17,11 +17,11 @@ import { ReadOnlyOutputEnum } from '../../../../../shared/enums/ReadOnlyOutputEn
   styleUrls: ['./repayment-form.component.scss']
 })
 export class RepaymentFormComponent implements OnInit, OnDestroy {
-  @Output() onChangeRepaymentType = new EventEmitter();
-  @Output() onTotalEdited = new EventEmitter();
-  @Output() onRepaymentDateEdited = new EventEmitter();
-  @Output() onPrincipalAndPenaltyEdited = new EventEmitter();
-  @Output() onSetMaxAmount = new EventEmitter();
+  @Output() changeRepaymentTypeChanged = new EventEmitter();
+  @Output() totalEditedChanged = new EventEmitter();
+  @Output() repaymentDateEditedChanged = new EventEmitter();
+  @Output() principalAndPenaltyEditedChanged = new EventEmitter();
+  @Output() setMaxAmountChanged = new EventEmitter();
   @Input() maxAmount = '';
   public repaymentForm: FormGroup;
   public repaymentType = [];
@@ -112,17 +112,17 @@ export class RepaymentFormComponent implements OnInit, OnDestroy {
 
   markAsEdited(control) {
     if ( control === 'total' && this.repaymentForm.controls['total'].value ) {
-      this.onTotalEdited.emit();
+      this.totalEditedChanged.emit();
     }
     if ( control === 'principal_penalty' && this.repaymentForm.controls['principal'].value
       || this.repaymentForm.controls['penalty'].value) {
-      this.onPrincipalAndPenaltyEdited.emit();
+      this.principalAndPenaltyEditedChanged.emit();
     }
     if ( control === 'repayment_type' ) {
-      this.onChangeRepaymentType.emit();
+      this.changeRepaymentTypeChanged.emit();
     }
     if ( control === 'date' ) {
-      this.onRepaymentDateEdited.emit();
+      this.repaymentDateEditedChanged.emit();
     }
   }
 

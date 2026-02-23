@@ -60,7 +60,7 @@
             [data]="installments"
             [editableColumns]="editableSchedule"
             [editablePaymentDate]="editablePaymentDate"
-            (onCellEdit)="getCellData($event)"
+            (cellEditChanged)="getCellData($event)"
         ></cbs-loan-installments-table>
     </div>
 </cbs-loan-layout>
@@ -81,7 +81,7 @@
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClickChanged)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

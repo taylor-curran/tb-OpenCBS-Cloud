@@ -183,7 +183,7 @@
                         [requiredField]="false"
                         [hasError]="transactionForm.get('debitAccountId').errors && transactionForm.get('debitAccountId').touched"
                         fieldLabel="{{ 'BANK_ACCOUNT' | translate }}"
-                        (onSelect)="setBankAccount($event)"
+                        (selectChanged)="setBankAccount($event)"
                     ></cbs-form-select-control>
                 </ng-container>
 
@@ -194,7 +194,7 @@
                         [requiredField]="false"
                         [hasError]="transactionForm.get('creditAccountId').errors && transactionForm.get('creditAccountId').touched"
                         fieldLabel="{{ 'BANK_ACCOUNT' | translate }}"
-                        (onSelect)="setBankAccount($event)"
+                        (selectChanged)="setBankAccount($event)"
                     ></cbs-form-select-control>
                 </ng-container>
 

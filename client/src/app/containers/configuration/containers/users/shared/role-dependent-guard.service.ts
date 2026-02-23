@@ -18,9 +18,6 @@ export class DependentOnRolesGuard implements CanActivate {
     this.roleStore$.pipe((getRoles())).subscribe(roles => {
       if (!roles) {
         this.roleStore$.dispatch(new fromStore.LoadRoleList());
-        return true;
-      } else {
-        return true;
       }
     });
     return true;

@@ -11,9 +11,9 @@
         [editable]="false"
         [weekNumbers]="true"
         [options]="calendarExtraOptions"
-        (onViewRender)="onViewRender($event)"
-        (onDayClick)="handleDayClick($event)"
-        (onEventClick)="handleEventClick($event)"></cbs-schedule>
+        (viewRenderChanged)="onViewRender($event)"
+        (dayClickChanged)="handleDayClick($event)"
+        (eventClickChanged)="handleEventClick($event)"></cbs-schedule>
 
     <cbs-manage-event-modal (eventChanged)="onEventChanged($event)"></cbs-manage-event-modal>
 
