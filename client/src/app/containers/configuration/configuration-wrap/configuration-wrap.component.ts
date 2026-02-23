@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'cbs-configuration-wrap',
@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class ConfigurationWrapComponent implements OnInit {
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -1,7 +1,7 @@
 /**
  * Created by Chyngyz on 1/25/2017.
  */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-response-popup',
@@ -25,9 +25,6 @@ export class ResponsePopupComponent implements OnInit {
 
   constructor() {
 
-  }
-
-  ngOnInit() {
   }
 
 }

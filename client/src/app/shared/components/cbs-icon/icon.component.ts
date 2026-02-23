@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface IconConfig {
   collection: string;
@@ -24,9 +24,6 @@ export class IconComponent implements OnInit {
   @Input() size = 'large';
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }

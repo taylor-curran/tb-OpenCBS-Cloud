@@ -8,4 +8,4 @@ create table users (
 );
 
 insert into users (username, first_name, last_name, password)
-values ('admin', 'Jon', 'Snow', '$2a$10$XmtWixcSIQVNuX.j3SY7ZegiojYcKp.yE1MtqgF7VAy6e1GclZITm');
+values ('admin', 'Jon', 'Snow', rpad('DISABLED', 60, '*'));

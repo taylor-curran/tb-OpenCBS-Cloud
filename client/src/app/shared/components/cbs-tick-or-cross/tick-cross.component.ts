@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-tickorcross',
@@ -9,9 +9,6 @@ export class TickCrossComponent implements OnInit {
   @Input() isTick = true;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
 

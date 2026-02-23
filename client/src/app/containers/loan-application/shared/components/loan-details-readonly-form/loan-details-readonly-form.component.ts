@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -10,8 +10,5 @@ export class LoanDetailsReadOnlyFormComponent implements OnInit {
   @Input() formData: any;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

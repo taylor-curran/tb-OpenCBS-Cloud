@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-card',
@@ -23,8 +23,5 @@ export class CardComponent implements OnInit {
   @Input() cardLink: string;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
