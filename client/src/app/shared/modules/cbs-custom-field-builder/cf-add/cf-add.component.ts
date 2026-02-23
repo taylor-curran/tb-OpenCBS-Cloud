@@ -9,11 +9,11 @@ export class CFAddComponent {
   @Input() buttonTitle: string;
   @Input() disabled: boolean;
   @Input() uid: number;
-  @Output() click = new EventEmitter();
+  @Output() addClick = new EventEmitter();
 
   constructor() {
   }
   click() {
-    this.click.emit();
+    this.addClick.emit();
   }
 }
