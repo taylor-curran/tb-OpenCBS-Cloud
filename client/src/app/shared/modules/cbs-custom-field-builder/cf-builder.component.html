@@ -2,11 +2,11 @@
     *ngFor="let section of data; let last = last; let sectionInd=index;"
     [sectionData]="section"
     [url]="urls?.sectionUrl"
-    (onEditError)="callSectionEditError($event)"
-    (onEditSuccess)="callSectionEditSuccess($event)"
-    (onAddSuccess)="callSectionAddSuccess($event)"
-    (onAddError)="callSectionAddError($event)"
-    (onAddCancel)="onSectionAddCancel()">
+    (editError)="callSectionEditError($event)"
+    (editSuccess)="callSectionEditSuccess($event)"
+    (addSuccess)="callSectionAddSuccess($event)"
+    (addError)="callSectionAddError($event)"
+    (addCancel)="onSectionAddCancel()">
 
     <cbs-cf-field
         *ngFor="let field of section?.customFields; let fieldInd=index; trackBy: field?.id;"
@@ -17,18 +17,18 @@
         [addSectionId]="true"
         [lookupTypes]="fieldLookupTypes"
         [fieldTypes]="fieldTypes"
-        (onFieldEditSuccess)="callFieldEditSuccess($event)"
-        (onFieldEditError)="callFieldEditError($event)"
-        (onFieldDeleteSuccess)="callFieldDeleteSuccess($event)"
-        (onFieldDeleteError)="callFieldDeleteError($event)"
-        (onFieldAddCancel)="onFieldAddCancel($event)"
-        (onFieldAddSuccess)="callFieldAddSuccess($event)"
-        (onFieldAddError)="callFieldAddError($event)"
+        (fieldEditSuccess)="callFieldEditSuccess($event)"
+        (fieldEditError)="callFieldEditError($event)"
+        (fieldDeleteSuccess)="callFieldDeleteSuccess($event)"
+        (fieldDeleteError)="callFieldDeleteError($event)"
+        (fieldAddCancel)="onFieldAddCancel($event)"
+        (fieldAddSuccess)="callFieldAddSuccess($event)"
+        (fieldAddError)="callFieldAddError($event)"
     ></cbs-cf-field>
 
-    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (onClick)="addField(section?.id)"
+    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (addClicked)="addField(section?.id)"
                 [uid]="sectionInd + 1"></cbs-cf-add>
 </cbs-cf-section>
-<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (onClick)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
+<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (addClicked)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
 
 

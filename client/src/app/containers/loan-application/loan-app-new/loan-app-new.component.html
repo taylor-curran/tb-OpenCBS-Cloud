@@ -6,7 +6,7 @@
     <cbs-loan-details-form
         [hidden]="!formVisible"
         [loanAppFormState]="loanAppFormState"
-        (onLoanProductSelect)="selectLoanProduct($event)"
+        (loanProductSelected)="selectLoanProduct($event)"
         (onCreditLineSelect)="selectCreditLine($event)"
         (onPayeeAdd)="openAddPayeeModal()"
         (onPayeeDelete)="confirmDeletingPayee($event)"
@@ -21,7 +21,7 @@
 
 <cbs-confirm-popup
     [(opened)]="isConfirmOpen"
-    (onSubmitClick)="deletePayee()"
+    (submitClick)="deletePayee()"
     (openedChange)="closeConfirmPopup()"
     [leftButtonLabel]="'CANCEL' | translate"
     [rightButtonLabel]="'CONFIRM' | translate"
@@ -30,7 +30,7 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ isCreatePayeeMode ? ('ADD' | translate) :  ('EDIT' | translate) }}"
-    (onSubmit)="submitPayee($event)">
+    (submitPayee)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-entry-fees-modal

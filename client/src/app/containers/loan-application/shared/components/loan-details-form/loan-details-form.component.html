@@ -24,7 +24,7 @@
             [hasError]="form.get('loanProductId').errors && form.get('loanProductId').touched"
             [picklistDataUrl]="formConfig.loanProductLookupUrl"
             [requiredField]="true"
-            (onSelect)="onLPSelect($event)"
+            (accountSelected)="onLPSelect($event)"
         ></cbs-form-lookup-control>
 
         <cbs-form-lookup-control
@@ -69,9 +69,9 @@
             [payeesData]="loanAppFormState?.payees"
             [showEditBtn]="true"
             [payeesCount]="loanAppFormState?.payees.length"
-            (onAddPayee)="onPayeeAdd.emit()"
-            (onEditPayee)="onPayeeEdit.emit($event)"
-            (onDeletePayee)="onPayeeDelete.emit($event)"
+            (addPayeeClicked)="onPayeeAdd.emit()"
+            (editPayeeClicked)="onPayeeEdit.emit($event)"
+            (deletePayeeClicked)="onPayeeDelete.emit($event)"
         ></cbs-payees-block-control>
 
         <cbs-form-input-control
@@ -156,7 +156,7 @@
                 *ngIf="!!loanAppFormState?.entryFees?.length"
                 [isValidToCalculate]="loanAppFormState?.valid"
                 [entryFeesData]="loanAppFormState?.entryFees"
-                (onDetailsClick)="onEntryFeesClick.emit()"
+                (detailsClick)="onEntryFeesClick.emit()"
             ></cbs-entry-fees-block>
         </ng-container>
 

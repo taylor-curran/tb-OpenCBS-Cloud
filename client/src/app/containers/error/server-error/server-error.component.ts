@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'cbs-server-error',
   templateUrl: 'server-error.component.html'
 })
-export class ServerErrorComponent implements OnInit {
+export class ServerErrorComponent {
   constructor(private router: Router) {
-  }
-
-  ngOnInit() {
   }
 
   goHome() {

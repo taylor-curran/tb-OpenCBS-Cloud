@@ -42,8 +42,8 @@
         [readonly]="false"
         [showEditBtn]="false"
         [payeesCount]="loanApp?.activePayeesCount"
-        (onAddPayee)="openAddPayeeModal()"
-        (onDeletePayee)="showConfirmPopup($event)"
+        (addPayeeClicked)="openAddPayeeModal()"
+        (deletePayeeClicked)="showConfirmPopup($event)"
     ></cbs-payees-block-control>
 
     <cbs-form-readonly-control
@@ -88,7 +88,7 @@
             *ngIf="!!loanApp?.entryFees?.length"
             [isValidToCalculate]="true"
             [entryFeesData]="loanApp?.entryFees"
-            (onDetailsClick)="openEntryFees()"
+            (detailsClick)="openEntryFees()"
         ></cbs-entry-fees-block>
     </ng-container>
 
@@ -142,11 +142,11 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ ('ADD' | translate) }}"
-    (onSubmit)="submitPayee($event)">
+    (submitPayee)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="deleteCurrentPayee()"
+                   (submitClick)="deleteCurrentPayee()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

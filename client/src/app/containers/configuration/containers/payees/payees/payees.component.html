@@ -119,7 +119,7 @@
 
             <cbs-form-lookup-control
                 #account
-                (onSelect)="setLookupValue($event)"
+                (accountSelected)="setLookupValue($event)"
                 [formControlName]="'currentAccountId'"
                 [code]="true"
                 [hasError]="form.get('currentAccountId').errors && form.get('currentAccountId').touched"
