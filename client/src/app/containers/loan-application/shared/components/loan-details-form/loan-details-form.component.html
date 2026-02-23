@@ -12,7 +12,7 @@
             [selectValue]="'id'"
             [hasError]="form.get('creditLineId').errors && form.get('creditLineId').touched"
             fieldLabel="{{ 'CREDIT_LINE' | translate }}"
-            (onChange)="creditLineSelect($event)"
+            (changeAction)="handleCreditLineSelect($event)"
         ></cbs-form-select-control>
 
         <cbs-form-lookup-control
@@ -24,7 +24,7 @@
             [hasError]="form.get('loanProductId').errors && form.get('loanProductId').touched"
             [picklistDataUrl]="formConfig.loanProductLookupUrl"
             [requiredField]="true"
-            (onSelect)="onLPSelect($event)"
+            (selectAction)="onLPSelect($event)"
         ></cbs-form-lookup-control>
 
         <cbs-form-lookup-control
@@ -128,7 +128,7 @@
             [requiredField]="byMaturity"
             [errorMessage]="'MATURITY_DATE_ERROR'"
             [weekendDisabled]="true"
-            (onChange)="maturityDateChanged($event)"
+            (changeAction)="maturityDateChanged($event)"
         ></cbs-form-date-control>
         <div class="cbs-loan-details-form__range" style="margin-bottom: 9px" *ngIf="byMaturity && maxMaturityDate">
             {{'MAX_MATURITY_DATE' | translate}}: <span>{{ maxMaturityDate | cbsDateFormat }}</span>
@@ -141,7 +141,7 @@
             [requiredField]="true"
             [errorMessage]="'DISBURSEMENT_DATE_ERROR'"
             [weekendDisabled]="true"
-            (onChange)="disbursementDateChanged($event)"
+            (changeAction)="disbursementDateChanged($event)"
         ></cbs-form-date-control>
 
         <cbs-form-date-control
@@ -149,7 +149,7 @@
             formControlName="preferredRepaymentDate"
             fieldLabel="{{ 'PREFERRED_REPAYMENT_DATE' | translate }}"
             [requiredField]="true"
-            (onChange)="preferredRepaymentDateChanged($event)"></cbs-form-date-control>
+            (changeAction)="preferredRepaymentDateChanged($event)"></cbs-form-date-control>
 
         <ng-container *ngIf="!disabledLoanProduct">
             <cbs-entry-fees-block

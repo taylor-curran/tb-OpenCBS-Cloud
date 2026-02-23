@@ -58,7 +58,7 @@
                 [confirmText]="'ARE_YOU_SURE_WANT_TO_REPAY' | translate"
                 [opened]="opened"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="repay()"
+                (submitClick)="repay()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -83,7 +83,7 @@
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (submitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"
