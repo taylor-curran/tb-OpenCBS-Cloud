@@ -15,6 +15,7 @@ export class CFAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle
   }
 
   click() {

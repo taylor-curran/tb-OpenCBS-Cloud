@@ -15,14 +15,14 @@ export class ListSelectComponent implements OnInit {
   @Input() isRequired = true;
   @Input() selectDataLabel: string;
   @Output() onSelectItem = new EventEmitter();
-  @Output() onRemoveItem = new EventEmitter();
+  @Output('onRemoveItem') removeItem = new EventEmitter();
 
 
   public pick: any = [];
   public open = false;
 
   ngOnInit() {
-
+    // No-op: required by Angular lifecycle
   }
 
   selectItem(pickedItem) {
@@ -30,6 +30,6 @@ export class ListSelectComponent implements OnInit {
   }
 
   delete(removedItem) {
-    this.onRemoveItem.emit(removedItem);
+    this.removeItem.emit(removedItem);
   }
 }

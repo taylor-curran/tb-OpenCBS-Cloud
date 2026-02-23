@@ -28,6 +28,7 @@ export class ResponsePopupComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle
   }
 
 }
