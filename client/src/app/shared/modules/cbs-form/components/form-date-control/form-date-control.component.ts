@@ -94,7 +94,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
     if ( v && v.value && v.value.isValid() ) {
       if ( !v.value.isSame(this.innerValue) ) {
         this.innerValue = v.value;
-        this.changeCallback(v.value.format(this.localStorageService.getDateFormat()));
+        this.onChangeCallback(v.value.format(this.localStorageService.getDateFormat()));
         this.valueChange.emit(v.value.format(this.localStorageService.getDateFormat()));
       }
     }
@@ -114,7 +114,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   ngOnChanges(inputs) {
     if ( inputs.validateDate && this.innerValue ) {
       this.validateFn = dateValidator(this.dateFormat);
-      this.changeCallback(this.innerValue.format(this.systemSettingsShareService.getData('DATE_FORMAT')));
+      this.onChangeCallback(this.innerValue.format(this.systemSettingsShareService.getData('DATE_FORMAT')));
     }
   }
 
@@ -157,7 +157,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   }
 
   registerOnChange(fn: any) {
-    this.changeCallback = fn;
+    this.onChangeCallback = fn;
   }
 
   registerOnTouched(fn: any) {
