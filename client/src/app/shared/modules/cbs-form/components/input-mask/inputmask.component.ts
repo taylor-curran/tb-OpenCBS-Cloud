@@ -563,11 +563,6 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
   updateModel(e) {
     this.onModelChange(this.unmask ? this.getUnmaskedValue() : e.target.value);
   }
-
-
-  ngOnDestroy() {
-
-  }
 }
 
 /* tslint:enable */
