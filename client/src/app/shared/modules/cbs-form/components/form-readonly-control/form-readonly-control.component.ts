@@ -15,7 +15,7 @@ export class FormReadonlyControlComponent {
   @Input() showLink: boolean;
   @Input() isTextarea = <boolean>false;
   @Input() outputType;
-  @Output() onFieldClick = new EventEmitter();
+  @Output() fieldClick = new EventEmitter();
 
   public outputTypeEnum = ReadOnlyOutputEnum;
 

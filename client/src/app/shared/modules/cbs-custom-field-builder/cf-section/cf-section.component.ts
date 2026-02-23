@@ -10,11 +10,11 @@ import { CFBuilderService } from '../cf-builder.service';
 export class CFSectionComponent {
   @Input() url: string;
   @Input() sectionData: any;
-  @Output() onEditSuccess = new EventEmitter();
-  @Output() onEditError = new EventEmitter();
-  @Output() onAddSuccess = new EventEmitter();
-  @Output() onAddError = new EventEmitter();
-  @Output() onAddCancel = new EventEmitter();
+  @Output() editSuccess = new EventEmitter();
+  @Output() editError = new EventEmitter();
+  @Output() addSuccess = new EventEmitter();
+  @Output() addError = new EventEmitter();
+  @Output() addCancel = new EventEmitter();
   @ViewChild('caption', {static: false, read: ElementRef}) captionInput: ElementRef;
   public isEditView = false;
   public newSectionMode = false;
@@ -35,12 +35,12 @@ export class CFSectionComponent {
   updateSection(data) {
     this.service.updateSection(this.url, this.sectionData.id, data).subscribe(
       resp => {
-        this.onEditSuccess.emit(resp);
+        this.editSuccess.emit(resp);
         this.closeEdit();
       },
       err => {
         alert(err.error.message);
-        this.onEditError.emit(err.error);
+        this.editError.emit(err.error);
       }
     );
   }
@@ -48,13 +48,13 @@ export class CFSectionComponent {
   createSection(data) {
     this.service.createSection(this.url, data).subscribe(
       resp => {
-        this.onAddSuccess.emit(resp);
+        this.addSuccess.emit(resp);
         this.closeEdit();
         this.newSectionMode = false;
       },
       err => {
         alert(err.error.message);
-        this.onAddError.emit(err.error);
+        this.addError.emit(err.error);
       }
     );
   }
@@ -74,7 +74,7 @@ export class CFSectionComponent {
     this.formChanged = false;
 
     if ( this.newSectionMode ) {
-      this.onAddCancel.emit();
+      this.addCancel.emit();
     } else {
       this.isEditView = false;
     }
