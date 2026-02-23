@@ -13,5 +13,6 @@ export class LoanDetailsReadOnlyFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally left empty
   }
 }

@@ -83,7 +83,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="approveUserRequest()"
+                (submitClickChange)="approveUserRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -93,7 +93,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="deleteRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="deleteUserRequest()"
+                (submitClickChange)="deleteUserRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

@@ -19,51 +19,51 @@ export class CFBuilderComponent {
   @Input() urls: { sectionUrl, fieldUrl };
   @Input() fieldLookupTypes = [];
   @Input() fieldTypes = [];
-  @Output() onSectionEditSuccess = new EventEmitter();
-  @Output() onSectionEditError = new EventEmitter();
-  @Output() onSectionAddSuccess = new EventEmitter();
-  @Output() onSectionAddError = new EventEmitter();
-  @Output() onFieldEditSuccess = new EventEmitter();
-  @Output() onFieldEditError = new EventEmitter();
-  @Output() onFieldDeleteSuccess = new EventEmitter();
-  @Output() onFieldDeleteError = new EventEmitter();
-  @Output() onFieldAddSuccess = new EventEmitter();
-  @Output() onFieldAddError = new EventEmitter();
+  @Output() sectionEditSuccessChange = new EventEmitter();
+  @Output() sectionEditErrorChange = new EventEmitter();
+  @Output() sectionAddSuccessChange = new EventEmitter();
+  @Output() sectionAddErrorChange = new EventEmitter();
+  @Output() fieldEditSuccessChange = new EventEmitter();
+  @Output() fieldEditErrorChange = new EventEmitter();
+  @Output() fieldDeleteSuccessChange = new EventEmitter();
+  @Output() fieldDeleteErrorChange = new EventEmitter();
+  @Output() fieldAddSuccessChange = new EventEmitter();
+  @Output() fieldAddErrorChange = new EventEmitter();
   @ViewChildren(CFSectionComponent) sections: QueryList<CFSectionComponent>;
   @ViewChildren(CFFieldComponent) fields: QueryList<CFFieldComponent>;
   @ViewChildren(CFAddComponent) addBtns: QueryList<CFAddComponent>;
   public sectionAddMode = false;
 
   callSectionEditSuccess(editedSectionData) {
-    this.onSectionEditSuccess.emit(editedSectionData);
+    this.sectionEditSuccessChange.emit(editedSectionData);
   }
 
   callSectionEditError(error) {
-    this.onSectionEditError.emit(error);
+    this.sectionEditErrorChange.emit(error);
   }
 
   callSectionAddSuccess(newSectionData) {
-    this.onSectionAddSuccess.emit(newSectionData);
+    this.sectionAddSuccessChange.emit(newSectionData);
   }
 
   callSectionAddError(error) {
-    this.onSectionAddError.emit(error);
+    this.sectionAddErrorChange.emit(error);
   }
 
   callFieldEditSuccess(editedData) {
-    this.onFieldEditSuccess.emit(editedData);
+    this.fieldEditSuccessChange.emit(editedData);
   }
 
   callFieldEditError(error) {
-    this.onFieldEditError.emit(error);
+    this.fieldEditErrorChange.emit(error);
   }
 
   callFieldDeleteSuccess(deleteData) {
-    this.onFieldDeleteSuccess.emit(deleteData);
+    this.fieldDeleteSuccessChange.emit(deleteData);
   }
 
   callFieldDeleteError(error) {
-    this.onFieldDeleteError.emit(error);
+    this.fieldDeleteErrorChange.emit(error);
   }
 
   callFieldAddSuccess(sectionDataWithNewField: { data, sectionId }) {
@@ -71,11 +71,11 @@ export class CFBuilderComponent {
 
     addBtnOnCurrentSection.disabled = false;
 
-    this.onFieldAddSuccess.emit(sectionDataWithNewField.data);
+    this.fieldAddSuccessChange.emit(sectionDataWithNewField.data);
   }
 
   callFieldAddError(error) {
-    this.onFieldAddError.emit(error);
+    this.fieldAddErrorChange.emit(error);
   }
 
   addSection() {

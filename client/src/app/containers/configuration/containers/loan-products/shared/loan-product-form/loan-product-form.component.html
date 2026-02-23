@@ -77,7 +77,7 @@
 
     <cbs-form-lookup-control
         [requiredField]="true"
-        (onSelect)="getScheduleBasedType($event)"
+        (selectChange)="getScheduleBasedType($event)"
         [hasError]="form.get('scheduleBasedType').errors && form.get('scheduleBasedType').touched"
         [formControlName]="'scheduleBasedType'"
         searchPlaceholder="{{ 'SEARCH' | translate }}"
@@ -281,19 +281,19 @@
     <div class="slds-form-element">
         <cbs-penalties-selected [selectedPenalties]="selectedPenalties"
                                 [label]="'PENALTIES_NO_SELECTED'"
-                                (onPenaltyDelete)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
+                                (penaltyDeleteChange)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
         <cbs-penalty-picklist [selectDataLabel]="'SELECT_PENALTY'" [penalties]="allPenalties"
                               [disablePickList]="disableCheckboxGroup"
-                              (onPenaltySelect)="selectedPenalty($event); checkboxPenalties()"></cbs-penalty-picklist>
+                              (penaltySelectChange)="selectedPenalty($event); checkboxPenalties()"></cbs-penalty-picklist>
     </div>
 
     <div class="slds-form-element">
         <cbs-entry-fees-selected [selectedEntryFees]="selectedFees"
                                  [label]="'ENTRY_FEE_NO_SELECTED'"
-                                 (onFeeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
+                                 (feeDeleteChange)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
         <cbs-entry-fee-picklist [selectDataLabel]="'SELECT_ENTRY_FEE'" [entryFees]="allEntryFees"
                                 [disablePickList]="disableCheckboxGroup"
-                                (onFeeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
+                                (feeSelectChange)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
     </div>
 
     <div class="early-partial-repayment-fee">

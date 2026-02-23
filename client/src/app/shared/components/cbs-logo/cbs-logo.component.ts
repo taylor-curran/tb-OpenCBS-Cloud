@@ -10,5 +10,6 @@ export class CbsLogoSvgComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally left empty
   }
 }
