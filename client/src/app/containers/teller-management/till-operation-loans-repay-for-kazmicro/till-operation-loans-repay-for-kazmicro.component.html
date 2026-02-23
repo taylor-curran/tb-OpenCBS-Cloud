@@ -48,7 +48,7 @@
                     [hasError]="repayForm.get('paidBy').errors && repayForm.get('paidBy').touched"
                     [picklistDataUrl]="formConfig.profileLookupUrl"
                     [requiredField]="true"
-                    (onSelect)="setLookupValue($event)"
+                    (select)="setLookupValue($event)"
                 ></cbs-form-lookup-control>
 
                 <cbs-form-lookup-control
