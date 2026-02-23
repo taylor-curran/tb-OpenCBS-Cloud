@@ -190,7 +190,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.clear();
+    this.clearPicklist();
   }
 
   clearPicklist() {

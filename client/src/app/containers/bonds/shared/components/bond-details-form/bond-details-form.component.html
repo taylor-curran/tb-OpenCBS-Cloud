@@ -35,7 +35,7 @@
             fieldLabel="{{ 'START_DATE' | translate }}"
             [hasError]="hasError('sellDate')"
             [requiredField]="true"
-            (change)="amountRelatedFieldChanged(); couponRelatedFieldChanged()"
+            (change)="emitAmountRelatedFieldChanged(); couponRelatedFieldChanged()"
         ></cbs-form-date-control>
 
         <cbs-form-readonly-control
