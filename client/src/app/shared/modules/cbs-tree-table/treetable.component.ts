@@ -195,7 +195,7 @@ export class HighlightDirective {
   private el: HTMLElement;
 
 
-  @Input('highlightColor') highlightColor: string;
+  @Input() highlightColor: string;
 
   private highlight(color: string) {
     this.el.parentElement.style.backgroundColor = color;
