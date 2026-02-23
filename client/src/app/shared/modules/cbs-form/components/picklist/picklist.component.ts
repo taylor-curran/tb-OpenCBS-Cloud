@@ -211,7 +211,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.valueString = item[this.filterType];
   }
 
-  search(searchString) {
+  handleSearch(searchString) {
     this.searchQueryChanged.next(searchString);
   }
 
