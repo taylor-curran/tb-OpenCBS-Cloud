@@ -70,7 +70,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   @Output() beforeSend: EventEmitter<any> = new EventEmitter();
 
-  @Output() upload: EventEmitter<any> = new EventEmitter();
+  @Output() uploadComplete: EventEmitter<any> = new EventEmitter();
 
   @Output() uploadError: EventEmitter<any> = new EventEmitter();
 
@@ -204,7 +204,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
         this.fileComment = '';
         this.progress = 0;
         if (xhr.status >= 200 && xhr.status < 300) {
-          this.upload.emit({xhr: xhr, files: this.files});
+          this.uploadComplete.emit({xhr: xhr, files: this.files});
         } else {
           this.uploadError.emit({xhr: xhr, files: this.files});
         }
