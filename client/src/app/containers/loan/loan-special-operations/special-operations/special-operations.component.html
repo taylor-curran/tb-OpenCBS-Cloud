@@ -2,7 +2,7 @@
     <div class="slds-grid slds-wrap slds-gutters" cbsMatchHeight="cbs-special-operation-item">
         <div *ngFor="let item of arr"
              class="slds-col slds-accordion__section slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4">
-            <a [ngClass]="{'disabled': item?.disabled}" (itemClick)="navigate(item)"
+            <a [ngClass]="{'disabled': item?.disabled}" (click)="navigate(item)"
                class="cbs-special-operation-item slds-text-align--center">
                 <cbs-icon [iconConfig]="item?.icon" [classStyle]="'slds-m-bottom--small'"></cbs-icon>
                 <span class="slds-text-heading--small slds-truncate">{{ item.name | translate }}</span>
@@ -58,9 +58,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="writeOffForm.invalid" class="slds-button slds-button--success"
-                (itemClick)="submitWriteOff()">{{ 'SAVE' |
+                (click)="submitWriteOff()">{{ 'SAVE' |
             translate }}
         </button>
     </ng-template>
@@ -78,9 +78,9 @@
         </cbs-form-date-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="isOpenActualize = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (itemClick)="submitActualizeLoan()">{{ 'START' | translate }}
+        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'START' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -102,10 +102,10 @@
         </cbs-form-lookup-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="isOpenReassignLoan = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (click)="isOpenReassignLoan = false">{{ 'CANCEL' | translate }}
         </button>
         <button class="slds-button slds-button--success" [disabled]="disabledReassignLoanBtn"
-                (itemClick)="reassignLoanModal()">{{ 'OK' | translate }}
+                (click)="reassignLoanModal()">{{ 'OK' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

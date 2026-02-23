@@ -11,7 +11,7 @@
                 [(ngModel)]="value"
                 [disabled]="disabled"
                 (ngModelChange)="inputChange($event)"
-                (inputBlur)="onBlur()"
+                (blur)="onBlur()"
                 *ngIf="selectData.length"
         >
             <option value="" selected disabled>{{ selectPlaceholder | translate }}</option>
@@ -20,7 +20,7 @@
                 <span *ngIf="!item.name">{{'PLEASE_SELECT' | translate}}</span>
             </option>
         </select>
-        <button *ngIf="innerValue && !disabled" type="button" class="cbs-picklist__clear-btn" (itemClick)="remove()">
+        <button *ngIf="innerValue && !disabled" type="button" class="cbs-picklist__clear-btn" (click)="remove()">
             <svg aria-hidden="true">
                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
             </svg>

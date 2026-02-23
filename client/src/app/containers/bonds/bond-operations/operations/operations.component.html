@@ -2,14 +2,14 @@
     <div class="slds-grid slds-wrap slds-gutters" cbsMatchHeight="cbs-special-operation-item">
         <div class="slds-col slds-accordion__section slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4"
              *cbsVisibleByPermission="{ group: 'BONDS', permissions: ['VALUE_DATE_BOND_EVENTS'] }">
-            <a [ngClass]="{'disabled': disabledOperationIcons || disabledIcons}" (itemClick)="openValueDateModal()"
+            <a [ngClass]="{'disabled': disabledOperationIcons || disabledIcons}" (click)="openValueDateModal()"
                class="cbs-special-operation-item slds-text-align--center">
                 <cbs-icon [iconConfig]="valueDateIcon" [classStyle]="'slds-m-bottom--small'"></cbs-icon>
                 <span class="slds-text-heading--small slds-truncate">{{ 'VALUE_DATE' | translate }}</span>
             </a>
         </div>
         <div *ngFor="let item of arr" class="slds-col slds-accordion__section slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4">
-            <a [ngClass]="{'disabled': item?.disabled || !disabledIcons}" (itemClick)="navigate(item)"
+            <a [ngClass]="{'disabled': item?.disabled || !disabledIcons}" (click)="navigate(item)"
                class="cbs-special-operation-item slds-text-align--center">
                 <cbs-icon [iconConfig]="item?.icon" [classStyle]="'slds-m-bottom--small'"></cbs-icon>
                 <span class="slds-text-heading--small slds-truncate">{{ item.name | translate }}</span>
@@ -18,7 +18,7 @@
         </div>
         <div class="slds-col slds-accordion__section slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4"
              *cbsVisibleByPermission="{ group: 'BONDS', permissions: ['ACTUALIZE_BONDS'] }">
-            <a (itemClick)="openActualizeModal()" [ngClass]="{'disabled': disabledOperationIcons}"
+            <a (click)="openActualizeModal()" [ngClass]="{'disabled': disabledOperationIcons}"
                class="cbs-special-operation-item slds-text-align--center">
                 <cbs-icon [iconConfig]="actualizeIcon" [classStyle]="'slds-m-bottom--small'"></cbs-icon>
                 <span class="slds-text-heading--small slds-truncate">{{ 'ACTUALIZE_BONDS' | translate }}</span>
@@ -38,9 +38,9 @@
         </cbs-form-date-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="isOpenActualize = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" [disabled]="!actualizeDate" (itemClick)="submitActualize()">{{ 'Start' | translate }}
+        <button class="slds-button slds-button--success" [disabled]="!actualizeDate" (click)="submitActualize()">{{ 'Start' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -56,9 +56,9 @@
         </cbs-form-date-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="isOpenValueDate = false">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (click)="isOpenValueDate = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" [disabled]="!valueDate" (itemClick)="submitValueDate()">{{ 'OK' | translate }}
+        <button class="slds-button slds-button--success" [disabled]="!valueDate" (click)="submitValueDate()">{{ 'OK' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

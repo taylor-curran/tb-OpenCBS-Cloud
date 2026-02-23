@@ -11,14 +11,14 @@
         <div cbs-page-header-layout="right">
             <div *ngIf="this.shareService.getData('SHOW_BUTTON')">
                 <button class="slds-button slds-button--neutral" aria-live="assertive"
-                        (itemClick)="cancel()">
+                        (click)="cancel()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
                 </button>
                 <button class="slds-button slds-button--success" aria-live="assertive"
-                        (itemClick)="openSubmitModal(dateFormatSettingForm)">
+                        (click)="openSubmitModal(dateFormatSettingForm)">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>

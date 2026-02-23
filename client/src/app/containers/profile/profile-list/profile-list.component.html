@@ -89,7 +89,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let profile of (profilesData | async)?.profiles; let i = index;" (itemClick)="goToProfile(profile)">
+        <tr *ngFor="let profile of (profilesData | async)?.profiles; let i = index;" (click)="goToProfile(profile)">
             <td scope="row">
                 <div class="slds-truncate" title="">
                         <span class="slds-icon_container slds-icon_container--circle slds-icon-action-user"

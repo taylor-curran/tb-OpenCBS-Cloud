@@ -2,7 +2,7 @@
     <div class="cf-section__head">
         <div class="slds-form-element slds-hint-parent slds-has-divider--bottom" *ngIf="!isEditView">
             <button class="slds-button slds-float--right slds-button--icon slds-button--icon-small"
-                    title="Edit this Field" (itemClick)="activateEdit(sectionData?.caption)">
+                    title="Edit this Field" (click)="activateEdit(sectionData?.caption)">
                 <svg class="slds-button__icon slds-button__icon--hint" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                 </svg>
@@ -29,7 +29,7 @@
                 <button type="button"
                         class="slds-button slds-float--right slds-button--icon slds-button--icon-small cf-section__cancel-btn"
                         title="Cancel"
-                        (itemClick)="closeEdit()"
+                        (click)="closeEdit()"
                         tabindex="3">
                     <svg class="slds-button__icon slds-button__icon--hint" aria-hidden="true">
                         <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>

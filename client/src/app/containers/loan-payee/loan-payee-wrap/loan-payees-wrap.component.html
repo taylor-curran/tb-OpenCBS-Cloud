@@ -12,7 +12,7 @@
             <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-start">
 
                 <div class="slds-m-left--x-small refund-button" *ngIf="showRefund">
-                    <button (itemClick)="refund(payeeId)" *ngIf="loanPayee?.status === 'DISBURSED'"
+                    <button (click)="refund(payeeId)" *ngIf="loanPayee?.status === 'DISBURSED'"
                             class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -20,7 +20,7 @@
                         </svg>{{ 'REFUND' | translate }}</span>
                     </button>
                 </div>
-                <button (itemClick)="disbursePayee(loanPayee)"
+                <button (click)="disbursePayee(loanPayee)"
                         *ngIf="loanPayee?.status === 'PENDING' || loanPayee?.status === 'REFUNDED'"
                         class="slds-button slds-button--success" aria-live="assertive">
                     <span class="slds-text-not-selected">
@@ -58,10 +58,10 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="form.invalid"
-                (itemClick)="submitDisburse(); isLoading = true;">{{ 'SUBMIT' | translate }}
+                (click)="submitDisburse(); isLoading = true;">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -85,10 +85,10 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="formRefund.invalid"
-                (itemClick)="submitRefund(); isLoading = true;">{{ 'SUBMIT' | translate }}
+                (click)="submitRefund(); isLoading = true;">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

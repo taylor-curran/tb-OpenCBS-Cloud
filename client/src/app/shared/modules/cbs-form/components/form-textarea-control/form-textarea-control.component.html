@@ -10,7 +10,7 @@
         <textarea
             class="slds-textarea"
             [(ngModel)]="value"
-            (inputBlur)="onBlur()"
+            (blur)="onBlur()"
             [disabled]="disabled"
             [placeholder]="placeholder"
             [attr.cols]="cols"

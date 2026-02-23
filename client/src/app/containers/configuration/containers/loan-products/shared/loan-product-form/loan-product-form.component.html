@@ -55,7 +55,7 @@
             </div>
             <div class="cbs-compound-form__1-of-3" formGroupName="2" *ngIf="currentInstance != 'rwanda'">
                 <label class="slds-checkbox" for="group-profile">
-                    <input type="checkbox" (itemClick)="checkboxGroup()" name="availability" id="group-profile"
+                    <input type="checkbox" (click)="checkboxGroup()" name="availability" id="group-profile"
                            formControlName="group_profile"/>
                     <span class="slds-checkbox--faux"></span>
                     <span
@@ -271,7 +271,7 @@
         </label>
         <div class="slds-form-element__control">
             <label class="slds-checkbox" for="has-payees">
-                <input (itemClick)="checkboxHasPayees()" type="checkbox" name="hasPayees" id="has-payees"
+                <input (click)="checkboxHasPayees()" type="checkbox" name="hasPayees" id="has-payees"
                        formControlName="hasPayees"/>
                 <span class="slds-checkbox--faux"></span>
             </label>
@@ -409,7 +409,7 @@
                                 {{ prov?.ratePenalty}}
                             </td>
                             <td class="provisioning" data-label="Branch" scope="row">
-                                <button class="slds-input--bare" (itemClick)="deleteProvisioning(prov)">
+                                <button class="slds-input--bare" (click)="deleteProvisioning(prov)">
                                     <svg class="slds-button__icon" aria-hidden="true">
                                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                                     </svg>
@@ -420,7 +420,7 @@
                     </table>
                 </ul>
             </div>
-            <button (itemClick)="openProvisionModal()" class="slds-button slds-button--neutral slds-align--absolute-center"
+            <button (click)="openProvisionModal()" class="slds-button slds-button--neutral slds-align--absolute-center"
                     aria-live="assertive">
             <span class="slds-text-not-selected ">
                 <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -443,7 +443,7 @@
             </label>
             <div class="slds-form-element__control">
                 <label class="slds-checkbox" for="topUpAllow">
-                    <input (itemClick)="showTopUpFields()" type="checkbox" name="topUpAllow"
+                    <input (click)="showTopUpFields()" type="checkbox" name="topUpAllow"
                            id="topUpAllow"
                            formControlName="topUpAllow"/>
                     <span class="slds-checkbox--faux"></span>
@@ -530,9 +530,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (itemClick)="cancelModal()">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (click)="cancelModal()">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (itemClick)="addProvisioning()">{{ 'ADD' | translate }}
+        <button class="slds-button slds-button--success" (click)="addProvisioning()">{{ 'ADD' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

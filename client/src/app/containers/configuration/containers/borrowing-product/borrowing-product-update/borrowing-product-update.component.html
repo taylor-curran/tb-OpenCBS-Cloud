@@ -8,7 +8,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" aria-live="assertive" (itemClick)="goToViewLoanProducts()">
+            <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="goToViewLoanProducts()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
@@ -16,7 +16,7 @@
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
                     #submitButton
-                    (itemClick)="submitForm()"
+                    (click)="submitForm()"
                     [disabled]="editLoanProductForm?.form.invalid || !formChanged">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

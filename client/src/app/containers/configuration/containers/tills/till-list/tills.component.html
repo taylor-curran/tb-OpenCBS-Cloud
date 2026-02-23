@@ -37,7 +37,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let till of (tills | async)?.data?.content" (itemClick)="goToTillDetails(till)">
+        <tr *ngFor="let till of (tills | async)?.data?.content" (click)="goToTillDetails(till)">
             <th scope="row">
                 <div class="slds-truncate" title="Id {{till.id}}">{{ till.id}}</div>
             </th>

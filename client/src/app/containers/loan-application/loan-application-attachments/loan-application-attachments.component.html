@@ -125,7 +125,7 @@
             <span class="slds-box--x-small"
                   *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['ATTACHMENT'] }">
                 <button *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.IN_PROGRESS]"
-                        class="slds-button slds-button--neutral" aria-live="assertive" (itemClick)="openUploadModal()">
+                        class="slds-button slds-button--neutral" aria-live="assertive" (click)="openUploadModal()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -208,7 +208,7 @@
                 <td>
                     <div class="slds-m-top--xxx-small slds-grid">
                         <div class="slds-button-group" role="group">
-                            <button (itemClick)="download(attachment?.id)"
+                            <button (click)="download(attachment?.id)"
                                     class="slds-button slds-button--icon-border" title="Download">
                                 <svg class="slds-button__icon" aria-hidden="true">
                                     <use
@@ -218,7 +218,7 @@
                             </button>
                             <button
                                 *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['ATTACHMENT'] }"
-                                (itemClick)="confirmDelete(attachment)" class="slds-button slds-button--icon-border"
+                                (click)="confirmDelete(attachment)" class="slds-button slds-button--icon-border"
                                 [disabled]="loanAppStatus === 'DISBURSED'"
                                 title="Delete">
                                 <svg class="slds-button__icon" aria-hidden="true">
@@ -240,7 +240,7 @@
             <span *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['ATTACHMENT'] }"
                   class="slds-m-top--medium" style="display: block;">
                 <button *ngIf="loanApplication?.status === LoanAppStatus[LoanAppStatus.IN_PROGRESS]"
-                        class="slds-button slds-button--neutral" aria-live="assertive" (itemClick)="openUploadModal()">
+                        class="slds-button slds-button--neutral" aria-live="assertive" (click)="openUploadModal()">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
