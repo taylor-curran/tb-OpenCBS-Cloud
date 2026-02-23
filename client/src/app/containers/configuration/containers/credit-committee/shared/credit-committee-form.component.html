@@ -13,7 +13,7 @@
                        formControlName="amount"/>
             </div>
         </div>
-        <cbs-list-select (onRemoveItem)="removeRole($event)"
+        <cbs-list-select (removeItem)="removeRole($event)"
                          (onSelectItem)="addRole($event)"
                          [picklistData]="roles"
                          [listLabel]="'ROLES' | translate"

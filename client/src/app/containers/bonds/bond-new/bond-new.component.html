@@ -7,7 +7,7 @@
         [hidden]="!formVisible"
         [bondFormState]="bondFormState"
         (onAmountRelatedFieldChanged)="onAmountRelatedFieldChanged($event)"
-        (onGetCouponRealtedFieldChanged)="onGetCouponRelatedFieldChanged($event)"
+        (getCouponRealtedFieldChanged)="onGetCouponRelatedFieldChanged($event)"
     ></cbs-bond-details-form>
 
     <cbs-loading-indicator [isFixed]="true" [showLoader]="!formVisible" [isFixed]="false" id=""></cbs-loading-indicator>

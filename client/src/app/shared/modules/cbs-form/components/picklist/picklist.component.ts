@@ -35,8 +35,8 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() defaultValue: any;
   @Output() onSelect = new EventEmitter();
   @Output() onClear = new EventEmitter();
-  @Output() onPicklistOpen = new EventEmitter();
-  @Output() onPicklistClose = new EventEmitter();
+  @Output() picklistOpen = new EventEmitter();
+  @Output() picklistClose = new EventEmitter();
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
   @ViewChild('scrollBlock', {static: false}) scrollBlock: ElementRef;
   @ViewChild('trigger', {static: false}) trigger: ElementRef;
@@ -207,7 +207,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.valueString = item[this.filterType];
     this.onSelect.emit(item);
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistClose.emit();
     this.valueString = item[this.filterType];
   }
 
@@ -249,13 +249,13 @@ export class PicklistComponent implements OnInit, OnChanges {
       }
     });
 
-    this.onPicklistOpen.emit();
+    this.picklistOpen.emit();
 
     this.triggerRect = this.trigger.nativeElement.getBoundingClientRect();
   }
 
   close() {
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistClose.emit();
   }
 }
