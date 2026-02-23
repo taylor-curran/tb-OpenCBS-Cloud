@@ -167,7 +167,7 @@ export class PenaltiesComponent implements OnInit, OnDestroy {
     this.formModal.openEditModal(newPenalty);
   }
 
-  submitPenalty(data) {
+  formSubmitPenalty(data) {
     if ( this.isNew ) {
       this.saveNewPenalty(data);
     } else {

@@ -32,7 +32,7 @@ export class LoanApplicationCommentsComponent implements OnInit, OnDestroy {
   public commentText: string;
   public disabledSendButton = true;
   public progressValue: any;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
 
   private loanApplicationSub: Subscription;
   private loanApplicationCommentSub: Subscription;

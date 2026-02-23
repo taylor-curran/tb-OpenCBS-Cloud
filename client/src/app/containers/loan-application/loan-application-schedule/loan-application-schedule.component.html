@@ -27,7 +27,7 @@
                     </svg>
                     {{ 'CANCEL' | translate }}</span>
             </button>
-            <button class="slds-button slds-button--success" #submitButton aria-live="assertive"
+            <button class="slds-button slds-button--success" #formSubmitButton aria-live="assertive"
                     (click)="saveNewSchedule()"
                     [disabled]="status && status !== 'VALID'">
                 <span class="slds-text-not-selected">
@@ -45,11 +45,11 @@
     [data]="installments"
     [editableColumns]="editableSchedule"
     [editablePaymentDate]="editablePaymentDate"
-    (onCellEdit)="getCellData($event)"
+    (cellEdit)="getCellData($event)"
 ></cbs-loan-installments-table>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

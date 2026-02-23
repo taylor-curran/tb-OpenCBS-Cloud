@@ -40,7 +40,7 @@ interface TableInputData {
 export class LoanGroupRepaymentComponent implements OnInit, OnDestroy {
   @ViewChild(LoanInstallmentsTableComponent, {static: false}) installmentsTableComponent: LoanInstallmentsTableComponent;
   @ViewChild(RepaymentFormComponent, {static: false}) formComponent: RepaymentFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild('previewButton', {static: false}) previewButton: ElementRef;
   public installments: any;
   public svgData = SVG_DATA;
@@ -296,7 +296,7 @@ export class LoanGroupRepaymentComponent implements OnInit, OnDestroy {
     this.groupRepaymentService.repay(this.repayData)
       .subscribe(res => {
         if ( res.error ) {
-          this.disableBtn(this.submitButton.nativeElement, false);
+          this.disableBtn(this.formSubmitButton.nativeElement, false);
           this.toastrService.clear();
           this.toastrService.error(res.message ? res.message : 'ERROR', '', environment.ERROR_TOAST_CONFIG);
           this.repayData = [];

@@ -8,7 +8,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <div class="cbs-new-profile__submit-btn"
+            <div class="cbs-new-profile__formSubmit-btn"
                  *ngIf="(profileFieldsStore | async)?.loaded && (profileFieldsStore | async)?.success">
                 <a routerLink="/profiles" class="slds-button slds-button--neutral slds-not-selected"
                    aria-live="assertive">
@@ -17,7 +17,7 @@
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                         </svg>{{ 'CANCEL' | translate }}</span>
                 </a>
-                <button (click)="submit(profileForm)" #submitButton
+                <button (click)="formSubmit(profileForm)" #formSubmitButton
                         class="slds-button slds-button--success slds-not-selected" aria-live="assertive"
                         [disabled]="profileForm.invalid">
                     <span class="slds-text-not-selected">
@@ -47,7 +47,7 @@
             ></cbs-scrollable-nav>
 
             <div class="slds-form--horizontal cbs-pull-negative">
-                <form novalidate [formGroup]="profileForm" (submit)="submit(profileForm)">
+                <form novalidate [formGroup]="profileForm" (formSubmit)="formSubmit(profileForm)">
                     <div formArrayName="fieldSections"
                          *ngIf="!loading"
                          cbsVisibleOnSroll

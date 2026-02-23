@@ -41,7 +41,7 @@
                 </div>
 
                 <span *cbsVisibleByPermission="{group: 'LOANS', permissions: 'TOP_UP'}">
-                    <button (click)="submitTopUpForm()" [disabled]="topUpFormStatus" *ngIf="showTopUpBtn"
+                    <button (click)="formSubmitTopUpForm()" [disabled]="topUpFormStatus" *ngIf="showTopUpBtn"
                             class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

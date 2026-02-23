@@ -28,7 +28,7 @@ const SVG_DATA = {collection: 'custom', class: 'custom41', name: 'custom41'};
 export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(LoanInstallmentsTableComponent, {static: true}) installmentsTableComponent: LoanInstallmentsTableComponent;
   @ViewChild(RepaymentFormComponent, {static: false}) formComponent: RepaymentFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild('previewButton', {static: false}) previewButton: ElementRef;
   public installments: any;
   public svgData = SVG_DATA;
@@ -143,7 +143,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
   repay() {
     this.installmentsTableComponent.isLoading = true;
     if ( this.formComponent.repaymentForm.valid ) {
-      this.disableBtn(this.submitButton.nativeElement, true);
+      this.disableBtn(this.formSubmitButton.nativeElement, true);
       this.repaymentService.repay(this.loanId, {
         ...this.repayData,
         date: this.parseDateFormatService.parseDateValue(this.repayData.date),
@@ -153,7 +153,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
       })
         .subscribe(res => {
           if ( res.error ) {
-            this.disableBtn(this.submitButton.nativeElement, false);
+            this.disableBtn(this.formSubmitButton.nativeElement, false);
             this.toastrService.clear();
             if ( res.message === `You have to actualize contract (ID = ${this.loanId})` ) {
               this.isOpenActualize = true;
@@ -174,7 +174,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
-  submitActualizeLoan() {
+  formSubmitActualizeLoan() {
     this.isOpenActualize = false;
     this.installmentsTableComponent.isLoading = true;
     const actualizeDate = this.parseDateFormatService.parseDateValue(this.repayData.date);
@@ -276,7 +276,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           if ( this.formComponent.repaymentForm.valid ) {
             if ( data.repaymentType === 'NORMAL_MANUAL_REPAYMENT' ) {
               this.installmentsTableComponent.isLoading = false;
-              this.onAutoTypeChange(false);
+              this.autoTypeChange(false);
               const principal = this.formComponent.repaymentForm.controls['principal'].value
                 ? this.formComponent.repaymentForm.controls['principal'].value
                 : 0;
@@ -315,7 +315,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
 
               this.formComponent.repaymentForm.controls['total'].setValue(this.totalAmount, {emitEvent: false, onlySelf: true});
             } else {
-              this.onAutoTypeChange(true);
+              this.autoTypeChange(true);
               const repaymentData = {
                 repaymentType: data.repaymentType,
                 timestamp: moment(this.parseDateFormatService.parseDateValue(data.date))
@@ -389,7 +389,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.onAutoTypeChange(true);
+          this.autoTypeChange(true);
           if ( data.repaymentType === 'EARLY_TOTAL_REPAYMENT' ) {
             this.formComponent.repaymentForm.controls['total'].disable({emitEvent: false, onlySelf: true});
           }
@@ -425,7 +425,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
-  onAutoTypeChange(bool) {
+  autoTypeChange(bool) {
     if ( bool ) {
       this.changeDisabilityControl('total', true, false, true);
       ['penalty', 'interest', 'principal', 'earlyRepaymentFee']
@@ -437,7 +437,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
-  onChangeRepaymentType() {
+  changeRepaymentType() {
     this.installmentsTableComponent.isLoading = true;
   }
 

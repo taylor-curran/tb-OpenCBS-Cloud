@@ -15,7 +15,7 @@
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
-                    (click)="submitForm()"
+                    (click)="formSubmitForm()"
                     [disabled]="transactionTemplatesForm?.form.invalid || !transactionTemplatesForm?.formChanged">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

@@ -31,7 +31,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(LoanInstallmentsTableComponent, {static: false}) installmentsTableComponent: LoanInstallmentsTableComponent;
   @ViewChild(BondRepaymentFormComponent, {static: false}) formComponent: BondRepaymentFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild('previewButton', {static: false}) previewButton: ElementRef;
 
   public svgData = {
@@ -104,13 +104,13 @@ export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
 
   repay(data) {
     if (this.formComponent.repaymentForm.valid) {
-      this.disableBtn(this.submitButton.nativeElement, true);
+      this.disableBtn(this.formSubmitButton.nativeElement, true);
       this.repaymentService.repay(this.loanId, {
         ...data
       })
         .subscribe((res: any) => {
           if (res) {
-            this.disableBtn(this.submitButton.nativeElement, false);
+            this.disableBtn(this.formSubmitButton.nativeElement, false);
             this.toastrService.clear();
             this.toastrService.error(res.message ? res.message : 'ERROR', '', environment.ERROR_TOAST_CONFIG);
           } else {
@@ -198,7 +198,7 @@ export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.onAutoTypeChange(true);
+          this.autoTypeChange(true);
         }
         if (cb) {
           cb();
@@ -206,7 +206,7 @@ export class BondRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
       });
   }
 
-  onAutoTypeChange(bool) {
+  autoTypeChange(bool) {
     if (bool) {
       ['penalty', 'interest', 'principal', 'total'].map(control => this.changeDisabilityControl(control, false, false, true));
     } else {

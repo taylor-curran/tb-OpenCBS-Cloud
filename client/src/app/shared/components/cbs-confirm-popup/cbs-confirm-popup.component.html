@@ -1,6 +1,6 @@
 <div class="cbs__application-wrap">
     <div class="cbs__application__note">
-        <form novalidate #f="ngForm" (ngSubmit)="submitAction(f); f.reset()">
+        <form novalidate #f="ngForm" (ngSubmit)="formSubmitAction(f); f.reset()">
             <div class="slds-text-heading--large">
                 {{popupLabel | uppercase}}
             </div>
@@ -21,7 +21,7 @@
                        class="slds-button slds-button--neutral">{{leftButtonLabel}}</a>
                 </div>
                 <div class="slds-col cbs__application__note-right">
-                    <button [disabled]="f.invalid" type="submit" class="slds-button slds-button--success">
+                    <button [disabled]="f.invalid" type="formSubmit" class="slds-button slds-button--success">
                         {{rightButtonLabel}}
                     </button>
                 </div>

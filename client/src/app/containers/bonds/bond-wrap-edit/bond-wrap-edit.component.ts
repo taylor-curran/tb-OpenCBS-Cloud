@@ -19,7 +19,7 @@ import { BondSideNavService } from '../shared/services/bond-side-nav.service';
 })
 
 export class BondWrapEditComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = {
     collection: 'custom',
     class: 'custom41',
@@ -153,7 +153,7 @@ export class BondWrapEditComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -168,7 +168,7 @@ export class BondWrapEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/bonds', this.bond['id'], 'edit', 'schedule']);
   }
 
-  submitForm() {
+  formSubmitForm() {
     if (this.bondFormState.valid && this.bondFormState.data.number > 0) {
       this.disableSubmitBtn(true);
 

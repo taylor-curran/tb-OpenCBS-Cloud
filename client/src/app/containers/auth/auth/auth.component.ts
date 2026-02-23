@@ -59,7 +59,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     });
   }
 
-  submitForm({value, valid}) {
+  formSubmitForm({value, valid}) {
     this.commonService.getVersion()
       .subscribe(res => {
         if ( res.error ) {
@@ -108,7 +108,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.openRecoverModal = false;
   }
 
-  submit() {
+  formSubmit() {
     this.disabled = false;
     delete this.changePasswordForm.value['confirmPassword'];
     this.changePasswordForm.value['userId'] = this.userId;
@@ -123,7 +123,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.openRecoverModal = true;
   }
 
-  submitRecover() {
+  formSubmitRecover() {
     this.isLoading = true;
     this.userUpdateService.recover(this.recoverPasswordForm.value).subscribe(() => {
       this.isLoading = false;

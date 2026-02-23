@@ -16,9 +16,9 @@ export class PenaltiesFormModalComponent implements OnInit {
   public config = ACCOUNTING_CONFIG;
   @ViewChild('f', {static: true}) form: FormGroup;
   @ViewChild('formFocus', {static: false}) formFocus: ElementRef;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @Input() headerTitle = '';
-  @Output() submitForm = new EventEmitter();
+  @Output() formSubmitForm = new EventEmitter();
   public isOpen = false;
   public formChanged = false;
   public isChecked = false;
@@ -60,9 +60,9 @@ export class PenaltiesFormModalComponent implements OnInit {
   }
 
   openCreateModal(fields) {
-    this.accrualAccount.onClearLookup();
-    this.incomeAccount.onClearLookup();
-    this.writeOffAccount.onClearLookup();
+    this.accrualAccount.clearLookup();
+    this.incomeAccount.clearLookup();
+    this.writeOffAccount.clearLookup();
     this.formChanged = true;
     this.form.setValue(fields);
     this.markAsUntouched(this.form);
@@ -83,11 +83,11 @@ export class PenaltiesFormModalComponent implements OnInit {
     this.isOpen = false;
   }
 
-  submit({valid, value}) {
+  formSubmit({valid, value}) {
     this.disableSubmitBtn(true);
 
     if ( valid ) {
-      this.submitForm.emit(value);
+      this.formSubmitForm.emit(value);
     }
   }
 
@@ -101,7 +101,7 @@ export class PenaltiesFormModalComponent implements OnInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   checkFormChanges(fields) {

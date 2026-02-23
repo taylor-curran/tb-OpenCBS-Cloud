@@ -25,7 +25,7 @@ export class LoanGuarantorsComponent implements OnInit, OnDestroy {
   public loanAppStateId: number;
   public loanAppState: ILoanAppState;
   public loanState: any;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public guarantorId: number;
   public profile: any;
   public opened = false;

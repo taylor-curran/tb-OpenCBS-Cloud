@@ -151,7 +151,7 @@ export class TransactionTemplatesCreateComponent implements OnInit, OnDestroy {
     this.createTransactionTemplatesStateStore.dispatch(new fromStore.CreateTransactionTemplatesReset());
   }
 
-  submit() {
+  formSubmit() {
     const debitAccounts = [];
     this.debitAccounts.map(account => {
       debitAccounts.push(account);

@@ -227,7 +227,7 @@ export class SpecialOperationsComponent implements OnInit, OnDestroy {
     this.writeOffForm.reset();
   }
 
-  submitWriteOff() {
+  formSubmitWriteOff() {
     this.isLoading = true;
     this.isOpenWriteOffModal = false;
     const date = this.parseDateFormatService.parseDateValue(this.writeOffForm.value.date);
@@ -316,7 +316,7 @@ export class SpecialOperationsComponent implements OnInit, OnDestroy {
     this.opened = false;
   }
 
-  submitActualizeLoan() {
+  formSubmitActualizeLoan() {
     this.isOpenActualize = false;
     this.isLoading = true;
     this.loanDate = this.parseDateFormatService.parseDateValue(this.loanDate);

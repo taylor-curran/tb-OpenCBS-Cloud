@@ -44,7 +44,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="closeModal()">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualize()">{{ 'Start' | translate }}
+        <button class="slds-button slds-button--success" (click)="formSubmitActualize()">{{ 'Start' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -62,7 +62,7 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="closeTermDeposit = false">{{ 'CANCEL' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitCloseTermDeposit()">{{ 'OK' | translate }}
+        <button class="slds-button slds-button--success" (click)="formSubmitCloseTermDeposit()">{{ 'OK' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -74,7 +74,7 @@
                 [confirmText]="locked ? 'Are you sure you want to unlock?' : 'Are you sure you want to lock?'"
                 [opened]="lock"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="submitLockUnlockTermDeposit()"
+                (formSubmitClick)="formSubmitLockUnlockTermDeposit()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

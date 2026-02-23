@@ -227,7 +227,7 @@ export class LoanPurposesListComponent implements OnInit, OnDestroy {
     this.loanPurposeUpdateStore$.dispatch(new UpdateLoanPurpose({data: loanPurposeEditData, fieldId: loanPurposeName.fieldId}));
   }
 
-  submitBusinessSector(data) {
+  formSubmitBusinessSector(data) {
     if (this.isNew) {
       this.saveNewLoanPurpose(data);
     } else {

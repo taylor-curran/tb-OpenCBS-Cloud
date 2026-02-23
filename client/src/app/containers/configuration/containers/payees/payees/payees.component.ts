@@ -177,7 +177,7 @@ export class PayeeListComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  submitPayee() {
+  formSubmitPayee() {
     const objectToSend = {
       name: this.form.controls['name'].value,
       currentAccounts: [this.form.controls['currentAccountId'].value],

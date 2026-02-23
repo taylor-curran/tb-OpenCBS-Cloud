@@ -86,7 +86,7 @@ export class TermDepositSpecialOperationComponent implements OnInit, OnDestroy {
     this.title = 'CLOSE_TERM_DEPOSIT';
   }
 
-  submitActualize() {
+  formSubmitActualize() {
     this.isOpenActualize = false;
     this.isLoading = true;
     this.actualizeDate = this.parseDateFormatService.parseDateValue(this.actualizeDate);
@@ -115,7 +115,7 @@ export class TermDepositSpecialOperationComponent implements OnInit, OnDestroy {
     this.closeTermDeposit = false;
   }
 
-  submitLockUnlockTermDeposit() {
+  formSubmitLockUnlockTermDeposit() {
     this.isLoading = true;
     this.termDepositService.lockAndUnlockTermDeposit(this.termDepositId).subscribe(data => {
       if ( data.error ) {
@@ -133,7 +133,7 @@ export class TermDepositSpecialOperationComponent implements OnInit, OnDestroy {
     })
   }
 
-  submitCloseTermDeposit() {
+  formSubmitCloseTermDeposit() {
     this.isLoading = true;
     this.closeDate = this.parseDateFormatService.parseDateValue(this.closeDate);
     this.termDepositService.closeTermDeposit(this.termDepositId, this.closeDate).subscribe(data => {

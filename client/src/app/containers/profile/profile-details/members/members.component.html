@@ -135,14 +135,14 @@
     </div>
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="memberForm.invalid" class="slds-button slds-button--success" (click)="submit()">{{
+        <button [disabled]="memberForm.invalid" class="slds-button slds-button--success" (click)="formSubmit()">{{
             'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 <cbs-confirm-popup [confirmText]="'Are you sure you want to delete?'" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="removeMember(memberId)"
+                   (formSubmitClick)="removeMember(memberId)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">

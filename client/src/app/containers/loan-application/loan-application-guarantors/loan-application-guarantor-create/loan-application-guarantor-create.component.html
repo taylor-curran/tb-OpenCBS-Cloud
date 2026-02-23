@@ -9,7 +9,7 @@
         </div>
 
         <div cbs-page-header-layout="right">
-            <div class="cbs-new-profile__submit-btn">
+            <div class="cbs-new-profile__formSubmit-btn">
                 <a [routerLink]="'/loan-applications/' + loanAppId + '/guarantors'"
                    class="slds-button slds-button--neutral slds-not-selected" aria-live="assertive">
                     <span class="slds-text-not-selected">
@@ -17,7 +17,7 @@
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                         </svg>{{ 'CANCEL' | translate }}</span>
                 </a>
-                <button (click)="submit()" #submitButton class="slds-button slds-button--success slds-not-selected"
+                <button (click)="formSubmit()" #formSubmitButton class="slds-button slds-button--success slds-not-selected"
                         aria-live="assertive" [disabled]="guarantorForm?.form.invalid">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

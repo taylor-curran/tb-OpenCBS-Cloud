@@ -24,7 +24,7 @@ import {CCRulesFormComponent} from '../../configuration/containers/credit-commit
 export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(LoanInstallmentsTableComponent, {static: false}) installmentsTableComponent: LoanInstallmentsTableComponent;
   @ViewChild(BorrowingRepaymentFormComponent, {static: false}) formComponent: BorrowingRepaymentFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   @ViewChild('previewButton', {static: false}) previewButton: ElementRef;
 
   public svgData = {
@@ -100,14 +100,14 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
 
   repay(data) {
     if ( this.formComponent.repaymentForm.valid ) {
-      this.disableBtn(this.submitButton.nativeElement, true);
+      this.disableBtn(this.formSubmitButton.nativeElement, true);
       this.repaymentService.repay(this.loanId, {
         ...data,
         timestamp: moment(data.date).hour(moment().hour()).minute(moment().minute()).format().slice(0, 19)
       })
         .subscribe(res => {
           if ( res.error ) {
-            this.disableBtn(this.submitButton.nativeElement, false);
+            this.disableBtn(this.formSubmitButton.nativeElement, false);
             this.toastrService.clear();
             this.toastrService.error(res.message ? res.message : 'ERROR', '', environment.ERROR_TOAST_CONFIG);
           } else {
@@ -172,7 +172,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
       .subscribe(data => {
         if ( this.formComponent.repaymentForm.valid ) {
           if ( data.repaymentType === 'NORMAL_MANUAL_REPAYMENT' ) {
-            this.onAutoTypeChange(false);
+            this.autoTypeChange(false);
             const interest = data.interest ? data.interest : 0;
             const principal = data.principal ? data.principal : 0;
             const penalty = data.penalty ? data.penalty : 0;
@@ -234,7 +234,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.onAutoTypeChange(true);
+          this.autoTypeChange(true);
           if ( data.repaymentType === 'EARLY_TOTAL_REPAYMENT' ) {
             this.formComponent.repaymentForm.controls['total'].disable({emitEvent: false, onlySelf: true});
           }
@@ -252,7 +252,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
     this.totalEdited = true;
   }
 
-  onAutoTypeChange(bool) {
+  autoTypeChange(bool) {
     if ( bool ) {
       this.totalEdited = true;
       this.changeDisabilityControl('total', true, false, true);

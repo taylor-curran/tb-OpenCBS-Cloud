@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import * as fromRoot from '../../../core/core.reducer';
 import * as fromStore from '../../../core/store';
 
-import { LoanAppSubmitService } from '../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../shared/services/loan-app-formSubmit.service';
 import {
   ILoanAppState,
   CurrentUserAppState,
@@ -40,7 +40,7 @@ export class CreditCommitteeComponent implements OnInit, OnDestroy {
   public creditCommittee = [];
   public loanAppStatus: string;
   public currentUser: any;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public loanAppStatusEnum = LoanAppStatus;
   public readOnly = false;
   public progressValue: any;

@@ -87,7 +87,7 @@ export class BondOperationsComponent implements OnInit {
     this.actualizeDate = moment().format(environment.DATE_FORMAT_MOMENT);
   }
 
-  submitActualize() {
+  formSubmitActualize() {
     this.isOpenActualize = false;
     this.isLoading = true;
     this.actualizeBondService.actualizeBond(this.bondId, this.actualizeDate).subscribe(res => {
@@ -110,7 +110,7 @@ export class BondOperationsComponent implements OnInit {
     this.valueDate = moment().format(environment.DATE_FORMAT_MOMENT);
   }
 
-  submitValueDate() {
+  formSubmitValueDate() {
     this.isOpenValueDate = false;
     this.valueDateBondService.valueDateBond(this.bondId, this.valueDate).subscribe((res: any) => {
       if ( res ) {

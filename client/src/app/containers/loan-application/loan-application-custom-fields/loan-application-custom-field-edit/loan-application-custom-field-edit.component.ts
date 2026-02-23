@@ -6,7 +6,7 @@ import * as fromRoot from '../../../../core/core.reducer';
 import {
   ILoanAppState,
 } from '../../../../core/store/loan-application';
-import { LoanAppSubmitService } from '../../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../../shared/services/loan-app-formSubmit.service';
 import { LoanAppStatus } from '../../../../core/loan-application-status.enum';
 import { LoanAppCustomFieldsService } from '../../../../core/store/loan-application/loan-app-custom-fields.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -35,7 +35,7 @@ export class LoanApplicationCustomFieldEditComponent implements OnInit, OnDestro
   public loanAppId: number;
   public text: string;
   public opened = false;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public customFields = [];
   public sectionNavData: any = [];
   public activeSectionId = 1;
@@ -136,7 +136,7 @@ export class LoanApplicationCustomFieldEditComponent implements OnInit, OnDestro
     this.activeSectionId = +section.split('_')[1];
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       const dataToSend = {
         fieldValues: []

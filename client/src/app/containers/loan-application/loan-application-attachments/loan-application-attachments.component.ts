@@ -10,7 +10,7 @@ import {
   ILoanAppState,
   ILoanAppAttachDelete,
 } from '../../../core/store/loan-application';
-import { LoanAppSubmitService } from '../shared/services/loan-app-submit.service';
+import { LoanAppSubmitService } from '../shared/services/loan-app-formSubmit.service';
 import { LoanAppStatus } from '../../../core/loan-application-status.enum';
 import { Subscription } from 'rxjs';
 
@@ -49,7 +49,7 @@ export class LoanApplicationAttachmentsComponent implements OnInit, OnDestroy {
   public loanAppId: number;
   public text: string;
   public opened = false;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public selectedAttachment: any;
   public isVisible = false;
   public isLoading = true;
@@ -192,7 +192,7 @@ export class LoanApplicationAttachmentsComponent implements OnInit, OnDestroy {
     }
   }
 
-  onClear() {
+  clear() {
     this.closeUploadModal();
   }
 

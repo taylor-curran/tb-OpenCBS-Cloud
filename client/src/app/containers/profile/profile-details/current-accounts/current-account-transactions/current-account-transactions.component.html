@@ -236,7 +236,7 @@
     </div>
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (click)="submit()">
+        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (click)="formSubmit()">
             {{ 'SAVE' | translate }}
         </button>
     </ng-template>

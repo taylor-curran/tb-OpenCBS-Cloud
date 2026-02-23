@@ -225,7 +225,7 @@ export class LoanUpdateCollateralComponent implements OnInit, OnDestroy {
       });
   }
 
-  submit() {
+  formSubmit() {
     if ( this.formComponent.collateralForm.valid ) {
       this.isSubmitting = true;
       const data = this.formComponent.collateralForm.value;

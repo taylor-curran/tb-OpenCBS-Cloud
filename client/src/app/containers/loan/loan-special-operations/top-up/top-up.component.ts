@@ -34,7 +34,7 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
   public loanSub: any;
 
   private loanApplicationSub: any;
-  private submitSub: any;
+  private formSubmitSub: any;
 
   constructor(private fb: FormBuilder,
               private store$: Store<fromRoot.State>,
@@ -97,9 +97,9 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
       maturity: new FormControl('', Validators.required),
     });
 
-    this.submitSub = this.topUpService.submitTopUpSourceChange$.subscribe(status => {
+    this.formSubmitSub = this.topUpService.formSubmitTopUpSourceChange$.subscribe(status => {
       if ( status ) {
-        this.submit();
+        this.formSubmit();
       }
     });
   }
@@ -160,7 +160,7 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
     this.entryFeeModalComponent.populateCached(fees);
   }
 
-  submit() {
+  formSubmit() {
     if ( this.topUpForm.valid ) {
       const entryFees = [];
       if ( this.loanAppEntryFees.length ) {
@@ -192,6 +192,6 @@ export class TopUpComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.loanSub.unsubscribe();
     this.loanApplicationSub.unsubscribe();
-    this.submitSub.unsubscribe();
+    this.formSubmitSub.unsubscribe();
   }
 }

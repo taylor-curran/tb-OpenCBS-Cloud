@@ -181,7 +181,7 @@ export class UserWrapComponent implements OnInit, OnDestroy {
       });
   }
 
-  submit() {
+  formSubmit() {
     this.changePasswordForm.value['userId'] = this.userId;
     this.userUpdateService.updatePassword(this.changePasswordForm.value)
       .subscribe((res: any) => {

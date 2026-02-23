@@ -52,11 +52,11 @@ describe('AUTHENTICATION', () => {
       expect(component).toBeDefined();
     });
 
-    describe('submitForm()', () => {
+    describe('formSubmitForm()', () => {
       it(`should dispatch the ${AuthActions.AUTHENTICATE} action`, () => {
         spyOn(store, 'dispatch');
 
-        component.submitForm({
+        component.formSubmitForm({
           value: {username: 'user', password: 'pass'},
           valid: true
         });

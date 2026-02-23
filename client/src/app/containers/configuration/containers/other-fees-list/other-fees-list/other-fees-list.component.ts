@@ -128,7 +128,7 @@ export class OtherFeesListComponent implements OnInit, OnDestroy {
     this.formModal.openEditModal(newOtherFeeList);
   }
 
-  submitOtherFeeList(data) {
+  formSubmitOtherFeeList(data) {
     if (this.isNew) {
       this.saveNewOtherFeeList(data);
     } else {

@@ -213,7 +213,7 @@ export class PaymentMethodsComponent implements OnInit, OnDestroy {
     }));
   }
 
-  submitPaymentMethod(data) {
+  formSubmitPaymentMethod(data) {
     if ( this.isNew ) {
       this.saveNewPaymentMethod(data);
     } else {

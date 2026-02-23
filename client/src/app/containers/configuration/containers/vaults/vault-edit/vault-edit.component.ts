@@ -97,7 +97,7 @@ export class VaultEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['configuration', 'vaults', this.vaultId])
   }
 
-  submitForm() {
+  formSubmitForm() {
     this.vaultForm.form.value.accounts = this.vaultForm.form.value.accounts
       .map(currency => currency[Object.keys(currency)[0]]);
     this.vaultUpdateStore$.dispatch(this.vaultUpdateActions

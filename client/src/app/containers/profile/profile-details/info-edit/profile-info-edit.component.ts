@@ -222,7 +222,7 @@ export class ProfileInfoEditComponent implements OnInit, OnDestroy {
     this.isLoading = false;
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       this.isSubmitting = true;
       const profileDataToSend = {

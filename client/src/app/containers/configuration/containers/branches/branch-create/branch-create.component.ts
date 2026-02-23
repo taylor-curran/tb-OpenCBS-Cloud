@@ -152,7 +152,7 @@ export class BranchCreateComponent implements OnInit, OnDestroy {
     this.router.navigate(['/configuration', 'branches']);
   }
 
-  submitForm({valid, value}) {
+  formSubmitForm({valid, value}) {
     if ( valid ) {
       const branchDataToSend = {
         fieldValues: []

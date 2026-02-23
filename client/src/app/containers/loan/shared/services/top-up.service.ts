@@ -8,9 +8,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 @Injectable()
 export class TopUpService {
   private topUpFormStatus = new Subject<any>();
-  private submitTopUpSource = new Subject<any>();
+  private formSubmitTopUpSource = new Subject<any>();
   topUpFormStatusChanged$ = this.topUpFormStatus.asObservable();
-  submitTopUpSourceChange$ = this.submitTopUpSource.asObservable();
+  formSubmitTopUpSourceChange$ = this.formSubmitTopUpSource.asObservable();
 
   constructor(private httpClient: HttpClient) {
   }
@@ -19,8 +19,8 @@ export class TopUpService {
     this.topUpFormStatus.next(bool);
   }
 
-  submitTopUpStatusChange(bool: boolean) {
-    this.submitTopUpSource.next(bool);
+  formSubmitTopUpStatusChange(bool: boolean) {
+    this.formSubmitTopUpSource.next(bool);
   }
 
   topUpLoan(loanId, data) {

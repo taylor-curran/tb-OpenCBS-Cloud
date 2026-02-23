@@ -26,7 +26,7 @@
             </button>
             <button class="slds-button slds-button--success"
                     (click)="rescheduleApply()"
-                    #submitButton
+                    #formSubmitButton
                     [disabled]="(rescheduleFormComponent?.rescheduleForm?.invalid || !formStatusChanged && (status && status !== 'VALID'))">
                 {{ 'RESCHEDULE' | translate }}
             </button>
@@ -60,7 +60,7 @@
             [data]="installments"
             [editableColumns]="editableSchedule"
             [editablePaymentDate]="editablePaymentDate"
-            (onCellEdit)="getCellData($event)"
+            (cellEdit)="getCellData($event)"
         ></cbs-loan-installments-table>
     </div>
 </cbs-loan-layout>
@@ -75,13 +75,13 @@
     <ng-template ngl-modal-footer>
         <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'NO' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'YES' | translate }}
+        <button class="slds-button slds-button--success" (click)="formSubmitActualizeLoan()">{{ 'YES' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isOpen"
-                   (onSubmitClick)="goToNextRoute()"
+                   (formSubmitClick)="goToNextRoute()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'NO' | translate"
                    [rightButtonLabel]="'YES' | translate"

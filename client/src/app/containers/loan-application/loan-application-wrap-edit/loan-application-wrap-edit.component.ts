@@ -26,7 +26,7 @@ const SVG_DATA = {collection: 'custom', class: 'custom41', name: 'custom41'};
 })
 
 export class LoanAppWrapEditComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public loanNavConfig = [];
   public loanAppFormState: ILoanAppFormState;
@@ -38,7 +38,7 @@ export class LoanAppWrapEditComponent implements OnInit, OnDestroy {
   public text: any;
   public loanApplication: any;
   public showHeader = true;
-  public submitService = this.loanAppSubmitService;
+  public formSubmitService = this.loanAppSubmitService;
   public loanAppId: number;
   public netAmount: number;
 
@@ -201,7 +201,7 @@ export class LoanAppWrapEditComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -232,7 +232,7 @@ export class LoanAppWrapEditComponent implements OnInit, OnDestroy {
     return formatted;
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.loanAppFormState.valid ) {
       this.disableSubmitBtn(true);
       const entryFees = [];

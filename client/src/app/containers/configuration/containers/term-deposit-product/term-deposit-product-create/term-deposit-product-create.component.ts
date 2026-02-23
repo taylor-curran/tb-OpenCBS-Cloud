@@ -21,7 +21,7 @@ const SVG_DATA = {collection: 'standard', class: 'calibration', name: 'calibrati
 
 export class TermDepositProductCreateComponent implements OnInit {
   @ViewChild(TermDepositProductFormComponent, {static: false}) termDepositProductForm: TermDepositProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public breadcrumbLinks = [
     {
@@ -62,7 +62,7 @@ export class TermDepositProductCreateComponent implements OnInit {
       });
   }
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.termDepositProductForm.form.valid ) {
       const termDepositProduct = {...this.termDepositProductForm.form.value};
       if ( termDepositProduct.availability.length ) {
@@ -97,7 +97,7 @@ export class TermDepositProductCreateComponent implements OnInit {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {

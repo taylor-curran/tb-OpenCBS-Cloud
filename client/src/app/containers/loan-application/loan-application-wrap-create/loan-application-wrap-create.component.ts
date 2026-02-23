@@ -24,7 +24,7 @@ const SVG_DATA = {
 })
 
 export class LoanAppWrapCreateComponent implements OnInit, OnDestroy {
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public loanNavConfig = [];
   public isLoading = false;
@@ -106,7 +106,7 @@ export class LoanAppWrapCreateComponent implements OnInit, OnDestroy {
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   resetState() {
@@ -122,7 +122,7 @@ export class LoanAppWrapCreateComponent implements OnInit, OnDestroy {
     this.router.navigate(['loan-applications', `${id}`]);
   }
 
-  submitForm() {
+  formSubmitForm() {
     if (this.loanAppFormState.valid) {
       this.isLoading = true;
       this.disableSubmitBtn(true);

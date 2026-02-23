@@ -15,7 +15,7 @@
                     </svg>
                     {{ 'CANCEL' | translate }}</span>
             </button>
-            <button class="slds-button slds-button--success" aria-live="assertive" #submitButton (click)="submitForm(f)"
+            <button class="slds-button slds-button--success" aria-live="assertive" #formSubmitButton (click)="formSubmitForm(f)"
                     [disabled]="formInvalid">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -41,7 +41,7 @@
 
             <div class="slds-form--stacked">
 
-                <form novalidate #f="ngForm" (ngSubmit)="submitForm(f)" cbsFormFocus>
+                <form novalidate #f="ngForm" (ngSubmit)="formSubmitForm(f)" cbsFormFocus>
 
                     <div class="slds-form-element">
                         <label class="slds-form-element__label">

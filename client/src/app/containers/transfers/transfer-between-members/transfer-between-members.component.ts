@@ -80,7 +80,7 @@ export class TransferBetweenMembersComponent implements OnInit {
     });
   }
 
-  submit({value, valid}: FormGroup) {
+  formSubmit({value, valid}: FormGroup) {
     if ( valid ) {
       this.showConfirmModal = false;
       this.isSubmittingTransfer = true;

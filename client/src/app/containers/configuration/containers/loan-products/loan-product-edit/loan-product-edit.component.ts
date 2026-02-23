@@ -26,7 +26,7 @@ const SVG_DATA = {
 })
 export class LoanProductEditComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(EditLoanProductFormComponent, {static: false}) editLoanProductForm: EditLoanProductFormComponent;
-  @ViewChild('submitButton', {static: false}) submitButton: ElementRef;
+  @ViewChild('formSubmitButton', {static: false}) formSubmitButton: ElementRef;
   public svgData = SVG_DATA;
   public loanProductId: number;
   public loanProductState: LoanProductState;
@@ -187,7 +187,7 @@ export class LoanProductEditComponent implements OnInit, AfterViewInit, OnDestro
     this.loanProductUpdateStore$.dispatch(new fromStore.UpdateLoanProductReset());
   };
 
-  submitForm() {
+  formSubmitForm() {
     if ( this.editLoanProductForm.form.controls['maturityDateMax'].value ) {
       const maturityDateMax = this.parseDateFormatService.parseDateValue(this.editLoanProductForm.form.controls['maturityDateMax'].value);
       this.editLoanProductForm.form.controls['maturityDateMax'].setValue(maturityDateMax);
@@ -251,7 +251,7 @@ export class LoanProductEditComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   disableSubmitBtn(bool) {
-    this.renderer2.setProperty(this.submitButton.nativeElement, 'disabled', bool);
+    this.renderer2.setProperty(this.formSubmitButton.nativeElement, 'disabled', bool);
   }
 
   ngOnDestroy() {

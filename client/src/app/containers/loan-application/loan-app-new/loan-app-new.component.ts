@@ -387,7 +387,7 @@ export class LoanAppNewComponent implements OnInit, AfterViewInit, OnDestroy {
     this.payeeToDelete = null;
   }
 
-  submitPayee(data) {
+  formSubmitPayee(data) {
     if ( this.isCreatePayeeMode ) {
       this.loanAppFormState.payees.push(Object.assign(
         {},

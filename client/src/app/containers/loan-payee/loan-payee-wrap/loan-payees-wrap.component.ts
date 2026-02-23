@@ -143,7 +143,7 @@ export class LoanPayeesWrapComponent implements OnInit, OnDestroy {
     this.form.controls['disbursementDate'].setValue(this.dateNow, {emitEvent: false});
   }
 
-  submitDisburse() {
+  formSubmitDisburse() {
     this.isLoading = true;
     this.loanPayeeUpdateStore$.dispatch(new fromStore.DisbursePayee({
       loanApplicationId: this.loanAppId,
@@ -161,7 +161,7 @@ export class LoanPayeesWrapComponent implements OnInit, OnDestroy {
     this.formRefund.controls['disbursementDate'].setValue(this.dateNow, {emitEvent: false});
   }
 
-  submitRefund() {
+  formSubmitRefund() {
     this.isLoading = true;
     this.loanPayeeUpdateStore$.dispatch(new fromStore.RefundLoanPayee({
       payeeId: this.payeeId,

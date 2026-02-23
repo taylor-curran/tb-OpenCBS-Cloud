@@ -113,7 +113,7 @@ export class LoanInfoComponent implements OnInit, OnDestroy {
     this.payeeFormComponent.openCreateModal();
   }
 
-  submitPayee(payee) {
+  formSubmitPayee(payee) {
     this.isLoading = true;
     this.loanPayeeService.addPayee(this.loanApp['id'], payee)
       .subscribe(res => {
