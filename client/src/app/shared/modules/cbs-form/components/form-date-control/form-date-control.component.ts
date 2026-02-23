@@ -74,7 +74,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
   @Input() minDate = Date;
   @Input() maxDate = Date;
   @Input() weekendDisabled = false;
-  @Output() change = new EventEmitter();
+  @Output() changeAction = new EventEmitter();
 
   public yearsFromNow = null;
   public errorOutputMessage: string;
@@ -95,7 +95,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
       if ( !v.value.isSame(this.innerValue) ) {
         this.innerValue = v.value;
         this.changeCallback(v.value.format(this.localStorageService.getDateFormat()));
-        this.change.emit(v.value.format(this.localStorageService.getDateFormat()));
+        this.changeAction.emit(v.value.format(this.localStorageService.getDateFormat()));
       }
     }
   }
@@ -144,7 +144,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
         this.outputErrorMessage(date.value);
       }
     } else {
-      this.change.emit(null);
+      this.changeAction.emit(null);
       this.yearsFromNow = null;
     }
   }
