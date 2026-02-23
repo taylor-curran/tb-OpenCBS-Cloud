@@ -7,7 +7,7 @@
         [hidden]="!formVisible"
         [loanAppFormState]="loanAppFormState"
         (loanProductSelect)="selectLoanProduct($event)"
-        (creditLineSelect)="selectCreditLine($event)"
+        (creditLineSelectEvent)="selectCreditLine($event)"
         (payeeAdd)="openAddPayeeModal()"
         (payeeDelete)="confirmDeletingPayee($event)"
         (payeeEdit)="openEditPayeeModal($event)"

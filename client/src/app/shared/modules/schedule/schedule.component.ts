@@ -64,7 +64,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
   @Input() dayRender: Function;
   @Input() options: any;
   @Output() dayClick: EventEmitter<any> = new EventEmitter();
-  @Output() drop: EventEmitter<any> = new EventEmitter();
+  @Output() dropEvent: EventEmitter<any> = new EventEmitter();
   @Output() eventClick: EventEmitter<any> = new EventEmitter();
   @Output() eventMouseover: EventEmitter<any> = new EventEmitter();
   @Output() eventMouseout: EventEmitter<any> = new EventEmitter();
@@ -136,7 +136,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
         });
       },
       drop: (date, jsEvent, ui, resourceId) => {
-        this.drop.emit({
+        this.dropEvent.emit({
           'date': date,
           'jsEvent': jsEvent,
           'ui': ui,

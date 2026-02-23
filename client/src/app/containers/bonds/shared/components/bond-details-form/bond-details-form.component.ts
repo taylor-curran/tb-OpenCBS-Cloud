@@ -21,7 +21,7 @@ import * as moment from 'moment';
 export class BondDetailsFormComponent implements OnInit {
   @Input() bondFormState: BondFormState;
   @Output() submitEvent = new EventEmitter();
-  @Output() amountRelatedFieldChanged = new EventEmitter();
+  @Output() amountRelatedFieldChangedEvent = new EventEmitter();
   @Output() getCouponRealtedFieldChanged = new EventEmitter();
   public currencyConfig = {
     url: `${environment.API_ENDPOINT}currencies/lookup`
@@ -150,7 +150,7 @@ export class BondDetailsFormComponent implements OnInit {
   }
 
   amountRelatedFieldChanged() {
-    this.amountRelatedFieldChanged.emit(this.form.value);
+    this.amountRelatedFieldChangedEvent.emit(this.form.value);
   }
 
   couponRelatedFieldChanged() {

@@ -5,7 +5,6 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/internal/Observable';
 import * as fromStore from '../../../../../core/store'
 import { RoleListState, getRoles } from '../../../../../core/store';
 
