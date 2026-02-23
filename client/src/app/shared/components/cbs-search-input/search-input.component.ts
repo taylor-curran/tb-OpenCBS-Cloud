@@ -13,8 +13,8 @@ export class SearchInputComponent implements OnInit {
   @Input() searchQuery = '';
   @Input() placeholder = '';
   @Input() autoFocus = true;
-  @Output() search = new EventEmitter();
-  @Output() clear = new EventEmitter();
+  @Output() searchEvent = new EventEmitter();
+  @Output() clearEvent = new EventEmitter();
 
   private searchQueryChanged: Subject<string> = new Subject<string>();
 
@@ -24,7 +24,7 @@ export class SearchInputComponent implements OnInit {
       distinctUntilChanged())
       .subscribe(model => {
         this.searchQuery = model;
-        this.search(model);
+        this.doSearch(model);
       });
   }
 
@@ -37,12 +37,12 @@ export class SearchInputComponent implements OnInit {
     this.searchQueryChanged.next(searchQuery);
   }
 
-  clear() {
+  doClear() {
     this.searchQuery = '';
-    this.clear.emit();
+    this.clearEvent.emit();
   }
 
-  search(searchQuery: string) {
-    this.search.emit(searchQuery);
+  doSearch(searchQuery: string) {
+    this.searchEvent.emit(searchQuery);
   }
 }
