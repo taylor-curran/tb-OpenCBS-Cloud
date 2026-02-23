@@ -32,7 +32,7 @@ export class VisibleOnScrollDirective implements OnInit, AfterViewInit, OnDestro
   }
 
   ngOnInit(): void {
-
+    // Intentionally empty - required by OnInit interface for future initialization hooks
   }
 
   ngAfterViewInit() {

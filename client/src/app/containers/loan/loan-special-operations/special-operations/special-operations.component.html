@@ -17,7 +17,7 @@
                 formControlName="date"
                 fieldLabel="{{ 'DATE' | translate }}"
                 [validateDate]="true"
-                (onChange)="calculateWriteOffValue($event)"
+                (changeAction)="calculateWriteOffValue($event)"
                 [hasError]="writeOffForm.get('date').errors && writeOffForm.get('date').touched"
                 [requiredField]="true"></cbs-form-date-control>
 
@@ -26,7 +26,7 @@
                 [fieldLabel]="'PRINCIPAL' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('principal').errors && writeOffForm.get('principal').touched"
-                (onChange)="validateWriteOffValue($event, 'principal')"
+                (changeAction)="validateWriteOffValue($event, 'principal')"
                 [formControlName]="'principal'">
             </cbs-form-input-control>
 
@@ -35,7 +35,7 @@
                 [fieldLabel]="'INTEREST' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('interest').errors && writeOffForm.get('interest').touched"
-                (onChange)="validateWriteOffValue($event, 'interest')"
+                (changeAction)="validateWriteOffValue($event, 'interest')"
                 [formControlName]="'interest'">
             </cbs-form-input-control>
 
@@ -44,7 +44,7 @@
                 [fieldLabel]="'PENALTY' | translate"
                 [inputType]="'number'"
                 [hasError]="writeOffForm.get('penalty').errors && writeOffForm.get('penalty').touched"
-                (onChange)="validateWriteOffValue($event, 'penalty')"
+                (changeAction)="validateWriteOffValue($event, 'penalty')"
 
                 [formControlName]="'penalty'">
             </cbs-form-input-control>
@@ -97,7 +97,7 @@
             searchPlaceholder="{{ 'SEARCH' | translate }}"
             selectPlaceholder="{{ 'SELECT' | translate }}"
             [fieldLabel]="'ASSIGN_TO' | translate"
-            (onSelect)="selectedUser($event)"
+            (selectAction)="selectedUser($event)"
             [picklistDataUrl]="userConfig">
         </cbs-form-lookup-control>
     </div>
