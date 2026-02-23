@@ -197,7 +197,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete($event)"
+                   (submitClick)="delete($event)"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
