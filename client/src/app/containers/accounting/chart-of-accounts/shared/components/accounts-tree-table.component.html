@@ -36,7 +36,7 @@
         <ng-container *ngIf="node['expanded']">
             <tr>
                 <td colspan="3" style="padding: 0; border-top: none;">
-                    <cbs-accounts-tree-table (onIconClick)="onIconClick.emit($event)" [currentNode]="node"
+                    <cbs-accounts-tree-table (iconClickChange)="onIconClick.emit($event)" [currentNode]="node"
                                              [padding]="padding + 2"
                                              [childrenNodes]="node['data']"></cbs-accounts-tree-table>
                 </td>

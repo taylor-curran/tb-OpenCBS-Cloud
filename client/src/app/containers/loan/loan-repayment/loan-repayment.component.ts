@@ -276,7 +276,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           if ( this.formComponent.repaymentForm.valid ) {
             if ( data.repaymentType === 'NORMAL_MANUAL_REPAYMENT' ) {
               this.installmentsTableComponent.isLoading = false;
-              this.onAutoTypeChange(false);
+              this.autoTypeChangeChange(false);
               const principal = this.formComponent.repaymentForm.controls['principal'].value
                 ? this.formComponent.repaymentForm.controls['principal'].value
                 : 0;
@@ -315,7 +315,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
 
               this.formComponent.repaymentForm.controls['total'].setValue(this.totalAmount, {emitEvent: false, onlySelf: true});
             } else {
-              this.onAutoTypeChange(true);
+              this.autoTypeChangeChange(true);
               const repaymentData = {
                 repaymentType: data.repaymentType,
                 timestamp: moment(this.parseDateFormatService.parseDateValue(data.date))
@@ -389,7 +389,7 @@ export class LoanRepaymentComponent implements OnInit, AfterViewInit, OnDestroy 
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.onAutoTypeChange(true);
+          this.autoTypeChangeChange(true);
           if ( data.repaymentType === 'EARLY_TOTAL_REPAYMENT' ) {
             this.formComponent.repaymentForm.controls['total'].disable({emitEvent: false, onlySelf: true});
           }

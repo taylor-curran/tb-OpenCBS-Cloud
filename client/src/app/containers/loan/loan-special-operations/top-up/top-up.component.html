@@ -55,7 +55,7 @@
                 *ngIf="loanApp?.entryFees?.length"
                 [isValidToCalculate]="true"
                 [entryFeesData]="loanAppEntryFees"
-                (onDetailsClick)="openEntryFees()"
+                (detailsClickChange)="openEntryFees()"
             ></cbs-entry-fees-block>
         </form>
     </div>
@@ -64,5 +64,5 @@
 <cbs-entry-fees-modal
     headerTitle="{{ 'ENTRY_FEES' | translate }}"
     (resetFeeCalculation)="cancel()"
-    (onSaveNewValue)="saveNewEntryFeeValues($event)"
+    (saveNewValueChange)="saveNewEntryFeeValues($event)"
 ></cbs-entry-fees-modal>

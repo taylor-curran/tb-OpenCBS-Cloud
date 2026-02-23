@@ -21,8 +21,8 @@ export class ConfirmPopupComponent implements OnInit {
   @Input() leftButtonLabel: string;
   @Input() rightButtonLabel: string;
   @Output() openedChange = new EventEmitter();
-  @Output() onSubmitClick = new EventEmitter();
-  @Output() onClose = new EventEmitter();
+  @Output() submitChangeClick = new EventEmitter();
+  @Output() closeChange = new EventEmitter();
   public selectedAction: any;
   public textareaVal = '';
 
@@ -34,12 +34,12 @@ export class ConfirmPopupComponent implements OnInit {
     this.opened = false;
     this.selectedAction = '';
     this.openedChange.emit(this.opened);
-    this.onClose.emit();
+    this.closeChange.emit();
     this.textareaVal = '';
   }
 
   submitAction({value, valid}) {
-    this.onSubmitClick.emit(value);
+    this.submitChangeClick.emit(value);
     this.opened = false;
     this.openedChange.emit(this.opened);
     this.textareaVal = '';

@@ -9,7 +9,7 @@ export class CFAddComponent implements OnInit {
   @Input() buttonTitle: string;
   @Input() disabled: boolean;
   @Input() uid: number;
-  @Output() onClick = new EventEmitter();
+  @Output() clickChange = new EventEmitter();
 
   constructor() {
   }
@@ -18,6 +18,6 @@ export class CFAddComponent implements OnInit {
   }
 
   click() {
-    this.onClick.emit();
+    this.clickChange.emit();
   }
 }

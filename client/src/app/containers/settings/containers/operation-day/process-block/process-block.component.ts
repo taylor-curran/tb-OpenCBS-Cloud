@@ -12,8 +12,8 @@ export class ProcessBlockComponent implements OnInit {
   @Input() title: string;
   @Input() disabled: false;
   @Output() dateChange = new EventEmitter();
-  @Output() onStartClick = new EventEmitter();
-  @Output() onFinishClick = new EventEmitter();
+  @Output() startClickChange = new EventEmitter();
+  @Output() finishClickChange = new EventEmitter();
 
   constructor() {
   }
