@@ -36,5 +36,8 @@ export class LoadingIndicatorComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    // No-op: lifecycle hook intentionally left empty
   }
 }
