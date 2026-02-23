@@ -77,7 +77,7 @@
 
     <cbs-form-lookup-control
         [requiredField]="true"
-        (select)="getScheduleBasedType($event)"
+        (selectEvent)="getScheduleBasedType($event)"
         [hasError]="form.get('scheduleBasedType').errors && form.get('scheduleBasedType').touched"
         [formControlName]="'scheduleBasedType'"
         searchPlaceholder="{{ 'SEARCH' | translate }}"

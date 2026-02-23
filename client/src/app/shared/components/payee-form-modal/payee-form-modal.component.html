@@ -10,7 +10,7 @@
                 [hasError]="form.get('payeeId').errors && form.get('payeeId').touched"
                 [picklistDataUrl]="payeeLookupUrl"
                 [requiredField]="true"
-                (select)="setPayeeDetails($event)"
+                (selectEvent)="setPayeeDetails($event)"
             ></cbs-form-lookup-control>
 
             <cbs-form-date-control

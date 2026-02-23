@@ -117,7 +117,7 @@
             name="file"
             [url]="url"
             (upload)="onUpload($event)"
-            (error)="onError($event)"
+            (errorEvent)="onError($event)"
             (clearEvent)="onClear()"
             [hasComments]="true"
             includeToken="true"

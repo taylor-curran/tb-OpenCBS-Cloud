@@ -72,11 +72,11 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   @Output() upload: EventEmitter<any> = new EventEmitter();
 
-  @Output() error: EventEmitter<any> = new EventEmitter();
+  @Output() errorEvent: EventEmitter<any> = new EventEmitter();
 
-  @Output() clear: EventEmitter<any> = new EventEmitter();
+  @Output() clearEvent: EventEmitter<any> = new EventEmitter();
 
-  @Output() select: EventEmitter<any> = new EventEmitter();
+  @Output() selectEvent: EventEmitter<any> = new EventEmitter();
 
   @ContentChildren(CbsTemplateDirective) templates: QueryList<any>;
 
@@ -150,7 +150,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
       }
     }
 
-    this.select.emit({originalEvent: event, files: files});
+    this.selectEvent.emit({originalEvent: event, files: files});
 
     if (this.hasFiles() && this.auto) {
       this.upload();
@@ -206,7 +206,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
         if (xhr.status >= 200 && xhr.status < 300) {
           this.upload.emit({xhr: xhr, files: this.files});
         } else {
-          this.error.emit({xhr: xhr, files: this.files});
+          this.errorEvent.emit({xhr: xhr, files: this.files});
         }
         this.clear();
         this.uploading = false;
@@ -231,7 +231,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   clear() {
     this.files = [];
-    this.clear.emit();
+    this.clearEvent.emit();
   }
 
   remove(index: number) {
