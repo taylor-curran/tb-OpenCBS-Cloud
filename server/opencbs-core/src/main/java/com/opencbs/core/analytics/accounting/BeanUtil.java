@@ -12,7 +12,9 @@ public class BeanUtil implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        context = applicationContext;
+        synchronized (BeanUtil.class) {
+            context = applicationContext;
+        }
     }
 
     public static <T> T getBean(Class<T> beanClass) {
