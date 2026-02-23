@@ -61,6 +61,7 @@ public class ActualizeHelper implements ApplicationContextAware {
     }
 
     @Override
+    @SuppressWarnings("java:S2696") // Static field intentionally set via Spring callback
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         context = applicationContext;
     }

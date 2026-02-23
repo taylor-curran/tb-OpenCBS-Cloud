@@ -63,7 +63,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'bankAccountId')"
+                (select)="markSelectedFieldLabel($event, 'bankAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-readonly-control
@@ -78,7 +78,7 @@
                 [requiredField]="true"
                 [hasError]="form.get('vaultId').errors && form.get('vaultId').touched"
                 fieldLabel="{{ 'VAULT' | translate }}"
-                (onSelect)="markSelectedFieldLabel($event, 'vaultId')"
+                (select)="markSelectedFieldLabel($event, 'vaultId')"
             ></cbs-form-select-control>
 
             <cbs-form-input-control
@@ -121,7 +121,7 @@
                 [hasError]="form.get('personInCharge').errors && form.get('personInCharge').touched"
                 [requiredField]="true"
                 [picklistDataUrl]="formUserConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'personInCharge')"
+                (select)="markSelectedFieldLabel($event, 'personInCharge')"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'PERSON_IN_CHARGE' | translate }}">
