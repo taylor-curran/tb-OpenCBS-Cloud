@@ -76,7 +76,7 @@
 
     <cbs-form-lookup-control
         [requiredField]="true"
-        (onSelect)="getScheduleBasedType($event)"
+        (itemSelected)="getScheduleBasedType($event)"
         [hasError]="form.get('scheduleBasedType').errors && form.get('scheduleBasedType').touched"
         [formControlName]="'scheduleBasedType'"
         searchPlaceholder="{{ 'SEARCH' | translate }}"
@@ -280,19 +280,19 @@
     <div class="slds-form-element">
         <cbs-penalties-selected [selectedPenalties]="selectedPenalties"
                                 [label]="'PENALTIES_NO_SELECTED'"
-                                (onPenaltyDelete)="deletePenalty($event)"></cbs-penalties-selected>
+                                (penaltyDelete)="deletePenalty($event)"></cbs-penalties-selected>
 
         <cbs-penalty-picklist [selectDataLabel]="'SELECT_PENALTY'" [penalties]="allPenalties"
-                              (onPenaltySelect)="selectPenalty($event)"></cbs-penalty-picklist>
+                              (penaltySelect)="selectPenalty($event)"></cbs-penalty-picklist>
     </div>
 
     <div class="slds-form-element">
         <cbs-entry-fees-selected [selectedEntryFees]="selectedFees"
                                  [label]="'ENTRY_FEE_NO_SELECTED'"
-                                 (onFeeDelete)="deleteEntryFee($event)"></cbs-entry-fees-selected>
+                                 (feeDelete)="deleteEntryFee($event)"></cbs-entry-fees-selected>
 
         <cbs-entry-fee-picklist [selectDataLabel]="'SELECT_ENTRY_FEE'" [entryFees]="allEntryFees"
-                                (onFeeSelect)="selectFee($event)"></cbs-entry-fee-picklist>
+                                (feeSelect)="selectFee($event)"></cbs-entry-fee-picklist>
     </div>
     <div class="early-partial-repayment-fee">
         <div class="slds-text-title--caps account-title">
