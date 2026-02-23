@@ -119,14 +119,14 @@
 
             <cbs-form-lookup-control
                 #account
-                (onSelect)="setLookupValue($event)"
+                (lookupSelect)="setLookupValue($event)"
                 [formControlName]="'currentAccountId'"
                 [code]="true"
                 [hasError]="form.get('currentAccountId').errors && form.get('currentAccountId').touched"
                 [requiredField]="true"
                 [picklistDataUrl]="formConfig"
-                (onOpenPicklist)="changeModalSize($event, true)"
-                (onClosePicklist)="changeModalSize($event, false)"
+                (openPicklist)="changeModalSize($event, true)"
+                (closePicklist)="changeModalSize($event, false)"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'ACCOUNT_NUMBER' | translate }}">

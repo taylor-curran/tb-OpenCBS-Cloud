@@ -170,9 +170,9 @@
                         <cbs-file-upload
                             name="file"
                             [url]="url"
-                            (onUpload)="onUpload($event)"
-                            (onError)="onError($event)"
-                            (onClear)="onClear()"
+                            (fileUpload)="onUpload($event)"
+                            (fileError)="onError($event)"
+                            (fileClear)="onClear()"
                             [hasComments]="true"
                             includeToken="true"
                             multiple="false"
@@ -197,7 +197,7 @@
 </main>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete($event)"
+                   (submitClick)="delete($event)"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"

@@ -29,13 +29,13 @@ export class FormInputControlComponent implements ControlValueAccessor {
   @Input() styleClass = '';
   @Input() style = '';
   @Input() inputType = 'text';
-  @Output() onChange = new EventEmitter();
+  @Output() inputChange = new EventEmitter();
   @Input() disabled = false;
 
   @Input() innerValue: any = '';
 
   private onTouchedCallback: () => void = noop;
-  private onChangeCallback: (_: any) => void = noop;
+  private readonly onChangeCallback: (_: any) => void = noop;
 
   get value(): any {
     return this.innerValue;
@@ -48,7 +48,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
       } else {
         this.innerValue = v;
       }
-      this.onChangeCallback(v);
+      this.changeCallback(v);
     }
   }
 
@@ -59,7 +59,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
-    this.onChangeCallback = fn;
+    this.changeCallback = fn;
   }
 
   registerOnTouched(fn: any) {
@@ -74,8 +74,8 @@ export class FormInputControlComponent implements ControlValueAccessor {
     this.onTouchedCallback();
   }
 
-  inputChange(value) {
+  handleInputChange(value) {
     this.value = value;
-    this.onChange.emit(value);
+    this.inputChange.emit(value);
   }
 }
