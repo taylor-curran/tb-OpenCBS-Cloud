@@ -37,6 +37,7 @@ export class ImageComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 
   imgClick() {

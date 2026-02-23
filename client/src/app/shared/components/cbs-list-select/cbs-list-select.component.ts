@@ -22,7 +22,7 @@ export class ListSelectComponent implements OnInit {
   public open = false;
 
   ngOnInit() {
-
+    // No-op: required by Angular lifecycle interface
   }
 
   selectItem(pickedItem) {

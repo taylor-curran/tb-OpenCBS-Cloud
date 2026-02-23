@@ -10,6 +10,7 @@ export class ConfigurationWrapComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 
 }

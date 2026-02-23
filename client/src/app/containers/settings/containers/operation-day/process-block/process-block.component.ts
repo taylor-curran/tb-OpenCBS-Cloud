@@ -19,6 +19,7 @@ export class ProcessBlockComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 
 }
