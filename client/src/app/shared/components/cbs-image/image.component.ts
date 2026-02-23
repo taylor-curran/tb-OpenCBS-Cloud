@@ -1,12 +1,12 @@
 /**
  * Created by Chyngyz on 2/17/2017.
  */
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'cbs-image',
   template: `
-    <figure class="slds-image slds-image--card slds-m-right--medium cbs-profile-info__img"  *ngIf="imageUrl && image" (click)="imgClick()">
+    <figure class="slds-image slds-image--card slds-m-right--medium cbs-profile-info__img"  *ngIf="imageUrl && image" (imageClick)="imgClick()">
         <a href="javascript:void(0);" class="slds-image__crop slds-image__crop--1-by-1">
             <img [src]="imageUrl" [attr.alt]="imageAltText">
         </a>
@@ -24,22 +24,19 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
     </figure>
 `
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent {
   @Input() imageUrl: string;
   @Input() imageAltText = 'Image';
   @Input() imageCaption: string;
   @Input() imagePlaceholder = '/img/placeholder-img.jpg';
   @Input() image = false;
 
-  @Output() onClick = new EventEmitter();
+  @Output() imageClick = new EventEmitter();
 
   constructor() {
   }
 
-  ngOnInit() {
-  }
-
   imgClick() {
-    this.onClick.emit();
+    this.imageClick.emit();
   }
 }
