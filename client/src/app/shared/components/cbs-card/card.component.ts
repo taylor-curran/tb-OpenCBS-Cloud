@@ -26,5 +26,6 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 }

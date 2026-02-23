@@ -15,5 +15,6 @@ export class LoanLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 }

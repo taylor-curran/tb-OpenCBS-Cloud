@@ -27,6 +27,7 @@ export class IconComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 
 }

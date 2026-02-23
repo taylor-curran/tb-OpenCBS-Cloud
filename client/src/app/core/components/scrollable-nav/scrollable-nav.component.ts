@@ -22,6 +22,7 @@ export class ScrollableNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 
   ngOnDestroy() {
