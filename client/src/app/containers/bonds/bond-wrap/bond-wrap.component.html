@@ -37,7 +37,7 @@
                 <div *ngIf="isEventsPage" class="filter-events"
                      style="text-align: left; padding-left: 10px; margin-top: -5px;">
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (changeEvent)="showDeletedEvents($event)"/>
+                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (change)="showDeletedEvents($event)"/>
                         <label class="slds-checkbox__label" for="checkbox-deleted">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show deleted</span>

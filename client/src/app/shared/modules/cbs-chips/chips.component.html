@@ -19,7 +19,7 @@
            [attr.tabindex]="tabindex"
            (keydown)="onKeydown($event,inputtext)"
            (focus)="onFocus()"
-           (blurEvent)="onBlur()"
+           (blur)="onBlur()"
            [attr.required]="required"
            [disabled]="maxedOut||disabled"
            [disabled]="disabled">

@@ -11,7 +11,7 @@
                 [(ngModel)]="value"
                 [disabled]="disabled"
                 (ngModelChange)="inputChange($event)"
-                (blurEvent)="onBlur()"
+                (blur)="onBlur()"
                 *ngIf="selectData.length"
         >
             <option value="" selected disabled>{{ selectPlaceholder | translate }}</option>
