@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReportService } from '../../../reports/shared/reports.service';
 import * as FileSaver from 'file-saver';
 import { ToastrService } from 'ngx-toastr';
@@ -26,7 +26,7 @@ const SVG_DATA = {
   }`]
 })
 
-export class LoanAppPrintOutPreviewComponent implements OnInit {
+export class LoanAppPrintOutPreviewComponent implements OnInit, OnDestroy{
   public isLoading = false;
   public reportName: string;
   public cancelLink: string;
