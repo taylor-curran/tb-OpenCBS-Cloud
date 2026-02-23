@@ -37,6 +37,7 @@ public class EventListener implements PersistEventListener {
 
     @Override
     public void onPersist(PersistEvent event, Map createdAlready) throws HibernateException {
-
+        // Delegating to single-argument onPersist; createdAlready is not used in this implementation
+        onPersist(event);
     }
 }
