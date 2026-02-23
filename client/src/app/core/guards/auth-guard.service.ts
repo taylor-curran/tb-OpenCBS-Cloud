@@ -1,4 +1,4 @@
-import { map, take, tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -24,9 +24,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
               state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;
@@ -41,9 +38,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                    state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;

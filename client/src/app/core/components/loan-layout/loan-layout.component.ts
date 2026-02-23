@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-loan-layout',
   templateUrl: 'loan-layout.component.html',
   styleUrls: ['loan-layout.component.scss']
 })
-export class LoanLayoutComponent implements OnInit {
+export class LoanLayoutComponent {
   @Input() sidebar = false;
   @Input() sidePanel = true;
   @Input() bottomToolbar = false;
@@ -14,6 +14,4 @@ export class LoanLayoutComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
   }
-}
