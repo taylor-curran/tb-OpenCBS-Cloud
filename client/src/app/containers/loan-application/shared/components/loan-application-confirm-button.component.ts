@@ -18,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 @LoanAppStatusAware
 export class LoanAppDisburseButtonComponent {
   @ViewChild('disburseButton', {static: false}) disburseButton: ElementRef;
-  @Output() onClickButton = new EventEmitter();
+  @Output('onClickButton') clickButton = new EventEmitter();
   @Input() disabled = false;
   private confirmText: any;
 
@@ -27,7 +27,7 @@ export class LoanAppDisburseButtonComponent {
 
   loanAppDisburse() {
     this.getConfirmText();
-    this.onClickButton.emit(this.confirmText);
+    this.clickButton.emit(this.confirmText);
     this.disableBtn(true);
   }
 
