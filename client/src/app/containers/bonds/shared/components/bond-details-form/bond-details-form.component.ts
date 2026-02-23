@@ -149,12 +149,12 @@ export class BondDetailsFormComponent implements OnInit {
     this.submitAction.emit(this.form.value);
   }
 
-  amountRelatedFieldChanged() {
+  emitAmountRelatedFieldChanged() {
     this.amountRelatedFieldChanged.emit(this.form.value);
   }
 
   couponRelatedFieldChanged() {
-    this.amountRelatedFieldChanged();
+    this.emitAmountRelatedFieldChanged();
     this.getCouponRealtedFieldChanged.emit(this.form.value);
   }
 

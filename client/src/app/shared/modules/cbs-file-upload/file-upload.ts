@@ -208,7 +208,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
         } else {
           this.errorAction.emit({xhr: xhr, files: this.files});
         }
-        this.clear();
+        this.clearFiles();
         this.uploading = false;
       }
     };
@@ -229,7 +229,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     xhr.send(formData);
   }
 
-  clear() {
+  clearFiles() {
     this.files = [];
     this.clear.emit();
   }
