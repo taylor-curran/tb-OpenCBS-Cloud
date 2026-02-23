@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'cbs-confirm-popup',
@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@an
   styleUrls: ['cbs-confirm-popup.component.scss']
 })
 
-export class ConfirmPopupComponent implements OnInit {
+export class ConfirmPopupComponent {
   @HostBinding('style.display') display = 'none';
 
   @Input() set opened(val: boolean) {
@@ -25,10 +25,6 @@ export class ConfirmPopupComponent implements OnInit {
   @Output() onClose = new EventEmitter();
   public selectedAction: any;
   public textareaVal = '';
-
-  ngOnInit() {
-
-  }
 
   cancelConfirm() {
     this.opened = false;
