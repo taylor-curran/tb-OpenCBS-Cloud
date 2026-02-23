@@ -10,15 +10,15 @@ export class PayeeBlockComponent {
   @Input() payee: IPayeeItem;
   @Input() readonly = false;
   @Input() showEditBtn = true;
-  @Output() onEdit = new EventEmitter();
-  @Output() onDelete = new EventEmitter();
+  @Output() editEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter();
 
   edit(payee) {
-    this.onEdit.emit(payee);
+    this.editEvent.emit(payee);
   }
 
   delete(payee) {
-    this.onDelete.emit(payee);
+    this.deleteEvent.emit(payee);
   }
 
   checkLength(str: string) {
