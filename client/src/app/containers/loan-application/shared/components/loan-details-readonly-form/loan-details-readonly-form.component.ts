@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -6,12 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: 'loan-details-readonly-form.component.html',
   styleUrls: ['loan-details-readonly-form.component.scss']
 })
-export class LoanDetailsReadOnlyFormComponent implements OnInit {
+export class LoanDetailsReadOnlyFormComponent  {
   @Input() formData: any;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
