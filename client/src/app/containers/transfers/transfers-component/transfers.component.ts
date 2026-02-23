@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 const SVG_DATA = {
   collection: 'standard',
@@ -11,7 +11,7 @@ const SVG_DATA = {
   templateUrl: 'transfers.component.html'
 })
 
-export class TransfersComponent implements OnInit, OnDestroy {
+export class TransfersComponent {
   svgData = SVG_DATA;
   list = [{
     name: 'BANK_TO_VAULT',
@@ -31,13 +31,5 @@ export class TransfersComponent implements OnInit, OnDestroy {
   }];
 
   constructor() {
-  }
-
-  ngOnInit() {
-
-  }
-
-  ngOnDestroy() {
-
   }
 }
