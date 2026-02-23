@@ -35,11 +35,11 @@
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
                 </svg>
                 <svg class="slds-input__icon slds-icon-text-default cbs-picklist__clear-search-btn" aria-hidden="true"
-                     *ngIf="searchQuery" (click)="clear()">
+                     *ngIf="searchQuery" (click)="onClear()">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
                 </svg>
                 <input type="text" class="slds-input" #searchInput [ngModel]="searchQuery"
-                       (ngModelChange)="search($event); searchQuery = $event;" placeholder="{{ searchPlaceholder }}"/>
+                       (ngModelChange)="onSearch($event); searchQuery = $event;" placeholder="{{ searchPlaceholder }}"/>
             </div>
             <div class="cbs-picklist__list"
                  #scrollBlock
@@ -50,7 +50,7 @@
                  [scrollWindow]="false">
                 <ul class="slds-listbox slds-listbox_vertical" role="presentation">
                     <li role="presentation" class="slds-listbox__item" *ngFor="let item of lookupList"
-                        (click)="select(item)" (keyup.enter)="select(item)">
+                        (click)="onSelect(item)" (keyup.enter)="onSelect(item)">
                         <span
                             class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center"
                             role="option" [ngClass]="{'slds-is-selected': item?.selected }">
