@@ -74,7 +74,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
     this.onTouchedCallback();
   }
 
-  inputChange(value) {
+  handleInputChange(value) {
     this.value = value;
     this.inputChange.emit(value);
   }

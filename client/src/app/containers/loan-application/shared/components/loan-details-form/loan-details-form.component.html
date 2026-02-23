@@ -12,7 +12,7 @@
             [selectValue]="'id'"
             [hasError]="form.get('creditLineId').errors && form.get('creditLineId').touched"
             fieldLabel="{{ 'CREDIT_LINE' | translate }}"
-            (selectChange)="creditLineSelect($event)"
+            (selectChange)="handleCreditLineSelect($event)"
         ></cbs-form-select-control>
 
         <cbs-form-lookup-control
