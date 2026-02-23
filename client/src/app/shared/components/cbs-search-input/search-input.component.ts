@@ -14,7 +14,7 @@ export class SearchInputComponent implements OnInit {
   @Input() placeholder = '';
   @Input() autoFocus = true;
   @Output() searchTriggered = new EventEmitter();
-  @Output() clear = new EventEmitter();
+  @Output() cleared = new EventEmitter();
 
   private searchQueryChanged: Subject<string> = new Subject<string>();
 
@@ -37,9 +37,9 @@ export class SearchInputComponent implements OnInit {
     this.searchQueryChanged.next(searchQuery);
   }
 
-  clear() {
+  clearSearch() {
     this.searchQuery = '';
-    this.clear.emit();
+    this.cleared.emit();
   }
 
   doSearch(searchQuery: string) {
