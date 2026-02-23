@@ -9,15 +9,16 @@ export class CFAddComponent implements OnInit {
   @Input() buttonTitle: string;
   @Input() disabled: boolean;
   @Input() uid: number;
-  @Output() onClick = new EventEmitter();
+  @Output() buttonClick = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 
-  click() {
-    this.onClick.emit();
+  doClick() {
+    this.buttonClick.emit();
   }
 }

@@ -9,5 +9,6 @@ export class NotFoundComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 }

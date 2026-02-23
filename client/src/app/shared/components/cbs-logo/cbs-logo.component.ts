@@ -10,5 +10,6 @@ export class CbsLogoSvgComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: required by Angular lifecycle interface
   }
 }
