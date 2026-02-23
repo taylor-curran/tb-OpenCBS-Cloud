@@ -32,6 +32,7 @@ public class UserHelper {
     }
 
     @Autowired
+    @SuppressWarnings("java:S2696") // Intentional: Spring @Autowired requires instance method to inject into static field
     private void setUserService(UserService userServiceArg) {
         if (userService == null) {
             UserHelper.userService = userServiceArg;

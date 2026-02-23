@@ -11,6 +11,7 @@ public class BeanUtil implements ApplicationContextAware {
     private static ApplicationContext context;
 
     @Override
+    @SuppressWarnings("java:S2696") // Intentional: Spring ApplicationContextAware requires instance method to set static context
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         context = applicationContext;
     }

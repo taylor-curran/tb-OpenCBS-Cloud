@@ -15,15 +15,11 @@ import java.util.stream.Collectors;
 
 public class DateHelper {
 
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-    private static DateTimeFormatter formatter;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DATE_FORMAT);
 
-    static {
-        formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
-    }
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
 
     public static boolean isValidDate(String value) {
         try {
