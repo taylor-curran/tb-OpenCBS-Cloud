@@ -28,6 +28,7 @@ export class ResponsePopupComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 
 }

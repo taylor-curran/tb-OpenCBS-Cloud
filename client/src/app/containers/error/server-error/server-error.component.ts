@@ -10,6 +10,7 @@ export class ServerErrorComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 
   goHome() {

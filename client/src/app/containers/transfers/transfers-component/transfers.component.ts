@@ -34,10 +34,12 @@ export class TransfersComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
 
   }
 
   ngOnDestroy() {
+    // No cleanup needed for this component
 
   }
 }

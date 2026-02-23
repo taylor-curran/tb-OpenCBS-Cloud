@@ -39,5 +39,6 @@ export class HeadingBlockComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No initialization needed for this component
   }
 }

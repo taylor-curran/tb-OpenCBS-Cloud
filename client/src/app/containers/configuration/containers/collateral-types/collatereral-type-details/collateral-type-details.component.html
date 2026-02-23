@@ -32,7 +32,7 @@
                 <form novalidate *ngIf="isEditView" #captionForm="ngForm" (ngSubmit)="submitForm(captionForm)">
                     <div class="slds-form-element slds-hint-parent"
                          [class.slds-has-error]="caption.errors?.required && caption.touched">
-                        <button type="submit"
+                        <button type="submitAction"
                                 class="slds-button slds-float--right slds-button--icon slds-button--icon-small cbs-collateral-type__save-btn"
                                 [title]="'SAVE' | translate"
                                 [disabled]="captionForm.invalid || !formChanged"
@@ -83,17 +83,17 @@
                 [componentFieldType]="'collateral'"
                 [sectionId]="collateralTypeDetails?.id"
                 [addSectionId]="true"
-                (onFieldEditSuccess)="callFieldEditSuccess($event)"
-                (onFieldEditError)="callFieldEditError($event)"
-                (onFieldAddCancel)="onFieldAddCancel()"
-                (onFieldDeleteSuccess)="onDeleteSuccess()"
-                (onFieldDeleteError)="onError($event)"
-                (onFieldAddSuccess)="callFieldAddSuccess($event)"
-                (onFieldAddError)="callFieldAddError($event)"
+                (fieldEditSuccess)="callFieldEditSuccess($event)"
+                (fieldEditError)="callFieldEditError($event)"
+                (fieldAddCancel)="onFieldAddCancel()"
+                (fieldDeleteSuccess)="onDeleteSuccess()"
+                (fieldDeleteError)="onError($event)"
+                (fieldAddSuccess)="callFieldAddSuccess($event)"
+                (fieldAddError)="callFieldAddError($event)"
             ></cbs-cf-field>
 
             <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]=""
-                        (onClick)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
+                        (click)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
         </div>
     </div>
 

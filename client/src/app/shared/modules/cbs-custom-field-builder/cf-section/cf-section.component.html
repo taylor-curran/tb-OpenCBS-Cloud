@@ -16,7 +16,7 @@
         <form novalidate *ngIf="isEditView" #captionForm="ngForm" (ngSubmit)="submitForm(captionForm)">
             <div class="slds-form-element slds-hint-parent"
                  [class.slds-has-error]="caption.errors?.required && caption.touched">
-                <button type="submit"
+                <button type="submitAction"
                         class="slds-button slds-float--right slds-button--icon slds-button--icon-small cf-section__save-btn"
                         title="Save"
                         [disabled]="captionForm.invalid || !formChanged"
