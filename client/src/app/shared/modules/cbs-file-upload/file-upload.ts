@@ -74,7 +74,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   @Output() uploadError: EventEmitter<any> = new EventEmitter();
 
-  @Output('clear') cleared: EventEmitter<any> = new EventEmitter();
+  @Output() cleared: EventEmitter<any> = new EventEmitter();
 
   @Output() fileSelect: EventEmitter<any> = new EventEmitter();
 
