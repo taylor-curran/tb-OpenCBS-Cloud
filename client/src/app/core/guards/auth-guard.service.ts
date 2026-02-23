@@ -24,16 +24,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
               state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;
           this.router.navigate(['login']);
-          return isAuth;
         }
-        return isAuth;
       }));
   }
 
@@ -41,16 +36,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                    state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;
           this.router.navigate(['login']);
-          return isAuth;
         }
-        return isAuth;
       }));
   }
 }
