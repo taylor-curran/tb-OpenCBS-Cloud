@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-loading-indicator',
@@ -28,13 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styleUrls: ['loading.component.scss']
 })
-export class LoadingIndicatorComponent implements OnInit {
+export class LoadingIndicatorComponent {
   @Input() showLoader = false;
   @Input() isFixed = false;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 }
