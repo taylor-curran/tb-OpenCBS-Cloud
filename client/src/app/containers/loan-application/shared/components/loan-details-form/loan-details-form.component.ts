@@ -272,10 +272,10 @@ export class LoanDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submitActionAction.emit(this.form.value);
+    this.submitAction.emit(this.form.value);
   }
 
-  creditLineSelect(creditLine) {
+  handleCreditLineSelect(creditLine) {
     if ( creditLine ) {
       this.creditLinesData.forEach(val => {
         if ( val.id === creditLine ) {

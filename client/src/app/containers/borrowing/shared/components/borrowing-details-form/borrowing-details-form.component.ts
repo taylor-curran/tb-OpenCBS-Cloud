@@ -53,7 +53,7 @@ export class BorrowingDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submitActionAction.emit(this.form.value);
+    this.submitAction.emit(this.form.value);
   }
 
   onLPSelect(loanProduct) {
