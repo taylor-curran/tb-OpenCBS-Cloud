@@ -26,5 +26,6 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: lifecycle hook intentionally left empty
   }
 }
