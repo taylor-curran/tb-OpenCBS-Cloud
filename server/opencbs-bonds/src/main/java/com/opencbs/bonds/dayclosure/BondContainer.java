@@ -40,15 +40,19 @@ public class BondContainer implements Container {
     @Override
     public List<DayClosureProcessor> getProcessingServices() {
         if (bondDayClosureProcessorList == null) {
-            bondDayClosureProcessorList = this.context.getBeansOfType(BondDayClosureProcessor.class)
-                    .entrySet()
-                    .stream()
-                    .map(Map.Entry::getValue)
-                    .sorted(Comparator.comparingInt(x -> x.getProcessType().getOrder()))
-                    .collect(Collectors.toList());
+            initProcessorList(this.context);
         }
 
         return bondDayClosureProcessorList;
+    }
+
+    private static void initProcessorList(ApplicationContext ctx) {
+        bondDayClosureProcessorList = ctx.getBeansOfType(BondDayClosureProcessor.class)
+                .entrySet()
+                .stream()
+                .map(Map.Entry::getValue)
+                .sorted(Comparator.comparingInt(x -> x.getProcessType().getOrder()))
+                .collect(Collectors.toList());
     }
 
     @Override

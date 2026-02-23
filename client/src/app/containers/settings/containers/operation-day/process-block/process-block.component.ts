@@ -12,13 +12,14 @@ export class ProcessBlockComponent implements OnInit {
   @Input() title: string;
   @Input() disabled: false;
   @Output() dateChange = new EventEmitter();
-  @Output() onStartClick = new EventEmitter();
-  @Output() onFinishClick = new EventEmitter();
+  @Output() startClick = new EventEmitter();
+  @Output() finishClick = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+    // No-op: intentionally empty
   }
 
 }

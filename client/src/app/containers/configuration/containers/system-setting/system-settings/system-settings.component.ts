@@ -24,7 +24,7 @@ export class SystemSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    // No-op: intentionally empty
   }
 
   public list = [{

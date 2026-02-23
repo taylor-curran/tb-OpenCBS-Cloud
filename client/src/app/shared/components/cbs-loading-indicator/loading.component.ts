@@ -36,5 +36,6 @@ export class LoadingIndicatorComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: intentionally empty
   }
 }

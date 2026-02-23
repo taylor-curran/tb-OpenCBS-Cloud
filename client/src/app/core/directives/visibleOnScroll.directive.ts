@@ -31,8 +31,8 @@ export class VisibleOnScrollDirective implements OnInit, AfterViewInit, OnDestro
     this.el = el.nativeElement;
   }
 
-  ngOnInit(): void {
-
+  ngOnInit() {
+    // No-op: intentionally empty
   }
 
   ngAfterViewInit() {
