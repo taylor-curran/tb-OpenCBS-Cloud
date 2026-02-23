@@ -172,7 +172,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
       .subscribe(data => {
         if ( this.formComponent.repaymentForm.valid ) {
           if ( data.repaymentType === 'NORMAL_MANUAL_REPAYMENT' ) {
-            this.onAutoTypeChange(false);
+            this.autoTypeChange(false);
             const interest = data.interest ? data.interest : 0;
             const principal = data.principal ? data.principal : 0;
             const penalty = data.penalty ? data.penalty : 0;
@@ -234,7 +234,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
           this.setValue('interest', res.interest);
           this.setValue('principal', res.principal);
           this.setValue('total', res.total);
-          this.onAutoTypeChange(true);
+          this.autoTypeChange(true);
           if ( data.repaymentType === 'EARLY_TOTAL_REPAYMENT' ) {
             this.formComponent.repaymentForm.controls['total'].disable({emitEvent: false, onlySelf: true});
           }

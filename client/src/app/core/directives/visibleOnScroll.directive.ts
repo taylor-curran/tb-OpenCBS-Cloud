@@ -1,20 +1,10 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  Output,
-  EventEmitter,
-  Renderer2,
-  OnDestroy,
-  OnInit,
-  AfterViewInit
-} from '@angular/core';
+import { Directive, ElementRef, Input, Output, EventEmitter, Renderer2, OnDestroy, AfterViewInit } from '@angular/core';
 import { elementVisible } from '../utils/element-visible.utils';
 
 @Directive({
   selector: '[cbsVisibleOnSroll]'
 })
-export class VisibleOnScrollDirective implements OnInit, AfterViewInit, OnDestroy {
+export class VisibleOnScrollDirective implements AfterViewInit, OnDestroy {
   @Input() scrollableBlockId: string;
   @Input() horizontal: boolean;
   @Input() visibilityTopOffset: number;
@@ -30,11 +20,6 @@ export class VisibleOnScrollDirective implements OnInit, AfterViewInit, OnDestro
               private renderer2: Renderer2) {
     this.el = el.nativeElement;
   }
-
-  ngOnInit(): void {
-
-  }
-
   ngAfterViewInit() {
     setTimeout(() => {
       for (let i = 0; i < this.el.children.length; i++) {
