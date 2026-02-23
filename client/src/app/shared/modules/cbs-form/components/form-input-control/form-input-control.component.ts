@@ -48,7 +48,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
       } else {
         this.innerValue = v;
       }
-      this.valueChangeCallback(v);
+      this.onChangeCallback(v);
     }
   }
 
@@ -59,7 +59,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
-    this.valueChangeCallback = fn;
+    this.onChangeCallback = fn;
   }
 
   registerOnTouched(fn: any) {
