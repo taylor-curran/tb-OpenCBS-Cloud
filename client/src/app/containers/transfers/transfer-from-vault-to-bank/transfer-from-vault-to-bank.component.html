@@ -23,7 +23,7 @@
                     </span>
                 </a>
                 <button
-                    (itemClick)="handleConfirmModalVisibility(true)" #submitButton
+                    (click)="handleConfirmModalVisibility(true)" #submitButton
                     class="slds-button slds-button--success slds-not-selected"
                     aria-live="assertive"
                     [disabled]="form.invalid"
@@ -58,7 +58,7 @@
                 [requiredField]="false"
                 [hasError]="form.get('vaultId').errors && form.get('vaultId').touched"
                 fieldLabel="{{ 'VAULT' | translate }}"
-                (itemSelect)="markSelectedFieldLabel($event, 'vaultId')"
+                (select)="markSelectedFieldLabel($event, 'vaultId')"
             ></cbs-form-select-control>
 
             <cbs-form-readonly-control
@@ -76,7 +76,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (itemSelect)="markSelectedFieldLabel($event, 'bankAccountId')"
+                (select)="markSelectedFieldLabel($event, 'bankAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-input-control
@@ -102,13 +102,13 @@
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 [fieldLabel]="'CURRENCY' | translate"
                 [picklistDataUrl]="currencyConfig"
-                (itemSelect)="markSelectedFieldLabel($event, 'currencyId')"
+                (select)="markSelectedFieldLabel($event, 'currencyId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-lookup-control
                 [requiredField]="true"
                 [picklistDataUrl]="formUserConfig"
-                (itemSelect)="markSelectedFieldLabel($event, 'personInCharge')"
+                (select)="markSelectedFieldLabel($event, 'personInCharge')"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'PERSON_IN_CHARGE' | translate }}">

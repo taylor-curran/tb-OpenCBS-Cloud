@@ -13,7 +13,7 @@
         <div cbs-page-header-layout="right">
             <cbs-loan-info-entity></cbs-loan-info-entity>
             <span class="slds-box--x-small" *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['ATTACHMENT'] }">
-                <button class="slds-button slds-button--neutral" aria-live="assertive" (itemClick)="openUploadModal()">
+                <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="openUploadModal()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -81,7 +81,7 @@
                 </td>
                 <td>
                     <div class="slds-m-top--xxx-small slds-grid">
-                        <button (itemClick)="download(attachment?.id)"
+                        <button (click)="download(attachment?.id)"
                                 class="slds-button slds-button--icon-border" title="Download">
                             <svg class="slds-button__icon" aria-hidden="true">
                                 <use
@@ -91,7 +91,7 @@
                         </button>
 
                         <button *cbsVisibleByPermission="{ group: 'LOAN_APPLICATIONS', permissions: ['ATTACHMENT'] }"
-                                (itemClick)="confirmDelete(attachment)" class="slds-button slds-button--icon-border"
+                                (click)="confirmDelete(attachment)" class="slds-button slds-button--icon-border"
                                 title="Delete">
                             <svg class="slds-button__icon" aria-hidden="true">
                                 <use
@@ -117,8 +117,8 @@
             name="file"
             [url]="url"
             (upload)="onUpload($event)"
-            (uploadError)="onError($event)"
-            (inputClear)="onClear()"
+            (error)="onError($event)"
+            (clear)="onClear()"
             [hasComments]="true"
             includeToken="true"
             multiple="false"

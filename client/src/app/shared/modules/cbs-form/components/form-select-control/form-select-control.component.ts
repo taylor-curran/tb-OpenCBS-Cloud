@@ -35,7 +35,7 @@ export class FormSelectControlComponent implements ControlValueAccessor {
   @Input() selectValue = 'value';
   @Input() selectData = <ListItem[]>[];
   @Output() changeAction = new EventEmitter();
-  @Output() itemSelect = new EventEmitter();
+  @Output() select = new EventEmitter();
 
   public innerValue = '';
 
@@ -48,7 +48,7 @@ export class FormSelectControlComponent implements ControlValueAccessor {
 
   set value(v: any) {
     if (v && v !== this.innerValue) {
-      this.itemSelect.emit(v);
+      this.select.emit(v);
       this.innerValue = v;
       this.onChangeCallback(v);
     } else {

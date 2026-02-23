@@ -18,7 +18,7 @@
             <div class="cbs-collateral-type__head">
                 <div class="slds-form-element slds-hint-parent slds-has-divider--bottom" *ngIf="!isEditView">
                     <button class="slds-button slds-float--right slds-button--icon slds-button--icon-small"
-                            title="Edit this Field" (itemClick)="activateEdit(collateralTypeDetails?.name)">
+                            title="Edit this Field" (click)="activateEdit(collateralTypeDetails?.name)">
                         <svg class="slds-button__icon slds-button__icon--hint" aria-hidden="true">
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                         </svg>
@@ -45,7 +45,7 @@
                         <button type="button"
                                 class="slds-button slds-float--right slds-button--icon slds-button--icon-small cbs-collateral-type__cancel-btn"
                                 [title]="'CANCEL' | translate"
-                                (itemClick)="closeEdit()"
+                                (click)="closeEdit()"
                                 tabindex="3">
                             <svg class="slds-button__icon slds-button__icon--hint" aria-hidden="true">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
@@ -93,7 +93,7 @@
             ></cbs-cf-field>
 
             <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]=""
-                        (itemClick)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
+                        (click)="addField(collateralTypeDetails?.id)" [uid]="collateralTypeDetails?.id"></cbs-cf-add>
         </div>
     </div>
 

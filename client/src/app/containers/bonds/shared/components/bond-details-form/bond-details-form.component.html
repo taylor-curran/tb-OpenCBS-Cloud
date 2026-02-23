@@ -14,7 +14,7 @@
             [formControlName]="'equivalentCurrencyId'"
             [fieldLabel]="'CURRENCY' | translate"
             [picklistDataUrl]="currencyConfig"
-            (itemSelect)="amountRelatedFieldChanged()"
+            (select)="amountRelatedFieldChanged()"
         >
         </cbs-form-lookup-control>
 
@@ -59,7 +59,7 @@
             [formControlName]="'bankAccountId'"
             [fieldLabel]="'BANK_ACCOUNT' | translate"
             [picklistDataUrl]="accountConfig"
-            (itemSelect)="amountRelatedFieldChanged()">
+            (select)="amountRelatedFieldChanged()">
         </cbs-form-lookup-control>
 
         <cbs-form-input-control

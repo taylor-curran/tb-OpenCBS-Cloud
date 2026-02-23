@@ -11,14 +11,14 @@ export class PayeeBlockComponent {
   @Input() readonly = false;
   @Input() showEditBtn = true;
   @Output() edit = new EventEmitter();
-  @Output() itemDelete = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
   edit(payee) {
     this.edit.emit(payee);
   }
 
   delete(payee) {
-    this.itemDelete.emit(payee);
+    this.delete.emit(payee);
   }
 
   checkLength(str: string) {

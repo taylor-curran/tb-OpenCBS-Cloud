@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'cbs-loan-app-confirm-button',
   template: `
-    <button [disabled]="disabled" (itemClick)="loanAppDisburse()" #disburseButton
+    <button [disabled]="disabled" (click)="loanAppDisburse()" #disburseButton
       class="slds-button slds-button--success" aria-live="assertive">
         <span class="slds-text-not-selected">
           <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

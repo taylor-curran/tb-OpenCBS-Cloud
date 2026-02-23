@@ -8,13 +8,13 @@
                  (dragenter)="onDragEnter($event)"
                  (dragover)="onDragOver($event)"
                  (dragleave)="onDragLeave($event)"
-                 (eventDrop)="onDrop($event)">
+                 (drop)="onDrop($event)">
                 <input #fileinput type="file" class="slds-file-selector__input slds-assistive-text"
                        [disabled]="disabled"
                        (change)="onFileSelect($event)"
                        [multiple]="multiple"
                        [accept]="accept"/>
-                <label class="slds-file-selector__body" (itemClick)="onChooseClick($event, fileinput)">
+                <label class="slds-file-selector__body" (click)="onChooseClick($event, fileinput)">
                     <span class="slds-file-selector__button slds-button slds-button--neutral">
                         <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="slds-m-top--xxx-small">
                         <button class="slds-button slds-button--icon-border" aria-live="assertive" title="Delete"
-                                (itemClick)="remove(i)">
+                                (click)="remove(i)">
                             <svg class="slds-button__icon" aria-hidden="true">
                                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
                             </svg>
@@ -67,10 +67,10 @@
         <textarea *ngIf="hasComments" class="file-comment" [placeholder]="'LEAVE_COMMENT_HERE' | translate"
                   [(ngModel)]="fileComment" #file="ngModel"></textarea>
         <div class="slds-m-top--x-small slds-text-align--center" *ngIf="!auto && !uploading">
-            <button class="slds-button slds-button--success" (itemClick)="upload()" [disabled]="!hasFiles()">
+            <button class="slds-button slds-button--success" (click)="upload()" [disabled]="!hasFiles()">
                 {{ uploadLabel }}
             </button>
-            <button class="slds-button slds-button--destructive" (itemClick)="clear()" [disabled]="!hasFiles()">
+            <button class="slds-button slds-button--destructive" (click)="clear()" [disabled]="!hasFiles()">
                 {{ cancelLabel }}
             </button>
         </div>

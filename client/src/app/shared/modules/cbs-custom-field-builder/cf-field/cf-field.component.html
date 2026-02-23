@@ -5,7 +5,7 @@
             <span class="slds-text-heading--small">{{ fieldData.caption }}</span>
         </h2>
         <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true"
-                (itemClick)="toggleEditView()">
+                (click)="toggleEditView()">
             <svg class="slds-button__icon cf-field__trigger" aria-hidden="true">
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
             </svg>
@@ -95,7 +95,7 @@
                             <button *ngIf="defaultValue"
                                     type="button"
                                     class="cbs-picklist__clear-btn"
-                                    (itemClick)="removeSelectedValue()">
+                                    (click)="removeSelectedValue()">
                                 <svg aria-hidden="true">
                                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
                                 </svg>
@@ -155,7 +155,7 @@
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [requiredField]="false"
-                    (itemSelect)="setDefaultValue($event)"
+                    (select)="setDefaultValue($event)"
                     [picklistDataUrl]="lookupUrl">
                 </cbs-form-lookup-control>
             </div>
@@ -189,15 +189,15 @@
             </div>
         </form>
         <div class="cf-field__footer">
-            <button class="slds-button" [disabled]="fieldForm.invalid || !formChanged" (itemClick)="submitForm(fieldForm)">
+            <button class="slds-button" [disabled]="fieldForm.invalid || !formChanged" (click)="submitForm(fieldForm)">
                 {{'SAVE' | translate}}
             </button>
             <span>|</span>
-            <button class="slds-button slds-text-color--error" (itemClick)="cancel()">{{'CANCEL' | translate}}</button>
+            <button class="slds-button slds-text-color--error" (click)="cancel()">{{'CANCEL' | translate}}</button>
             <span>|</span>
             <button class="slds-button slds-text-color--error"
                     [disabled]="fieldForm.invalid || newFieldMode"
-                    (itemClick)="deleteField(fieldForm)">
+                    (click)="deleteField(fieldForm)">
                 {{'DELETE' | translate}}
             </button>
         </div>

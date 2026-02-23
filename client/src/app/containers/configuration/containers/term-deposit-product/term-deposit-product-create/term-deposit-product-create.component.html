@@ -9,7 +9,7 @@
 
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (itemClick)="goToViewTermDepositProducts()">
+                    (click)="goToViewTermDepositProducts()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
@@ -17,7 +17,7 @@
                     {{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" #submitButton aria-live="assertive"
-                    (itemClick)="submitForm()"
+                    (click)="submitForm()"
                     [disabled]="termDepositProductForm?.form.invalid">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

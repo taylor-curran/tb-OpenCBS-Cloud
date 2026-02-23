@@ -6,7 +6,7 @@ import { LoanAppStatusAware } from '../../loan-application-status.decorator';
 @Component({
   selector: 'cbs-loan-app-submit-button',
   template: `
-    <button (itemClick)="loanAppSubmit()"
+    <button (click)="loanAppSubmit()"
       class="slds-button slds-button-space-left slds-button--success" aria-live="assertive">
         <span class="slds-text-not-selected">
             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

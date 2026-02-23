@@ -9,7 +9,7 @@
 
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (itemClick)="goToViewCreditLine()">
+                    (click)="goToViewCreditLine()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
@@ -17,7 +17,7 @@
             </button>
             <button class="slds-button slds-button--success" aria-live="assertive"
                     #submitButton
-                    (itemClick)="submitForm()"
+                    (click)="submitForm()"
                     [disabled]="creditLineForm?.form.invalid || !formChanged">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

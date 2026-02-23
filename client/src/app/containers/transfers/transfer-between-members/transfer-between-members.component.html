@@ -24,7 +24,7 @@
                     </span>
                 </a>
                 <button
-                    (itemClick)="handleConfirmModalVisibility(true)" #submitButton
+                    (click)="handleConfirmModalVisibility(true)" #submitButton
                     class="slds-button slds-button--success slds-not-selected"
                     aria-live="assertive"
                     [disabled]="form.invalid"
@@ -63,7 +63,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (itemSelect)="markSelectedFieldLabel($event, 'sourceAccountId')"
+                (select)="markSelectedFieldLabel($event, 'sourceAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-readonly-control
@@ -81,7 +81,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (itemSelect)="markSelectedFieldLabel($event, 'destinationAccountId')"
+                (select)="markSelectedFieldLabel($event, 'destinationAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-input-control

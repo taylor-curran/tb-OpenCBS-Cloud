@@ -25,7 +25,7 @@
                 </div>
                 <div class="slds-size--1-of-2">
                     <button [disabled]="inProgress" class="slds-button slds-button--brand slds-m-left--small"
-                            (itemClick)="dayClose(dayClosureDate)">{{ 'DAY_CLOSURE' | translate }}
+                            (click)="dayClose(dayClosureDate)">{{ 'DAY_CLOSURE' | translate }}
                     </button>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     </p>
                     <div class="slds-grid slds-m-top--x-large">
                         <div class="slds-col cbs__application__note-button">
-                            <button (itemClick)="closeAndLogOut()" class="slds-button slds-button--success">{{'OK'}}
+                            <button (click)="closeAndLogOut()" class="slds-button slds-button--success">{{'OK'}}
                             </button>
                         </div>
                     </div>

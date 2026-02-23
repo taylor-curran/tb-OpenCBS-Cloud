@@ -10,21 +10,21 @@
         <div cbs-page-header-layout="right">
             <button class="slds-button slds-button--brand" aria-live="assertive"
                     [disabled]="!(formStatus | async)"
-                    (itemClick)="previewSchedule()">
+                    (click)="previewSchedule()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#preview"></use>
                     </svg>{{ 'PREVIEW' | translate }}</span>
             </button>
             <button class="slds-button slds-button--neutral" aria-live="assertive"
-                    (itemClick)="goToViewBonds()">
+                    (click)="goToViewBonds()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
             <button class="slds-button slds-button--success" #submitButton aria-live="assertive"
-                    (itemClick)="submitForm()" [disabled]="!(formStatus | async)">
+                    (click)="submitForm()" [disabled]="!(formStatus | async)">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>

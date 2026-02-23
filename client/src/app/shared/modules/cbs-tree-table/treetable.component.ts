@@ -52,7 +52,7 @@ export interface TreeNode {
           [ngClass]="{ 'slds-is-disabled': isLeaf() }"
           [title]="node.expanded ? labelCollapse : labelExpand"
           aria-controls="expand-btn"
-          (itemClick)="toggle($event)">
+          (click)="toggle($event)">
           <svg class="slds-button__icon slds-button__icon--small cbs-treetable__toggler__icon" aria-hidden="true">
             <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronright"></use>
           </svg>
@@ -62,7 +62,7 @@ export interface TreeNode {
         <div class="slds-truncate" *ngIf="!col.template" title="{{ resolveFieldData(node.data, col.field) }}">
           <a href="javascript:void(0);"
              *ngIf="node.children"
-             (itemClick)="node.children && node.children.length > 0 ? toggle($event) : null">
+             (click)="node.children && node.children.length > 0 ? toggle($event) : null">
             {{ resolveFieldData(node.data, col.field) }}
           </a>
         </div>
