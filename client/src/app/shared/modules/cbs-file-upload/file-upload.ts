@@ -153,7 +153,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     this.select.emit({originalEvent: event, files: files});
 
     if (this.hasFiles() && this.auto) {
-      this.upload();
+      this.doUpload();
     }
   }
 
@@ -177,7 +177,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     window.URL.revokeObjectURL(img.src);
   }
 
-  upload() {
+  doUpload() {
     this.uploading = true;
     this.msgs = [];
     const xhr = new XMLHttpRequest(),
@@ -208,7 +208,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
         } else {
           this.error.emit({xhr: xhr, files: this.files});
         }
-        this.clear();
+        this.clearFiles();
         this.uploading = false;
       }
     };
@@ -229,7 +229,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     xhr.send(formData);
   }
 
-  clear() {
+  clearFiles() {
     this.files = [];
     this.clear.emit();
   }

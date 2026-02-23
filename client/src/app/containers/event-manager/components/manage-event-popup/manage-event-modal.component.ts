@@ -353,7 +353,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
     }
   }
 
-  submit({valid, value}) {
+  submitForm({valid, value}) {
     if (!valid) {
       return;
     }
@@ -393,6 +393,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
             this.submit.emit();
             this.disableSubmitBtn(false);
           }, 1000);
+
         } else if (res.status === 'error') {
           this.isResponseStatusOk = 'error';
           setTimeout(() => {
