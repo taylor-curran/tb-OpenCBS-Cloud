@@ -40,7 +40,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let vault of (vaults | async)?.data?.content; let i = index" (click)="goToVaultDetails(vault)">
+        <tr *ngFor="let vault of (vaults | async)?.data?.content; let i = index" (clickAction)="goToVaultDetails(vault)">
             <th scope="row" class="slds-truncate">
                 <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>
             </th>

@@ -25,7 +25,7 @@
                 </div>
                 <div class="slds-size--1-of-2">
                     <button [disabled]="inProgress" class="slds-button slds-button--brand slds-m-left--small"
-                            (click)="dayClose(dayClosureDate)">{{ 'DAY_CLOSURE' | translate }}
+                            (clickAction)="dayClose(dayClosureDate)">{{ 'DAY_CLOSURE' | translate }}
                     </button>
                 </div>
             </div>
@@ -41,8 +41,8 @@
     </div>
     <!--<cbs-loading-indicator [isFixed]="true" [showLoader]="inProgress"></cbs-loading-indicator>-->
     <cbs-confirm-popup [opened]="isOpen"
-                       (onSubmitClick)="start()"
-                       (onClose)="closeAndLogOut()"
+                       (submitClick)="start()"
+                       (close)="closeAndLogOut()"
                        [leftButtonLabel]="'NO' | translate"
                        [rightButtonLabel]="'YES' | translate"
                        [popupLabel]="'WARNING' | translate"
@@ -60,7 +60,7 @@
                     </p>
                     <div class="slds-grid slds-m-top--x-large">
                         <div class="slds-col cbs__application__note-button">
-                            <button (click)="closeAndLogOut()" class="slds-button slds-button--success">{{'OK'}}
+                            <button (clickAction)="closeAndLogOut()" class="slds-button slds-button--success">{{'OK'}}
                             </button>
                         </div>
                     </div>

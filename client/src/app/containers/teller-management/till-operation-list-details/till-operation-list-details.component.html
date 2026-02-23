@@ -17,7 +17,7 @@
                     {{ 'CURRENCY' | translate }}{{': '}}
                     <select #currency class="slds-select cbs-currency-list"
 
-                            (change)="getListByCurrency(currency.value)">
+                            (valueChange)="getListByCurrency(currency.value)">
                         <option *ngFor="let val of currencies" [value]="val.id">{{ val.name }}</option>
                     </select>
                 </div>
@@ -111,7 +111,7 @@
                 </ng-container>
             </td>
             <td [style]="{'min-width':'70px', 'width':'70px', 'max-width':'70px'}" field="download">
-                <button (click)="download(operation)"
+                <button (clickAction)="download(operation)"
                         class="slds-button slds-button--icon slds-button--icon-more slds-m-left--small"
                         aria-haspopup="true" title="Configuration">
                     <svg class="slds-button__icon" aria-hidden="true">

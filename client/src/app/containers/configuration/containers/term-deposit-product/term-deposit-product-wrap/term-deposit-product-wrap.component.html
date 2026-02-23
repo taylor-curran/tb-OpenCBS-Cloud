@@ -28,7 +28,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_TERM_DEPOSIT_PRODUCT'] }"
-                        (click)="openApproveModal()"
+                        (clickAction)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -41,7 +41,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['MAKER_FOR_TERM_DEPOSIT_PRODUCT','CHECKER_FOR_TERM_DEPOSIT_PRODUCT'] }"
-                        (click)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (clickAction)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
@@ -67,7 +67,7 @@
                 [confirmText]="'Are you sure you want to approve?'"
                 [opened]="approveRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="approveTermDepositProductRequest()"
+                (submitClick)="approveTermDepositProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">
@@ -77,7 +77,7 @@
                 [confirmText]="'Are you sure you want to reject?'"
                 [opened]="deleteRequest"
                 (openedChange)="closeModal()"
-                (onSubmitClick)="deleteTermDepositProductRequest()"
+                (submitClick)="deleteTermDepositProductRequest()"
                 [leftButtonLabel]="'CANCEL' | translate"
                 [rightButtonLabel]="'CONFIRM' | translate"
                 [popupLabel]="'CONFIRMATION' | translate">

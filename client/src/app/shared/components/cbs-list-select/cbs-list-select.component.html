@@ -8,7 +8,7 @@
         <div class="slds-text-align--center" *ngIf="!listData?.length">{{ noDataLabel | translate}}</div>
         <ul>
             <li *ngFor="let item of listData">{{item?.name}}
-                <button (click)="delete(item)" *ngIf="displayButton">
+                <button (clickAction)="handleDelete(item)" *ngIf="displayButton">
                     <svg class="slds-button__icon" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>
@@ -23,7 +23,7 @@
     [data]="picklistData"
     [disabled]="!picklistData?.length"
     [nglPick]="pick"
-    (nglPickChange)="selectItem($event)"
+    (nglPickChange)="handleSelectItem($event)"
     [(open)]="open"
     filter="value">
     <span class="slds-truncate">{{ selectDataLabel | translate }}</span>

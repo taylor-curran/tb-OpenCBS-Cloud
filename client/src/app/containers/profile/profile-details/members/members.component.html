@@ -29,7 +29,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                 <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                       *ngIf="attachment?.pinned"
-                      (click)="openAttachment(attachment)">
+                      (clickAction)="openAttachment(attachment)">
                     <span>
                         <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                              [attr.title]="attachment?.originalFilename" *ngIf="testIfImage(attachment?.contentType)"/>
@@ -43,7 +43,7 @@
                     </div>
 
                 </div>
-                <button (click)="openTransactionModal()" class="slds-button slds-button--neutral"
+                <button (clickAction)="openTransactionModal()" class="slds-button slds-button--neutral"
                         aria-live="assertive">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -93,7 +93,7 @@
                                 <span>{{ member?.joinDate | cbsDateFormat }} {{ member?.joinDate | cbsTimeFormat }}</span>
                             </td>
                             <td>
-                                <button class="slds-button details-button" (click)="goToMember(member)">
+                                <button class="slds-button details-button" (clickAction)="goToMember(member)">
                                     <svg class="slds-button__icon slds-button__icon_left slds-button__icon--small">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                              xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info_alt"></use>
@@ -102,7 +102,7 @@
                             </td>
                             <td scope="row">
                                 <div class="slds-text-align--right">
-                                    <button (click)="removeModal(member.memberId)" class="slds-button slds-button--neutral">
+                                    <button (clickAction)="removeModal(member.memberId)" class="slds-button slds-button--neutral">
                                         <span class="slds-text-selected">
                                             {{ 'REMOVE' | translate }}
                                         </span>
@@ -134,15 +134,15 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="memberForm.invalid" class="slds-button slds-button--success" (click)="submit()">{{
+        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button [disabled]="memberForm.invalid" class="slds-button slds-button--success" (clickAction)="submit()">{{
             'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
 <cbs-confirm-popup [confirmText]="'Are you sure you want to delete?'" [opened]="opened"
                    (openedChange)="closeModal()"
-                   (onSubmitClick)="removeMember(memberId)"
+                   (submitClick)="removeMember(memberId)"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
                    [popupLabel]="'CONFIRMATION' | translate">
