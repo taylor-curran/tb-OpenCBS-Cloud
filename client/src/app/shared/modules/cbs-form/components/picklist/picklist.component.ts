@@ -33,8 +33,8 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() disabled = false;
   @Input() excludedItems = [];
   @Input() defaultValue: any;
-  @Output() select = new EventEmitter();
-  @Output() clear = new EventEmitter();
+  @Output() selectItem = new EventEmitter();
+  @Output() clearItem = new EventEmitter();
   @Output() picklistOpen = new EventEmitter();
   @Output() picklistClose = new EventEmitter();
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -130,7 +130,7 @@ export class PicklistComponent implements OnInit, OnChanges {
             this.removeExcludedItems(this.lookupList, this.currentValue);
           }
           if (!this.value && resp.content[0] && resp.content.length === 1 ) {
-            this.select(resp.content[0])
+            this.selectOne(resp.content[0])
           }
           if ( this.value && this.value > 0 ) {
             this.assignSelected(this.value);
@@ -180,8 +180,8 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.select.emit();
-    this.clear();
+    this.selectItem.emit();
+    this.resetSearch();
   }
 
   removeWithoutEmit() {
@@ -190,22 +190,22 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.clear();
+    this.resetSearch();
   }
 
-  clear() {
+  resetSearch() {
     this.searchQuery = '';
     this.lookupList = [];
 
     this.getData(this.config.url, 0);
-    this.clear.emit();
+    this.clearItem.emit();
   }
 
-  select(item) {
+  selectOne(item) {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
-    this.select.emit(item);
+    this.selectItem.emit(item);
     this.isOpened = false;
     this.picklistClose.emit();
     this.valueString = item[this.filterType];
