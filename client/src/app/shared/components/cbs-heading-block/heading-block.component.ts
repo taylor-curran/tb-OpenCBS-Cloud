@@ -39,5 +39,6 @@ export class HeadingBlockComponent implements OnInit {
   }
 
   ngOnInit() {
+    // No-op: lifecycle hook intentionally left empty
   }
 }
