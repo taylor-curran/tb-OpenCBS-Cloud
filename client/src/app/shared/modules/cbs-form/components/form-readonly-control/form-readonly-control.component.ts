@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {ReadOnlyOutputEnum} from '../../../../enums/ReadOnlyOutputEnum';
 
 @Component({
@@ -6,7 +6,7 @@ import {ReadOnlyOutputEnum} from '../../../../enums/ReadOnlyOutputEnum';
   templateUrl: './form-readonly-control.component.html',
   styleUrls: ['./form-readonly-control.component.scss']
 })
-export class FormReadonlyControlComponent implements OnInit {
+export class FormReadonlyControlComponent {
   @Input() fieldLabel = <string>'';
   @Input() value = <any>'';
   @Input() disabled = true;
@@ -21,8 +21,4 @@ export class FormReadonlyControlComponent implements OnInit {
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }
