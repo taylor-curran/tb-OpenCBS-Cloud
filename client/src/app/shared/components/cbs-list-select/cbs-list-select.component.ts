@@ -20,7 +20,7 @@ export class ListSelectComponent {
 
   public pick: any = [];
   public open = false;
-  selectItem(pickedItem) {
+  triggerSelectItem(pickedItem) {
     this.selectItem.emit(pickedItem);
   }
 
