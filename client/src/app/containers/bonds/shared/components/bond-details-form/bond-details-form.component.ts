@@ -21,8 +21,8 @@ import * as moment from 'moment';
 export class BondDetailsFormComponent implements OnInit {
   @Input() bondFormState: BondFormState;
   @Output() submit = new EventEmitter();
-  @Output() onAmountRelatedFieldChanged = new EventEmitter();
-  @Output() onGetCouponRealtedFieldChanged = new EventEmitter();
+  @Output() amountRelatedFieldChanged = new EventEmitter();
+  @Output() getCouponRealtedFieldChanged = new EventEmitter();
   public currencyConfig = {
     url: `${environment.API_ENDPOINT}currencies/lookup`
   };
@@ -149,13 +149,13 @@ export class BondDetailsFormComponent implements OnInit {
     this.submit.emit(this.form.value);
   }
 
-  amountRelatedFieldChanged() {
-    this.onAmountRelatedFieldChanged.emit(this.form.value);
+  handleAmountRelatedFieldChanged() {
+    this.amountRelatedFieldChanged.emit(this.form.value);
   }
 
   couponRelatedFieldChanged() {
-    this.amountRelatedFieldChanged();
-    this.onGetCouponRealtedFieldChanged.emit(this.form.value);
+    this.handleAmountRelatedFieldChanged();
+    this.getCouponRealtedFieldChanged.emit(this.form.value);
   }
 
   disableField(product, fields: string[]) {
