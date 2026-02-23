@@ -37,7 +37,7 @@
                 <div *ngIf="isEventsPage" class="filter-events"
                      style="text-align: left; padding-left: 10px; margin-top: -5px;">
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (change)="showDeletedEvents($event)"/>
+                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (valueChange)="showDeletedEvents($event)"/>
                         <label class="slds-checkbox__label" for="checkbox-deleted">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show deleted</span>
@@ -63,7 +63,7 @@
         <div cbs-loan-layout="right">
             <cbs-confirm-popup [confirmText]="'Are you sure you want to sell?'" [opened]="opened"
                                (openedChange)="closeModal()"
-                               (onSubmitClick)="startBond()"
+                               (submitClick)="startBond()"
                                [leftButtonLabel]="'CANCEL' | translate"
                                [rightButtonLabel]="'CONFIRM' | translate"
                                [popupLabel]="'CONFIRMATION' | translate">

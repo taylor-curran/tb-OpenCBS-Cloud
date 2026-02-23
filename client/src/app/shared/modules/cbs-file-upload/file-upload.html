@@ -11,7 +11,7 @@
                  (drop)="onDrop($event)">
                 <input #fileinput type="file" class="slds-file-selector__input slds-assistive-text"
                        [disabled]="disabled"
-                       (change)="onFileSelect($event)"
+                       (valueChange)="onFileSelect($event)"
                        [multiple]="multiple"
                        [accept]="accept"/>
                 <label class="slds-file-selector__body" (click)="onChooseClick($event, fileinput)">
