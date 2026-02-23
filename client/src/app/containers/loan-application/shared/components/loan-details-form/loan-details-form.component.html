@@ -24,7 +24,7 @@
             [hasError]="form.get('loanProductId').errors && form.get('loanProductId').touched"
             [picklistDataUrl]="formConfig.loanProductLookupUrl"
             [requiredField]="true"
-            (onSelect)="onLPSelect($event)"
+            (selectAction)="onLPSelect($event)"
         ></cbs-form-lookup-control>
 
         <cbs-form-lookup-control
