@@ -15,7 +15,7 @@
             <input [onlyNumber]="inputType === 'number'"
                    [type]="inputType" class="slds-input"
                    [ngModel]="value"
-                   (ngModelChange)="inputChange($event)"
+                   (ngModelChange)="handleInputChange($event)"
                    [ngClass]="{'disabled': disabled}"
                    [disabled]="disabled"
                    (blur)="onBlur()"
