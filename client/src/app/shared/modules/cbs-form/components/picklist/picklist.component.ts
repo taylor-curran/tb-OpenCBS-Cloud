@@ -34,7 +34,7 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() excludedItems = [];
   @Input() defaultValue: any;
   @Output() selectAction = new EventEmitter();
-  @Output() clear = new EventEmitter();
+  @Output() clearPicklist = new EventEmitter();
   @Output() picklistOpen = new EventEmitter();
   @Output() picklistClose = new EventEmitter();
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -198,7 +198,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList = [];
 
     this.getData(this.config.url, 0);
-    this.clear.emit();
+    this.clearPicklist.emit();
   }
 
   select(item) {
