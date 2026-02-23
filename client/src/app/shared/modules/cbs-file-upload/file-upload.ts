@@ -231,7 +231,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   clear() {
     this.files = [];
-    this.clear.emit();
+    this.clearFiles.emit();
   }
 
   remove(index: number) {
