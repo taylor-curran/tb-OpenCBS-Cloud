@@ -72,17 +72,17 @@ public class GroupAttachmentController {
     public ResponseEntity get(@PathVariable long attachmentId,
                               @RequestParam(value = "size", required = false) Integer size) throws Exception {
         GroupAttachment attachment = this.groupAttachmentService.findOne(attachmentId)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
 
-                return this.groupAttachmentService.getResponseEntity(attachment, size);
+        return this.groupAttachmentService.getResponseEntity(attachment, size);
     }
 
     @PostMapping(value = "/{attachmentId}/pin")
     public AttachmentDto pin(@PathVariable long attachmentId) {
         GroupAttachment companyAttachment = this.groupAttachmentService
                 .findOne(attachmentId)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
-                companyAttachment = this.groupAttachmentService.pin(companyAttachment);
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
+        companyAttachment = this.groupAttachmentService.pin(companyAttachment);
 
         return this.attachmentMapper.mapToDto(companyAttachment);
     }
@@ -91,8 +91,8 @@ public class GroupAttachmentController {
     public AttachmentDto unpin(@PathVariable long attachmentId) {
         GroupAttachment companyAttachment = this.groupAttachmentService
                 .findOne(attachmentId)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
-                companyAttachment = this.groupAttachmentService.unpin(companyAttachment);
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
+        companyAttachment = this.groupAttachmentService.unpin(companyAttachment);
 
         return this.attachmentMapper.mapToDto(companyAttachment);
     }
@@ -101,8 +101,8 @@ public class GroupAttachmentController {
     public AttachmentDto delete(@PathVariable long attachmentId) throws Exception {
         GroupAttachment companyAttachment = this.groupAttachmentService
                 .findOne(attachmentId)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
-                this.groupAttachmentService.delete(companyAttachment);
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(ATTACHMENT_NOT_FOUND_MSG, attachmentId)));
+        this.groupAttachmentService.delete(companyAttachment);
 
         return this.attachmentMapper.mapToDto(companyAttachment);
     }
