@@ -17,7 +17,7 @@
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                         </svg>{{ 'CANCEL' | translate }}</span>
                 </a>
-                <button (clickAction)="submit()" class="slds-button slds-button--success slds-not-selected"
+                <button (click)="submit()" class="slds-button slds-button--success slds-not-selected"
                         aria-live="assertive" [disabled]="formComponent?.collateralForm?.invalid || !formChanged">
                     <span class="slds-text-not-selected">
                         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

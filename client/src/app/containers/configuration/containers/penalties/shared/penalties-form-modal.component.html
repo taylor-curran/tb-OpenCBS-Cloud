@@ -98,9 +98,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (clickAction)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success" #submitButton
-                [disabled]="f.invalid || !formChanged || fieldTouched" (clickAction)="submit(f)">{{ 'SAVE' | translate }}
+                [disabled]="f.invalid || !formChanged || fieldTouched" (click)="submit(f)">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

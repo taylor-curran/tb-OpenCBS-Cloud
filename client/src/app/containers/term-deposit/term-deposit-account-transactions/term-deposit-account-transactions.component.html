@@ -17,7 +17,7 @@
                                 [hasError]="form.get('end').errors && form.get('end').touched"
                                 [requiredField]="true"></cbs-form-date-control>
                             <button class="slds-button slds-button--neutral filter"
-                                    (clickAction)="filter()"
+                                    (click)="filter()"
                                     aria-live="assertive">
                                 <span class="slds-text-not-selected">
                                     {{ 'FILTER' | translate }}
@@ -26,15 +26,15 @@
                         </div>
                     </form>
                     <div class="slds-p-top_x-small">
-                        <button (clickAction)="filterByPeriod(2)"
+                        <button (click)="filterByPeriod(2)"
                                 class="cbs-period-button slds-button period">
                             {{ 'LAST_2_DAYS' | translate }}
                         </button>
-                        <button (clickAction)="filterByPeriod(7)"
+                        <button (click)="filterByPeriod(7)"
                                 class="cbs-period-button slds-button period">
                             {{ 'CURRENT_WEEK' | translate }}
                         </button>
-                        <button (clickAction)="filterByPeriod('month')"
+                        <button (click)="filterByPeriod('month')"
                                 class="cbs-period-button slds-button period">
                             {{ 'CURRENT_MONTH' | translate }}
                         </button>

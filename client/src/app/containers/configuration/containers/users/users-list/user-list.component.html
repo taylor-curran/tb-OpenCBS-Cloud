@@ -11,7 +11,7 @@
         <div cbs-page-header-layout="right">
             <a class="slds-button slds-button--neutral" aria-live="assertive">
                 <span class="slds-checkbox">
-                    <input type="checkbox" id="show-all" (clickAction)="showAllUsers()"/>
+                    <input type="checkbox" id="show-all" (click)="showAllUsers()"/>
                     <label class="slds-checkbox__label" for="show-all">
                         <span class="slds-checkbox--faux"></span>
                         <span class="slds-box--x-small">{{'SHOW_ALL' | translate}}</span>
@@ -69,7 +69,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of (users | async)?.users; let i = index" (clickAction)="goToUserDetails(user)"
+        <tr *ngFor="let user of (users | async)?.users; let i = index" (click)="goToUserDetails(user)"
             [ngClass]="rowStyleClass(user)">
             <th scope="row">
                 <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>

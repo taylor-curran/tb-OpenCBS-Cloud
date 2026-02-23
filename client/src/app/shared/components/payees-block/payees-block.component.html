@@ -12,7 +12,7 @@
                     getTotal() | cbsNumberFormat }}</strong>
                 </div>
                 <div>
-                    <button class="slds-button payee-add-button" (clickAction)="onAddPayee.emit()" *ngIf="!readonly">
+                    <button class="slds-button payee-add-button" (click)="onAddPayee.emit()" *ngIf="!readonly">
                         <svg class="slds-button__icon slds-button__icon_left slds-button__icon--small">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -21,7 +21,7 @@
                     </button>
                     <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small"
                             *ngIf="!!payeesData.length"
-                            (clickAction)="toggleCollapse()">
+                            (click)="toggleCollapse()">
                         <svg class="slds-button__icon payees-block__expand">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>

@@ -23,11 +23,11 @@
             {{ form?.label}}
         </td>
         <td data-label="Type" scope="row">
-            <ngl-icon *ngIf="form?.loaderType === 'JASPER_LOADER'" (clickAction)="downLoad(form)" icon="html" category="doctype"
+            <ngl-icon *ngIf="form?.loaderType === 'JASPER_LOADER'" (click)="downLoad(form)" icon="html" category="doctype"
                       size="large"></ngl-icon>
-            <ngl-icon *ngIf="form?.loaderType === 'EXCEL_LOADER'" (clickAction)="downLoad(form)" icon="excel" category="doctype"
+            <ngl-icon *ngIf="form?.loaderType === 'EXCEL_LOADER'" (click)="downLoad(form)" icon="excel" category="doctype"
                       size="large"></ngl-icon>
-            <ngl-icon *ngIf="form?.loaderType === 'WORD_LOADER'" (clickAction)="downLoad(form)" icon="word" category="doctype"
+            <ngl-icon *ngIf="form?.loaderType === 'WORD_LOADER'" (click)="downLoad(form)" icon="word" category="doctype"
                       size="large"></ngl-icon>
         </td>
     </tr>

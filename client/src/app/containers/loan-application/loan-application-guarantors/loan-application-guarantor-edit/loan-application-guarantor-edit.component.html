@@ -17,7 +17,7 @@
                             <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                         </svg>{{ 'CANCEL' | translate }}</span>
                 </a>
-                <button (clickAction)="submit()" [disabled]="guarantorForm?.form.invalid || !formChanged" #submitButton
+                <button (click)="submit()" [disabled]="guarantorForm?.form.invalid || !formChanged" #submitButton
                         class="slds-button slds-button--success slds-not-selected"
                         aria-live="assertive">
                     <span class="slds-text-not-selected">

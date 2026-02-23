@@ -3,7 +3,7 @@
         <tbody>
         <tr class="cbs-tr-hover">
             <td width="auto" [ngStyle]="{'padding-left': node['hasChildren'] ? padding +'rem' : (padding + 2)+'rem'}">
-                <button (clickAction)="toggle(node)" [ngClass]="{'cbs-treetable__toggler--expanded' : node['expanded'] }"
+                <button (click)="toggle(node)" [ngClass]="{'cbs-treetable__toggler--expanded' : node['expanded'] }"
                         class="slds-button cbs-treetable__toggler slds-button--icon slds-button--icon-x-small slds-m-right--x-small"
                         aria-controls="expand"
                         *ngIf="node['hasChildren']">
@@ -15,15 +15,15 @@
                 </button>
                 <span>{{node['name']}}</span>
                 <div class="slds-p-left--medium options slds-show--inline-block">
-                    <svg *ngIf="node['accountType'] !== 'BALANCE'" (clickAction)="onIconClick.emit({type:'add', node: node})"
+                    <svg *ngIf="node['accountType'] !== 'BALANCE'" (click)="onIconClick.emit({type:'add', node: node})"
                          class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                     </svg>
-                    <svg *ngIf="!node['hasTransactions']" (clickAction)="onIconClick.emit({type: 'edit', node: node})"
+                    <svg *ngIf="!node['hasTransactions']" (click)="onIconClick.emit({type: 'edit', node: node})"
                          class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                     </svg>
-                    <svg (clickAction)="onIconClick.emit({type: 'show', node: node})"
+                    <svg (click)="onIconClick.emit({type: 'show', node: node})"
                          class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#preview"></use>
                     </svg>

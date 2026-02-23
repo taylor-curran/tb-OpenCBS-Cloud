@@ -9,7 +9,7 @@
         <!--/cbs-page-header-layout = left-->
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" aria-live="assertive" (clickAction)="openModal()">
+            <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="openModal()">
         <span class="slds-text-not-selected">
         <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -77,7 +77,7 @@
             </th>
             <th class="slds-text-align--right">
                 <button class="slds-button slds-button--neutral"
-                        (clickAction)="openModal(payee)">
+                        (click)="openModal(payee)">
                     <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                     </svg>
@@ -141,10 +141,10 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (clickAction)="closeModal()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="closeModal()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="form?.invalid || !formChanged"
-                (clickAction)="submitPayee()">{{ 'SAVE' | translate }}
+                (click)="submitPayee()">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

@@ -8,7 +8,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <button (clickAction)="handleConfirmModalVisibility(true)" class="slds-button slds-button--success"
+            <button (click)="handleConfirmModalVisibility(true)" class="slds-button slds-button--success"
                     aria-live="assertive"
                     [disabled]="form.invalid">
                 <span class="slds-text-not-selected">
@@ -154,7 +154,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                         <span class="slds-avatar slds-avatar--large"
                               *ngIf="attachment?.pinned"
-                              (clickAction)="openAttachment(attachment)">
+                              (click)="openAttachment(attachment)">
                             <span>
                                 <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                      [attr.title]="attachment?.originalFilename"

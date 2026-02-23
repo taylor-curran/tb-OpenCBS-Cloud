@@ -9,7 +9,7 @@
         <!--/cbs-page-header-layout = left-->
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" aria-live="assertive" (clickAction)="openCreateModal()">
+            <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="openCreateModal()">
                 <span class="slds-text-not-selected">
                 <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -87,7 +87,7 @@
                 {{entryFee['account']['number'] + ' | ' + entryFee['account']['name']}}
             </th>
             <th class="slds-text-align--right">
-                <button class="slds-button slds-button--neutral" (clickAction)="openEditModal(entryFee)">
+                <button class="slds-button slds-button--neutral" (click)="openEditModal(entryFee)">
                     <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                     </svg>

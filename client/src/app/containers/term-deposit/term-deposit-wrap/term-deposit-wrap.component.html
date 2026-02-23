@@ -23,7 +23,7 @@
 
             <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-start">
                 <ng-container *ngIf="termDepositStatus === 'IN_PROGRESS'">
-                    <button (clickAction)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
+                    <button (click)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
                     <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>
@@ -84,8 +84,8 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (clickAction)="closeModal()">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="fieldEmpty" class="slds-button slds-button--success" (clickAction)="sendTermDeposit()">{{ 'OPEN' |
+        <button class="slds-button slds-button--neutral" (click)="closeModal()">{{ 'CANCEL' | translate }}</button>
+        <button [disabled]="fieldEmpty" class="slds-button slds-button--success" (click)="sendTermDeposit()">{{ 'OPEN' |
             translate }}
         </button>
     </ng-template>
