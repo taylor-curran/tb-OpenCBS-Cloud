@@ -155,7 +155,7 @@
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [requiredField]="false"
-                    (select)="setDefaultValue($event)"
+                    (itemSelect)="setDefaultValue($event)"
                     [picklistDataUrl]="lookupUrl">
                 </cbs-form-lookup-control>
             </div>

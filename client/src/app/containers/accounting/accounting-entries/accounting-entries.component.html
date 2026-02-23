@@ -273,7 +273,7 @@
                     [requiredField]="true"
                     [formControlName]="'transactionTemplateId'"
                     [fieldLabel]="'TRANSACTION_TEMPLATE' | translate"
-                    (select)="selectTransactionTemplateValue($event)"
+                    (itemSelect)="selectTransactionTemplateValue($event)"
                     [picklistDataUrl]="transactionTemplateConfig">
                 </cbs-form-lookup-control>
 
