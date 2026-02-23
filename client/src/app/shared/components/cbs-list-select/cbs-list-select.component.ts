@@ -25,7 +25,7 @@ export class ListSelectComponent implements OnInit {
 
   }
 
-  selectItem(pickedItem) {
+  handleSelectItem(pickedItem) {
     this.selectItem.emit(pickedItem);
   }
 

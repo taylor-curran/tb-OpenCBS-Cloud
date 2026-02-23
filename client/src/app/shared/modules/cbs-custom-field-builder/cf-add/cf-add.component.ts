@@ -17,7 +17,7 @@ export class CFAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  click() {
+  handleClick() {
     this.click.emit();
   }
 }
