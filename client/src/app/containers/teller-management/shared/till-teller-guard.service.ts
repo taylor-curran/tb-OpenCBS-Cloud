@@ -35,7 +35,6 @@ export class TillTellerGuard implements CanActivate {
         if (!bool) {
           this.router.navigate(['dashboard']);
         }
-        return bool;
       }));
   }
 }
