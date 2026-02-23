@@ -14,7 +14,7 @@ export class ListSelectComponent implements OnInit {
   @Input() picklistData = [];
   @Input() isRequired = true;
   @Input() selectDataLabel: string;
-  @Output() selectItem = new EventEmitter();
+  @Output() itemSelected = new EventEmitter();
   @Output() removeItem = new EventEmitter();
 
 
@@ -26,7 +26,7 @@ export class ListSelectComponent implements OnInit {
   }
 
   selectItem(pickedItem) {
-    this.selectItem.emit(pickedItem);
+    this.itemSelected.emit(pickedItem);
   }
 
   delete(removedItem) {
