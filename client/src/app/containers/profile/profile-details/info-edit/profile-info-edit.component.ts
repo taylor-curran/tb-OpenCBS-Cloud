@@ -317,9 +317,11 @@ export class ProfileInfoEditComponent implements OnInit, OnDestroy {
   }
 
   openAttachment(file) {
+    // TODO: implement attachment opening
   }
 
   getFileExtension(file) {
+    // TODO: implement file extension extraction
   }
 
   resetModal() {
