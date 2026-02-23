@@ -353,7 +353,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
     }
   }
 
-  submit({valid, value}) {
+  triggerSubmit({valid, value}) {
     if (!valid) {
       return;
     }

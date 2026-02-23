@@ -40,7 +40,7 @@ export class PayeeFormModalComponent implements OnInit {
     this.isOpen = true;
   }
 
-  submit() {
+  triggerSubmit() {
     this.isOpen = false;
     this.submit.emit(this.form.value);
   }
