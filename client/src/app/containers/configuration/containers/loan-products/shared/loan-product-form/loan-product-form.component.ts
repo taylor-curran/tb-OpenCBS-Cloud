@@ -63,8 +63,8 @@ export class LoanProductFormComponent implements OnInit, OnDestroy, AfterViewIni
   public earlyPartialRepaymentFeeType = EARLY_PARTIAL_REPAYMENT_FEE_TYPE;
   public earlyTotalRepaymentFeeType = EARLY_TOTAL_REPAYMENT_FEE_TYPE;
   @Input() isCreateMode = false;
-  @Output() onEntryFeeChanged = new EventEmitter();
-  @Output() onPenaltyChanged = new EventEmitter();
+  @Output() entryFeeChange = new EventEmitter();
+  @Output() penaltyChange = new EventEmitter();
   @Input() fields: any;
 
   public form: FormGroup;
@@ -385,24 +385,24 @@ export class LoanProductFormComponent implements OnInit, OnDestroy, AfterViewIni
 
   selectedPenalty(penalty) {
     this.selectedPenalties.push(penalty);
-    this.onPenaltyChanged.emit();
+    this.penaltyChange.emit();
   }
 
   deletePenalty(penalty) {
     this.allPenalties.push(penalty);
     this.sortDataByName(this.allPenalties);
-    this.onPenaltyChanged.emit();
+    this.penaltyChange.emit();
   }
 
   selectFee(entryFee) {
     this.selectedFees.push(entryFee);
-    this.onEntryFeeChanged.emit();
+    this.entryFeeChange.emit();
   }
 
   deleteEntryFee(entryFee) {
     this.allEntryFees.push(entryFee);
     this.sortDataByName(this.allEntryFees);
-    this.onEntryFeeChanged.emit();
+    this.entryFeeChange.emit();
   }
 
   compareData(selectedData, all) {
