@@ -35,7 +35,7 @@ export class FormInputControlComponent implements ControlValueAccessor {
   @Input() innerValue: any = '';
 
   private onTouchedCallback: () => void = noop;
-  private onChangeCallback: (_: any) => void = noop;
+  private changeCallback: (_: any) => void = noop;
 
   get value(): any {
     return this.innerValue;

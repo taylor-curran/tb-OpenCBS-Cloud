@@ -82,7 +82,7 @@ export class FormDateControlComponent implements OnInit, ControlValueAccessor, O
 
   private innerValue = moment();
   private onTouchedCallback: () => void = noop;
-  private onChangeCallback: (_: any) => void = noop;
+  private changeCallback: (_: any) => void = noop;
   private validateFn: any = () => {
   };
 
