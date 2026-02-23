@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'cbs-logo.component.html',
   styles: [':host { display: inline-block; height: auto; width: 100%;}']
 })
-export class CbsLogoSvgComponent implements OnInit {
+export class CbsLogoSvgComponent {
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

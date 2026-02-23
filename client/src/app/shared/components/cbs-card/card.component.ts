@@ -15,7 +15,7 @@ import { Component, OnInit, Input } from '@angular/core';
 `,
   styleUrls: ['card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() cardIcon: any;
   @Input() cardClass: string;
   @Input() cardTitle: string;
@@ -23,8 +23,5 @@ export class CardComponent implements OnInit {
   @Input() cardLink: string;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

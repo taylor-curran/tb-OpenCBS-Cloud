@@ -28,7 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
     }
     `]
 })
-export class HeadingBlockComponent implements OnInit {
+export class HeadingBlockComponent {
   @Input() svgData: any;
   @Input() headingTitle: string;
   @Input() badgeLabel: string;
@@ -36,8 +36,5 @@ export class HeadingBlockComponent implements OnInit {
   @Input() isMainPage: boolean;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

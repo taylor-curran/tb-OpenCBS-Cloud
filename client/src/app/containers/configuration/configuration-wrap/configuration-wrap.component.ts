@@ -4,12 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'cbs-configuration-wrap',
   template: `<router-outlet></router-outlet>`,
 })
-export class ConfigurationWrapComponent implements OnInit {
+export class ConfigurationWrapComponent {
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

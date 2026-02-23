@@ -4,10 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'cbs-not-found',
   templateUrl: '404.component.html'
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent {
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

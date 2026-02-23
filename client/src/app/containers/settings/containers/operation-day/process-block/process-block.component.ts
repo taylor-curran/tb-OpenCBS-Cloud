@@ -5,20 +5,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './process-block.component.html',
   styleUrls: ['./process-block.component.scss']
 })
-export class ProcessBlockComponent implements OnInit {
+export class ProcessBlockComponent {
   @Input() buttonLabel: string;
   @Input() date = '';
   @Input() statusData: any;
   @Input() title: string;
   @Input() disabled: false;
   @Output() dateChange = new EventEmitter();
-  @Output() onStartClick = new EventEmitter();
-  @Output() onFinishClick = new EventEmitter();
+  @Output() startClick = new EventEmitter();
+  @Output() finishClick = new EventEmitter();
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

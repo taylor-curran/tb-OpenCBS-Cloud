@@ -5,13 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: 'tick-cross.component.html',
   styleUrls: ['./tick-cross.component.scss']
 })
-export class TickCrossComponent implements OnInit {
+export class TickCrossComponent {
   @Input() isTick = true;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
 

@@ -47,7 +47,7 @@
             ></cbs-scrollable-nav>
 
             <div class="slds-form--horizontal cbs-pull-negative">
-                <form novalidate [formGroup]="profileForm" (submit)="submit(profileForm)">
+                <form novalidate [formGroup]="profileForm" (formSubmitted)="submit(profileForm)">
                     <div formArrayName="fieldSections"
                          *ngIf="!loading"
                          cbsVisibleOnSroll
