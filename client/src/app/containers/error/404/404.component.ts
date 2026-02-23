@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'cbs-not-found',
@@ -6,8 +6,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'cbs-process-block',
@@ -12,13 +12,10 @@ export class ProcessBlockComponent implements OnInit {
   @Input() title: string;
   @Input() disabled: false;
   @Output() dateChange = new EventEmitter();
-  @Output() onStartClick = new EventEmitter();
-  @Output() onFinishClick = new EventEmitter();
+  @Output() startClick = new EventEmitter();
+  @Output() finishClick = new EventEmitter();
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }

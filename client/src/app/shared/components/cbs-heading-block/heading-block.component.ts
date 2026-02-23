@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-heading-block',
@@ -36,8 +36,5 @@ export class HeadingBlockComponent implements OnInit {
   @Input() isMainPage: boolean;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

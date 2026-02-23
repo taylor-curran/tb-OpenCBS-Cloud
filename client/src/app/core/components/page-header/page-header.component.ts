@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-page-header',
@@ -9,9 +9,6 @@ export class PageHeaderComponent implements OnInit {
   @Input() isTwoColumn: boolean;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }
 

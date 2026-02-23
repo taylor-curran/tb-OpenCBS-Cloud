@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { scrollTo } from '../../utils/scroll-to.utils';
 
 interface NavItem {
@@ -11,7 +11,7 @@ interface NavItem {
   templateUrl: 'scrollable-nav.component.html',
   styleUrls: ['scrollable-nav.component.scss']
 })
-export class ScrollableNavComponent implements OnInit, OnDestroy {
+export class ScrollableNavComponent implements OnDestroy {
   @Input() navData: NavItem[] = [];
   @Input() selectorName = '';
   @Input() parentSelector = '';
@@ -19,9 +19,6 @@ export class ScrollableNavComponent implements OnInit, OnDestroy {
   @Input() activeItemId = 1;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
   ngOnDestroy() {

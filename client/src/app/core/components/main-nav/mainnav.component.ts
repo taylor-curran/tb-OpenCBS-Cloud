@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-main-nav',
@@ -9,9 +9,6 @@ export class MainNavComponent implements OnInit {
   @Input() navElements: any[];
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }

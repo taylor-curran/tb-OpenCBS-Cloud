@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'cbs-logo-svg',
@@ -7,8 +7,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CbsLogoSvgComponent implements OnInit {
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

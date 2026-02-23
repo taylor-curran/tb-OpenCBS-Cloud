@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-loan-layout',
@@ -12,8 +12,5 @@ export class LoanLayoutComponent implements OnInit {
   @Input() rightPanelScrollable = false;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

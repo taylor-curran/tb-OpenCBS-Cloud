@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cbs-loading-indicator',
@@ -33,8 +33,5 @@ export class LoadingIndicatorComponent implements OnInit {
   @Input() isFixed = false;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 }

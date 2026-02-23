@@ -5,7 +5,8 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable, of } from 'rxjs';
+import { filter, map, switchMap, take, tap } from 'rxjs/operators';
 import * as fromStore from '../../../../../core/store'
 import { RoleListState, getRoles } from '../../../../../core/store';
 
@@ -14,15 +15,24 @@ export class DependentOnRolesGuard implements CanActivate {
   constructor(private roleStore$: Store<RoleListState>) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    this.roleStore$.pipe((getRoles())).subscribe(roles => {
-      if (!roles) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.roleStore$.pipe(
+      getRoles(),
+      take(1),
+      switchMap((roles) => {
+        if (roles) {
+          return of(true);
+        }
+
         this.roleStore$.dispatch(new fromStore.LoadRoleList());
-        return true;
-      } else {
-        return true;
-      }
-    });
-    return true;
+
+        return this.roleStore$.pipe(
+          getRoles(),
+          filter((loadedRoles) => !!loadedRoles),
+          take(1),
+          map((loadedRoles) => !!loadedRoles)
+        );
+      })
+    );
   }
 }

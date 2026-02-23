@@ -17,18 +17,18 @@
         [addSectionId]="true"
         [lookupTypes]="fieldLookupTypes"
         [fieldTypes]="fieldTypes"
-        (onFieldEditSuccess)="callFieldEditSuccess($event)"
-        (onFieldEditError)="callFieldEditError($event)"
-        (onFieldDeleteSuccess)="callFieldDeleteSuccess($event)"
-        (onFieldDeleteError)="callFieldDeleteError($event)"
+        (fieldEditSuccess)="callFieldEditSuccess($event)"
+        (fieldEditError)="callFieldEditError($event)"
+        (fieldDeleteSuccess)="callFieldDeleteSuccess($event)"
+        (fieldDeleteError)="callFieldDeleteError($event)"
         (onFieldAddCancel)="onFieldAddCancel($event)"
-        (onFieldAddSuccess)="callFieldAddSuccess($event)"
-        (onFieldAddError)="callFieldAddError($event)"
+        (fieldAddSuccess)="callFieldAddSuccess($event)"
+        (fieldAddError)="callFieldAddError($event)"
     ></cbs-cf-field>
 
-    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (onClick)="addField(section?.id)"
+    <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (clicked)="addField(section?.id)"
                 [uid]="sectionInd + 1"></cbs-cf-add>
 </cbs-cf-section>
-<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (onClick)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
+<cbs-cf-add [buttonTitle]="'ADD_SECTION' | translate" (clicked)="addSection()" [disabled]="sectionAddMode"></cbs-cf-add>
 
 
