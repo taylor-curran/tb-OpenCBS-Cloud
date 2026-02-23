@@ -58,7 +58,7 @@
                 [requiredField]="false"
                 [hasError]="form.get('vaultId').errors && form.get('vaultId').touched"
                 fieldLabel="{{ 'VAULT' | translate }}"
-                (onSelect)="markSelectedFieldLabel($event, 'vaultId')"
+                (selected)="markSelectedFieldLabel($event, 'vaultId')"
             ></cbs-form-select-control>
 
             <cbs-form-readonly-control
@@ -76,7 +76,7 @@
                 [requiredField]="true"
                 [code]="true"
                 [picklistDataUrl]="accountFilterConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'bankAccountId')"
+                (selected)="markSelectedFieldLabel($event, 'bankAccountId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-input-control
@@ -102,13 +102,13 @@
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 [fieldLabel]="'CURRENCY' | translate"
                 [picklistDataUrl]="currencyConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'currencyId')"
+                (selected)="markSelectedFieldLabel($event, 'currencyId')"
             ></cbs-form-lookup-control>
 
             <cbs-form-lookup-control
                 [requiredField]="true"
                 [picklistDataUrl]="formUserConfig"
-                (onSelect)="markSelectedFieldLabel($event, 'personInCharge')"
+                (selected)="markSelectedFieldLabel($event, 'personInCharge')"
                 searchPlaceholder="{{ 'SEARCH' | translate }}"
                 selectPlaceholder="{{ 'SELECT' | translate }}"
                 fieldLabel="{{ 'PERSON_IN_CHARGE' | translate }}">
@@ -132,7 +132,7 @@
 
 <cbs-confirm-popup
     [opened]="showConfirmModal"
-    (onSubmitClick)="submit(form)"
+    (submitClick)="submit(form)"
     (openedChange)="handleConfirmModalVisibility(false)"
     [leftButtonLabel]="'NO' | translate"
     [rightButtonLabel]="'YES' | translate"
