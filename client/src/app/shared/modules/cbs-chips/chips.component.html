@@ -6,7 +6,7 @@
     <span class="slds-pill" #token *ngFor="let item of value; let i = index;">
         <span class="slds-pill__label" title="{{ field ? resolveFieldData(item,field) : item }}">{{ field ? resolveFieldData(item,field) : item }}</span>
         <button type="button" class="slds-button slds-button--icon slds-pill__remove" title="Remove" *ngIf="!disabled"
-                (click)="removeItem($event,i)">
+                (click)="handleRemoveItem($event,i)">
             <svg class="slds-button__icon" aria-hidden="true">
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
             </svg>

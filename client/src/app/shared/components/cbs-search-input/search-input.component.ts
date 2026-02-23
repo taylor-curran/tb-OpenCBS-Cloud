@@ -24,7 +24,7 @@ export class SearchInputComponent implements OnInit {
       distinctUntilChanged())
       .subscribe(model => {
         this.searchQuery = model;
-        this.search(model);
+        this.handleSearch(model);
       });
   }
 
@@ -37,12 +37,12 @@ export class SearchInputComponent implements OnInit {
     this.searchQueryChanged.next(searchQuery);
   }
 
-  clear() {
+  handleClear() {
     this.searchQuery = '';
     this.clear.emit();
   }
 
-  search(searchQuery: string) {
+  handleSearch(searchQuery: string) {
     this.search.emit(searchQuery);
   }
 }

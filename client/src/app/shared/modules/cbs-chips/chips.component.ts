@@ -88,7 +88,7 @@ export class ChipsComponent implements ControlValueAccessor {
     this.onModelTouched();
   }
 
-  removeItem(event: Event, index: number): void {
+  handleRemoveItem(event: Event, index: number): void {
     if (this.disabled) {
       return;
     }
