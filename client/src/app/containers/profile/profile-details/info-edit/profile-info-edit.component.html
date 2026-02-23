@@ -87,7 +87,7 @@
 
 
                         <div class="slds-form--horizontal">
-                            <form novalidate [formGroup]="profileForm" (formSubmit)="submitForm(profileForm)">
+                            <form novalidate [formGroup]="profileForm" (submit)="submitForm(profileForm)">
                                 <div formArrayName="fieldSections"
                                      cbsVisibleOnSroll
                                      [scrollableBlockId]="'#scrollable-section'"
