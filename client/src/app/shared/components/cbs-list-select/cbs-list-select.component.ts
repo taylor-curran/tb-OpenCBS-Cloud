@@ -14,17 +14,17 @@ export class ListSelectComponent {
   @Input() picklistData = [];
   @Input() isRequired = true;
   @Input() selectDataLabel: string;
-  @Output() selectItem = new EventEmitter();
-  @Output() removeItem = new EventEmitter();
+  @Output() onSelectItem = new EventEmitter();
+  @Output() onRemoveItem = new EventEmitter();
 
 
   public pick: any = [];
   public open = false;
   selectItem(pickedItem) {
-    this.selectItem.emit(pickedItem);
+    this.onSelectItem.emit(pickedItem);
   }
 
   delete(removedItem) {
-    this.removeItem.emit(removedItem);
+    this.onRemoveItem.emit(removedItem);
   }
 }

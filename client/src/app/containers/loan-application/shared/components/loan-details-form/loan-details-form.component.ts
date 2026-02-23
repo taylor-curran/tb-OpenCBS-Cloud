@@ -31,12 +31,12 @@ export class LoanDetailsFormComponent implements OnInit {
   };
   @Input() loanAppFormState: ILoanAppFormState;
   @Output() formSubmit = new EventEmitter();
-  @Output() loanProductSelect = new EventEmitter();
-  @Output() creditLineSelect = new EventEmitter();
-  @Output() payeeEdit = new EventEmitter();
-  @Output() payeeDelete = new EventEmitter();
-  @Output() payeeAdd = new EventEmitter();
-  @Output() entryFeesClick = new EventEmitter();
+  @Output() onLoanProductSelect = new EventEmitter();
+  @Output() onCreditLineSelect = new EventEmitter();
+  @Output() onPayeeEdit = new EventEmitter();
+  @Output() onPayeeDelete = new EventEmitter();
+  @Output() onPayeeAdd = new EventEmitter();
+  @Output() onEntryFeesClick = new EventEmitter();
 
   @ViewChild('preferredRepaymentDate', {static: false}) preferredRepaymentDate: ElementRef;
   @ViewChild('disbursementDate', {static: false}) disbursementDate: ElementRef;
@@ -282,7 +282,7 @@ export class LoanDetailsFormComponent implements OnInit {
           this.disabledLoanProduct = true;
           this.form.controls['loanProductId'].setValue(val.loanProduct.id);
           this.onLPSelect(val.loanProduct, val);
-          this.creditLineSelect.emit(val);
+          this.onCreditLineSelect.emit(val);
         }
       });
     } else {
@@ -330,7 +330,7 @@ export class LoanDetailsFormComponent implements OnInit {
       this.refreshControlsArray(['interestRate', 'gracePeriod', 'maturity']);
       this.addValidationRules(loanProduct, creditLine);
       this.disableAmountField(loanProduct.hasPayees || this.profileType === 'GROUP');
-      this.loanProductSelect.emit(loanProduct);
+      this.onLoanProductSelect.emit(loanProduct);
       this.disableField(loanProduct, ['gracePeriod', 'maturity']);
       this.disableFieldCurrency('currencyId', loanProduct, null);
       this.disableFieldScheduleType(loanProduct, 'scheduleType');
@@ -341,7 +341,7 @@ export class LoanDetailsFormComponent implements OnInit {
       this.disableAmountField(false);
       this.refreshControlsArray(['amounts', 'total']);
       this.resetValidation(['amounts', 'interestRate', 'gracePeriod', 'maturity']);
-      this.loanProductSelect.emit(null);
+      this.onLoanProductSelect.emit(null);
     }
 
   }
