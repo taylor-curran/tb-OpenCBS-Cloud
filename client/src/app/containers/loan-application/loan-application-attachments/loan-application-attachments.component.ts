@@ -192,7 +192,7 @@ export class LoanApplicationAttachmentsComponent implements OnInit, OnDestroy {
     }
   }
 
-  onClear() {
+  clear() {
     this.closeUploadModal();
   }
 
