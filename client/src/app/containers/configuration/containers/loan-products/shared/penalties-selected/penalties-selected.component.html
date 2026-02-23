@@ -49,7 +49,7 @@
                         {{ selectedPenalty?.penalty }}
                     </td>
                     <td data-label="Branch" scope="row">
-                        <button class="slds-input--bare" (imageClick)="delete(selectedPenalty)" *ngIf="displayButton">
+                        <button class="slds-input--bare" (click)="delete(selectedPenalty)" *ngIf="displayButton">
                             <svg class="slds-button__icon" aria-hidden="true">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                             </svg>

@@ -37,8 +37,8 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button [disabled]="form.invalid" class="slds-button slds-button--success" (imageClick)="submit()">{{ 'SAVE' |
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button [disabled]="form.invalid" class="slds-button slds-button--success" (click)="submit()">{{ 'SAVE' |
             translate }}
         </button>
     </ng-template>

@@ -25,7 +25,7 @@
         </span>
 
         <ng-container *ngIf="field['fieldType'] === 'LOOKUP' && showProfileInfoLink && isProfileFieldType(field)">
-            <button class="slds-button details-button" (imageClick)="onShowProfileInfoLinkClick.emit(field)">
+            <button class="slds-button details-button" (click)="onShowProfileInfoLinkClick.emit(field)">
                 <svg class="slds-button__icon slds-button__icon_left slds-button__icon--small">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                          xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info_alt"></use>

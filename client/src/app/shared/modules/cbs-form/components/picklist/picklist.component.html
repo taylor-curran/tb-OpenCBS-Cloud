@@ -3,7 +3,7 @@
         <button type="button" class="slds-button slds-button--neutral slds-grid slds-grid--align-spread"
                 cdk-overlay-origin
                 #origin="cdkOverlayOrigin"
-                (imageClick)="open()"
+                (click)="open()"
                 [disabled]="disabled">
             <span class="slds-truncate" *ngIf="valueString"><span
                 *ngIf="selectedCode">{{selectedCode + ' | ' }}</span>{{ valueString | translate }} </span>
@@ -11,7 +11,7 @@
             <ngl-icon icon="down" variant="default" size="x-small" *ngIf="!isOpened"></ngl-icon>
             <ngl-icon icon="close" variant="default" size="x-small" *ngIf="isOpened"></ngl-icon>
         </button>
-        <button *ngIf="valueString && !disabled" type="button" class="cbs-picklist__clear-btn" (imageClick)="remove()">
+        <button *ngIf="valueString && !disabled" type="button" class="cbs-picklist__clear-btn" (click)="remove()">
             <svg aria-hidden="true">
                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
             </svg>
@@ -35,7 +35,7 @@
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
                 </svg>
                 <svg class="slds-input__icon slds-icon-text-default cbs-picklist__clear-search-btn" aria-hidden="true"
-                     *ngIf="searchQuery" (imageClick)="clear()">
+                     *ngIf="searchQuery" (click)="clear()">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#clear"></use>
                 </svg>
                 <input type="text" class="slds-input" #searchInput [ngModel]="searchQuery"
@@ -50,7 +50,7 @@
                  [scrollWindow]="false">
                 <ul class="slds-listbox slds-listbox_vertical" role="presentation">
                     <li role="presentation" class="slds-listbox__item" *ngFor="let item of lookupList"
-                        (imageClick)="select(item)" (keyup.enter)="select(item)">
+                        (click)="select(item)" (keyup.enter)="select(item)">
                         <span
                             class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center"
                             role="option" [ngClass]="{'slds-is-selected': item?.selected }">

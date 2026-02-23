@@ -25,14 +25,14 @@
                         [minDate]="fromDate">
                     </cbs-form-date-control>
                     <button class="slds-button slds-button--neutral filter"
-                            (imageClick)="filter()"
+                            (click)="filter()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'FILTER' | translate }}
                         </span>
                     </button>
                     <button class="slds-button slds-button--neutral filter"
-                            (imageClick)="download()"
+                            (click)="download()"
                             aria-live="assertive">
                         <span class="slds-text-not-selected">
                             {{ 'PRINT' | translate }}
@@ -84,7 +84,7 @@
             <td data-label="Show more" scope="row" class="slds-truncate">
                 <div>
                     <span class="slds-truncate">
-                        <a href="javascript:void(0);" (imageClick)="showMore(audit)" title="Show more">{{
+                        <a href="javascript:void(0);" (click)="showMore(audit)" title="Show more">{{
                             'SHOW_MORE' | translate }}</a>
                     </span>
                 </div>
@@ -120,6 +120,6 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (imageClick)="isOpen = false">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="isOpen = false">{{ 'CANCEL' | translate }}</button>
     </ng-template>
 </ngl-modal>

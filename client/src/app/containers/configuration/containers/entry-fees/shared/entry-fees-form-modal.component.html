@@ -29,7 +29,7 @@
                 <div class="slds-form-element__control">
                         <span class="slds-checkbox">
                           <input type="checkbox" id="checkbox-146" checked="" name="percentage" #percentage="ngModel"
-                                 ngModel (imageClick)="check()"/>
+                                 ngModel (click)="check()"/>
                           <label class="slds-checkbox__label" for="checkbox-146">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">{{'PERCENTAGE' | translate}}</span>
@@ -68,9 +68,9 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success" #submitButton
-                [disabled]="f.invalid || !formChanged || fieldTouched" (imageClick)="submit(f)">{{ 'SAVE' | translate }}
+                [disabled]="f.invalid || !formChanged || fieldTouched" (click)="submit(f)">{{ 'SAVE' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

@@ -44,7 +44,7 @@
                                     [hasError]="form.get('end').errors && form.get('end').touched"
                                     [requiredField]="true"></cbs-form-date-control>
                                 <button class="slds-button slds-button--neutral filter"
-                                        (imageClick)="filter()"
+                                        (click)="filter()"
                                         aria-live="assertive">
                                     <span class="slds-text-not-selected">
                                         {{ 'FILTER' | translate }}
@@ -53,13 +53,13 @@
 
                                 <ng-container *ngIf="isImpactFinance()">
                                     <button class="slds-button slds-button--success slds-m-left--x-small"
-                                            (imageClick)="makeTransaction('deposit')" aria-live="assertive">
+                                            (click)="makeTransaction('deposit')" aria-live="assertive">
                                         <span class="slds-text-not-selected">
                                             {{ 'DEPOSIT' | translate }}
                                         </span>
                                     </button>
                                     <button class="slds-button slds-button--brand slds-m-left--x-small"
-                                            (imageClick)="makeTransaction('withdraw')" aria-live="assertive">
+                                            (click)="makeTransaction('withdraw')" aria-live="assertive">
                                         <span class="slds-text-not-selected">
                                             {{ 'WITHDRAW' | translate }}
                                         </span>
@@ -68,15 +68,15 @@
                             </div>
                         </form>
                         <div class="slds-p-top_x-small">
-                            <button (imageClick)="filterByPeriod(2)"
+                            <button (click)="filterByPeriod(2)"
                                     class="cbs-period-button slds-button period">
                                 {{ 'LAST_2_DAYS' | translate }}
                             </button>
-                            <button (imageClick)="filterByPeriod(7)"
+                            <button (click)="filterByPeriod(7)"
                                     class="cbs-period-button slds-button period">
                                 {{ 'CURRENT_WEEK' | translate }}
                             </button>
-                            <button (imageClick)="filterByPeriod('month')"
+                            <button (click)="filterByPeriod('month')"
                                     class="cbs-period-button slds-button period">
                                 {{ 'CURRENT_MONTH' | translate }}
                             </button>
@@ -235,8 +235,8 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate }}</button>
-        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (imageClick)="submit()">
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--success" [disabled]="transactionForm.invalid" (click)="submit()">
             {{ 'SAVE' | translate }}
         </button>
     </ng-template>

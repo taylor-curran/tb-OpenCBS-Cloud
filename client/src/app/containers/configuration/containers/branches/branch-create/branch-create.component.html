@@ -8,7 +8,7 @@
         <!--/cbs-page-header-layout = left-->
 
         <div cbs-page-header-layout="right">
-            <button type="button" nglButton="neutral" (imageClick)="goToViewCCRules()">
+            <button type="button" nglButton="neutral" (click)="goToViewCCRules()">
                 <ngl-icon icon="close" align="center" [svgClass]="'slds-button__icon--left'">{{ 'CANCEL' | translate
                     }}
                 </ngl-icon>
@@ -18,7 +18,7 @@
                     [disabled]="form?.invalid"
                     class="slds-button--success"
                     #submitButton
-                    (imageClick)="submitForm(form)">
+                    (click)="submitForm(form)">
                 <ngl-icon icon="check" align="'center'" [svgClass]="'slds-button__icon--left'">{{ 'SAVE' | translate
                     }}
                 </ngl-icon>

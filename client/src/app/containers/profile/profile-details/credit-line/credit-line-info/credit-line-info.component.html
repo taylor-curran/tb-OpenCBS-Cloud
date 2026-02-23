@@ -35,7 +35,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                         <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                               *ngIf="attachment?.pinned"
-                              (imageClick)="openAttachment(attachment)">
+                              (click)="openAttachment(attachment)">
                             <span>
                                 <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                      [attr.title]="attachment?.originalFilename"
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <button (imageClick)="goToUpdateCreditLine()"
+                <button (click)="goToUpdateCreditLine()"
                         class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

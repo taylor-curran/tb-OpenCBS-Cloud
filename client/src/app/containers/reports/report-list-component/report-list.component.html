@@ -33,7 +33,7 @@
         <tbody>
         <tr *ngFor="let report of (reports | filterReports: searchQuery)">
             <ng-container *ngIf="report.group === 'OPERATIONAL'">
-                <td (imageClick)="openModal(report)">
+                <td (click)="openModal(report)">
                     <span>{{report?.label}}</span>
                 </td>
                 <td class="slds-align--absolute-center">
@@ -59,7 +59,7 @@
         <tbody>
         <tr *ngFor="let report of (reports | filterReports: searchQuery)">
             <ng-container *ngIf="report.group === 'ACCOUNTING'">
-                <td (imageClick)="openModal(report)">
+                <td (click)="openModal(report)">
                     <span>{{report?.label}}</span>
                 </td>
                 <td class="slds-align--absolute-center">
@@ -87,11 +87,11 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate
+        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate
             }}
         </button>
         <button [disabled]="reportForm.invalid" *ngIf="!fieldsReady" class="slds-button slds-button--success"
-                (imageClick)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

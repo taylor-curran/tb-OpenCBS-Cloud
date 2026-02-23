@@ -11,7 +11,7 @@
         <div cbs-page-header-layout="right">
             <a class="slds-button slds-button--neutral" aria-live="assertive">
                 <span class="slds-checkbox">
-                    <input type="checkbox" id="show-all" (imageClick)="showAllRoles()"/>
+                    <input type="checkbox" id="show-all" (click)="showAllRoles()"/>
                     <label class="slds-checkbox__label" for="show-all">
                         <span class="slds-checkbox--faux"></span>
                         <span class="slds-box--x-small">{{'SHOW_ALL' | translate}}</span>
@@ -51,7 +51,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let role of (roles | async)?.roles; let i = index" (imageClick)="goToRoleDetails(role)"
+        <tr *ngFor="let role of (roles | async)?.roles; let i = index" (click)="goToRoleDetails(role)"
             [ngClass]="rowStyleClass(role)">
             <th data-label="Label" scope="row" class="slds-truncate" title="{{role.name}}">
                 <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>

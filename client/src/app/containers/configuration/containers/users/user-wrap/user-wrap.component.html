@@ -27,7 +27,7 @@
 
 
                 <a *ngIf="showChangePassword"
-                   (imageClick)="openChangePasswordModal()" class="slds-button slds-button--brand"
+                   (click)="openChangePasswordModal()" class="slds-button slds-button--brand"
                    aria-live="assertive">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -42,7 +42,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['CHECKER_FOR_USER'] }"
-                        (imageClick)="openApproveModal()"
+                        (click)="openApproveModal()"
                         class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
@@ -55,7 +55,7 @@
                     <button
                         *cbsVisibleByPermission="{
                             group: 'MAKER_CHECKER', permissions: ['MAKER_FOR_USER','CHECKER_FOR_USER'] }"
-                        (imageClick)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
+                        (click)="openDeleteModal()" class="slds-button slds-button--brand" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
@@ -130,9 +130,9 @@
     </div>
 
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button [disabled]="changePasswordForm.invalid || passwordNotMatch" class="slds-button slds-button--success"
-                (imageClick)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

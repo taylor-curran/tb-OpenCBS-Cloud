@@ -8,13 +8,13 @@
         <!--/cbs-page-header-layout = left-->
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" aria-live="assertive" (imageClick)="goToViewCCRules()">
+            <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="goToViewCCRules()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                     <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#close"></use>
                     </svg>{{ 'CANCEL' | translate }}</span>
             </button>
-            <button (imageClick)="submit()" [disabled]="formComponent.form.invalid || !formChanged"
+            <button (click)="submit()" [disabled]="formComponent.form.invalid || !formChanged"
                     class="slds-button slds-button--success" aria-live="assertive">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">

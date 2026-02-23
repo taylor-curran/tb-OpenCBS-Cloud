@@ -12,7 +12,7 @@
             <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-start">
 
                 <div class="slds-m-left--x-small" *ngIf="isEventsPage">
-                    <button class="slds-button slds-button--neutral" (imageClick)="rollBack()">Rollback</button>
+                    <button class="slds-button slds-button--neutral" (click)="rollBack()">Rollback</button>
                 </div>
 
                 <ng-container *ngIf="bondStatus === 'IN_PROGRESS' || bondStatus === 'PENDING'">
@@ -25,7 +25,7 @@
                         </svg>{{ 'EDIT' | translate }}</span>
                     </a>
 
-                    <button (imageClick)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
+                    <button (click)="openModal()" class="slds-button slds-button--success" aria-live="assertive">
                         <span class="slds-text-not-selected">
                             <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                                 <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#check"></use>
@@ -37,7 +37,7 @@
                 <div *ngIf="isEventsPage" class="filter-events"
                      style="text-align: left; padding-left: 10px; margin-top: -5px;">
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (formChange)="showDeletedEvents($event)"/>
+                        <input type="checkbox" id="checkbox-deleted" [(ngModel)]='showDeleted' (change)="showDeletedEvents($event)"/>
                         <label class="slds-checkbox__label" for="checkbox-deleted">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show deleted</span>
@@ -45,7 +45,7 @@
                     </span>
                     <br>
                     <span class="slds-checkbox">
-                        <input type="checkbox" id="checkbox-system" [(ngModel)]='showSystem' (imageClick)="showSystemEvents($event)"/>
+                        <input type="checkbox" id="checkbox-system" [(ngModel)]='showSystem' (click)="showSystemEvents($event)"/>
                         <label class="slds-checkbox__label" for="checkbox-system">
                             <span class="slds-checkbox--faux"></span>
                             <span class="slds-form-element__label">Show system</span>

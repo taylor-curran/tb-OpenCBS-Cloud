@@ -29,7 +29,7 @@
                     <div class="cbs-profile__avatar-item" *ngFor="let attachment of (profile | async)?.attachments">
                         <span class="slds-avatar slds-avatar--circle slds-avatar--large"
                               *ngIf="attachment?.pinned"
-                              (imageClick)="openAttachment(attachment)">
+                              (click)="openAttachment(attachment)">
                             <span>
                                 <img [src]="url + attachment?.id" [attr.alt]="attachment?.originalFilename"
                                      [attr.title]="attachment?.originalFilename" *ngIf="testIfImage(attachment?.contentType)"/>
@@ -113,11 +113,11 @@
 
     </div>
     <ng-template ngl-modal-footer>
-        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (imageClick)="cancel()">{{ 'CANCEL' | translate
+        <button *ngIf="!fieldsReady" class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate
             }}
         </button>
         <button [disabled]="reportForm.invalid" *ngIf="!fieldsReady" class="slds-button slds-button--success"
-                (imageClick)="submit()">{{ 'SUBMIT' | translate }}
+                (click)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
