@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 import { CFBuilderService } from '../cf-builder.service';
 
@@ -7,7 +7,7 @@ import { CFBuilderService } from '../cf-builder.service';
   templateUrl: 'cf-section.component.html',
   styleUrls: ['cf-section.component.scss']
 })
-export class CFSectionComponent implements OnInit {
+export class CFSectionComponent {
   @Input() url: string;
   @Input() sectionData: any;
   @Output() editSuccess = new EventEmitter();
@@ -24,10 +24,6 @@ export class CFSectionComponent implements OnInit {
 
   constructor(private service: CFBuilderService) {
   }
-
-  ngOnInit() {
-  }
-
   submitForm({valid, value}) {
     if ( valid && value.caption !== this.cachedCaption && !this.newSectionMode ) {
       this.updateSection(value);
