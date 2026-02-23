@@ -65,7 +65,7 @@
                 <cbs-form-date-control
                     [ngModel]="fieldData?.extra?.defaultValue"
                     (ngModelChange)="setDefaultValue($event)"
-                    (onChange)="setDefaultValue($event)"
+                    (changeTriggered)="setDefaultValue($event)"
                     [ngModelOptions]="{standalone: true}"
                     fieldLabel="{{ 'DEFAULT_DATE' | translate }}">
                 </cbs-form-date-control>
@@ -155,7 +155,7 @@
                     searchPlaceholder="{{ 'SEARCH' | translate }}"
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [requiredField]="false"
-                    (onSelect)="setDefaultValue($event)"
+                    (selectTriggered)="setDefaultValue($event)"
                     [picklistDataUrl]="lookupUrl">
                 </cbs-form-lookup-control>
             </div>

@@ -32,7 +32,7 @@
             <form novalidate [formGroup]="repayForm" class="slds-form--stacked">
 
                 <cbs-form-date-control
-                    (onChange)="getSplitDataWithTotal()"
+                    (changeTriggered)="getSplitDataWithTotal()"
                     [formControlName]="'timestamp'"
                     [validateDate]="true"
                     [requiredField]="true"
@@ -74,7 +74,7 @@
                         [hasError]="repayForm.get('paidBy').errors && repayForm.get('paidBy').touched"
                         [picklistDataUrl]="formConfig.profileLookupUrl"
                         [requiredField]="true"
-                        (onSelect)="setLookupValue($event)"
+                        (selectTriggered)="setLookupValue($event)"
                     ></cbs-form-lookup-control>
                 </div>
 
@@ -86,7 +86,7 @@
                     selectPlaceholder="{{ 'SELECT' | translate }}"
                     [fieldLabel]="'PAYMENT_METHOD' | translate"
                     [picklistDataUrl]="formConfig.paymentMethod"
-                    (onSelect)="selectPaymentMethod($event)">
+                    (selectTriggered)="selectPaymentMethod($event)">
                 </cbs-form-lookup-control>
 
                 <cbs-form-input-control

@@ -116,9 +116,9 @@
         <cbs-file-upload
             name="file"
             [url]="url"
-            (onUpload)="onUpload($event)"
-            (onError)="onError($event)"
-            (onClear)="onClear()"
+            (upload)="onUpload($event)"
+            (errorTriggered)="onError($event)"
+            (clearTriggered)="onClear()"
             [hasComments]="true"
             includeToken="true"
             multiple="false"
@@ -133,7 +133,7 @@
 </ngl-modal>
 
 <cbs-confirm-popup [opened]="isVisible"
-                   (onSubmitClick)="delete()"
+                   (submitClick)="delete()"
                    (openedChange)="closeConfirmPopup()"
                    [leftButtonLabel]="'CANCEL' | translate"
                    [rightButtonLabel]="'CONFIRM' | translate"
