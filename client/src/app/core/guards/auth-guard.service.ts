@@ -24,9 +24,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
               state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
+      map(item => item),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;
@@ -41,9 +39,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
                    state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.authService.isAuthenticated.pipe(
       take(1),
-      map(item => {
-        return item;
-      }),
+      map(item => item),
       tap((isAuth) => {
         if (!isAuth) {
           this.routeService.redirectUrl = state.url;
