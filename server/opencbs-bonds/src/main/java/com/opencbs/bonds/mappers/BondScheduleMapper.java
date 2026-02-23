@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Mapper
 public class BondScheduleMapper {
+    private static final String DECIMAL = "DECIMAL";
     public ScheduleDto mapToScheduleDto(List<BondInstallment> schedule) {
         ScheduleDto scheduleDto = new ScheduleDto();
         scheduleDto.setColumns(Arrays.asList(
@@ -34,13 +35,13 @@ public class BondScheduleMapper {
         scheduleDto.setTypes(Arrays.asList(
                 "INTEGER",
                 "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {

@@ -25,7 +25,11 @@ public class ActualizeHelper implements ApplicationContextAware {
 
     @Autowired
     public ActualizeHelper(DayClosureContractService dayClosureContractService) {
-        ActualizeHelper.dayClosureContractService = dayClosureContractService;
+        setDayClosureContractService(dayClosureContractService);
+    }
+
+    private static synchronized void setDayClosureContractService(DayClosureContractService service) {
+        dayClosureContractService = service;
     }
 
     public static void isActualized(Long contractId, ModuleType moduleType, LocalDate date) {
@@ -62,6 +66,10 @@ public class ActualizeHelper implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        setContext(applicationContext);
+    }
+
+    private static synchronized void setContext(ApplicationContext applicationContext) {
         context = applicationContext;
     }
 }

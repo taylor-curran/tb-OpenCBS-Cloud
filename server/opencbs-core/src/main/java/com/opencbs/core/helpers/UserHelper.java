@@ -34,7 +34,11 @@ public class UserHelper {
     @Autowired
     private void setUserService(UserService userServiceArg) {
         if (userService == null) {
-            UserHelper.userService = userServiceArg;
+            initUserService(userServiceArg);
         }
+    }
+
+    private static synchronized void initUserService(UserService service) {
+        userService = service;
     }
 }

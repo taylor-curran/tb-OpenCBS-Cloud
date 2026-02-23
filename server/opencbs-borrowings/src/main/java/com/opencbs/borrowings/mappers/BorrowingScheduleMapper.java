@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 @Mapper
 public class BorrowingScheduleMapper {
 
+    private static final String DECIMAL = "DECIMAL";
+
     public ScheduleDto mapToScheduleDto(List<BorrowingInstallment> schedule) {
         ScheduleDto scheduleDto = new ScheduleDto();
         scheduleDto.setColumns(Arrays.asList(
@@ -36,13 +38,13 @@ public class BorrowingScheduleMapper {
         scheduleDto.setTypes(Arrays.asList(
                 "INTEGER",
                 "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL,
+                DECIMAL
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {

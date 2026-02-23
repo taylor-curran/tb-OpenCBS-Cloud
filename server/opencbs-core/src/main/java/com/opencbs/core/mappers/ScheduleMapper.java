@@ -26,6 +26,7 @@ public class ScheduleMapper  {
     public static final String PAID_INTEREST = "Paid Interest";
     public static final String ACCRUED_INTEREST = "Accrued Interest";
 
+    private static final String DECIMAL_TYPE = "DECIMAL";
 
     protected final ModelMapper modelMapper = new ModelMapper();
 
@@ -45,10 +46,10 @@ public class ScheduleMapper  {
         scheduleDto.setTypes(Arrays.asList(
                 "INTEGER",
                 "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {
@@ -179,13 +180,13 @@ public class ScheduleMapper  {
         scheduleDto.setTypes(Arrays.asList(
                 "INTEGER",
                 "DATE",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL",
-                "DECIMAL"
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE,
+                DECIMAL_TYPE
         ));
 
         scheduleDto.setRows(schedule.stream().map(x -> {
