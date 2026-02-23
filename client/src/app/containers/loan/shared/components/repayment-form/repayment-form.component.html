@@ -42,7 +42,7 @@
             fieldLabel="{{ 'TOTAL' | translate }}"
             (focusout)="markAsEdited('total')">
             <div class="maxAmount">
-                {{'MAX' | translate}}: <a (click)="onSetMaxAmount.emit()">{{ maxAmount }}</a>
+                {{'MAX' | translate}}: <a (click)="setMaxAmount.emit()">{{ maxAmount }}</a>
             </div>
         </cbs-form-input-control>
 
