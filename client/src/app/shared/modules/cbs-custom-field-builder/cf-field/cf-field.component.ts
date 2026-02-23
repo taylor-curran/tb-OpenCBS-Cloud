@@ -20,13 +20,13 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   @Input() lookupTypes = [];
   @Input() fieldTypes = [];
   @Input() componentFieldType = '';
-  @Output() onFieldEditSuccess = new EventEmitter();
-  @Output() onFieldEditError = new EventEmitter();
-  @Output() onFieldDeleteSuccess = new EventEmitter();
-  @Output() onFieldDeleteError = new EventEmitter();
-  @Output() onFieldAddSuccess = new EventEmitter();
-  @Output() onFieldAddError = new EventEmitter();
-  @Output() onFieldAddCancel = new EventEmitter();
+  @Output() fieldEditSuccess = new EventEmitter();
+  @Output() fieldEditError = new EventEmitter();
+  @Output() fieldDeleteSuccess = new EventEmitter();
+  @Output() fieldDeleteError = new EventEmitter();
+  @Output() fieldAddSuccess = new EventEmitter();
+  @Output() fieldAddError = new EventEmitter();
+  @Output() fieldAddCancel = new EventEmitter();
   @ViewChild('fieldForm', {static: false}) fieldForm;
   @ViewChild('caption', {static: false,  read: ElementRef}) captionInput: ElementRef;
 
@@ -148,7 +148,7 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
       this.patternOptions = [...this.cachedPatternValues];
     }
     if ( this.newFieldMode ) {
-      this.onFieldAddCancel.emit(this.fieldData.sectionId);
+      this.fieldAddCancel.emit(this.fieldData.sectionId);
     }
     this.formCollapsed = true;
   }
@@ -367,11 +367,11 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   updateField(data: Field) {
     this.service.updateField(this.url, this.fieldData.id, data).subscribe(
       resp => {
-        this.onFieldEditSuccess.emit(resp);
+        this.fieldEditSuccess.emit(resp);
         this.cancel();
       },
       err => {
-        this.onFieldEditError.emit(err.error);
+        this.fieldEditError.emit(err.error);
       }
     );
   }
@@ -379,13 +379,13 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
   addNewField(data: Field) {
     this.service.createField(this.url, data).subscribe(
       resp => {
-        this.onFieldAddSuccess.emit({data: resp, sectionId: data.sectionId});
+        this.fieldAddSuccess.emit({data: resp, sectionId: data.sectionId});
         this.newFieldMode = false;
         this.formChanged = false;
         this.cancel();
       },
       err => {
-        this.onFieldAddError.emit(err.error);
+        this.fieldAddError.emit(err.error);
       }
     );
   }
@@ -409,13 +409,13 @@ export class CFFieldComponent implements OnInit, AfterViewInit {
           }
           this.service.getFields(urlData).subscribe(
             res => {
-              this.onFieldDeleteSuccess.emit(res);
+              this.fieldDeleteSuccess.emit(res);
               this.cancel();
             });
         }
       },
       err => {
-        this.onFieldDeleteError.emit(err.error);
+        this.fieldDeleteError.emit(err.error);
       }
     );
   }
