@@ -12,7 +12,7 @@
                     getTotal() | cbsNumberFormat }}</strong>
                 </div>
                 <div>
-                    <button class="slds-button payee-add-button" (click)="onAddPayee.emit()" *ngIf="!readonly">
+                    <button class="slds-button payee-add-button" (click)="addPayeeEvent.emit()" *ngIf="!readonly">
                         <svg class="slds-button__icon slds-button__icon_left slds-button__icon--small">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -38,8 +38,8 @@
                         [payee]="payee"
                         [readonly]="readonly"
                         [showEditBtn]="showEditBtn"
-                        (editPayee)="onEditPayee.emit($event)"
-                        (itemDelete)="onDeletePayee.emit($event)"
+                        (editPayee)="editPayeeEvent.emit($event)"
+                        (itemDelete)="deletePayeeEvent.emit($event)"
                     ></cbs-payee-block>
                 </div>
             </ng-container>

@@ -69,9 +69,9 @@
             [payeesData]="loanAppFormState?.payees"
             [showEditBtn]="true"
             [payeesCount]="loanAppFormState?.payees.length"
-            (addPayeeEvent)="onPayeeAdd.emit()"
-            (editPayeeEvent)="onPayeeEdit.emit($event)"
-            (deletePayeeEvent)="onPayeeDelete.emit($event)"
+            (addPayeeEvent)="payeeAdd.emit()"
+            (editPayeeEvent)="payeeEdit.emit($event)"
+            (deletePayeeEvent)="payeeDelete.emit($event)"
         ></cbs-payees-block-control>
 
         <cbs-form-input-control
@@ -156,7 +156,7 @@
                 *ngIf="!!loanAppFormState?.entryFees?.length"
                 [isValidToCalculate]="loanAppFormState?.valid"
                 [entryFeesData]="loanAppFormState?.entryFees"
-                (detailsClick)="onEntryFeesClick.emit()"
+                (detailsClick)="entryFeesClick.emit()"
             ></cbs-entry-fees-block>
         </ng-container>
 

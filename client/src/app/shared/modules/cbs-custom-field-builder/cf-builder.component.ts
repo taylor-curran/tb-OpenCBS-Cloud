@@ -35,19 +35,19 @@ export class CFBuilderComponent {
   public sectionAddMode = false;
 
   callSectionEditSuccess(editedSectionData) {
-    this.sectionEditSuccess.emit(editedSectionData);
+    this.sectieditSuccess.emit(editedSectionData);
   }
 
   callSectionEditError(error) {
-    this.sectionEditError.emit(error);
+    this.sectieditError.emit(error);
   }
 
   callSectionAddSuccess(newSectionData) {
-    this.sectionAddSuccess.emit(newSectionData);
+    this.sectiaddSuccess.emit(newSectionData);
   }
 
   callSectionAddError(error) {
-    this.sectionAddError.emit(error);
+    this.sectiaddError.emit(error);
   }
 
   callFieldEditSuccess(editedData) {
