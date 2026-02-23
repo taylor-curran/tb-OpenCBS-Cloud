@@ -21,11 +21,11 @@ export class ListSelectComponent {
   public pick: any = [];
   public open = false;
 
-  selectItem(pickedItem) {
+  onSelectItem(pickedItem) {
     this.selectItem.emit(pickedItem);
   }
 
-  delete(removedItem) {
+  onDelete(removedItem) {
     this.removeItem.emit(removedItem);
   }
 }

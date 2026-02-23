@@ -67,7 +67,7 @@
         <textarea *ngIf="hasComments" class="file-comment" [placeholder]="'LEAVE_COMMENT_HERE' | translate"
                   [(ngModel)]="fileComment" #file="ngModel"></textarea>
         <div class="slds-m-top--x-small slds-text-align--center" *ngIf="!auto && !uploading">
-            <button class="slds-button slds-button--success" (click)="upload()" [disabled]="!hasFiles()">
+            <button class="slds-button slds-button--success" (click)="doUpload()" [disabled]="!hasFiles()">
                 {{ uploadLabel }}
             </button>
             <button class="slds-button slds-button--destructive" (click)="clear()" [disabled]="!hasFiles()">
