@@ -13,7 +13,7 @@ export class CFAddComponent {
 
   constructor() {
   }
-  click() {
+  emitClick() {
     this.click.emit();
   }
 }
