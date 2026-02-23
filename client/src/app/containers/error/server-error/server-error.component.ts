@@ -10,6 +10,9 @@ export class ServerErrorComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    // No-op: lifecycle hook intentionally left empty
   }
 
   goHome() {

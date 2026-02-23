@@ -27,6 +27,9 @@ export class IconComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    // No-op: lifecycle hook intentionally left empty
   }
 
 }

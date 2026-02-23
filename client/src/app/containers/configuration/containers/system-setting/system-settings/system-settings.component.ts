@@ -25,6 +25,8 @@ export class SystemSettingsComponent implements OnInit {
 
   ngOnInit() {
 
+
+    // No-op: lifecycle hook intentionally left empty
   }
 
   public list = [{

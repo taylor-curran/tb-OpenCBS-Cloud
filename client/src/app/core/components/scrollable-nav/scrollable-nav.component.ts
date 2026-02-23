@@ -22,6 +22,9 @@ export class ScrollableNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+
+    // No-op: lifecycle hook intentionally left empty
   }
 
   ngOnDestroy() {

@@ -15,5 +15,8 @@ export class LoanLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    // No-op: lifecycle hook intentionally left empty
   }
 }

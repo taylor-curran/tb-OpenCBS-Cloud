@@ -35,9 +35,13 @@ export class TransfersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+
+    // No-op: lifecycle hook intentionally left empty
   }
 
   ngOnDestroy() {
 
+
+    // No-op: lifecycle hook intentionally left empty
   }
 }
