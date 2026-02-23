@@ -65,47 +65,49 @@ public abstract class AbstractDocumentService<T extends Template> {
     }
 
     protected Map<String, Object> loadTemplate(Path path) throws IOException {
-        ZipFile file = loadZipFile(path);
-        Enumeration<? extends ZipEntry> entries = file.entries();
-        HashMap<String, Object> map = new HashMap<>();
+        try (ZipFile file = loadZipFile(path)) {
+            Enumeration<? extends ZipEntry> entries = file.entries();
+            HashMap<String, Object> map = new HashMap<>();
 
-        Map<Integer, String> scripts = new HashMap<>();
-        Map<Integer, String> staticScripts = new HashMap<>();
+            Map<Integer, String> scripts = new HashMap<>();
+            Map<Integer, String> staticScripts = new HashMap<>();
 
-        while (entries.hasMoreElements()) {
-            ZipEntry entry = entries.nextElement();
-            if (this.patternMatch(this.getDocumentPattern(), entry.getName())) {
-                map.put("template", this.getDocumentFromInputStream(file.getInputStream(entry))); //TODO: solve NoSuchMethodException
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
+                if (this.patternMatch(this.getDocumentPattern(), entry.getName())) {
+                    map.put("template", this.getDocumentFromInputStream(file.getInputStream(entry))); //TODO: solve NoSuchMethodException
+                }
+                if (this.patternMatch(".+static\\.sql$", entry.getName())) {
+                    staticScripts.put(this.getScriptOrder(entry.getName()),
+                            this.convertToString(file.getInputStream(entry)));
+                    continue;
+                }
+                if (this.patternMatch(".+\\.sql$", entry.getName())) {
+                    scripts.put(this.getScriptOrder(entry.getName()),
+                            this.convertToString(file.getInputStream(entry)));
+                }
+                if (this.patternMatch(".+\\.json$", entry.getName())) {
+                    map.put("json", this.convertToString(file.getInputStream(entry)));
+                }
             }
-            if (this.patternMatch(".+static\\.sql$", entry.getName())) {
-                staticScripts.put(this.getScriptOrder(entry.getName()),
-                        this.convertToString(file.getInputStream(entry)));
-                continue;
-            }
-            if (this.patternMatch(".+\\.sql$", entry.getName())) {
-                scripts.put(this.getScriptOrder(entry.getName()),
-                        this.convertToString(file.getInputStream(entry)));
-            }
-            if (this.patternMatch(".+\\.json$", entry.getName())) {
-                map.put("json", this.convertToString(file.getInputStream(entry)));
-            }
+            map.put("scripts", scripts);
+            map.put("staticScripts", staticScripts);
+            return map;
         }
-        map.put("scripts", scripts);
-        map.put("staticScripts", staticScripts);
-        return map;
     }
 
     Optional<T> loadTemplateData(Path path) throws IOException {
-        ZipFile file = loadZipFile(path);
-        Enumeration<? extends ZipEntry> entries = file.entries();
+        try (ZipFile file = loadZipFile(path)) {
+            Enumeration<? extends ZipEntry> entries = file.entries();
 
-        while (entries.hasMoreElements()) {
-            ZipEntry entry = entries.nextElement();
-            if (this.patternMatch(".+\\.json$", entry.getName())) {
-                return Optional.of(this.getDocumentMeta(file.getInputStream(entry)));
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
+                if (this.patternMatch(".+\\.json$", entry.getName())) {
+                    return Optional.of(this.getDocumentMeta(file.getInputStream(entry)));
+                }
             }
+            return Optional.empty();
         }
-        return Optional.empty();
     }
 
     List<T> loadPrintingForms() throws Exception {
@@ -149,8 +151,10 @@ public abstract class AbstractDocumentService<T extends Template> {
         if (!Files.exists(path)) {
             return Collections.emptyList();
         }
-        return Files.list(path).filter(x -> this.patternMatch(".+\\.zip$", x.toString()))
-                .collect(Collectors.toList());
+        try (Stream<Path> stream = Files.list(path)) {
+            return stream.filter(x -> this.patternMatch(".+\\.zip$", x.toString()))
+                    .collect(Collectors.toList());
+        }
     }
 
     boolean patternMatch(String pattern, String fileName) {

@@ -20,7 +20,7 @@ import * as moment from 'moment';
 })
 export class BondDetailsFormComponent implements OnInit {
   @Input() bondFormState: BondFormState;
-  @Output() submit = new EventEmitter();
+  @Output('submit') formSubmit = new EventEmitter();
   @Output() onAmountRelatedFieldChanged = new EventEmitter();
   @Output() onGetCouponRealtedFieldChanged = new EventEmitter();
   public currencyConfig = {
@@ -146,7 +146,7 @@ export class BondDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submit.emit(this.form.value);
+    this.formSubmit.emit(this.form.value);
   }
 
   amountRelatedFieldChanged() {
