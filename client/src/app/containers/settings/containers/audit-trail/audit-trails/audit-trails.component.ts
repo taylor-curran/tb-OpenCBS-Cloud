@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '../../../../../core/core.reducer';
 import { Subscription } from 'rxjs/Rx';
@@ -14,7 +14,7 @@ const SVG_DATA = {
   templateUrl: 'audit-trails.component.html',
   styleUrls: ['./audit-trails.component.scss']
 })
-export class AuditTrailsComponent implements OnDestroy {
+export class AuditTrailsComponent implements OnDestroy, OnInit {
   public svgData = SVG_DATA;
   public breadcrumbLinks = [
     {

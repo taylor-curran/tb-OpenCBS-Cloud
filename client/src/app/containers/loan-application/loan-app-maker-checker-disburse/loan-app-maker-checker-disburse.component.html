@@ -62,7 +62,7 @@
         *ngIf="!!loanApp?.entryFees?.length"
         [isValidToCalculate]="true"
         [entryFeesData]="loanApp?.entryFees"
-        (onDetailsClick)="openEntryFees()"
+        (detailsClick)="openEntryFees()"
     ></cbs-entry-fees-block>
     <div *ngIf="this.loanApp.data.profile.type === 'GROUP'"
          class="slds-text-title--caps slds-m-bottom--medium member-title">
