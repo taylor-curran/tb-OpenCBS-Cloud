@@ -23,7 +23,7 @@
     [data]="picklistData"
     [disabled]="!picklistData?.length"
     [nglPick]="pick"
-    (nglPickChange)="selectItem($event)"
+    (nglPickChange)="handleSelectItem($event)"
     [(open)]="open"
     filter="value">
     <span class="slds-truncate">{{ selectDataLabel | translate }}</span>
