@@ -10,8 +10,8 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (clear)="clearSearch()"
-                (search)="search($event)"
+                (clearSearch)="clearSearch()"
+                (searchChanged)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
     </cbs-page-header>

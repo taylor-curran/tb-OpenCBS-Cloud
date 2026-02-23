@@ -7,7 +7,7 @@
         [hidden]="!formVisible"
         [loanAppFormState]="loanAppFormState"
         (loanProductSelect)="selectLoanProduct($event)"
-        (creditLineSelect)="selectCreditLine($event)"
+        (creditLineSelected)="selectCreditLine($event)"
         (payeeAdd)="openAddPayeeModal()"
         (payeeDelete)="confirmDeletingPayee($event)"
         (payeeEdit)="openEditPayeeModal($event)"
@@ -30,7 +30,7 @@
 
 <cbs-payee-form-modal
     headerTitle="{{ isCreatePayeeMode ? ('ADD' | translate) :  ('EDIT' | translate) }}"
-    (submit)="submitPayee($event)">
+    (formSubmit)="submitPayee($event)">
 </cbs-payee-form-modal>
 
 <cbs-entry-fees-modal
