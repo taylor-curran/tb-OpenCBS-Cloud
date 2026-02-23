@@ -353,7 +353,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
     }
   }
 
-  submit({valid, value}) {
+  onSubmit({valid, value}) {
     if (!valid) {
       return;
     }
@@ -390,7 +390,7 @@ export class ManageEventModalComponent implements OnInit, AfterViewInit, OnDestr
           setTimeout(() => {
             this.isDialogVisible = false;
             this.isResponseStatusOk = 'null';
-            this.submit.emit();
+            this.onSubmit.emit();
             this.disableSubmitBtn(false);
           }, 1000);
         } else if (res.status === 'error') {

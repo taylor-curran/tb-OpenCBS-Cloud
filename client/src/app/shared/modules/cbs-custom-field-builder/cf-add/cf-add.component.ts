@@ -12,7 +12,7 @@ export class CFAddComponent {
   @Output() click = new EventEmitter();
 
   constructor() {}
-  click() {
+  onClick() {
     this.click.emit();
   }
 }
