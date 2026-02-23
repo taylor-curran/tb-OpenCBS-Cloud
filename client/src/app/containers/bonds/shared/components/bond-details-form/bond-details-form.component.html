@@ -14,7 +14,7 @@
             [formControlName]="'equivalentCurrencyId'"
             [fieldLabel]="'CURRENCY' | translate"
             [picklistDataUrl]="currencyConfig"
-            (select)="amountRelatedFieldChanged()"
+            (select)="emitAmountRelatedFieldChanged()"
         >
         </cbs-form-lookup-control>
 
@@ -24,7 +24,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('number')"
-            (change)="amountRelatedFieldChanged()">
+            (change)="emitAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="numberRange.length">
                 Min: <span>{{ numberRange[0] }}</span> Max: <span>{{ numberRange[1] }}</span>
             </div>
@@ -59,7 +59,7 @@
             [formControlName]="'bankAccountId'"
             [fieldLabel]="'BANK_ACCOUNT' | translate"
             [picklistDataUrl]="accountConfig"
-            (select)="amountRelatedFieldChanged()">
+            (select)="emitAmountRelatedFieldChanged()">
         </cbs-form-lookup-control>
 
         <cbs-form-input-control
@@ -68,7 +68,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('interestRate')"
-            (change)="amountRelatedFieldChanged()">
+            (change)="emitAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="interestRateRange.length">
                 Min: <span>{{ interestRateRange[0] }}</span> Max: <span>{{ interestRateRange[1] }}</span>
             </div>
@@ -80,7 +80,7 @@
             [inputType]="'number'"
             [requiredField]="true"
             [hasError]="hasError('penaltyRate')"
-            (change)="amountRelatedFieldChanged()">
+            (change)="emitAmountRelatedFieldChanged()">
             <div class="cbs-loan-details-form__range" *ngIf="penaltyRateRange.length">
                 Min: <span>{{ penaltyRateRange[0] }}</span> Max: <span>{{ penaltyRateRange[1] }}</span>
             </div>
@@ -92,7 +92,7 @@
             [requiredField]="true"
             [hasError]="hasError('interestScheme')"
             fieldLabel="{{ 'INTEREST_SCHEME' | translate }}"
-            (change)="amountRelatedFieldChanged()"
+            (change)="emitAmountRelatedFieldChanged()"
         ></cbs-form-select-control>
 
         <cbs-form-select-control

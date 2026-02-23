@@ -14,7 +14,7 @@ export class CFAddComponent {
   constructor() {
   }
 
-  click() {
+  handleClick() {
     this.click.emit();
   }
 }
