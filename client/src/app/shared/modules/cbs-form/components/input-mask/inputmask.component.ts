@@ -32,7 +32,6 @@ import {
   Component,
   ElementRef,
   AfterViewInit,
-  OnDestroy,
   Input,
   forwardRef,
   Output,
@@ -70,7 +69,7 @@ export const INPUTMASK_VALUE_ACCESSOR: any = {
     (paste)="handleInputChange($event)">`,
   providers: [INPUTMASK_VALUE_ACCESSOR]
 })
-export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValueAccessor {
+export class InputMaskComponent implements AfterViewInit, ControlValueAccessor {
   @Input() mask: string;
   @Input() type = 'text';
   @Input() slotChar = '_';
@@ -562,11 +561,6 @@ export class InputMaskComponent implements AfterViewInit, OnDestroy, ControlValu
 
   updateModel(e) {
     this.onModelChange(this.unmask ? this.getUnmaskedValue() : e.target.value);
-  }
-
-
-  ngOnDestroy() {
-
   }
 }
 

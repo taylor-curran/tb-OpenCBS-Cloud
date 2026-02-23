@@ -272,7 +272,7 @@
         [confirmText]="'Are you sure you want to approve?'"
         [opened]="approveRequest"
         (openedChange)="closeModal()"
-        (onSubmitClick)="approveAccountRequest()"
+        (submitClick)="approveAccountRequest()"
         [leftButtonLabel]="'CANCEL' | translate"
         [rightButtonLabel]="'CONFIRM' | translate"
         [popupLabel]="'CONFIRMATION' | translate">
@@ -282,7 +282,7 @@
         [confirmText]="'Are you sure you want to reject?'"
         [opened]="deleteRequest"
         (openedChange)="closeModal()"
-        (onSubmitClick)="deleteAccountRequest()"
+        (submitClick)="deleteAccountRequest()"
         [leftButtonLabel]="'CANCEL' | translate"
         [rightButtonLabel]="'CONFIRM' | translate"
         [popupLabel]="'CONFIRMATION' | translate">
