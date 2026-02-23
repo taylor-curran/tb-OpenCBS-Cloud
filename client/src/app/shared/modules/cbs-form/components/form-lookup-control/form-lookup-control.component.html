@@ -16,10 +16,10 @@
             [selectPlaceholder]="selectPlaceholder"
             [defaultValue]="defaultValue"
             [disabled]="disabled"
-            (onPicklistOpen)="onPicklistOpen($event)"
-            (onPicklistClose)="onPicklistClose($event)"
-            (onClear)="onClear()"
-            (onSelect)="setLookupValue($event)"></cbs-picklist>
+            (picklistOpen)="onPicklistOpen($event)"
+            (picklistClose)="onPicklistClose($event)"
+            (itemClear)="onClear()"
+            (itemSelect)="setLookupValue($event)"></cbs-picklist>
         <ng-content></ng-content>
     </div>
 </div>
