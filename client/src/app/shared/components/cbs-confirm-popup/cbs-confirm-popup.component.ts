@@ -22,14 +22,14 @@ export class ConfirmPopupComponent {
   @Input() rightButtonLabel: string;
   @Output() openedChange = new EventEmitter();
   @Output() submitClick = new EventEmitter();
-  @Output() close = new EventEmitter();
+  @Output() closeAction = new EventEmitter();
   public selectedAction: any;
   public textareaVal = '';
   cancelConfirm() {
     this.opened = false;
     this.selectedAction = '';
     this.openedChange.emit(this.opened);
-    this.close.emit();
+    this.closeAction.emit();
     this.textareaVal = '';
   }
 
