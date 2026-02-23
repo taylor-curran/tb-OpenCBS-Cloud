@@ -13,7 +13,7 @@ export class CCStatusFormComponent {
   @Input() index: number;
   @Input() loanAppStatus: string;
   @Input() currentUser: CurrentUserAppState;
-  @Output() onMakeDecision = new EventEmitter();
+  @Output() makeDecisionChange = new EventEmitter();
   public statuses = [
     {
       value: LoanAppStatus[LoanAppStatus.APPROVED],
@@ -44,7 +44,7 @@ export class CCStatusFormComponent {
       ccMember: ccMember,
       status: status
     };
-    this.onMakeDecision.emit(decision);
+    this.makeDecisionChange.emit(decision);
   }
 
 }
