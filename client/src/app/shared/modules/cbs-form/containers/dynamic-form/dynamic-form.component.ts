@@ -26,7 +26,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   config: FieldConfig[] = [];
 
   @Output()
-  submit: EventEmitter<any> = new EventEmitter<any>();
+  submitTriggered: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup;
 
@@ -90,7 +90,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    this.submit.emit(this.value);
+    this.submitTriggered.emit(this.value);
   }
 
   setDisabled(name: string, disable: boolean) {
