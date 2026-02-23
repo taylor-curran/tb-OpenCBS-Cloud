@@ -62,6 +62,8 @@ public class ActualizeHelper implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        context = applicationContext;
+        synchronized (ActualizeHelper.class) {
+            context = applicationContext;
+        }
     }
 }
