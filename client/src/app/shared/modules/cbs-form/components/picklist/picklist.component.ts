@@ -33,10 +33,10 @@ export class PicklistComponent implements OnInit, OnChanges {
   @Input() disabled = false;
   @Input() excludedItems = [];
   @Input() defaultValue: any;
-  @Output() onSelect = new EventEmitter();
-  @Output() onClear = new EventEmitter();
-  @Output() onPicklistOpen = new EventEmitter();
-  @Output() onPicklistClose = new EventEmitter();
+  @Output() selectChange = new EventEmitter();
+  @Output() clearChange = new EventEmitter();
+  @Output() picklistOpenChange = new EventEmitter();
+  @Output() picklistCloseChange = new EventEmitter();
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
   @ViewChild('scrollBlock', {static: false}) scrollBlock: ElementRef;
   @ViewChild('trigger', {static: false}) trigger: ElementRef;
@@ -180,7 +180,7 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList.map(item => {
       item.selected = false;
     });
-    this.onSelect.emit();
+    this.selectChange.emit();
     this.clear();
   }
 
@@ -198,16 +198,16 @@ export class PicklistComponent implements OnInit, OnChanges {
     this.lookupList = [];
 
     this.getData(this.config.url, 0);
-    this.onClear.emit();
+    this.clearChange.emit();
   }
 
   select(item) {
     this.assignSelected(item.id);
     this.value = item.id;
     this.valueString = item[this.filterType];
-    this.onSelect.emit(item);
+    this.selectChange.emit(item);
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistCloseChange.emit();
     this.valueString = item[this.filterType];
   }
 
@@ -249,13 +249,13 @@ export class PicklistComponent implements OnInit, OnChanges {
       }
     });
 
-    this.onPicklistOpen.emit();
+    this.picklistOpenChange.emit();
 
     this.triggerRect = this.trigger.nativeElement.getBoundingClientRect();
   }
 
   close() {
     this.isOpened = false;
-    this.onPicklistClose.emit();
+    this.picklistCloseChange.emit();
   }
 }

@@ -141,8 +141,8 @@
         <form novalidate [formGroup]="openTillForm">
             <cbs-form-lookup-control
                 [picklistFilterType]="'name'"
-                (onOpenPicklist)="changeSize(true)"
-                (onClosePicklist)="changeSize(false)"
+                (openPicklistChange)="changeSize(true)"
+                (closePicklistChange)="changeSize(false)"
                 [hasError]="openTillForm.get('tellerId').errors && openTillForm.get('tellerId').touched"
                 [requiredField]="true"
                 [formControlName]="'tellerId'"

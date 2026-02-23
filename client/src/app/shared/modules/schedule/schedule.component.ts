@@ -63,18 +63,18 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
   @Input() eventRender: Function;
   @Input() dayRender: Function;
   @Input() options: any;
-  @Output() onDayClick: EventEmitter<any> = new EventEmitter();
-  @Output() onDrop: EventEmitter<any> = new EventEmitter();
-  @Output() onEventClick: EventEmitter<any> = new EventEmitter();
-  @Output() onEventMouseover: EventEmitter<any> = new EventEmitter();
-  @Output() onEventMouseout: EventEmitter<any> = new EventEmitter();
-  @Output() onEventDragStart: EventEmitter<any> = new EventEmitter();
-  @Output() onEventDragStop: EventEmitter<any> = new EventEmitter();
-  @Output() onEventDrop: EventEmitter<any> = new EventEmitter();
-  @Output() onEventResizeStart: EventEmitter<any> = new EventEmitter();
-  @Output() onEventResizeStop: EventEmitter<any> = new EventEmitter();
-  @Output() onEventResize: EventEmitter<any> = new EventEmitter();
-  @Output() onViewRender: EventEmitter<any> = new EventEmitter();
+  @Output() dayClickChange: EventEmitter<any> = new EventEmitter();
+  @Output() dropChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventClickChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventMouseoverChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventMouseoutChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventDragStartChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventDragStopChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventDropChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventResizeStartChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventResizeStopChange: EventEmitter<any> = new EventEmitter();
+  @Output() eventResizeChange: EventEmitter<any> = new EventEmitter();
+  @Output() viewRenderChange: EventEmitter<any> = new EventEmitter();
 
   initialized: boolean;
   differ: any;
@@ -129,14 +129,14 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
       dayRender: this.dayRender,
       dayClick: (date, jsEvent, view) => {
         this.findEvent(jsEvent.id)
-        this.onDayClick.emit({
+        this.dayClickChange.emit({
           'date': date,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       drop: (date, jsEvent, ui, resourceId) => {
-        this.onDrop.emit({
+        this.dropChange.emit({
           'date': date,
           'jsEvent': jsEvent,
           'ui': ui,
@@ -144,35 +144,35 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
         });
       },
       eventClick: (calEvent, jsEvent, view) => {
-        this.onEventClick.emit({
+        this.eventClickChange.emit({
           'calEvent': calEvent,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       eventMouseover: (calEvent, jsEvent, view) => {
-        this.onEventMouseover.emit({
+        this.eventMouseoverChange.emit({
           'calEvent': calEvent,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       eventMouseout: (calEvent, jsEvent, view) => {
-        this.onEventMouseout.emit({
+        this.eventMouseoutChange.emit({
           'calEvent': calEvent,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       eventDragStart: (event, jsEvent, ui, view) => {
-        this.onEventDragStart.emit({
+        this.eventDragStartChange.emit({
           'event': event,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       eventDragStop: (event, jsEvent, ui, view) => {
-        this.onEventDragStop.emit({
+        this.eventDragStopChange.emit({
           'event': event,
           'jsEvent': jsEvent,
           'view': view
@@ -181,7 +181,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
       eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
         this.updateEvent(event);
 
-        this.onEventDrop.emit({
+        this.eventDropChange.emit({
           'event': event,
           'delta': delta,
           'revertFunc': revertFunc,
@@ -190,14 +190,14 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
         });
       },
       eventResizeStart: (event, jsEvent, ui, view) => {
-        this.onEventResizeStart.emit({
+        this.eventResizeStartChange.emit({
           'event': event,
           'jsEvent': jsEvent,
           'view': view
         });
       },
       eventResizeStop: (event, jsEvent, ui, view) => {
-        this.onEventResizeStop.emit({
+        this.eventResizeStopChange.emit({
           'event': event,
           'jsEvent': jsEvent,
           'view': view
@@ -206,7 +206,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
       eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
         this.updateEvent(event);
 
-        this.onEventResize.emit({
+        this.eventResizeChange.emit({
           'event': event,
           'delta': delta,
           'revertFunc': revertFunc,
@@ -215,7 +215,7 @@ export class ScheduleComponent implements DoCheck, OnDestroy, OnInit, OnChanges,
         });
       },
       viewRender: (view, element) => {
-        this.onViewRender.emit({
+        this.viewRenderChange.emit({
           'view': view,
           'element': element
         });

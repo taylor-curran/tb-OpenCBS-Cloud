@@ -2,11 +2,11 @@
     *ngFor="let section of data; let last = last; let sectionInd=index;"
     [sectionData]="section"
     [url]="urls?.sectionUrl"
-    (onEditError)="callSectionEditError($event)"
-    (onEditSuccess)="callSectionEditSuccess($event)"
-    (onAddSuccess)="callSectionAddSuccess($event)"
-    (onAddError)="callSectionAddError($event)"
-    (onAddCancel)="onSectionAddCancel()">
+    (editErrorChange)="callSectionEditError($event)"
+    (editSuccessChange)="callSectionEditSuccess($event)"
+    (addSuccessChange)="callSectionAddSuccess($event)"
+    (addErrorChange)="callSectionAddError($event)"
+    (addCancelChange)="onSectionAddCancel()">
 
     <cbs-cf-field
         *ngFor="let field of section?.customFields; let fieldInd=index; trackBy: field?.id;"
@@ -19,11 +19,11 @@
         [fieldTypes]="fieldTypes"
         (fieldEditSuccessChange)="callFieldEditSuccess($event)"
         (fieldEditErrorChange)="callFieldEditError($event)"
-        (onFieldDeleteSuccess)="callFieldDeleteSuccess($event)"
-        (onFieldDeleteError)="callFieldDeleteError($event)"
-        (onFieldAddCancel)="onFieldAddCancel($event)"
-        (onFieldAddSuccess)="callFieldAddSuccess($event)"
-        (onFieldAddError)="callFieldAddError($event)"
+        (fieldDeleteSuccessChange)="callFieldDeleteSuccess($event)"
+        (fieldDeleteErrorChange)="callFieldDeleteError($event)"
+        (fieldAddCancelChange)="onFieldAddCancel($event)"
+        (fieldAddSuccessChange)="callFieldAddSuccess($event)"
+        (fieldAddErrorChange)="callFieldAddError($event)"
     ></cbs-cf-field>
 
     <cbs-cf-add [buttonTitle]="'ADD_FIELD' | translate" [disabled]="last && sectionAddMode" (clickChange)="addField(section?.id)"

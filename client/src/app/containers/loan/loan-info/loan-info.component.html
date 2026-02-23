@@ -7,14 +7,14 @@
     <cbs-form-readonly-control
         fieldLabel="{{ 'PROFILE' | translate }}"
         [value]="(loan | async)?.loan?.profile?.name"
-        (onFieldClick)="goToProfile()"
+        (fieldClickChange)="goToProfile()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 
     <cbs-form-readonly-control
         fieldLabel="{{ 'LOAN_APPLICATION_CODE' | translate }}"
         [value]="loanApp?.code"
-        (onFieldClick)="goToLoanApplication()"
+        (fieldClickChange)="goToLoanApplication()"
         [showLink]="true"
     ></cbs-form-readonly-control>
 

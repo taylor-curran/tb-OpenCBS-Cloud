@@ -66,17 +66,17 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   @Input() dropLabel = 'or Drop File';
 
-  @Output() onBeforeUpload: EventEmitter<any> = new EventEmitter();
+  @Output() beforeUploadChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onBeforeSend: EventEmitter<any> = new EventEmitter();
+  @Output() beforeSendChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onUpload: EventEmitter<any> = new EventEmitter();
+  @Output() uploadChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onError: EventEmitter<any> = new EventEmitter();
+  @Output() errorChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onClear: EventEmitter<any> = new EventEmitter();
+  @Output() clearChange: EventEmitter<any> = new EventEmitter();
 
-  @Output() onSelect: EventEmitter<any> = new EventEmitter();
+  @Output() selectChange: EventEmitter<any> = new EventEmitter();
 
   @ContentChildren(CbsTemplateDirective) templates: QueryList<any>;
 
@@ -150,7 +150,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
       }
     }
 
-    this.onSelect.emit({originalEvent: event, files: files});
+    this.selectChange.emit({originalEvent: event, files: files});
 
     if (this.hasFiles() && this.auto) {
       this.upload();
@@ -183,7 +183,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     const xhr = new XMLHttpRequest(),
       formData = new FormData();
 
-    this.onBeforeUpload.emit({
+    this.beforeUploadChange.emit({
       'xhr': xhr,
       'formData': formData
     });
@@ -204,9 +204,9 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
         this.fileComment = '';
         this.progress = 0;
         if (xhr.status >= 200 && xhr.status < 300) {
-          this.onUpload.emit({xhr: xhr, files: this.files});
+          this.uploadChange.emit({xhr: xhr, files: this.files});
         } else {
-          this.onError.emit({xhr: xhr, files: this.files});
+          this.errorChange.emit({xhr: xhr, files: this.files});
         }
         this.clear();
         this.uploading = false;
@@ -221,7 +221,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
     }
 
 
-    this.onBeforeSend.emit({
+    this.beforeSendChange.emit({
       'xhr': xhr,
       'formData': formData
     });
@@ -231,7 +231,7 @@ export class FileUploadComponent implements OnInit, AfterContentInit {
 
   clear() {
     this.files = [];
-    this.onClear.emit();
+    this.clearChange.emit();
   }
 
   remove(index: number) {
