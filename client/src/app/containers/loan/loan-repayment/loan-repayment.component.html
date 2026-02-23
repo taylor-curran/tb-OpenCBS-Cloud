@@ -10,10 +10,10 @@
 
         <div cbs-page-header-layout="right">
             <cbs-loan-info-entity></cbs-loan-info-entity>
-            <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
+            <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{'CANCEL' | translate}}</button>
             <button class="slds-button slds-button--success"
                     #submitButton
-                    (click)="repayModal(formComponent?.repaymentForm?.getRawValue())"
+                    (itemClick)="repayModal(formComponent?.repaymentForm?.getRawValue())"
                     [disabled]="disabledRepay || (formComponent?.repaymentForm?.controls?.total?.value <= 0)">{{ 'REPAY' | translate }}
             </button>
         </div>
@@ -35,13 +35,13 @@
             <div class="slds-col">
                 <button class="slds-button slds-button--brand cbs-repayment-preview"
                         #previewButton
-                        (click)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
+                        (itemClick)="previewSchedule(formComponent?.repaymentForm?.getRawValue())"
                         [disabled]="formComponent?.repaymentForm?.value?.total <= 0">{{ 'PREVIEW' | translate }}
                 </button>
             </div>
             <div class="slds-col slds-m-left--small" *ngIf="isPreviewing">
                 <button class="slds-button slds-button--neutral cbs-repayment-reset"
-                        (click)="resetPreview(); ">{{ 'RESET' | translate }}
+                        (itemClick)="resetPreview(); ">{{ 'RESET' | translate }}
                 </button>
             </div>
         </div>
@@ -75,9 +75,9 @@
             Do you want to actualize it to {{ repayData?.date }}?</p>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="isOpenActualize = false">{{ 'NO' | translate }}
+        <button class="slds-button slds-button--neutral" (itemClick)="isOpenActualize = false">{{ 'NO' | translate }}
         </button>
-        <button class="slds-button slds-button--success" (click)="submitActualizeLoan()">{{ 'YES' | translate }}
+        <button class="slds-button slds-button--success" (itemClick)="submitActualizeLoan()">{{ 'YES' | translate }}
         </button>
     </ng-template>
 </ngl-modal>

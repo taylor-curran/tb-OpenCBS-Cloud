@@ -220,8 +220,8 @@
         </div>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{'CANCEL' | translate}}</button>
-        <button class="slds-button slds-button--success" (click)="saveDecision(notes.value); isLoading = true;">
+        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{'CANCEL' | translate}}</button>
+        <button class="slds-button slds-button--success" (itemClick)="saveDecision(notes.value); isLoading = true;">
             {{'CONFIRM' | translate}}
         </button>
     </ng-template>

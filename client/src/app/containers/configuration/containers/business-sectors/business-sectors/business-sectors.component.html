@@ -9,7 +9,7 @@
         <!-- /cbs-page-header-layout = left -->
 
         <div cbs-page-header-layout="right">
-            <button class="slds-button slds-button--neutral" aria-live="assertive" (click)="openCreateModal()">
+            <button class="slds-button slds-button--neutral" aria-live="assertive" (itemClick)="openCreateModal()">
                 <span class="slds-text-not-selected">
                     <svg aria-hidden="true" class="slds-button__icon--stateful slds-button__icon--left">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
@@ -30,13 +30,13 @@
         <cbs-column field="" header="" width="50%" [style]="{'text-align': 'right', 'padding': '.3rem'}">
             <ng-template let-node="rowData" cbsTemplate cbsTemplateName="body">
                 <button class="slds-button slds-button--neutral"
-                        (click)="openCreateModal({ parentId: node.data.id, parentName: node.data.name })">
+                        (itemClick)="openCreateModal({ parentId: node.data.id, parentName: node.data.name })">
                     <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#add"></use>
                     </svg>
                     {{ 'ADD' | translate }}
                 </button>
-                <button class="slds-button slds-button--neutral" (click)="openEditModal(node)">
+                <button class="slds-button slds-button--neutral" (itemClick)="openEditModal(node)">
                     <svg class="slds-button__icon slds-button__icon--left" aria-hidden="true">
                         <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
                     </svg>

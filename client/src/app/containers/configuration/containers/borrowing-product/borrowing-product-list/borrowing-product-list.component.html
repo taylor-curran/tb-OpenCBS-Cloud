@@ -47,7 +47,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let borrowing_product of (borrowingProducts | async)?.data['content']; let i = index;"
-            (click)="goToBorrowingProduct(borrowing_product)">
+            (itemClick)="goToBorrowingProduct(borrowing_product)">
             <td data-label="Label" scope="row" class="slds-truncate">
                 <div class="slds-truncate" title="Id {{ i + 1}}">{{ i + 1}}</div>
             </td>

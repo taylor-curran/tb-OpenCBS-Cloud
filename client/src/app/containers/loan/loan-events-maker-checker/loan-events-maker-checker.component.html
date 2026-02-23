@@ -13,7 +13,7 @@
     <p-column [style]="{'min-width':'65px', 'width':'65px'}" field="id" header="#">
         <ng-template let-row="rowData" pTemplate="body">
             <span *ngIf="row['id'] > 0">{{ row['id']}}</span>
-            <button (click)="onEventClick(row)" [ngClass]="{'cbs-treetable__toggler--expanded' : row.expanded }"
+            <button (itemClick)="onEventClick(row)" [ngClass]="{'cbs-treetable__toggler--expanded' : row.expanded }"
                     class="slds-button cbs-treetable__toggler slds-button--icon slds-button--icon-x-small slds-m-right--x-small"
                     aria-controls="expand"
                     *ngIf="row['id'] === 0">

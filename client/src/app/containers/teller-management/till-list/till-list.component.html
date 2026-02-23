@@ -10,7 +10,7 @@
         <div cbs-page-header-layout="center">
             <cbs-search-input
                 [searchQuery]="searchQuery"
-                (clear)="clearSearch()"
+                (itemClear)="clearSearch()"
                 (search)="search($event)"
                 placeholder="{{ 'SEARCH' | translate }}"></cbs-search-input>
         </div>
@@ -53,37 +53,37 @@
         </thead>
         <tbody>
         <tr *ngFor="let till of (tills | async)?.data?.content; let i = index;">
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 <div class="slds-truncate" title="ID">{{i + 1}}</div>
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 <div>
                     <div class="slds-truncate">{{till?.name}}</div>
                 </div>
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 <div class="slds-truncate" *ngIf="till?.teller; else dash">{{till?.teller?.firstName + ' '}}
                     {{till?.teller?.lastName}}
                 </div>
                 <ng-template #dash>-</ng-template>
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 {{till?.openedAt | cbsDateFormat}} {{till?.openedAt | cbsTimeFormat}}
                 <span *ngIf="!till?.openedAt">-</span>
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 {{till?.closedAt | cbsDateFormat}} {{till?.closedAt | cbsTimeFormat}}
                 <span *ngIf="!till?.closedAt">-</span>
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 {{till?.accounts[0].number}} | {{ till?.accounts[0].name}}
             </td>
-            <td scope="row" (click)="goToTill(till)">
+            <td scope="row" (itemClick)="goToTill(till)">
                 {{till?.balance}}
             </td>
             <td scope="row" *ngIf="isHeadTeller">
                 <button *cbsVisibleByPermission="{ group: 'TELLER_MANAGEMENT', permissions: ['OPEN_TILL'] }"
-                        [disabled]="till.status != 'CLOSED'" (click)="openTill(till)"
+                        [disabled]="till.status != 'CLOSED'" (itemClick)="openTill(till)"
                         class="slds-button slds-button--success slds-not-selected"
                         aria-live="assertive">
                     <span class="slds-text-not-selected">
@@ -106,7 +106,7 @@
                 </button>
 
                 <button *cbsVisibleByPermission="{ group: 'TELLER_MANAGEMENT', permissions: ['CLOSE_TILL'] }"
-                        [disabled]="till.status == 'CLOSED'" (click)="closeTill(till)"
+                        [disabled]="till.status == 'CLOSED'" (itemClick)="closeTill(till)"
                         class="slds-button slds-button--destructive slds-not-selected" aria-live="assertive">
                     <span class="slds-text-not-selected">
                         {{ 'CLOSE' | translate }}
@@ -155,10 +155,10 @@
         </form>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="cancel()">{{ 'CANCEL' | translate }}</button>
+        <button class="slds-button slds-button--neutral" (itemClick)="cancel()">{{ 'CANCEL' | translate }}</button>
         <button class="slds-button slds-button--success"
                 [disabled]="openTillForm.invalid"
-                (click)="submit(openTillForm)">{{ 'SUBMIT' | translate }}
+                (itemClick)="submit(openTillForm)">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
@@ -173,11 +173,11 @@
         </cbs-form-readonly-control>
     </div>
     <ng-template ngl-modal-footer>
-        <button class="slds-button slds-button--neutral" (click)="hideCloseModal()">{{ 'CANCEL' | translate }}
+        <button class="slds-button slds-button--neutral" (itemClick)="hideCloseModal()">{{ 'CANCEL' | translate }}
         </button>
         <button class="slds-button slds-button--success"
                 [disabled]="!balance.length"
-                (click)="submit()">{{ 'SUBMIT' | translate }}
+                (itemClick)="submit()">{{ 'SUBMIT' | translate }}
         </button>
     </ng-template>
 </ngl-modal>
