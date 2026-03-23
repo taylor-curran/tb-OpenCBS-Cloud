@@ -125,34 +125,29 @@ export class BondNewComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   compareChanges(newData, oldData) {
-    let status = false;
-    for (const value in newData) {
-      if (newData.hasOwnProperty(value)) {
-        if (value === 'bankAccountId') {
-          if (newData[value] !== oldData['bankAccountId']) {
-            status = true;
-          }
-        } else if (value === 'equivalentCurrencyId') {
-          if (newData[value] !== oldData['equivalentCurrencyId']) {
-            status = true;
-          }
-        } else if (value === 'sellDate') {
-          const oldDate = moment(oldData['sellDate']).format(environment.DATE_FORMAT_MOMENT);
-          if (newData['sellDate'] !== oldDate) {
-            status = true;
-          }
-        } else {
-          for (const k in oldData) {
-            if (oldData.hasOwnProperty(k)) {
-              if (value === k && newData[value] != oldData[k]) {
-                status = true;
-              }
-            }
-          }
-        }
+    for (const key in newData) {
+      if (!newData.hasOwnProperty(key)) {
+        continue;
+      }
+      if (this.isFieldChanged(key, newData, oldData)) {
+        return true;
       }
     }
-    return status;
+    return false;
+  }
+
+  private isFieldChanged(key: string, newData, oldData): boolean {
+    if (key === 'bankAccountId') {
+      return newData[key] !== oldData['bankAccountId'];
+    }
+    if (key === 'equivalentCurrencyId') {
+      return newData[key] !== oldData['equivalentCurrencyId'];
+    }
+    if (key === 'sellDate') {
+      const oldDate = moment(oldData['sellDate']).format(environment.DATE_FORMAT_MOMENT);
+      return newData['sellDate'] !== oldDate;
+    }
+    return oldData.hasOwnProperty(key) && newData[key] != oldData[key];
   }
 
   setProfileData(data) {
