@@ -13,7 +13,7 @@ import { CurrentUserAppState } from '../../../../../core/store/users/current-use
 })
 
 export class BorrowingRepaymentFormComponent implements OnInit, OnDestroy {
-  @Output() onAutoTypeChange = new EventEmitter();
+  @Output() autoTypeChange = new EventEmitter();
   @Output() onTotalEdited = new EventEmitter();
   @Output() onSetMaxAmount = new EventEmitter();
   @Input() maxAmount = '';
