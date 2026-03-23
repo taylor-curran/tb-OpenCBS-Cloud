@@ -138,7 +138,7 @@ export class LoanApplicationCustomFieldInfoComponent implements OnInit, OnDestro
         })
       }
     });
-    fields.map(section => {
+    fields.forEach(section => {
       this.sectionNavData.push({
         title: section.caption,
         id: section.id
