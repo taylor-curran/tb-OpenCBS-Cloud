@@ -290,7 +290,7 @@
     <div class="slds-form-element">
         <cbs-entry-fees-selected [selectedEntryFees]="selectedFees"
                                  [label]="'ENTRY_FEE_NO_SELECTED'"
-                                 (onFeeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
+                                 (feeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
         <cbs-entry-fee-picklist [selectDataLabel]="'SELECT_ENTRY_FEE'" [entryFees]="allEntryFees"
                                 [disablePickList]="disableCheckboxGroup"
                                 (onFeeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
