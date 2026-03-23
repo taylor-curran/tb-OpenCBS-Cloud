@@ -44,7 +44,7 @@ export class LoanApplicationCustomFieldEditComponent implements OnInit, OnDestro
 
   private loanApplicationSub: Subscription;
 
-  private transformFieldValue = (field: any) => {
+  private readonly transformFieldValue = (field: any) => {
     if (field.customField['fieldType'] === 'LOOKUP' && field.customField['extra'] && field.customField['extra']['key']) {
       field.customField['extra']['url'] = `${environment.API_ENDPOINT}${field.customField['extra']['key']}/lookup`;
     }
