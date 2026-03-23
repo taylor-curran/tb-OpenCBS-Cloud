@@ -293,7 +293,7 @@
                                  (onFeeDelete)="deleteEntryFee($event); checkboxEntryFees()"></cbs-entry-fees-selected>
         <cbs-entry-fee-picklist [selectDataLabel]="'SELECT_ENTRY_FEE'" [entryFees]="allEntryFees"
                                 [disablePickList]="disableCheckboxGroup"
-                                (onFeeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
+                                (feeSelect)="selectFee($event); checkboxEntryFees()"></cbs-entry-fee-picklist>
     </div>
 
     <div class="early-partial-repayment-fee">
