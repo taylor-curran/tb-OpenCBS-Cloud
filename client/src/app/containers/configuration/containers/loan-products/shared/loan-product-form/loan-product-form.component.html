@@ -281,7 +281,7 @@
     <div class="slds-form-element">
         <cbs-penalties-selected [selectedPenalties]="selectedPenalties"
                                 [label]="'PENALTIES_NO_SELECTED'"
-                                (onPenaltyDelete)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
+                                (penaltyDelete)="deletePenalty($event); checkboxPenalties()"></cbs-penalties-selected>
         <cbs-penalty-picklist [selectDataLabel]="'SELECT_PENALTY'" [penalties]="allPenalties"
                               [disablePickList]="disableCheckboxGroup"
                               (onPenaltySelect)="selectedPenalty($event); checkboxPenalties()"></cbs-penalty-picklist>
