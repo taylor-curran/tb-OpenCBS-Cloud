@@ -28,7 +28,7 @@
 <cbs-loan-layout [sidebar]="false" [sidePanel]="true" [bottomToolbar]="true">
     <div cbs-loan-layout="left">
         <cbs-borrowing-repayment-form
-            (onAutoTypeChange)="onAutoTypeChange($event)"
+            (autoTypeChange)="onAutoTypeChange($event)"
             (onSetMaxAmount)="setMaxAmount()"
             [maxAmount]="maxAmount"
             (onTotalEdited)="markTotalAsEdited()"></cbs-borrowing-repayment-form>
