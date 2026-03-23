@@ -12,7 +12,7 @@ import { range } from './borrowing-details-form-validators';
 })
 export class BorrowingDetailsFormComponent implements OnInit {
   @Input() borrowingFormState: IBorrowingFormState;
-  @Output() submit = new EventEmitter();
+  @Output() formSubmitted = new EventEmitter();
   @Output() onLoanProductSelect = new EventEmitter();
 
   public profileName: string;
@@ -53,7 +53,7 @@ export class BorrowingDetailsFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.submit.emit(this.form.value);
+    this.formSubmitted.emit(this.form.value);
   }
 
   onLPSelect(loanProduct) {
