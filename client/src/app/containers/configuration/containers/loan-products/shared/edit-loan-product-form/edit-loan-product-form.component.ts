@@ -73,7 +73,7 @@ export class EditLoanProductFormComponent implements OnInit, OnDestroy, AfterVie
   public earlyTotalRepaymentFeeType = EARLY_TOTAL_REPAYMENT_FEE_TYPE;
   public statusTypeData = STATUS_TYPE_DATA;
   @Input() isCreateMode = false;
-  @Output() onEntryFeeChanged = new EventEmitter();
+  @Output() entryFeeChanged = new EventEmitter();
   @Output() onPenaltyChanged = new EventEmitter();
 
   public form: FormGroup;
@@ -397,7 +397,7 @@ export class EditLoanProductFormComponent implements OnInit, OnDestroy, AfterVie
 
   selectFee(entryFee) {
     this.selectedFees.push(entryFee);
-    this.onEntryFeeChanged.emit();
+    this.entryFeeChanged.emit();
   }
 
   deletePenalty(penalty) {
@@ -409,7 +409,7 @@ export class EditLoanProductFormComponent implements OnInit, OnDestroy, AfterVie
   deleteEntryFee(entryFee) {
     this.allEntryFees.push(entryFee);
     this.sortDataByName(this.allEntryFees);
-    this.onEntryFeeChanged.emit();
+    this.entryFeeChanged.emit();
   }
 
   compareData(selectedValues, all) {
