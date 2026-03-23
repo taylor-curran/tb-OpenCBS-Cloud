@@ -44,6 +44,16 @@ export class LoanApplicationCustomFieldEditComponent implements OnInit, OnDestro
 
   private loanApplicationSub: Subscription;
 
+  private transformFieldValue = (field: any) => {
+    if (field.customField['fieldType'] === 'LOOKUP' && field.customField['extra'] && field.customField['extra']['key']) {
+      field.customField['extra']['url'] = `${environment.API_ENDPOINT}${field.customField['extra']['key']}/lookup`;
+    }
+    return {
+      ...field.customField,
+      value: field.value
+    };
+  }
+
   constructor(private loanApplicationStore$: Store<ILoanAppState>,
               private loanAppSubmitService: LoanAppSubmitService,
               private fb: FormBuilder,
@@ -94,15 +104,7 @@ export class LoanApplicationCustomFieldEditComponent implements OnInit, OnDestro
               this.customFields = _.map(fields, (section: any) => {
                 return {
                   ...section,
-                  values: _.map(section.values, (field: any) => {
-                    if ( field.customField['fieldType'] === 'LOOKUP' && field.customField['extra'] && field.customField['extra']['key'] ) {
-                      field.customField['extra']['url'] = `${environment.API_ENDPOINT}${field.customField['extra']['key']}/lookup`;
-                    }
-                    return {
-                      ...field.customField,
-                      value: field.value
-                    }
-                  })
+                  values: _.map(section.values, this.transformFieldValue)
                 }
               });
 
