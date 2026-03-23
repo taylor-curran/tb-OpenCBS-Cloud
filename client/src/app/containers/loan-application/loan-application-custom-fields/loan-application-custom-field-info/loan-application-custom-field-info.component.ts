@@ -96,25 +96,9 @@ export class LoanApplicationCustomFieldInfoComponent implements OnInit, OnDestro
           ];
 
           this.url = `${environment.API_ENDPOINT}loan-applications/${this.loanAppId}/attachments`;
-          this.loanAppCustomFieldService.getCustomFields(this.loanAppId).subscribe(fields => {
-            this.customFields = _.map(fields, (section: any) => {
-              return {
-                ...section,
-                values: _.map(section.values, (field: any) => {
-                  return {
-                    ...field.customField,
-                    value: field.value
-                  }
-                })
-              }
-            });
-            fields.map(section => {
-              this.sectionNavData.push({
-                title: section.caption,
-                id: section.id
-              });
-            });
-          });
+          this.loanAppCustomFieldService.getCustomFields(this.loanAppId).subscribe(
+            fields => this.processCustomFields(fields)
+          );
         }
       });
   }
@@ -140,6 +124,26 @@ export class LoanApplicationCustomFieldInfoComponent implements OnInit, OnDestro
 
   closeModal() {
     this.opened = false;
+  }
+
+  private processCustomFields(fields: any[]): void {
+    this.customFields = _.map(fields, (section: any) => {
+      return {
+        ...section,
+        values: _.map(section.values, (field: any) => {
+          return {
+            ...field.customField,
+            value: field.value
+          }
+        })
+      }
+    });
+    fields.map(section => {
+      this.sectionNavData.push({
+        title: section.caption,
+        id: section.id
+      });
+    });
   }
 
   goToProfile(profileField: CustomFieldValue) {
