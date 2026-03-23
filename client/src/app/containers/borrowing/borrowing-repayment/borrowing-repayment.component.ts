@@ -45,6 +45,7 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
   private formChangeSub: any;
   private borrowingSub: any;
   private routeSub: any;
+  private lastRepaymentDate = '';
 
   constructor(private borrowingStore$: Store<IBorrowingState>,
               private renderer2: Renderer2,
@@ -166,40 +167,15 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
   }
 
   ngAfterViewInit() {
-    let repaymentDate = '';
+    this.lastRepaymentDate = '';
     this.formChangeSub = this.formComponent.repaymentForm.valueChanges.pipe(
       debounceTime(300))
       .subscribe(data => {
         if ( this.formComponent.repaymentForm.valid ) {
           if ( data.repaymentType === 'NORMAL_MANUAL_REPAYMENT' ) {
-            this.onAutoTypeChange(false);
-            const interest = data.interest ? data.interest : 0;
-            const principal = data.principal ? data.principal : 0;
-            const penalty = data.penalty ? data.penalty : 0;
-            const total = +interest + +principal + +penalty;
-            if ( total <= 0 ) {
-              this.setValue('penalty', 0);
-              this.setValue('interest', 0);
-              this.setValue('principal', 0);
-            }
-            this.formComponent.repaymentForm.controls['total'].setValue(total, {emitEvent: false, onlySelf: true});
+            this.handleManualRepayment(data);
           } else {
-            const repaymentData = {
-              repaymentType: data.repaymentType,
-              timestamp: moment(data.date).hour(moment().hour()).minute(moment().minute()).format().slice(0, 19)
-            };
-            if ( this.totalEdited ) {
-              if ( data.total > this.maxAmount ) {
-                data.total = this.maxAmount;
-              }
-              repaymentData['total'] = data.total;
-            }
-            this.getSplitedData(repaymentData, () => {
-              if ( repaymentDate !== data.date ) {
-                repaymentDate = data.date;
-                this.previewSchedule(this.formComponent.repaymentForm.getRawValue());
-              }
-            });
+            this.handleAutoRepayment(data);
           }
         }
       });
@@ -250,6 +226,39 @@ export class BorrowingRepaymentComponent implements OnInit, AfterViewInit, OnDes
 
   markTotalAsEdited() {
     this.totalEdited = true;
+  }
+
+  private handleManualRepayment(data) {
+    this.onAutoTypeChange(false);
+    const interest = data.interest ? data.interest : 0;
+    const principal = data.principal ? data.principal : 0;
+    const penalty = data.penalty ? data.penalty : 0;
+    const total = +interest + +principal + +penalty;
+    if ( total <= 0 ) {
+      this.setValue('penalty', 0);
+      this.setValue('interest', 0);
+      this.setValue('principal', 0);
+    }
+    this.formComponent.repaymentForm.controls['total'].setValue(total, {emitEvent: false, onlySelf: true});
+  }
+
+  private handleAutoRepayment(data) {
+    const repaymentData = {
+      repaymentType: data.repaymentType,
+      timestamp: moment(data.date).hour(moment().hour()).minute(moment().minute()).format().slice(0, 19)
+    };
+    if ( this.totalEdited ) {
+      if ( data.total > this.maxAmount ) {
+        data.total = this.maxAmount;
+      }
+      repaymentData['total'] = data.total;
+    }
+    this.getSplitedData(repaymentData, () => {
+      if ( this.lastRepaymentDate !== data.date ) {
+        this.lastRepaymentDate = data.date;
+        this.previewSchedule(this.formComponent.repaymentForm.getRawValue());
+      }
+    });
   }
 
   onAutoTypeChange(bool) {
